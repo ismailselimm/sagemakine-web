@@ -1,44 +1,13 @@
 ---
 import Logo from './Logo.astro';
-import { CONTACT } from '../data/site';
+import { CONTACT, MAKINE_GRUPLARI, DUZ_LINKLER, SECTORS } from '../data/site';
 
 const path = Astro.url.pathname;
 const isActive = (href: string) => path.startsWith(href);
 
-const makineGroups = [
-  {
-    label: 'Optik Ayıklama',
-    items: [
-      { label: 'Renk Ayırma Makineleri', href: '/renk-ayirma-makinesi/', desc: 'Color sorter — kameralı ayıklama' },
-      { label: 'Oluk Tipi', href: '/renk-ayirma-makinesi/oluk-tipi/', desc: 'Bakliyat, hububat, çekirdek' },
-      { label: 'Bant Tipi', href: '/renk-ayirma-makinesi/bant-tipi/', desc: 'Kuru meyve, IQF, patates' },
-    ],
-  },
-  {
-    label: 'X-Ray Kontrol',
-    items: [
-      { label: 'X-Ray Gıda Kontrol Sistemleri', href: '/x-ray-gida-kontrol-makinesi/', desc: 'Taş, cam, metal tespiti' },
-      { label: 'Dökme Ürün X-Ray', href: '/x-ray-gida-kontrol-makinesi/dokme-urun/', desc: 'Hat içi ayıklama' },
-      { label: 'Paketli Ürün X-Ray', href: '/x-ray-gida-kontrol-makinesi/paketli-urun/', desc: 'Hat sonu paket kontrolü' },
-    ],
-  },
-];
-
-const sektorler = [
-  { label: 'Kuru Meyve', href: '/sektorler/kuru-meyve/' },
-  { label: 'Kuruyemiş', href: '/sektorler/kuruyemis/' },
-  { label: 'Antep Fıstığı', href: '/sektorler/antep-fistigi/' },
-  { label: 'Bakliyat', href: '/sektorler/bakliyat/' },
-  { label: 'Dondurulmuş Gıda (IQF)', href: '/sektorler/dondurulmus-gida-iqf/' },
-  { label: 'Patates ve Cips', href: '/sektorler/patates-cips/' },
-];
-
-const duzLinkler = [
-  { label: 'Servis & Yedek Parça', href: '/servis-yedek-parca/' },
-  { label: 'Hakkımızda', href: '/hakkimizda/' },
-  { label: 'Blog', href: '/blog/' },
-  { label: 'İletişim', href: '/iletisim/' },
-];
+const makineGroups = MAKINE_GRUPLARI;
+const sektorler = SECTORS.map((s) => ({ label: s.title, href: `/sektorler/${s.slug}/` }));
+const duzLinkler = DUZ_LINKLER;
 ---
 
 <header class="site-header" id="site-header">
@@ -474,13 +443,19 @@ const duzLinkler = [
 </style>
 
 <script>
-  /* kaydırınca gölge — tek global dinleyici, güncel header'ı her seferinde çözer */
-  const onScroll = () =>
-    document.getElementById('site-header')?.classList.toggle('is-scrolled', window.scrollY > 8);
+  /* kaydırınca gölge — yalnızca eşik değiştiğinde DOM'a dokun */
+  let scrolled: boolean | null = null;
+  const onScroll = () => {
+    const s = window.scrollY > 8;
+    if (s === scrolled) return;
+    scrolled = s;
+    document.getElementById('site-header')?.classList.toggle('is-scrolled', s);
+  };
   window.addEventListener('scroll', onScroll, { passive: true });
 
   /* her sayfa yüklemesinde (ClientRouter geçişleri dahil) yeni DOM'a bağlan */
   function initHeader() {
+    scrolled = null;
     onScroll();
     const header = document.getElementById('site-header');
     if (!header || (header as HTMLElement).dataset.init) return;
@@ -498,16 +473,6 @@ const duzLinkler = [
       document.documentElement.style.overflow = open ? '' : 'hidden';
     });
 
-    /* dokunmatikte dropdown: ilk dokunuş açar */
-    header.querySelectorAll<HTMLButtonElement>('.has-sub > .nav-link').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const expanded = btn.getAttribute('aria-expanded') === 'true';
-        header
-          .querySelectorAll('.has-sub > .nav-link')
-          .forEach((b) => b.setAttribute('aria-expanded', 'false'));
-        btn.setAttribute('aria-expanded', String(!expanded));
-      });
-    });
   }
   document.addEventListener('astro:page-load', initHeader);
 </script>

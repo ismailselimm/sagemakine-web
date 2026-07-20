@@ -14,13 +14,28 @@ export function getStaticPaths() {
 
 const { sektor } = Astro.props;
 
-const photos = import.meta.glob<{ default: ImageMetadata }>('../../assets/photos/*.png', {
-  eager: true,
-});
-const heroImg = photos[`../../assets/photos/${sektor.image}.png`].default;
-const extraImg = sektor.extraImage
-  ? photos[`../../assets/photos/${sektor.extraImage}.png`]?.default
-  : undefined;
+// yalnızca kullanılan görseller — glob tüm klasörü işleyip kullanılmayanları da dist'e taşıyordu
+import sectorKuruUzum from '../../assets/photos/sector-kuru-uzum.png';
+import sectorFindik from '../../assets/photos/sector-kuruyemis-findik.png';
+import sectorFistik from '../../assets/photos/sector-antep-fistigi.png';
+import sectorMercimek from '../../assets/photos/sector-bakliyat-mercimek.png';
+import sectorIqf from '../../assets/photos/sector-iqf.png';
+import sectorPatates from '../../assets/photos/sector-patates.png';
+import foodIncir from '../../assets/photos/food-incir.png';
+import sortingOnceSonra from '../../assets/photos/sorting-oncesi-sonrasi.png';
+
+const photos: Record<string, ImageMetadata> = {
+  'sector-kuru-uzum': sectorKuruUzum,
+  'sector-kuruyemis-findik': sectorFindik,
+  'sector-antep-fistigi': sectorFistik,
+  'sector-bakliyat-mercimek': sectorMercimek,
+  'sector-iqf': sectorIqf,
+  'sector-patates': sectorPatates,
+  'food-incir': foodIncir,
+  'sorting-oncesi-sonrasi': sortingOnceSonra,
+};
+const heroImg = photos[sektor.image];
+const extraImg = sektor.extraImage ? photos[sektor.extraImage] : undefined;
 
 const breadcrumbs = [
   { name: 'Sektörler', path: `/sektorler/${SEKTORLER[0].slug}/` },
@@ -58,7 +73,7 @@ const digerSektorler = SEKTORLER.filter((s) => s.slug !== sektor.slug);
         widths={[480, 760, 1100]}
         sizes="(max-width: 900px) 100vw, 42vw"
         loading="eager"
-        fetchpriority="high"
+        quality={65}
       />
     </Fragment>
   </PageHero>
@@ -162,7 +177,7 @@ const digerSektorler = SEKTORLER.filter((s) => s.slug !== sektor.slug);
     <div class="container">
       <p class="eyebrow">Diğer Sektörler</p>
       <nav class="sektor-strip" aria-label="Diğer sektörler">
-        {digerSektorler.map((s) => <a href={`/sektorler/${s.slug}/`}>{s.navTitle}</a>)}
+        {digerSektorler.map((s) => <a href={`/sektorler/${s.slug}/`}>{s.title}</a>)}
       </nav>
     </div>
   </section>
@@ -175,16 +190,6 @@ const digerSektorler = SEKTORLER.filter((s) => s.slug !== sektor.slug);
 </BaseLayout>
 
 <style>
-  .hero-ghost {
-    border-color: var(--line-strong);
-    color: var(--white);
-  }
-
-  .hero-ghost:hover {
-    border-color: var(--green-400);
-    color: var(--green-400);
-  }
-
   .facts-grid {
     display: grid;
     grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
@@ -234,15 +239,6 @@ const digerSektorler = SEKTORLER.filter((s) => s.slug !== sektor.slug);
 
   .defect {
     padding: var(--sp-5);
-  }
-
-  .defect-icon {
-    display: inline-flex;
-    padding: 0.65rem;
-    border-radius: var(--radius-md);
-    background: var(--green-100);
-    color: var(--accent-ink);
-    margin-bottom: var(--sp-3);
   }
 
   .defect h3 {
@@ -350,30 +346,6 @@ const digerSektorler = SEKTORLER.filter((s) => s.slug !== sektor.slug);
   .servis-note p {
     color: var(--ink-soft);
     max-width: 70ch;
-  }
-
-  .sektor-strip {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--sp-3);
-    margin-top: var(--sp-4);
-  }
-
-  .sektor-strip a {
-    padding: 0.5em 1em;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-pill);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--ink-soft);
-    text-decoration: none;
-    transition: all var(--dur) var(--ease-out);
-  }
-
-  .sektor-strip a:hover {
-    border-color: var(--green-500);
-    color: var(--accent-ink);
-    background: var(--green-100);
   }
 
   @media (max-width: 1000px) {

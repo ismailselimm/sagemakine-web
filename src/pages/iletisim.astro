@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageHero from '../components/PageHero.astro';
 import Icon from '../components/Icon.astro';
 import { SITE, CONTACT } from '../data/site';
 
@@ -32,19 +32,12 @@ const konular = [
   breadcrumbs={breadcrumbs}
   jsonLd={jsonLd}
 >
-  <section class="page-hero band-dark">
-    <div class="container container--wide">
-      <Breadcrumbs items={breadcrumbs} onDark />
-      <div class="hero-head">
-        <p class="eyebrow">İletişim</p>
-        <h1>Konuşalım — Bir Telefon Uzaktayız</h1>
-        <p class="lead">
-          Teklif, numune testi veya servis: en hızlı cevabı telefonla ya da WhatsApp'tan alırsınız.
-          Mesai saatleri içinde genellikle aynı gün döneriz.
-        </p>
-      </div>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="İletişim"
+    title="Konuşalım — Bir Telefon Uzaktayız"
+    lead="Teklif, numune testi veya servis: en hızlı cevabı telefonla ya da WhatsApp'tan alırsınız. Mesai saatleri içinde genellikle aynı gün döneriz."
+    breadcrumbs={breadcrumbs}
+  />
 
   <section class="section">
     <div class="container container--wide iletisim-grid">
@@ -114,7 +107,7 @@ const konular = [
           Aşağıdaki formu doldurun; mesajınız hazır şekilde WhatsApp'ta açılsın. Bilgileriniz sunucuda
           saklanmaz, yalnızca mesajınıza eklenir.
         </p>
-        <form id="wa-form">
+        <form id="wa-form" data-wa={CONTACT.whatsapp}>
           <label>
             Adınız ve firmanız
             <input type="text" name="isim" placeholder="Örn: Mehmet Bey — Ege Kuruyemiş" required />
@@ -171,40 +164,13 @@ const konular = [
     ]
       .filter(Boolean)
       .join(' ');
-      window.open(`https://wa.me/905323436195?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+      window.open(`${form.dataset.wa}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
     });
   }
   document.addEventListener('astro:page-load', initWaForm);
 </script>
 
 <style>
-  .page-hero {
-    padding-block: var(--sp-5) var(--sp-8);
-  }
-
-  .hero-head {
-    margin-top: var(--sp-6);
-  }
-
-  .hero-head .eyebrow {
-    color: var(--green-400);
-  }
-
-  .hero-head .eyebrow::before {
-    background: var(--green-400);
-  }
-
-  .hero-head h1 {
-    color: var(--white);
-  }
-
-  .lead {
-    margin-top: var(--sp-4);
-    font-size: var(--text-lg);
-    color: var(--ink-soft);
-    max-width: 56ch;
-  }
-
   .iletisim-grid {
     display: grid;
     grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
@@ -229,15 +195,6 @@ const konular = [
   .kanal--wa {
     grid-column: 1 / -1;
     border-left: 3px solid #25d366;
-  }
-
-  .kanal-icon {
-    display: inline-flex;
-    padding: 0.65rem;
-    border-radius: var(--radius-md);
-    background: var(--green-100);
-    color: var(--accent-ink);
-    flex-shrink: 0;
   }
 
   .kanal-icon--wa {

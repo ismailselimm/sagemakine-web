@@ -36,66 +36,42 @@ export const CONTACT = {
   hours: 'Pzt–Cmt 08:30 – 18:30',
 } as const;
 
-export interface NavLink {
-  label: string;
-  href: string;
-  children?: { label: string; href: string; desc?: string }[];
-}
+/** Header mega-menü "Makineler" grupları — Footer makine listesi de buradan türer */
+export const MAKINE_GRUPLARI = [
+  {
+    label: 'Optik Ayıklama',
+    items: [
+      { label: 'Renk Ayırma Makineleri', href: '/renk-ayirma-makinesi/', desc: 'Color sorter — kameralı ayıklama' },
+      { label: 'Oluk Tipi Renk Ayırma', href: '/renk-ayirma-makinesi/oluk-tipi/', desc: 'Bakliyat, hububat, çekirdek' },
+      { label: 'Bant Tipi Renk Ayırma', href: '/renk-ayirma-makinesi/bant-tipi/', desc: 'Kuru meyve, IQF, patates' },
+    ],
+  },
+  {
+    label: 'X-Ray Kontrol',
+    items: [
+      { label: 'X-Ray Gıda Kontrol', href: '/x-ray-gida-kontrol-makinesi/', desc: 'Taş, cam, metal tespiti' },
+      { label: 'Dökme Ürün X-Ray', href: '/x-ray-gida-kontrol-makinesi/dokme-urun/', desc: 'Hat içi ayıklama' },
+      { label: 'Paketli Ürün X-Ray', href: '/x-ray-gida-kontrol-makinesi/paketli-urun/', desc: 'Hat sonu paket kontrolü' },
+    ],
+  },
+] as const;
 
-export const NAV: NavLink[] = [
-  {
-    label: 'Makineler',
-    href: '/renk-ayirma-makinesi/',
-    children: [
-      {
-        label: 'Renk Ayırma Makineleri',
-        href: '/renk-ayirma-makinesi/',
-        desc: 'Color sorter — kamera tabanlı optik ayıklama',
-      },
-      {
-        label: 'Oluk Tipi Renk Ayırma',
-        href: '/renk-ayirma-makinesi/oluk-tipi/',
-        desc: 'Bakliyat, hububat ve çekirdek için',
-      },
-      {
-        label: 'Bant Tipi Renk Ayırma',
-        href: '/renk-ayirma-makinesi/bant-tipi/',
-        desc: 'Kuru meyve, IQF ve patates için',
-      },
-      {
-        label: 'X-Ray Gıda Kontrol Sistemleri',
-        href: '/x-ray-gida-kontrol-makinesi/',
-        desc: 'Taş, cam, metal — ürünün içinde dahi',
-      },
-      {
-        label: 'Dökme Ürün X-Ray',
-        href: '/x-ray-gida-kontrol-makinesi/dokme-urun/',
-        desc: 'Hat içi yabancı madde ayıklama',
-      },
-      {
-        label: 'Paketli Ürün X-Ray',
-        href: '/x-ray-gida-kontrol-makinesi/paketli-urun/',
-        desc: 'Hat sonu son kontrol noktası',
-      },
-    ],
-  },
-  {
-    label: 'Sektörler',
-    href: '/sektorler/kuru-meyve/',
-    children: [
-      { label: 'Kuru Meyve', href: '/sektorler/kuru-meyve/', desc: 'Üzüm, incir, kayısı' },
-      { label: 'Kuruyemiş', href: '/sektorler/kuruyemis/', desc: 'Fındık, badem, ceviz' },
-      { label: 'Antep Fıstığı', href: '/sektorler/antep-fistigi/', desc: 'Boş-dolu, kabuk, aflatoksin' },
-      { label: 'Bakliyat', href: '/sektorler/bakliyat/', desc: 'Mercimek, nohut, fasulye' },
-      { label: 'Dondurulmuş Gıda (IQF)', href: '/sektorler/dondurulmus-gida-iqf/', desc: 'Şoklanmış meyve-sebze' },
-      { label: 'Patates ve Cips', href: '/sektorler/patates-cips/', desc: 'Parmak patates, cips hatları' },
-    ],
-  },
+/** Header düz linkleri (sırasıyla) */
+export const DUZ_LINKLER = [
   { label: 'Servis & Yedek Parça', href: '/servis-yedek-parca/' },
   { label: 'Hakkımızda', href: '/hakkimizda/' },
   { label: 'Blog', href: '/blog/' },
   { label: 'İletişim', href: '/iletisim/' },
-];
+] as const;
+
+/** Footer "Kurumsal" kolonu */
+export const KURUMSAL_LINKS = [
+  { label: 'Hakkımızda', href: '/hakkimizda/' },
+  { label: 'Servis & Yedek Parça', href: '/servis-yedek-parca/' },
+  { label: 'Blog', href: '/blog/' },
+  { label: 'İletişim', href: '/iletisim/' },
+  { label: 'KVKK Aydınlatma Metni', href: '/kvkk/' },
+] as const;
 
 /** Ana sayfa + footer'da kullanılan sektör kartları */
 export const SECTORS = [

@@ -74,7 +74,7 @@ const kriterler = [
         widths={[480, 760, 1100]}
         sizes="(max-width: 900px) 100vw, 42vw"
         loading="eager"
-        fetchpriority="high"
+        quality={65}
       />
     </Fragment>
   </PageHero>
@@ -239,15 +239,6 @@ const kriterler = [
   .kurucu-figure :global(img) {
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
-  }
-
-  .mono-cap {
-    display: block;
-    margin-top: var(--sp-3);
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    letter-spacing: 0.14em;
-    color: var(--ink-faint);
   }
 
   .acilim-band {

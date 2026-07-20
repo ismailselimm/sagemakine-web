@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageHero from '../components/PageHero.astro';
 import { SITE, CONTACT } from '../data/site';
 
 const breadcrumbs = [{ name: 'KVKK Aydınlatma Metni', path: '/kvkk/' }];
@@ -13,12 +13,7 @@ const breadcrumbs = [{ name: 'KVKK Aydınlatma Metni', path: '/kvkk/' }];
   breadcrumbs={breadcrumbs}
   noindex
 >
-  <section class="page-hero band-dark">
-    <div class="container">
-      <Breadcrumbs items={breadcrumbs} onDark />
-      <h1>KVKK Aydınlatma Metni</h1>
-    </div>
-  </section>
+  <PageHero eyebrow="Yasal Bilgilendirme" title="KVKK Aydınlatma Metni" breadcrumbs={breadcrumbs} />
 
   <section class="section">
     <div class="container legal">
@@ -85,16 +80,6 @@ const breadcrumbs = [{ name: 'KVKK Aydınlatma Metni', path: '/kvkk/' }];
 </BaseLayout>
 
 <style>
-  .page-hero {
-    padding-block: var(--sp-5) var(--sp-7);
-  }
-
-  .page-hero h1 {
-    color: var(--white);
-    margin-top: var(--sp-5);
-    font-size: var(--text-3xl);
-  }
-
   .legal {
     max-width: 46rem;
     display: grid;

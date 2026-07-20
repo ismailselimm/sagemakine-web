@@ -22,7 +22,7 @@ const jsonLd = [
     brand: { '@type': 'Brand', name: SITE.name },
     description:
       'Kuru meyve, kuruyemiş, bakliyat ve hububat için oluk ve bant tipi renk ayırma makineleri. CCD ve kızılötesi kameralı, hava ejektörlü optik ayıklama sistemleri; kurulum, eğitim ve Türkiye genelinde servisle.',
-    image: `${SITE.domain}/og/og-default.png`,
+    image: `${SITE.domain}/og/og-default.jpg`,
     url: `${SITE.domain}/renk-ayirma-makinesi/`,
   },
 ];
@@ -94,7 +94,7 @@ const seriler = [
         widths={[480, 760, 1100]}
         sizes="(max-width: 900px) 100vw, 42vw"
         loading="eager"
-        fetchpriority="high"
+        quality={65}
       />
     </Fragment>
   </PageHero>
@@ -308,40 +308,6 @@ const seriler = [
 </BaseLayout>
 
 <style>
-  .pillar-ghost {
-    border-color: var(--line-strong);
-    color: var(--white);
-  }
-
-  .pillar-ghost:hover {
-    border-color: var(--green-400);
-    color: var(--green-400);
-  }
-
-  .howto-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    gap: var(--sp-7);
-    align-items: center;
-  }
-
-  .howto-text h2 {
-    margin-bottom: var(--sp-5);
-  }
-
-  .howto-steps {
-    display: grid;
-    gap: var(--sp-3);
-    padding-left: 1.4em;
-    color: var(--ink-soft);
-  }
-
-  .howto-steps li::marker {
-    font-family: var(--font-mono);
-    font-weight: 600;
-    color: var(--accent-ink);
-  }
-
   .tek-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -351,15 +317,6 @@ const seriler = [
 
   .tek {
     padding: var(--sp-5);
-  }
-
-  .tek-icon {
-    display: inline-flex;
-    padding: 0.65rem;
-    border-radius: var(--radius-md);
-    background: var(--green-100);
-    color: var(--accent-ink);
-    margin-bottom: var(--sp-3);
   }
 
   .tek h3 {
@@ -378,92 +335,6 @@ const seriler = [
 
   .tek-figure :global(img) {
     border-radius: var(--radius-lg);
-  }
-
-  .mono-cap {
-    display: block;
-    margin-top: var(--sp-3);
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    letter-spacing: 0.14em;
-    color: var(--ink-faint);
-  }
-
-  .sec-lead {
-    margin-top: var(--sp-4);
-    color: var(--ink-soft);
-    max-width: 60ch;
-  }
-
-  .tip-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--sp-6);
-    margin-top: var(--sp-6);
-  }
-
-  .tip-card {
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-  }
-
-  .tip-img {
-    background: linear-gradient(165deg, var(--steel-100), var(--steel-50));
-    padding: var(--sp-4);
-  }
-
-  .tip-img :global(img) {
-    border-radius: var(--radius-md);
-  }
-
-  .tip-body {
-    padding: var(--sp-5);
-    display: grid;
-    gap: var(--sp-3);
-  }
-
-  .tip-body h3 {
-    font-size: var(--text-xl);
-  }
-
-  .tip-body > p {
-    color: var(--ink-soft);
-    font-size: var(--text-sm);
-  }
-
-  .tip-body ul {
-    display: grid;
-    gap: var(--sp-2);
-    list-style: none;
-    padding: 0;
-  }
-
-  .tip-body li {
-    display: flex;
-    align-items: center;
-    gap: 0.55em;
-    font-size: var(--text-sm);
-    color: var(--ink-faint);
-  }
-
-  .tip-body li :global(svg) {
-    color: var(--accent-ink);
-    flex-shrink: 0;
-  }
-
-  .tip-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45em;
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--accent-ink);
-  }
-
-  .tip-card:hover .tip-link {
-    text-decoration: underline;
-    text-underline-offset: 3px;
   }
 
   .kusur-list {
@@ -499,21 +370,6 @@ const seriler = [
     color: var(--ink-faint);
   }
 
-  .table-scroll {
-    margin-top: var(--sp-6);
-  }
-
-  .table-not {
-    margin-top: var(--sp-3);
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    color: var(--ink-faint);
-  }
-
-  .honest-band {
-    padding-block: var(--section-y);
-  }
-
   .honest-in h2 {
     color: var(--white);
   }
@@ -523,55 +379,6 @@ const seriler = [
     grid-template-columns: repeat(3, 1fr);
     gap: var(--sp-5);
     margin-top: var(--sp-6);
-  }
-
-  .card-dark {
-    background: rgb(255 255 255 / 0.04);
-    border: 1px solid rgb(255 255 255 / 0.1);
-    border-radius: var(--radius-md);
-    padding: var(--sp-5);
-  }
-
-  .card-dark h3 {
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-    font-size: var(--text-md);
-    color: var(--white);
-    margin-bottom: var(--sp-3);
-  }
-
-  .card-dark h3 :global(svg) {
-    color: var(--green-400);
-  }
-
-  .card-dark p {
-    font-size: var(--text-sm);
-    color: var(--ink-soft);
-  }
-
-  .sektor-strip {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--sp-3);
-    margin-top: var(--sp-4);
-  }
-
-  .sektor-strip a {
-    padding: 0.5em 1em;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-pill);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--ink-soft);
-    text-decoration: none;
-    transition: all var(--dur) var(--ease-out);
-  }
-
-  .sektor-strip a:hover {
-    border-color: var(--green-500);
-    color: var(--accent-ink);
-    background: var(--green-100);
   }
 
   @media (max-width: 1000px) {

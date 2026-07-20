@@ -74,7 +74,7 @@ const halkalar = [
         widths={[480, 760, 1100]}
         sizes="(max-width: 900px) 100vw, 42vw"
         loading="eager"
-        fetchpriority="high"
+        quality={65}
       />
     </Fragment>
   </PageHero>
@@ -196,16 +196,6 @@ const halkalar = [
 </BaseLayout>
 
 <style>
-  .servis-ghost {
-    border-color: var(--line-strong);
-    color: var(--white);
-  }
-
-  .servis-ghost:hover {
-    border-color: var(--green-400);
-    color: var(--green-400);
-  }
-
   .hizmet-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -215,15 +205,6 @@ const halkalar = [
 
   .hizmet {
     padding: var(--sp-5);
-  }
-
-  .hizmet-icon {
-    display: inline-flex;
-    padding: 0.65rem;
-    border-radius: var(--radius-md);
-    background: var(--green-100);
-    color: var(--accent-ink);
-    margin-bottom: var(--sp-3);
   }
 
   .hizmet h3 {

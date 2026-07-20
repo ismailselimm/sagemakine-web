@@ -39,9 +39,9 @@ const jsonLd = [
     url: SITE.domain,
     logo: `${SITE.domain}/favicon.svg`,
     description: SITE.description,
-    telephone: '+905323436195',
+    telephone: CONTACT.phoneHref.slice(4),
     email: CONTACT.emailInfo,
-    slogan: 'Smart · Automation · Global · Engineering',
+    slogan: SITE.tagline,
     address: {
       '@type': 'PostalAddress',
       streetAddress: CONTACT.address.street,
@@ -132,8 +132,8 @@ const nedenler = [
     </div>
 
     <!-- imza detay: canlı ayıklama simülasyonu -->
+    <span class="belt-label" aria-hidden="true">CANLI AYIKLAMA SİMÜLASYONU</span>
     <div class="hero-belt" aria-hidden="true">
-      <span class="belt-label">CANLI AYIKLAMA SİMÜLASYONU</span>
       <div class="belt-track">
         {
           Array.from({ length: 26 }, (_, i) => {
@@ -363,9 +363,24 @@ const nedenler = [
   <CtaBand />
 </BaseLayout>
 
+<script>
+  /* hero ekrandan çıkınca bant animasyonunu durdur (pil/CPU) */
+  function initBeltPause() {
+    const hero = document.querySelector('.hero');
+    const belt = document.querySelector<HTMLElement>('.hero-belt');
+    if (!hero || !belt || belt.dataset.init) return;
+    belt.dataset.init = '1';
+    new IntersectionObserver(([e]) =>
+      belt.classList.toggle('belt-paused', !e.isIntersecting),
+    ).observe(hero);
+  }
+  document.addEventListener('astro:page-load', initBeltPause);
+</script>
+
 <style>
   /* ── Hero ── */
   .hero {
+    --belt-h: 3.25rem;
     position: relative;
     min-height: min(88vh, 56rem);
     display: flex;
@@ -425,17 +440,6 @@ const nedenler = [
     margin-top: var(--sp-6);
   }
 
-  .hero-ghost {
-    border-color: rgb(255 255 255 / 0.3);
-    color: var(--white);
-    backdrop-filter: blur(4px);
-  }
-
-  .hero-ghost:hover {
-    border-color: var(--green-400);
-    color: var(--green-400);
-  }
-
   .hero-chips {
     display: flex;
     flex-wrap: wrap;
@@ -465,7 +469,7 @@ const nedenler = [
     left: 0;
     right: 0;
     bottom: 0;
-    height: 3.25rem;
+    height: var(--belt-h);
     border-top: 1px solid rgb(255 255 255 / 0.1);
     background: rgb(10 18 32 / 0.65);
     backdrop-filter: blur(6px);
@@ -475,17 +479,18 @@ const nedenler = [
   }
 
   .belt-label {
-    /* çizginin ÜSTÜNDE, taneler ile çakışmayan pill etiket */
+    /* bandın DIŞINDA — üst çizginin üstünde duran pill etiket */
     position: absolute;
     left: var(--gutter);
-    top: 0.35rem;
+    bottom: calc(var(--belt-h) + 0.6rem);
     font-family: var(--font-mono);
     font-size: 0.625rem;
     letter-spacing: 0.24em;
-    color: rgb(255 255 255 / 0.55);
+    color: rgb(255 255 255 / 0.6);
     background: rgb(10 18 32 / 0.6);
-    padding: 0.25em 0.8em;
+    padding: 0.3em 0.85em;
     border-radius: var(--radius-pill);
+    backdrop-filter: blur(4px);
     z-index: 2;
   }
 
@@ -515,7 +520,6 @@ const nedenler = [
     background: #c9a86a;
     animation: belt-run var(--d) linear infinite;
     animation-delay: var(--delay);
-    will-change: transform;
   }
 
   .belt-dot--bad {
@@ -577,6 +581,12 @@ const nedenler = [
     background: linear-gradient(180deg, var(--green-500), transparent 85%);
     opacity: 0.55;
     animation: beam-pulse 2.2s ease-in-out infinite;
+  }
+
+  /* hero görünür değilken animasyonları durdur (IntersectionObserver ekler) */
+  .belt-paused .belt-dot,
+  .belt-paused .belt-beam {
+    animation-play-state: paused;
   }
 
   @keyframes beam-pulse {
@@ -695,15 +705,6 @@ const nedenler = [
   .problem-figure :global(img) {
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
-  }
-
-  .mono-cap {
-    display: block;
-    margin-top: var(--sp-3);
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    letter-spacing: 0.14em;
-    color: var(--ink-faint);
   }
 
   /* ── Bölüm başlığı ── */
@@ -927,15 +928,6 @@ const nedenler = [
 
   .neden {
     padding: var(--sp-5);
-  }
-
-  .neden-icon {
-    display: inline-flex;
-    padding: 0.65rem;
-    border-radius: var(--radius-md);
-    background: var(--green-100);
-    color: var(--accent-ink);
-    margin-bottom: var(--sp-3);
   }
 
   .neden h3 {

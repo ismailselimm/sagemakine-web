@@ -10,7 +10,7 @@ import CtaBand from './CtaBand.astro';
 import Icon from './Icon.astro';
 import { CONTACT } from '../data/site';
 
-export interface UrunGrubu {
+interface UrunGrubu {
   baslik: string;
   urunler: string[];
 }
@@ -70,7 +70,7 @@ const breadcrumbs = [parent, { name: title, path }];
         widths={[480, 760, 1100]}
         sizes="(max-width: 900px) 100vw, 42vw"
         loading="eager"
-        fetchpriority="high"
+        quality={65}
       />
     </Fragment>
   </PageHero>
@@ -136,16 +136,6 @@ const breadcrumbs = [parent, { name: title, path }];
 </BaseLayout>
 
 <style>
-  .sub-ghost {
-    border-color: var(--line-strong);
-    color: var(--white);
-  }
-
-  .sub-ghost:hover {
-    border-color: var(--green-400);
-    color: var(--green-400);
-  }
-
   .sub-grid {
     display: grid;
     grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
@@ -200,15 +190,6 @@ const breadcrumbs = [parent, { name: title, path }];
     align-items: start;
   }
 
-  .av-icon {
-    display: inline-flex;
-    padding: 0.6rem;
-    border-radius: var(--radius-md);
-    background: var(--green-100);
-    color: var(--accent-ink);
-    flex-shrink: 0;
-  }
-
   .av h3 {
     font-size: var(--text-md);
     margin-bottom: var(--sp-1);
@@ -217,30 +198,6 @@ const breadcrumbs = [parent, { name: title, path }];
   .av p {
     font-size: var(--text-sm);
     color: var(--ink-faint);
-  }
-
-  .sektor-strip {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--sp-3);
-    margin-top: var(--sp-4);
-  }
-
-  .sektor-strip a {
-    padding: 0.5em 1em;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-pill);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--ink-soft);
-    text-decoration: none;
-    transition: all var(--dur) var(--ease-out);
-  }
-
-  .sektor-strip a:hover {
-    border-color: var(--green-500);
-    color: var(--accent-ink);
-    background: var(--green-100);
   }
 
   @media (max-width: 900px) {

@@ -17,3 +17,4 @@ npm-debug.log*
 # QA artifacts
 qa/screenshots/
 docs/qa/shots/
+.playwright-mcp/

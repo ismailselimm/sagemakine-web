@@ -349,6 +349,298 @@ html.js .reveal.is-visible {
   color: var(--white);
 }
 
+/* ══════════════════════════════════════════════════════════════
+   PAYLAŞILAN BİLEŞEN KALIPLARI (sayfa kopyalarından konsolide)
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Koyu zemin ghost buton (tüm sayfa hero'ları + CTA) ─────── */
+.pillar-ghost,
+.sub-ghost,
+.servis-ghost,
+.hero-ghost,
+.cta-tel {
+  border-color: var(--line-strong);
+  color: var(--white);
+}
+
+.pillar-ghost:hover,
+.sub-ghost:hover,
+.servis-ghost:hover,
+.hero-ghost:hover,
+.cta-tel:hover {
+  border-color: var(--green-400);
+  color: var(--green-400);
+}
+
+/* ── Yeşil ikon chip'i ──────────────────────────────────────── */
+.neden-icon,
+.tek-icon,
+.tespit-icon,
+.hizmet-icon,
+.defect-icon,
+.av-icon,
+.kanal-icon {
+  display: inline-flex;
+  padding: 0.65rem;
+  border-radius: var(--radius-md);
+  background: var(--green-100);
+  color: var(--accent-ink);
+}
+
+.neden-icon,
+.tek-icon,
+.tespit-icon,
+.hizmet-icon,
+.defect-icon {
+  margin-bottom: var(--sp-3);
+}
+
+.av-icon,
+.kanal-icon {
+  flex-shrink: 0;
+}
+
+/* ── Sektör pill navigasyonu ────────────────────────────────── */
+.sektor-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-top: var(--sp-4);
+}
+
+.sektor-strip a {
+  padding: 0.5em 1em;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: all var(--dur) var(--ease-out);
+}
+
+.sektor-strip a:hover {
+  border-color: var(--green-500);
+  color: var(--accent-ink);
+  background: var(--green-100);
+}
+
+/* ── Mono başlık altyazısı ──────────────────────────────────── */
+.mono-cap {
+  display: block;
+  margin-top: var(--sp-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.14em;
+  color: var(--ink-faint);
+}
+
+/* ── Bölüm lead + tablo dipnotu ─────────────────────────────── */
+.sec-lead {
+  margin-top: var(--sp-4);
+  color: var(--ink-soft);
+  max-width: 60ch;
+}
+
+.table-scroll {
+  margin-top: var(--sp-6);
+}
+
+.table-not {
+  margin-top: var(--sp-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--ink-faint);
+}
+
+/* ── "Nasıl çalışır" yerleşimi (pillar sayfaları) ───────────── */
+.howto-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: var(--sp-7);
+  align-items: center;
+}
+
+.howto-text h2 {
+  margin-bottom: var(--sp-5);
+}
+
+.howto-steps {
+  display: grid;
+  gap: var(--sp-3);
+  padding-left: 1.4em;
+  color: var(--ink-soft);
+}
+
+.howto-steps li::marker {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--accent-ink);
+}
+
+/* ── Tip karşılaştırma kartları (oluk/bant, dökme/paketli) ──── */
+.tip-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-6);
+  margin-top: var(--sp-6);
+}
+
+.tip-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.tip-img {
+  background: linear-gradient(165deg, var(--steel-100), var(--steel-50));
+  padding: var(--sp-4);
+}
+
+.tip-img img {
+  border-radius: var(--radius-md);
+}
+
+.tip-body {
+  padding: var(--sp-5);
+  display: grid;
+  gap: var(--sp-3);
+}
+
+.tip-body h3 {
+  font-size: var(--text-xl);
+}
+
+.tip-body > p {
+  color: var(--ink-soft);
+  font-size: var(--text-sm);
+}
+
+.tip-body ul {
+  display: grid;
+  gap: var(--sp-2);
+  list-style: none;
+  padding: 0;
+}
+
+.tip-body li {
+  display: flex;
+  align-items: center;
+  gap: 0.55em;
+  font-size: var(--text-sm);
+  color: var(--ink-faint);
+}
+
+.tip-body li svg {
+  color: var(--accent-ink);
+  flex-shrink: 0;
+}
+
+.tip-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--accent-ink);
+}
+
+.tip-card:hover .tip-link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ── Koyu bant kartı + bandı ────────────────────────────────── */
+.honest-band {
+  padding-block: var(--section-y);
+}
+
+.card-dark {
+  background: rgb(255 255 255 / 0.04);
+  border: 1px solid rgb(255 255 255 / 0.1);
+  border-radius: var(--radius-md);
+  padding: var(--sp-5);
+}
+
+.card-dark h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: var(--text-md);
+  color: var(--white);
+  margin-bottom: var(--sp-3);
+}
+
+.card-dark h3 svg {
+  color: var(--green-400);
+}
+
+.card-dark p {
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+}
+
+/* ── SVG diyagram çerçevesi + etiketleri ────────────────────── */
+.diagram {
+  margin: 0;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-5);
+}
+
+.diagram svg {
+  width: 100%;
+  height: auto;
+}
+
+.diagram figcaption {
+  margin-top: var(--sp-3);
+  font-size: var(--text-sm);
+  color: var(--ink-faint);
+  max-width: 70ch;
+}
+
+.lbl {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  fill: var(--ink-soft);
+}
+
+.lbl--small {
+  font-size: 12.5px;
+  fill: var(--ink-faint);
+}
+
+.lbl--mid {
+  text-anchor: middle;
+}
+
+.lbl--green {
+  fill: #4a6e1b;
+  font-weight: 600;
+}
+
+.lbl--soft {
+  fill: #5f7080;
+}
+
+.lbl--end {
+  text-anchor: end;
+}
+
+/* dar ekranda viewBox küçüldüğü için etiketleri büyüt */
+@media (max-width: 640px) {
+  .lbl {
+    font-size: 26px;
+  }
+
+  .lbl--small {
+    font-size: 20px;
+  }
+}
+
 /* ── Hareket azaltma ────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   html {

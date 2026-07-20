@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageHero from '../../components/PageHero.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import Icon from '../../components/Icon.astro';
 
@@ -19,7 +19,7 @@ const yazilar = [
     kategori: 'Teknoloji',
     baslik: 'X-Ray mı Metal Dedektör mü? Gıdada Yabancı Madde Tespiti',
     ozet: 'İki teknolojinin dürüst karşılaştırması: hangisi neyi görür, ne zaman hangisi yeter?',
-    dk: 5,
+    dk: 6,
   },
   {
     slug: 'sortex-makinasi-nedir',
@@ -33,7 +33,7 @@ const yazilar = [
     kategori: 'Satın Alma Rehberi',
     baslik: '2. El Renk Ayırma Makinesi Almadan Önce Bilmeniz Gerekenler',
     ozet: 'Düşük ilk yatırımın görünmeyen riskleri: ejektör ömrü, kamera eskimesi, yedek parça ve servis gerçeği.',
-    dk: 5,
+    dk: 6,
   },
 ];
 ---
@@ -44,19 +44,12 @@ const yazilar = [
   path="/blog/"
   breadcrumbs={breadcrumbs}
 >
-  <section class="page-hero band-dark">
-    <div class="container container--wide">
-      <Breadcrumbs items={breadcrumbs} onDark />
-      <div class="hero-head">
-        <p class="eyebrow">Blog</p>
-        <h1>Satmak İçin Değil, Doğru Karar İçin</h1>
-        <p class="lead">
-          Ayıklama teknolojisine yatırım büyük karardır. Bu rehberleri, telefonda sorduğunuz
-          soruların dürüst cevapları olarak yazıyoruz.
-        </p>
-      </div>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="Blog"
+    title="Satmak İçin Değil, Doğru Karar İçin"
+    lead="Ayıklama teknolojisine yatırım büyük karardır. Bu rehberleri, telefonda sorduğunuz soruların dürüst cevapları olarak yazıyoruz."
+    breadcrumbs={breadcrumbs}
+  />
 
   <section class="section">
     <div class="container container--wide">
@@ -79,33 +72,6 @@ const yazilar = [
 </BaseLayout>
 
 <style>
-  .page-hero {
-    padding-block: var(--sp-5) var(--sp-8);
-  }
-
-  .hero-head {
-    margin-top: var(--sp-6);
-  }
-
-  .hero-head .eyebrow {
-    color: var(--green-400);
-  }
-
-  .hero-head .eyebrow::before {
-    background: var(--green-400);
-  }
-
-  .hero-head h1 {
-    color: var(--white);
-  }
-
-  .lead {
-    margin-top: var(--sp-4);
-    font-size: var(--text-lg);
-    color: var(--ink-soft);
-    max-width: 56ch;
-  }
-
   .post-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;

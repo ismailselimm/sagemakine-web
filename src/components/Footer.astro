@@ -1,25 +1,10 @@
 ---
 import Logo from './Logo.astro';
-import { SITE, CONTACT, SECTORS } from '../data/site';
+import { SITE, CONTACT, SECTORS, MAKINE_GRUPLARI, KURUMSAL_LINKS } from '../data/site';
 
 const yil = new Date().getFullYear();
-
-const makineLinks = [
-  { label: 'Renk Ayırma Makineleri', href: '/renk-ayirma-makinesi/' },
-  { label: 'Oluk Tipi Renk Ayırma', href: '/renk-ayirma-makinesi/oluk-tipi/' },
-  { label: 'Bant Tipi Renk Ayırma', href: '/renk-ayirma-makinesi/bant-tipi/' },
-  { label: 'X-Ray Gıda Kontrol', href: '/x-ray-gida-kontrol-makinesi/' },
-  { label: 'Dökme Ürün X-Ray', href: '/x-ray-gida-kontrol-makinesi/dokme-urun/' },
-  { label: 'Paketli Ürün X-Ray', href: '/x-ray-gida-kontrol-makinesi/paketli-urun/' },
-];
-
-const kurumsalLinks = [
-  { label: 'Hakkımızda', href: '/hakkimizda/' },
-  { label: 'Servis & Yedek Parça', href: '/servis-yedek-parca/' },
-  { label: 'Blog', href: '/blog/' },
-  { label: 'İletişim', href: '/iletisim/' },
-  { label: 'KVKK Aydınlatma Metni', href: '/kvkk/' },
-];
+const makineLinks = MAKINE_GRUPLARI.flatMap((g) => g.items);
+const kurumsalLinks = KURUMSAL_LINKS;
 ---
 
 <footer class="site-footer band-dark">
@@ -27,10 +12,7 @@ const kurumsalLinks = [
     <div class="footer-grid">
       <div class="footer-brand">
         <Logo variant="dark" full height={84} />
-        <p class="footer-desc">
-          Kuru meyve, kuruyemiş ve bakliyat işleyicileri için renk ayırma ve X-Ray gıda kontrol
-          makineleri. Manisa merkezli satış, kurulum ve teknik servis.
-        </p>
+        <p class="footer-desc">{SITE.description}</p>
         <address class="footer-contact">
           <a href={CONTACT.mapsLink} target="_blank" rel="noopener">{CONTACT.address.full}</a>
           <a href={CONTACT.phoneHref} class="mono">{CONTACT.phoneDisplay}</a>

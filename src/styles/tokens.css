@@ -9,17 +9,13 @@
   --navy-900: #0f1c2e;
   --navy-800: #16283f; /* marka laciverti */
   --navy-700: #1e3a5f;
-  --navy-600: #2a4a73;
 
-  --steel-700: #3d4c5a;
-  --steel-500: #5f7080;
   --steel-400: #8494a2;
   --steel-300: #aab6c1;
   --steel-200: #cbd3db;
   --steel-100: #e4e9ed;
   --steel-50: #f2f5f7;
 
-  --green-700: #567f20;
   --green-600: #689426;
   --green-500: #7aab35; /* marka yeşili */
   --green-400: #8fc24a;
@@ -55,7 +51,6 @@
   --text-2xl: clamp(1.625rem, 1.35rem + 1.4vw, 2.375rem);
   --text-3xl: clamp(2.125rem, 1.6rem + 2.6vw, 3.375rem);
   --text-hero: clamp(2.5rem, 1.7rem + 4vw, 4.5rem);
-  --text-giant: clamp(3.25rem, 2.2rem + 5.5vw, 6rem); /* dev stat rakamları */
 
   /* Display kesimi: Archivo variable genişlik ekseni */
   --wdth-display: 118; /* hafif expanded — işlenmiş metal hissi */
@@ -83,7 +78,6 @@
   --radius-lg: 12px;
   --radius-pill: 999px;
 
-  --shadow-sm: 0 1px 2px rgb(15 28 46 / 0.06), 0 1px 3px rgb(15 28 46 / 0.08);
   --shadow-md: 0 3px 8px rgb(15 28 46 / 0.07), 0 8px 24px rgb(15 28 46 / 0.09);
   --shadow-lg: 0 6px 16px rgb(15 28 46 / 0.1), 0 20px 48px rgb(15 28 46 / 0.14);
   --shadow-green: 0 4px 16px rgb(122 171 53 / 0.35);

@@ -13,7 +13,6 @@ export interface SektorDefect {
 export interface Sektor {
   slug: string;
   title: string;
-  navTitle: string;
   metaTitle: string;
   metaDescription: string;
   eyebrow: string;
@@ -38,7 +37,6 @@ export const SEKTORLER: Sektor[] = [
   {
     slug: 'kuru-meyve',
     title: 'Kuru Meyve',
-    navTitle: 'Kuru Meyve',
     metaTitle: 'Kuru Üzüm, İncir ve Kayısı Ayıklama Makineleri | SAGE Makine',
     metaDescription:
       "Manisa üzümünde çöp-sap ve taş, incirde aflatoksin şüpheli tane, kayısıda çekirdek kırığı: kuru meyve için renk ayırma ve X-Ray çözümleri.",
@@ -90,7 +88,6 @@ export const SEKTORLER: Sektor[] = [
   {
     slug: 'kuruyemis',
     title: 'Kuruyemiş',
-    navTitle: 'Kuruyemiş',
     metaTitle: 'Fındık, Badem, Ceviz Renk Ayırma ve X-Ray Makineleri | SAGE Makine',
     metaDescription:
       'İç fındıkta kabuk parçası, cevizde zar, bademde taş: kuruyemiş işleyicileri için renk ayırma ve X-Ray ayıklama çözümleri. Numune testi imkânı.',
@@ -142,7 +139,6 @@ export const SEKTORLER: Sektor[] = [
   {
     slug: 'antep-fistigi',
     title: 'Antep Fıstığı',
-    navTitle: 'Antep Fıstığı',
     metaTitle: 'Antep Fıstığı Ayıklama Makinesi – Renk Ayırma ve X-Ray | SAGE Makine',
     metaDescription:
       'Antep fıstığında aflatoksin riski, boş-dolu ayrımı ve kabuk parçası için renk ayırma + X-Ray kombinasyonu. Gaziantep ve Şanlıurfa bölgesine servis.',
@@ -192,7 +188,6 @@ export const SEKTORLER: Sektor[] = [
   {
     slug: 'bakliyat',
     title: 'Bakliyat',
-    navTitle: 'Bakliyat',
     metaTitle: 'Bakliyat Renk Ayırma Makinesi – Mercimek, Nohut, Fasulye | SAGE Makine',
     metaDescription:
       'Elek ve gravite masasının kaçırdığı taşı renk ayırma ve X-Ray görür. Bakliyat işleme tesisleri için yüksek kapasiteli oluk tipi makineler.',
@@ -242,7 +237,6 @@ export const SEKTORLER: Sektor[] = [
   {
     slug: 'dondurulmus-gida-iqf',
     title: 'Dondurulmuş Gıda (IQF)',
-    navTitle: 'Dondurulmuş Gıda (IQF)',
     metaTitle: 'IQF Dondurulmuş Meyve-Sebze Optik Ayıklama | SAGE Makine',
     metaDescription:
       'IQF hatlarında sap, çekirdek, plastik ve cam için bant tipi optik ayıklama ve yıkanabilir X-Ray sistemleri. Paketleme öncesi son savunma hattınız.',
@@ -292,7 +286,6 @@ export const SEKTORLER: Sektor[] = [
   {
     slug: 'patates-cips',
     title: 'Patates ve Cips',
-    navTitle: 'Patates ve Cips',
     metaTitle: 'Patates ve Cips Optik Ayıklama Makineleri | SAGE Makine',
     metaDescription:
       'Parmak patateste yanık uç ve tarla taşı, cipste lekeli dilim: kızartma hattı öncesi ve sonrası optik ayıklama ve X-Ray çözümleri.',
@@ -341,4 +334,3 @@ export const SEKTORLER: Sektor[] = [
   },
 ];
 
-export const getSektor = (slug: string) => SEKTORLER.find((s) => s.slug === slug);
