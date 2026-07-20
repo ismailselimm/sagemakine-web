@@ -1,0 +1,70 @@
+---
+import '@fontsource-variable/archivo/wdth.css';
+import '@fontsource/ibm-plex-sans/400.css';
+import '@fontsource/ibm-plex-sans/500.css';
+import '@fontsource/ibm-plex-sans/600.css';
+import '@fontsource/ibm-plex-sans/700.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
+import '@fontsource/ibm-plex-mono/600.css';
+import '../styles/tokens.css';
+import '../styles/global.css';
+
+import Seo, { type Breadcrumb } from '../components/Seo.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  ogImage?: string;
+  type?: 'website' | 'article';
+  breadcrumbs?: Breadcrumb[];
+  jsonLd?: Record<string, unknown>[];
+  noindex?: boolean;
+}
+
+const seoProps = Astro.props;
+---
+
+<!doctype html>
+<html lang="tr">
+  <head>
+    <Seo {...seoProps} />
+  </head>
+  <body>
+    <a href="#icerik" class="skip-link">İçeriğe atla</a>
+    <Header />
+    <main id="icerik">
+      <slot />
+    </main>
+    <Footer />
+    <WhatsAppButton />
+
+    <script>
+      /* Scroll reveal — IntersectionObserver */
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add('is-visible');
+              io.unobserve(e.target);
+            }
+          }
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
+      );
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    </script>
+  </body>
+</html>
+
+<style>
+  body {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+</style>

@@ -1,0 +1,9 @@
+- generic [active] [ref=f1e1]:
+  - img "SAGE Makine logosu" [ref=f1e3]
+  - img "SAGE Makine logosu" [ref=f1e33]
+  - img "orijinal" [ref=f1e63]
+  - generic [ref=f1e66]:
+    - button [ref=f1e67]
+    - button [ref=f1e73]
+    - button [ref=f1e77]
+    - button [ref=f1e82]

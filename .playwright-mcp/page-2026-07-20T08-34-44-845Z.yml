@@ -1,0 +1,118 @@
+- generic [active] [ref=e1]:
+  - link "İçeriğe atla" [ref=e2] [cursor=pointer]:
+    - /url: "#icerik"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "SAGE Makine — Ana sayfa" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "SAGE Makine logosu" [ref=e6]
+      - navigation "Ana menü" [ref=e35]:
+        - list [ref=e36]:
+          - listitem [ref=e37]:
+            - button "Makineler" [ref=e38] [cursor=pointer]
+          - listitem [ref=e41]:
+            - button "Sektörler" [ref=e42] [cursor=pointer]
+          - listitem [ref=e45]:
+            - link "Servis & Yedek Parça" [ref=e46] [cursor=pointer]:
+              - /url: /servis-yedek-parca/
+          - listitem [ref=e47]:
+            - link "Hakkımızda" [ref=e48] [cursor=pointer]:
+              - /url: /hakkimizda/
+          - listitem [ref=e49]:
+            - link "Blog" [ref=e50] [cursor=pointer]:
+              - /url: /blog/
+          - listitem [ref=e51]:
+            - link "İletişim" [ref=e52] [cursor=pointer]:
+              - /url: /iletisim/
+      - generic [ref=e53]:
+        - link "+90 532 343 61 95" [ref=e54] [cursor=pointer]:
+          - /url: tel:+905323436195
+        - link "Teklif Alın" [ref=e55] [cursor=pointer]:
+          - /url: /iletisim/
+  - main [ref=e56]:
+    - generic [ref=e58]:
+      - paragraph [ref=e59]: Kuruluş aşaması
+      - heading "Ürününüzdeki Son Yabancı Maddeye Kadar." [level=1] [ref=e60]
+      - paragraph [ref=e61]: Bu sayfa Faz 2'de gerçek içerikle inşa edilecek — şimdilik altyapı test iskeleti.
+  - contentinfo [ref=e62]:
+    - generic [ref=e67]:
+      - generic [ref=e68]:
+        - generic [ref=e69]:
+          - img "SAGE Makine logosu" [ref=e70]
+          - paragraph [ref=e99]: Smart · Automation · Global · Engineering
+          - paragraph [ref=e100]: Kuru meyve, kuruyemiş ve bakliyat işleyicileri için renk ayırma ve X-Ray gıda kontrol makineleri. Manisa merkezli satış, kurulum ve teknik servis.
+          - generic [ref=e101]:
+            - link "Güzelyurt Mah. 5748 Sk. No:32 İç Kapı No:6, Yunusemre / Manisa" [ref=e102] [cursor=pointer]:
+              - /url: https://www.google.com/maps/search/?api=1&query=G%C3%BCzelyurt+Mahallesi+5748+Sokak+No:32+Yunusemre+Manisa
+            - link "+90 532 343 61 95" [ref=e103] [cursor=pointer]:
+              - /url: tel:+905323436195
+            - link "info@sagemakine.com" [ref=e104] [cursor=pointer]:
+              - /url: mailto:info@sagemakine.com
+          - link "WhatsApp'tan Yazın" [ref=e105] [cursor=pointer]:
+            - /url: https://wa.me/905323436195
+        - navigation "Makineler" [ref=e106]:
+          - heading "Makineler" [level=2] [ref=e107]
+          - list [ref=e108]:
+            - listitem [ref=e109]:
+              - link "Renk Ayırma Makineleri" [ref=e110] [cursor=pointer]:
+                - /url: /renk-ayirma-makinesi/
+            - listitem [ref=e111]:
+              - link "Oluk Tipi Renk Ayırma" [ref=e112] [cursor=pointer]:
+                - /url: /renk-ayirma-makinesi/oluk-tipi/
+            - listitem [ref=e113]:
+              - link "Bant Tipi Renk Ayırma" [ref=e114] [cursor=pointer]:
+                - /url: /renk-ayirma-makinesi/bant-tipi/
+            - listitem [ref=e115]:
+              - link "X-Ray Gıda Kontrol" [ref=e116] [cursor=pointer]:
+                - /url: /x-ray-gida-kontrol-makinesi/
+            - listitem [ref=e117]:
+              - link "Dökme Ürün X-Ray" [ref=e118] [cursor=pointer]:
+                - /url: /x-ray-gida-kontrol-makinesi/dokme-urun/
+            - listitem [ref=e119]:
+              - link "Paketli Ürün X-Ray" [ref=e120] [cursor=pointer]:
+                - /url: /x-ray-gida-kontrol-makinesi/paketli-urun/
+        - navigation "Sektörler" [ref=e121]:
+          - heading "Sektörler" [level=2] [ref=e122]
+          - list [ref=e123]:
+            - listitem [ref=e124]:
+              - link "Kuru Meyve" [ref=e125] [cursor=pointer]:
+                - /url: /sektorler/kuru-meyve/
+            - listitem [ref=e126]:
+              - link "Kuruyemiş" [ref=e127] [cursor=pointer]:
+                - /url: /sektorler/kuruyemis/
+            - listitem [ref=e128]:
+              - link "Antep Fıstığı" [ref=e129] [cursor=pointer]:
+                - /url: /sektorler/antep-fistigi/
+            - listitem [ref=e130]:
+              - link "Bakliyat" [ref=e131] [cursor=pointer]:
+                - /url: /sektorler/bakliyat/
+            - listitem [ref=e132]:
+              - link "Dondurulmuş Gıda (IQF)" [ref=e133] [cursor=pointer]:
+                - /url: /sektorler/dondurulmus-gida-iqf/
+            - listitem [ref=e134]:
+              - link "Patates ve Cips" [ref=e135] [cursor=pointer]:
+                - /url: /sektorler/patates-cips/
+        - navigation "Kurumsal" [ref=e136]:
+          - heading "Kurumsal" [level=2] [ref=e137]
+          - list [ref=e138]:
+            - listitem [ref=e139]:
+              - link "Hakkımızda" [ref=e140] [cursor=pointer]:
+                - /url: /hakkimizda/
+            - listitem [ref=e141]:
+              - link "Servis & Yedek Parça" [ref=e142] [cursor=pointer]:
+                - /url: /servis-yedek-parca/
+            - listitem [ref=e143]:
+              - link "Blog" [ref=e144] [cursor=pointer]:
+                - /url: /blog/
+            - listitem [ref=e145]:
+              - link "İletişim" [ref=e146] [cursor=pointer]:
+                - /url: /iletisim/
+            - listitem [ref=e147]:
+              - link "KVKK Aydınlatma Metni" [ref=e148] [cursor=pointer]:
+                - /url: /kvkk/
+      - generic [ref=e149]:
+        - paragraph [ref=e150]: © 2026 SAGE Makine Servis Temsilcilik Ltd. Şti. Tüm hakları saklıdır.
+        - paragraph [ref=e151]: Yunusemre / Manisa · Türkiye geneli satış, kurulum ve servis
+  - link "WhatsApp üzerinden bize yazın" [ref=e152] [cursor=pointer]:
+    - /url: https://wa.me/905323436195
+    - generic [ref=e155]: WhatsApp

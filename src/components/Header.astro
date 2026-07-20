@@ -1,0 +1,497 @@
+---
+import Logo from './Logo.astro';
+import { CONTACT } from '../data/site';
+
+const path = Astro.url.pathname;
+const isActive = (href: string) => path.startsWith(href);
+
+const makineGroups = [
+  {
+    label: 'Optik Ayıklama',
+    items: [
+      { label: 'Renk Ayırma Makineleri', href: '/renk-ayirma-makinesi/', desc: 'Color sorter — kameralı ayıklama' },
+      { label: 'Oluk Tipi', href: '/renk-ayirma-makinesi/oluk-tipi/', desc: 'Bakliyat, hububat, çekirdek' },
+      { label: 'Bant Tipi', href: '/renk-ayirma-makinesi/bant-tipi/', desc: 'Kuru meyve, IQF, patates' },
+    ],
+  },
+  {
+    label: 'X-Ray Kontrol',
+    items: [
+      { label: 'X-Ray Gıda Kontrol Sistemleri', href: '/x-ray-gida-kontrol-makinesi/', desc: 'Taş, cam, metal tespiti' },
+      { label: 'Dökme Ürün X-Ray', href: '/x-ray-gida-kontrol-makinesi/dokme-urun/', desc: 'Hat içi ayıklama' },
+      { label: 'Paketli Ürün X-Ray', href: '/x-ray-gida-kontrol-makinesi/paketli-urun/', desc: 'Hat sonu son kontrol' },
+    ],
+  },
+];
+
+const sektorler = [
+  { label: 'Kuru Meyve', href: '/sektorler/kuru-meyve/' },
+  { label: 'Kuruyemiş', href: '/sektorler/kuruyemis/' },
+  { label: 'Antep Fıstığı', href: '/sektorler/antep-fistigi/' },
+  { label: 'Bakliyat', href: '/sektorler/bakliyat/' },
+  { label: 'Dondurulmuş Gıda (IQF)', href: '/sektorler/dondurulmus-gida-iqf/' },
+  { label: 'Patates ve Cips', href: '/sektorler/patates-cips/' },
+];
+
+const duzLinkler = [
+  { label: 'Servis & Yedek Parça', href: '/servis-yedek-parca/' },
+  { label: 'Hakkımızda', href: '/hakkimizda/' },
+  { label: 'Blog', href: '/blog/' },
+  { label: 'İletişim', href: '/iletisim/' },
+];
+---
+
+<header class="site-header" id="site-header">
+  <div class="container container--wide header-in">
+    <a href="/" class="brand" aria-label="SAGE Makine — Ana sayfa">
+      <Logo height={40} />
+    </a>
+
+    <nav class="nav" aria-label="Ana menü">
+      <ul class="nav-list">
+        <li class="nav-item has-sub">
+          <button class="nav-link" type="button" aria-expanded="false" aria-haspopup="true">
+            Makineler
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"
+              ><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg
+            >
+          </button>
+          <div class="sub sub--mega">
+            {
+              makineGroups.map((g) => (
+                <div class="sub-group">
+                  <span class="sub-eyebrow">{g.label}</span>
+                  {g.items.map((it) => (
+                    <a href={it.href} class="sub-link" aria-current={path === it.href ? 'page' : undefined}>
+                      <span class="sub-label">{it.label}</span>
+                      <span class="sub-desc">{it.desc}</span>
+                    </a>
+                  ))}
+                </div>
+              ))
+            }
+          </div>
+        </li>
+
+        <li class="nav-item has-sub">
+          <button class="nav-link" type="button" aria-expanded="false" aria-haspopup="true">
+            Sektörler
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"
+              ><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg
+            >
+          </button>
+          <div class="sub sub--grid">
+            {
+              sektorler.map((s) => (
+                <a href={s.href} class="sub-link" aria-current={path === s.href ? 'page' : undefined}>
+                  <span class="sub-label">{s.label}</span>
+                </a>
+              ))
+            }
+          </div>
+        </li>
+
+        {
+          duzLinkler.map((l) => (
+            <li class="nav-item">
+              <a href={l.href} class="nav-link" aria-current={isActive(l.href) ? 'page' : undefined}>
+                {l.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href={CONTACT.phoneHref} class="header-phone">{CONTACT.phoneDisplay}</a>
+      <a href="/iletisim/" class="btn btn--primary header-cta">Teklif Alın</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-panel" aria-label="Menüyü aç">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobil panel -->
+  <div class="mobile-panel" id="mobile-panel" hidden>
+    <details>
+      <summary>Makineler</summary>
+      <div class="mp-links">
+        {makineGroups.flatMap((g) => g.items).map((it) => <a href={it.href}>{it.label}</a>)}
+      </div>
+    </details>
+    <details>
+      <summary>Sektörler</summary>
+      <div class="mp-links">{sektorler.map((s) => <a href={s.href}>{s.label}</a>)}</div>
+    </details>
+    {duzLinkler.map((l) => <a class="mp-direct" href={l.href}>{l.label}</a>)}
+    <div class="mp-contact">
+      <a href={CONTACT.phoneHref} class="btn btn--dark">{CONTACT.phoneDisplay}</a>
+      <a href={CONTACT.whatsapp} class="btn btn--primary" target="_blank" rel="noopener">WhatsApp'tan Yazın</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-header);
+    background: rgb(250 251 252 / 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent;
+    transition:
+      border-color var(--dur) var(--ease-out),
+      box-shadow var(--dur) var(--ease-out);
+  }
+
+  .site-header.is-scrolled {
+    border-bottom-color: var(--line);
+    box-shadow: 0 2px 16px rgb(15 28 46 / 0.06);
+  }
+
+  .header-in {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-6);
+    height: var(--header-h);
+  }
+
+  .brand {
+    flex-shrink: 0;
+    display: inline-flex;
+  }
+
+  .nav {
+    margin-inline: auto;
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    list-style: none;
+    padding: 0;
+  }
+
+  .nav-item {
+    position: relative;
+  }
+
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    padding: 0.55em 0.85em;
+    font-family: var(--font-display);
+    font-variation-settings: 'wdth' 108;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-decoration: none;
+    background: none;
+    border: 0;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color var(--dur) var(--ease-out), background-color var(--dur) var(--ease-out);
+  }
+
+  .nav-link:hover,
+  .nav-item.has-sub:hover .nav-link,
+  .nav-link[aria-current] {
+    color: var(--navy-800);
+    background: var(--steel-50);
+  }
+
+  .nav-link[aria-current]::after {
+    content: '';
+    position: absolute;
+    left: 0.85em;
+    right: 0.85em;
+    bottom: 0.15em;
+    height: 2px;
+    background: var(--green-500);
+    border-radius: 1px;
+  }
+
+  /* ── Dropdown panelleri ── */
+  .sub {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    translate: -50% 8px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: var(--sp-5);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity var(--dur) var(--ease-out),
+      translate var(--dur) var(--ease-out),
+      visibility 0s linear var(--dur);
+  }
+
+  .sub::before {
+    /* hover köprüsü — panelle buton arası boşluk */
+    content: '';
+    position: absolute;
+    inset: -12px 0 auto;
+    height: 12px;
+  }
+
+  .nav-item.has-sub:hover .sub,
+  .nav-item.has-sub:focus-within .sub {
+    opacity: 1;
+    visibility: visible;
+    translate: -50% 0;
+    transition-delay: 0s;
+  }
+
+  .sub--mega {
+    display: grid;
+    grid-template-columns: repeat(2, 16rem);
+    gap: var(--sp-6);
+  }
+
+  .sub--grid {
+    display: grid;
+    grid-template-columns: repeat(2, 13rem);
+    gap: var(--sp-1) var(--sp-5);
+  }
+
+  .sub-group {
+    display: grid;
+    gap: var(--sp-1);
+    align-content: start;
+  }
+
+  .sub-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    padding: 0 0.75rem 0.5rem;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: var(--sp-2);
+  }
+
+  .sub-link {
+    display: grid;
+    gap: 1px;
+    padding: 0.55rem 0.75rem;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: background-color var(--dur) var(--ease-out);
+  }
+
+  .sub-link:hover {
+    background: var(--steel-50);
+  }
+
+  .sub-label {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--navy-800);
+  }
+
+  .sub-link:hover .sub-label {
+    color: var(--accent-ink);
+  }
+
+  .sub-desc {
+    font-size: var(--text-xs);
+    color: var(--ink-faint);
+  }
+
+  .sub-link[aria-current] .sub-label {
+    color: var(--accent-ink);
+  }
+
+  /* ── Sağ aksiyonlar ── */
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+    flex-shrink: 0;
+  }
+
+  .header-phone {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--ink-soft);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .header-phone:hover {
+    color: var(--accent-ink);
+  }
+
+  /* ── Mobil ── */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .nav-toggle span {
+    display: block;
+    height: 2px;
+    background: var(--navy-800);
+    border-radius: 1px;
+    transition: transform var(--dur) var(--ease-out), opacity var(--dur) var(--ease-out);
+  }
+
+  .nav-toggle[aria-expanded='true'] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav-toggle[aria-expanded='true'] span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle[aria-expanded='true'] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .mobile-panel {
+    display: none;
+  }
+
+  @media (max-width: 1099px) {
+    .nav,
+    .header-phone {
+      display: none;
+    }
+
+    .nav-toggle {
+      display: flex;
+    }
+
+    .mobile-panel {
+      display: block;
+      position: fixed;
+      inset: var(--header-h) 0 0;
+      background: var(--paper);
+      padding: var(--sp-5) var(--gutter) var(--sp-8);
+      overflow-y: auto;
+      z-index: var(--z-header);
+    }
+
+    .mobile-panel[hidden] {
+      display: none;
+    }
+
+    .mobile-panel details {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mobile-panel summary {
+      padding: 1rem 0;
+      font-family: var(--font-display);
+      font-variation-settings: 'wdth' 110;
+      font-weight: 600;
+      font-size: var(--text-md);
+      color: var(--navy-800);
+      cursor: pointer;
+      list-style: none;
+      position: relative;
+    }
+
+    .mobile-panel summary::after {
+      content: '+';
+      position: absolute;
+      right: 0.25rem;
+      font-family: var(--font-mono);
+      color: var(--accent-ink);
+    }
+
+    .mobile-panel details[open] summary::after {
+      content: '−';
+    }
+
+    .mp-links {
+      display: grid;
+      padding-bottom: var(--sp-4);
+    }
+
+    .mp-links a {
+      padding: 0.55rem 0.75rem;
+      color: var(--ink-soft);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+    }
+
+    .mp-links a:hover {
+      background: var(--steel-50);
+      color: var(--navy-800);
+    }
+
+    .mp-direct {
+      display: block;
+      padding: 1rem 0;
+      font-family: var(--font-display);
+      font-variation-settings: 'wdth' 110;
+      font-weight: 600;
+      font-size: var(--text-md);
+      color: var(--navy-800);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mp-contact {
+      display: grid;
+      gap: var(--sp-3);
+      margin-top: var(--sp-6);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .header-cta {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const header = document.getElementById('site-header')!;
+  const toggle = header.querySelector<HTMLButtonElement>('.nav-toggle')!;
+  const panel = document.getElementById('mobile-panel')!;
+
+  /* kaydırınca gölge */
+  const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* mobil menü */
+  toggle.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    toggle.setAttribute('aria-label', open ? 'Menüyü aç' : 'Menüyü kapat');
+    panel.hidden = open;
+    document.documentElement.style.overflow = open ? '' : 'hidden';
+  });
+
+  /* dokunmatikte dropdown: ilk dokunuş açar */
+  header.querySelectorAll<HTMLButtonElement>('.has-sub > .nav-link').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      header
+        .querySelectorAll('.has-sub > .nav-link')
+        .forEach((b) => b.setAttribute('aria-expanded', 'false'));
+      btn.setAttribute('aria-expanded', String(!expanded));
+    });
+  });
+</script>

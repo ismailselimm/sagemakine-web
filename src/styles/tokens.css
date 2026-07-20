@@ -1,0 +1,113 @@
+/* ============================================================
+   SAGE Makine — Design Tokens
+   Estetik: "Hassas Mühendislik" — lacivert + çelik + tek yeşil vurgu
+   ============================================================ */
+
+:root {
+  /* ── Renk: marka paleti (logodan) ─────────────────────────── */
+  --navy-950: #0a1220;
+  --navy-900: #0f1c2e;
+  --navy-800: #16283f; /* marka laciverti */
+  --navy-700: #1e3a5f;
+  --navy-600: #2a4a73;
+
+  --steel-700: #3d4c5a;
+  --steel-500: #5f7080;
+  --steel-400: #8494a2;
+  --steel-300: #aab6c1;
+  --steel-200: #cbd3db;
+  --steel-100: #e4e9ed;
+  --steel-50: #f2f5f7;
+
+  --green-700: #567f20;
+  --green-600: #689426;
+  --green-500: #7aab35; /* marka yeşili */
+  --green-400: #8fc24a;
+  --green-100: #eaf3dc;
+
+  --paper: #fafbfc;
+  --white: #ffffff;
+
+  /* ── Semantik ─────────────────────────────────────────────── */
+  --bg: var(--paper);
+  --bg-raised: var(--white);
+  --bg-sunken: var(--steel-50);
+  --ink: #14202f;
+  --ink-soft: #46586a;
+  --ink-faint: #6e8092;
+  --line: #dce3e9;
+  --line-strong: var(--steel-200);
+  --accent: var(--green-500);
+  --accent-strong: var(--green-600);
+  --accent-ink: #4a6e1b; /* açık zeminde okunur yeşil metin */
+
+  /* ── Tipografi ────────────────────────────────────────────── */
+  --font-display: 'Archivo Variable', 'Archivo', 'Avenir Next', sans-serif;
+  --font-body: 'IBM Plex Sans', 'Helvetica Neue', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SF Mono', 'Menlo', monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.0625rem;
+  --text-lg: clamp(1.125rem, 1.05rem + 0.4vw, 1.3125rem);
+  --text-xl: clamp(1.375rem, 1.2rem + 0.9vw, 1.75rem);
+  --text-2xl: clamp(1.625rem, 1.35rem + 1.4vw, 2.375rem);
+  --text-3xl: clamp(2.125rem, 1.6rem + 2.6vw, 3.375rem);
+  --text-hero: clamp(2.5rem, 1.7rem + 4vw, 4.5rem);
+  --text-giant: clamp(3.25rem, 2.2rem + 5.5vw, 6rem); /* dev stat rakamları */
+
+  /* Display kesimi: Archivo variable genişlik ekseni */
+  --wdth-display: 118; /* hafif expanded — işlenmiş metal hissi */
+  --wdth-wide: 125;
+
+  /* ── Boşluk & yerleşim ────────────────────────────────────── */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+  --sp-9: 6rem;
+  --section-y: clamp(4rem, 3rem + 5vw, 7.5rem);
+  --container: 74rem;
+  --container-wide: 86rem;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --header-h: 4.5rem;
+
+  /* ── Biçim ────────────────────────────────────────────────── */
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgb(15 28 46 / 0.06), 0 1px 3px rgb(15 28 46 / 0.08);
+  --shadow-md: 0 3px 8px rgb(15 28 46 / 0.07), 0 8px 24px rgb(15 28 46 / 0.09);
+  --shadow-lg: 0 6px 16px rgb(15 28 46 / 0.1), 0 20px 48px rgb(15 28 46 / 0.14);
+  --shadow-green: 0 4px 16px rgb(122 171 53 / 0.35);
+
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.3, 0.5, 1);
+  --dur: 0.3s;
+  --dur-slow: 0.6s;
+
+  --z-header: 100;
+  --z-fab: 90;
+  --z-overlay: 200;
+}
+
+/* Koyu bant kapsamı — section'a .band-dark verildiğinde semantikler döner */
+.band-dark {
+  --bg: var(--navy-900);
+  --bg-raised: var(--navy-800);
+  --bg-sunken: var(--navy-950);
+  --ink: #eef3f7;
+  --ink-soft: #b9c6d2;
+  --ink-faint: #8ba0b4;
+  --line: rgb(255 255 255 / 0.12);
+  --line-strong: rgb(255 255 255 / 0.2);
+  --accent-ink: var(--green-400);
+  color: var(--ink);
+}

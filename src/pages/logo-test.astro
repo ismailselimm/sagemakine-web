@@ -1,0 +1,20 @@
+---
+import Logo from '../components/Logo.astro';
+import '../styles/tokens.css';
+import '../styles/global.css';
+---
+
+<html lang="tr">
+  <head><meta charset="utf-8" /><title>logo test</title></head>
+  <body style="margin:0">
+    <div id="light" style="background:#fafbfc;padding:40px">
+      <Logo height={160} />
+    </div>
+    <div id="dark" style="background:#0f1c2e;padding:40px">
+      <Logo variant="dark" height={160} />
+    </div>
+    <div style="padding:40px;background:#e4e9ed">
+      <img src="/brand-ref.jpg" alt="orijinal" style="width:640px" />
+    </div>
+  </body>
+</html>
