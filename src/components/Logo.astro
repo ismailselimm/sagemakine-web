@@ -44,6 +44,11 @@ const wmW = Math.round(wmH * wmRatio);
     gap: 0.3em;
   }
 
+  /* wordmark'ı ikonun optik merkezine oturt (bir tık aşağı) */
+  .sage-lockup > :global(img:last-of-type) {
+    translate: 0 7%;
+  }
+
   .sage-lockup--chip {
     background: #ffffff;
     padding: 12px 18px;
