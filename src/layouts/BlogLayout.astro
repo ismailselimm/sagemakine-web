@@ -5,37 +5,38 @@
  * Gövde: yalnızca prose HTML (h2, h3, p, ul, ol, table, blockquote, a).
  */
 import { Image } from 'astro:assets';
-import type { ImageMetadata } from 'astro';
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { SITE } from '../data/site';
 import { YAZILAR } from '../data/blog';
 
-/* kapaklar merkezi veriden çözülür — yazı dosyaları görselle uğraşmaz */
-const covers = import.meta.glob<{ default: ImageMetadata }>('../assets/blog/*.png', {
-  eager: true,
-});
-
 interface Props {
   title: string; // <title> + og
   description: string;
   path: string; // /blog/slug/
-  h1: string;
   lead: string;
-  kategori: string;
   tarih: string; // ISO: 2026-07-20
-  okumaDk: number;
+  /* h1/kategori/okumaDk data/blog.ts'ten gelir; gerekirse override edilebilir */
+  h1?: string;
+  kategori?: string;
+  okumaDk?: number;
   waTopic?: string;
   /** ek JSON-LD (ör. FAQPage) */
   jsonLd?: Record<string, unknown>[];
 }
 
-const { title, description, path, h1, lead, kategori, tarih, okumaDk, waTopic = 'Makineleriniz', jsonLd = [] } = Astro.props;
+const props = Astro.props;
+const { title, description, path, lead, tarih, waTopic = 'Makineleriniz', jsonLd = [] } = props;
 
 const slug = path.replace(/^\/blog\//, '').replace(/\/$/, '');
 const meta = YAZILAR.find((y) => y.slug === slug);
-const cover = meta ? covers[`../assets/blog/${meta.cover}.png`]?.default : undefined;
+if (!meta) throw new Error(`data/blog.ts kaydı eksik: ${slug}`);
+
+const h1 = props.h1 ?? meta.baslik;
+const kategori = props.kategori ?? meta.kategori;
+const okumaDk = props.okumaDk ?? meta.dk;
+const cover = meta.cover;
 
 const breadcrumbs = [
   { name: 'Blog', path: '/blog/' },
@@ -84,19 +85,17 @@ const articleLd = {
     </header>
 
     <div class="container container--narrow">
-      {
-        cover && (
-          <figure class="post-cover">
-            <Image
-              src={cover}
-              alt={meta?.coverAlt ?? ''}
-              widths={[640, 960, 1400]}
-              sizes="(max-width: 800px) 100vw, 46rem"
-              loading="eager"
-            />
-          </figure>
-        )
-      }
+      <figure class="post-cover">
+        <Image
+          src={cover}
+          alt={meta.coverAlt}
+          width={1400}
+          widths={[420, 640, 960, 1400]}
+          sizes="(max-width: 800px) 100vw, 46rem"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </figure>
       <div class="prose">
         <slot />
       </div>

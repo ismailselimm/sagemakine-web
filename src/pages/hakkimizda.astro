@@ -385,45 +385,8 @@ const kriterler = [
     flex-shrink: 0;
   }
 
-  .adim-list {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: var(--sp-5);
-    list-style: none;
-    padding: 0;
-    margin-top: var(--sp-6);
-    counter-reset: none;
-  }
-
-  .adim {
-    display: grid;
-    gap: var(--sp-3);
-    align-content: start;
-    background: var(--bg-raised);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    padding: var(--sp-5);
-  }
-
-  .adim-no {
-    font-family: var(--font-mono);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--accent-ink);
-  }
-
-  .adim h3 {
-    font-size: var(--text-md);
-  }
-
-  .adim p {
-    font-size: var(--text-sm);
-    color: var(--ink-faint);
-  }
-
   @media (max-width: 1000px) {
-    .acilim-grid,
-    .adim-list {
+    .acilim-grid {
       grid-template-columns: 1fr 1fr;
     }
   }
@@ -437,7 +400,6 @@ const kriterler = [
 
   @media (max-width: 560px) {
     .acilim-grid,
-    .adim-list,
     .manisa-stats {
       grid-template-columns: 1fr;
     }

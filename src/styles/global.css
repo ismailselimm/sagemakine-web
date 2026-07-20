@@ -477,7 +477,9 @@ html.js .reveal.is-visible {
   margin-top: var(--sp-6);
 }
 
-.tip-card {
+.tip-card,
+.post-card,
+.teaser-card {
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -539,6 +541,80 @@ html.js .reveal.is-visible {
 .tip-card:hover .tip-link {
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+/* ── Kart medya alanı: oran + hover yakınlaşma (sektor/teaser/post) ── */
+.card-media {
+  aspect-ratio: var(--media-ratio, 16 / 9);
+  overflow: hidden;
+}
+
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+
+:where(a, .card):hover .card-media img {
+  transform: scale(1.04);
+}
+
+/* ── Mono etiket (kategori · süre, sektör alt başlığı) ─────── */
+.mono-tag {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+}
+
+/* ── Süreç/adım kartları (ana sayfa + hakkımızda) ───────────── */
+.adim-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--sp-5);
+  list-style: none;
+  padding: 0;
+  margin-top: var(--sp-6);
+}
+
+.adim {
+  display: grid;
+  gap: var(--sp-2);
+  align-content: start;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: var(--sp-5);
+}
+
+.adim-no {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--accent-ink);
+}
+
+.adim h3 {
+  font-size: var(--text-md);
+}
+
+.adim p {
+  font-size: var(--text-sm);
+  color: var(--ink-faint);
+}
+
+@media (max-width: 1000px) {
+  .adim-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .adim-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ── Koyu bant kartı + bandı ────────────────────────────────── */

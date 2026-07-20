@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CtaBand from '../components/CtaBand.astro';
 import Icon from '../components/Icon.astro';
 import { SITE, CONTACT, SECTORS } from '../data/site';
-import { YAZILAR, ONE_CIKANLAR } from '../data/blog';
+import { ONE_CIKAN_YAZILAR } from '../data/blog';
 
 import heroImg from '../assets/photos/hero-color-sorter-hall.png';
 import xrayScan from '../assets/photos/tech-xray-goruntu.png';
@@ -66,13 +66,6 @@ const stats = [
   { stat: '2', unit: 'Teknoloji', label: 'Optik + X-Ray, tek çözüm ortağı' },
   { stat: '81', unit: 'İl', label: "Manisa'dan tüm Türkiye'ye satış, kurulum, servis" },
 ];
-
-/* blog vitrini */
-const oneCikanYazilar = ONE_CIKANLAR.map((slug) => YAZILAR.find((y) => y.slug === slug)!).filter(Boolean);
-const blogCovers = import.meta.glob<{ default: ImageMetadata }>('../assets/blog/*.png', {
-  eager: true,
-});
-const coverOf = (name: string) => blogCovers[`../assets/blog/${name}.png`]?.default;
 
 /* süreç şeridi */
 const surec = [
@@ -270,7 +263,7 @@ const nedenler = [
               class="sector-card reveal"
               style={`--reveal-delay:${(i % 3) * 0.09}s`}
             >
-              <div class="sector-img">
+              <div class="card-media">
                 <Image
                   src={sectorImages[s.image]}
                   alt={s.title}
@@ -280,7 +273,7 @@ const nedenler = [
               </div>
               <div class="sector-body">
                 <h3>{s.title}</h3>
-                <p class="sector-sub">{s.sub}</p>
+                <p class="mono-tag">{s.sub}</p>
                 <p class="sector-hook">{s.hook}</p>
                 <span class="sector-cta">
                   İncele <Icon name="arrow" size={15} />
@@ -364,14 +357,14 @@ const nedenler = [
     <div class="container container--wide">
       <p class="eyebrow reveal">Nasıl Çalışıyoruz?</p>
       <div class="sec-head reveal">
-        <h2>Katalogdan Değil, İhtiyaçtan Başlarız</h2>
-        <p>Beş adımlık netlik: karar vermeden önce makineyi işinin başında görürsünüz.</p>
+        <h2>Beş Adımda Doğru Makine</h2>
+        <p>Karar vermeden önce makineyi iş başında görürsünüz.</p>
       </div>
-      <ol class="surec-strip">
+      <ol class="adim-list">
         {
           surec.map((a, i) => (
-            <li class="surec-adim reveal" style={`--reveal-delay:${i * 0.07}s`}>
-              <span class="surec-no">{a.no}</span>
+            <li class="adim reveal" style={`--reveal-delay:${i * 0.07}s`}>
+              <span class="adim-no">{a.no}</span>
               <h3>{a.baslik}</h3>
               <p>{a.text}</p>
             </li>
@@ -443,22 +436,17 @@ const nedenler = [
       </div>
       <div class="teaser-grid">
         {
-          oneCikanYazilar.map((y, i) => {
-            const cover = coverOf(y.cover);
-            return (
+          ONE_CIKAN_YAZILAR.map((y, i) => (
               <a href={`/blog/${y.slug}/`} class="teaser-card card reveal" style={`--reveal-delay:${i * 0.08}s`}>
-                {cover && (
-                  <div class="teaser-cover">
-                    <Image src={cover} alt={y.coverAlt} widths={[420, 640]} sizes="(max-width: 640px) 100vw, 30vw" />
-                  </div>
-                )}
+                <div class="card-media">
+                  <Image src={y.cover} alt={y.coverAlt} width={640} widths={[420, 640, 900]} sizes="(max-width: 1000px) 100vw, 30vw" />
+                </div>
                 <div class="teaser-body">
-                  <p class="teaser-kat">{y.kategori} · {y.dk} dk</p>
+                  <p class="mono-tag">{y.kategori} · {y.dk} dk</p>
                   <h3>{y.baslik}</h3>
                 </div>
               </a>
-            );
-          })
+          ))
         }
       </div>
     </div>
@@ -877,22 +865,6 @@ const nedenler = [
     box-shadow: var(--shadow-lg);
   }
 
-  .sector-img {
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-  }
-
-  .sector-img :global(img) {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform var(--dur-slow) var(--ease-out);
-  }
-
-  .sector-card:hover .sector-img :global(img) {
-    transform: scale(1.05);
-  }
-
   .sector-body {
     display: grid;
     gap: var(--sp-2);
@@ -901,13 +873,6 @@ const nedenler = [
 
   .sector-body h3 {
     font-size: var(--text-xl);
-  }
-
-  .sector-sub {
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    letter-spacing: 0.1em;
-    color: var(--accent-ink);
   }
 
   .sector-hook {
@@ -996,43 +961,6 @@ const nedenler = [
     flex-shrink: 0;
   }
 
-  /* ── Süreç şeridi ── */
-  .surec-strip {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: var(--sp-5);
-    list-style: none;
-    padding: 0;
-    counter-reset: none;
-  }
-
-  .surec-adim {
-    position: relative;
-    background: var(--bg-raised);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    padding: var(--sp-5);
-    display: grid;
-    gap: var(--sp-2);
-    align-content: start;
-  }
-
-  .surec-no {
-    font-family: var(--font-mono);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--accent-ink);
-  }
-
-  .surec-adim h3 {
-    font-size: var(--text-md);
-  }
-
-  .surec-adim p {
-    font-size: var(--text-sm);
-    color: var(--ink-faint);
-  }
-
   /* ── Blog vitrini ── */
   .teaser-grid {
     display: grid;
@@ -1040,40 +968,10 @@ const nedenler = [
     gap: var(--sp-5);
   }
 
-  .teaser-card {
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-  }
-
-  .teaser-cover {
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-  }
-
-  .teaser-cover :global(img) {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform var(--dur-slow) var(--ease-out);
-  }
-
-  .teaser-card:hover .teaser-cover :global(img) {
-    transform: scale(1.04);
-  }
-
   .teaser-body {
     padding: var(--sp-5);
     display: grid;
     gap: var(--sp-2);
-  }
-
-  .teaser-kat {
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--accent-ink);
   }
 
   .teaser-card h3 {
@@ -1122,7 +1020,7 @@ const nedenler = [
     cursor: pointer;
     list-style: none;
     position: relative;
-    padding-right: 2rem;
+    padding-right: var(--sp-6);
   }
 
   .sss-item summary::-webkit-details-marker {
@@ -1132,7 +1030,7 @@ const nedenler = [
   .sss-item summary::after {
     content: '+';
     position: absolute;
-    right: 0.25rem;
+    right: var(--sp-1);
     top: 50%;
     translate: 0 -50%;
     font-family: var(--font-mono);
@@ -1229,9 +1127,6 @@ const nedenler = [
     .stats {
       grid-template-columns: 1fr 1fr;
     }
-    .surec-strip {
-      grid-template-columns: repeat(2, 1fr);
-    }
     .teaser-grid {
       grid-template-columns: 1fr;
     }
@@ -1276,9 +1171,6 @@ const nedenler = [
     .stat + .stat {
       border-top: 1px solid var(--line);
       padding-top: var(--sp-5);
-    }
-    .surec-strip {
-      grid-template-columns: 1fr;
     }
     .servis-list {
       grid-template-columns: 1fr;

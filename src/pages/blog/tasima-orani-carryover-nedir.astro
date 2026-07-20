@@ -1,18 +1,40 @@
 ---
 import BlogLayout from '../../layouts/BlogLayout.astro';
+
+/* SSS — tek kaynak: gövde ve FAQPage şeması buradan türetilir */
+const faq = [
+  {
+    q: `Taşıma oranı sıfır olabilir mi?`,
+    a: `Hayır. Hava jeti tek bir taneyi değil küçük bir bölgeyi etkilediği ve taneler akış içinde birbirine komşu düştüğü için bir miktar sağlam ürün her zaman ıskartaya karışır. Kaliteli ejektör, dengeli besleme ve ikinci geçiş kurgusuyla oran ciddi biçimde düşürülür; ancak fiziksel olarak sıfırlanamaz. Sıfır taşıma oranı vadeden bir tedarikçiye temkinli yaklaşmakta fayda vardır.`,
+  },
+  {
+    q: `Doğrulukla taşıma oranı arasındaki fark nedir?`,
+    a: `Doğruluk, kusurlu tanelerin ve yabancı maddelerin ne kadarının yakalandığını gösterir; taşıma oranı ise bu yakalama sırasında kaç sağlam tanenin kusurlularla birlikte ıskartaya gittiğini gösterir. Biri kalitenizi, diğeri verimliliğinizi ölçer. Yüksek doğruluk tek başına iyi bir makine anlamına gelmez; iki değer mutlaka birlikte değerlendirilmelidir.`,
+  },
+  {
+    q: `Hangi ürünlerde taşıma oranı daha yüksek olur?`,
+    a: `Küçük ve hafif taneli ürünlerde taneler birbirine daha yakın aktığı ve hava jetinden daha kolay etkilendiği için taşıma oranı genellikle daha yüksektir. Ayrıca kusur oranı yüksek partilerde ejektörler daha sık ateşlendiğinden sürüklenen sağlam tane miktarı da artar. Bu yüzden ölçüm her zaman kendi ürününüz ve kendi giriş kalitenizle yapılmalıdır.`,
+  }
+];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q.replace(/<[^>]+>/g, ''),
+    acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') },
+  })),
+};
 ---
 
 <BlogLayout
   title="Taşıma Oranı (Carryover) Nedir? Gizli Fire Rehberi | SAGE Makine"
   description="Taşıma oranı (carryover), ıskartaya kusurlu taneyle birlikte kaçan sağlam üründür. Gizli fireyi nasıl ölçer, hangi yöntemlerle düşürürsünüz? Pratik rehber."
   path="/blog/tasima-orani-carryover-nedir/"
-  h1="Taşıma Oranı (Carryover) Nedir? Gizli Fireyi Hesaplayın"
   lead="Renk ayırma makinesi karşılaştırırken herkes doğruluk yüzdesine bakar; oysa kârınızı sessizce eriten asıl değer çoğu zaman broşürde hiç yazmaz. Iskartaya kusurlu taneyle birlikte savrulan sağlam ürün, yani taşıma oranı, yıllar içinde ciddi bir gizli fire kalemine dönüşür. Bu yazıda taşıma oranının neden kaçınılmaz olduğunu, nasıl ölçüldüğünü ve nasıl düşürüldüğünü anlatıyoruz."
-  kategori="Teknoloji"
   tarih="2026-07-20"
-  okumaDk={6}
   waTopic="Taşıma oranı ve numune testi"
-  jsonLd={[{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [{ '@type': 'Question', name: 'Taşıma oranı sıfır olabilir mi?', acceptedAnswer: { '@type': 'Answer', text: 'Hayır. Hava jeti tek bir taneyi değil küçük bir bölgeyi etkilediği ve taneler akış içinde birbirine komşu düştüğü için bir miktar sağlam ürün her zaman ıskartaya karışır. Kaliteli ejektör, dengeli besleme ve ikinci geçiş kurgusuyla oran ciddi biçimde düşürülür; ancak fiziksel olarak sıfırlanamaz. Sıfır taşıma oranı vadeden bir tedarikçiye temkinli yaklaşmakta fayda vardır.' } }, { '@type': 'Question', name: 'Doğrulukla taşıma oranı arasındaki fark nedir?', acceptedAnswer: { '@type': 'Answer', text: 'Doğruluk, kusurlu tanelerin ve yabancı maddelerin ne kadarının yakalandığını gösterir; taşıma oranı ise bu yakalama sırasında kaç sağlam tanenin kusurlularla birlikte ıskartaya gittiğini gösterir. Biri kalitenizi, diğeri verimliliğinizi ölçer. Yüksek doğruluk tek başına iyi bir makine anlamına gelmez; iki değer mutlaka birlikte değerlendirilmelidir.' } }, { '@type': 'Question', name: 'Hangi ürünlerde taşıma oranı daha yüksek olur?', acceptedAnswer: { '@type': 'Answer', text: 'Küçük ve hafif taneli ürünlerde taneler birbirine daha yakın aktığı ve hava jetinden daha kolay etkilendiği için taşıma oranı genellikle daha yüksektir. Ayrıca kusur oranı yüksek partilerde ejektörler daha sık ateşlendiğinden sürüklenen sağlam tane miktarı da artar. Bu yüzden ölçüm her zaman kendi ürününüz ve kendi giriş kalitenizle yapılmalıdır.' } }] }]}
+  jsonLd={[faqLd]}
 >
   <h2>Taşıma Oranı Nedir?</h2>
   <p>Bir <a href="/renk-ayirma-makinesi/">renk ayırma makinesi</a> kusurlu bir taneyi ya da yabancı maddeyi tespit ettiğinde, onu ürün akışından kısa bir hava jeti darbesiyle uzaklaştırır. Sorun şu ki bu darbe cerrahi bir nokta atışı değildir: jet milisaniyeler içinde ateşlenir ve tek bir taneyi değil, küçük bir bölgeyi etkiler. Kusurlu tanenin hemen yanında düşen sağlam taneler de bu darbeden nasibini alır ve ıskarta kanalına savrulur. Kusurluyla birlikte ıskartaya giden bu sağlam ürün miktarına taşıma oranı (İngilizce kaynaklarda carryover) denir.</p>
@@ -31,20 +53,22 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
   </ul>
 
   <h2>Taşıma Oranı Nasıl Ölçülür?</h2>
-  <p>Ölçüm için laboratuvar gerekmez. Makine normal koşullarında çalışırken ıskarta kanalından temsilî bir numune alın; içindeki sağlam ve kusurlu taneleri elinizle ayırıp sayın veya tartın. Elde ettiğiniz iyi : kötü oranı, o makinenin o üründeki taşıma performansının en dürüst göstergesidir. Ölçümü farklı saatlerde ve farklı partilerle tekrarlamak, tek seferlik iyimser ya da kötümser bir sonuca aldanmanızı önler.</p>
-  <p>Teklif aşamasındaysanız aynı değeri yazılı olarak isteyin: kendi ürününüzde, kendi giriş kalitenizde ve hedeflediğiniz temizlik seviyesinde beklenen iyi : kötü oranı teklifte açıkça yer almalıdır. Genel bir katalog değeri değil, sizin numunenizle yapılmış bir test sonucu istemek en sağlıklısıdır; çünkü aynı makine nohutta başka, kuru kayısıda başka davranır.</p>
+  <p>Ölçüm için laboratuvar gerekmez. Makine normal koşullarında çalışırken ıskarta kanalından temsili bir numune alın; içindeki sağlam ve kusurlu taneleri elinizle ayırıp sayın veya tartın. Elde ettiğiniz iyi/kötü oranı, o makinenin o üründeki taşıma performansının en dürüst göstergesidir. Ölçümü farklı saatlerde ve farklı partilerle tekrarlamak, tek seferlik iyimser ya da kötümser bir sonuca aldanmanızı önler.</p>
+  <p>Teklif aşamasındaysanız aynı değeri yazılı olarak isteyin: kendi ürününüzde, kendi giriş kalitenizde ve hedeflediğiniz temizlik seviyesinde beklenen iyi/kötü oranı teklifte açıkça yer almalıdır. Genel bir katalog değeri değil, sizin numunenizle yapılmış bir test sonucu istemek en sağlıklısıdır; çünkü aynı makine nohutta başka, kuru kayısıda başka davranır.</p>
 
   <h2>İkinci Geçiş Ekonomisi: Kaybı Geri Kazanmak</h2>
   <p>Taşıma oranı sıfırlanamadığına göre akıllıca yaklaşım, ıskartaya kaçan sağlam ürünü geri kazanmaktır. Bunun yolu ikinci geçiştir: ilk ayırmadan çıkan ıskarta, ya aynı makinenin ayrılmış bir kanalından ya da ikinci bir makineden bir kez daha geçirilir. İkinci geçişte besleme yoğunluğu doğal olarak çok daha düşük olduğundan makine çok daha rahat çalışır; ıskartanın içindeki sağlam taneler büyük ölçüde geri kazanılır, geriye kalan ise gerçekten atılması gereken kusurlu ürün ve yabancı maddedir.</p>
   <p>Bu kurgu, özellikle Antep fıstığı ve kuru kayısı gibi birim değeri yüksek ürünlerde kendini hızla amorti eder; çünkü geri kazanılan her tane doğrudan satılabilir ürün hanesine yazılır. Hat tasarımı yapılırken ikinci geçişin baştan planlanması, sonradan eklemeye çalışmaktan hem daha ucuz hem daha verimlidir.</p>
 
   <h2>Sık Sorulan Sorular</h2>
-  <h3>Taşıma oranı sıfır olabilir mi?</h3>
-  <p>Hayır. Hava jeti tek bir taneyi değil küçük bir bölgeyi etkilediği ve taneler akış içinde birbirine komşu düştüğü için bir miktar sağlam ürün her zaman ıskartaya karışır. Kaliteli ejektör, dengeli besleme ve ikinci geçiş kurgusuyla oran ciddi biçimde düşürülür; ancak fiziksel olarak sıfırlanamaz. Sıfır taşıma oranı vadeden bir tedarikçiye temkinli yaklaşmakta fayda vardır.</p>
-  <h3>Doğrulukla taşıma oranı arasındaki fark nedir?</h3>
-  <p>Doğruluk, kusurlu tanelerin ve yabancı maddelerin ne kadarının yakalandığını gösterir; taşıma oranı ise bu yakalama sırasında kaç sağlam tanenin kusurlularla birlikte ıskartaya gittiğini gösterir. Biri kalitenizi, diğeri verimliliğinizi ölçer. Yüksek doğruluk tek başına iyi bir makine anlamına gelmez; iki değer mutlaka birlikte değerlendirilmelidir.</p>
-  <h3>Hangi ürünlerde taşıma oranı daha yüksek olur?</h3>
-  <p>Küçük ve hafif taneli ürünlerde taneler birbirine daha yakın aktığı ve hava jetinden daha kolay etkilendiği için taşıma oranı genellikle daha yüksektir. Ayrıca kusur oranı yüksek partilerde ejektörler daha sık ateşlendiğinden sürüklenen sağlam tane miktarı da artar. Bu yüzden ölçüm her zaman kendi ürününüz ve kendi giriş kalitenizle yapılmalıdır.</p>
+  {
+    faq.map((f) => (
+      <Fragment>
+        <h3 set:html={f.q} />
+        <p set:html={f.a} />
+      </Fragment>
+    ))
+  }
 
   <p><strong>SAGE Makine yaklaşımı:</strong> Numune testlerimizde yalnızca ayırma doğruluğuna bakmayız; ıskartayı birlikte açar, içindeki sağlam taneleri birlikte sayar ve taşıma oranını sizin ürününüz üzerinde ölçeriz. Numunenizi gönderin, sonucu yazılı bir teklifle önünüze koyalım; sorularınız için <a href="/iletisim/">iletişim</a> sayfamızdan bize ulaşabilirsiniz.</p>
 </BlogLayout>
