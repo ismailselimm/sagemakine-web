@@ -1,0 +1,501 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Icon from '../../components/Icon.astro';
+import { SITE, CONTACT } from '../../data/site';
+import { SITE_EN, SECTORS_EN, whatsappQuoteEn } from '../../data/en/site';
+import { ONE_CIKAN_YAZILAR_EN } from '../../data/en/blog';
+import '../../styles/home.css';
+
+import heroImg from '../../assets/photos/hero-color-sorter-hall.png';
+import xrayScan from '../../assets/photos/tech-xray-goruntu.png';
+import olukSorter from '../../assets/photos/machine-oluk-sorter.png';
+import xrayPaketli from '../../assets/photos/machine-xray-paketli.png';
+import teknisyen from '../../assets/photos/servis-teknisyen.png';
+
+import uzum from '../../assets/photos/sector-kuru-uzum.png';
+import findik from '../../assets/photos/sector-kuruyemis-findik.png';
+import fistik from '../../assets/photos/sector-antep-fistigi.png';
+import mercimek from '../../assets/photos/sector-bakliyat-mercimek.png';
+import iqf from '../../assets/photos/sector-iqf.png';
+import patates from '../../assets/photos/sector-patates.png';
+
+const sectorImages: Record<string, ImageMetadata> = {
+  'sector-kuru-uzum': uzum,
+  'sector-kuruyemis-findik': findik,
+  'sector-antep-fistigi': fistik,
+  'sector-bakliyat-mercimek': mercimek,
+  'sector-iqf': iqf,
+  'sector-patates': patates,
+};
+
+import type { ImageMetadata } from 'astro';
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': ['Organization', 'LocalBusiness'],
+    '@id': `${SITE.domain}/#organization`,
+    name: SITE.name,
+    legalName: SITE.legalName,
+    url: SITE.domain,
+    logo: `${SITE.domain}/favicon.svg`,
+    description: SITE_EN.description,
+    telephone: CONTACT.phoneHref.slice(4),
+    email: CONTACT.emailInfo,
+    slogan: SITE.tagline,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: CONTACT.address.street,
+      addressLocality: `${CONTACT.address.district}, ${CONTACT.address.city}`,
+      addressRegion: CONTACT.address.city,
+      addressCountry: 'TR',
+    },
+    areaServed: ['Manisa', 'İzmir', 'Aegean Region', 'Turkey'],
+    knowsAbout: [
+      'color sorter',
+      'color sorting machine',
+      'X-ray food inspection system',
+      'foreign material detection',
+    ],
+  },
+];
+
+/* pre → sayının önünde küçük etiket (up to 99%), unit → arkasında (22 Years) */
+const stats = [
+  { stat: '22', unit: 'Years', label: 'Industry experience — we know the product before the machine' },
+  { pre: 'up to', stat: '99%', label: 'Sorting accuracy, depending on product and defect' },
+  { stat: '2', unit: 'Technologies', label: 'Optical + X-ray, one solution partner' },
+  { stat: '81', unit: 'Provinces', label: 'Sales, installation, and service across Turkey from Manisa' },
+];
+
+/* süreç şeridi */
+const surec = [
+  { no: '01', baslik: 'Needs Analysis', text: 'We listen: your product, your defect profile, and your target quality.' },
+  { no: '02', baslik: 'Sample Testing', text: 'We sort your product on a real machine and review the results together.' },
+  { no: '03', baslik: 'Quotation', text: 'A clear quotation with the right series, a written warranty, and service terms.' },
+  { no: '04', baslik: 'Installation + Training', text: "Commissioning and operator training on the machine's Turkish-language interface." },
+  { no: '05', baslik: 'Service', text: 'We stay at your side with spare-parts stock and on-site service.' },
+];
+
+/* SSS */
+const sss = [
+  {
+    q: 'How does sample testing work?',
+    a: 'You send us a representative sample of a few kilograms; we sort it on a real machine and review the results with you — including reject quality and carryover (good product lost to the reject stream).',
+  },
+  {
+    q: 'Which products do you work with?',
+    a: 'Dried fruit (raisins, figs, apricots), nuts (hazelnuts, almonds, walnuts), pistachios, pulses, IQF frozen fruit and vegetables, and potato products are our core focus; we also offer solutions for similar granular foods.',
+  },
+  {
+    q: 'Do I need a license for an X-ray machine?',
+    a: 'Yes. In Turkey, X-ray-emitting devices are subject to licensing by the Turkish Nuclear Regulatory Authority (NDK); SAGE Makine handles the application and licensing process on your behalf.',
+  },
+  {
+    q: 'Are installation and operator training included in the price?',
+    a: 'Your quotation clearly itemizes installation, commissioning, and operator training as separate line items — no surprise costs later.',
+  },
+  {
+    q: 'How do service and spare parts work?',
+    a: 'Service is managed from our Manisa headquarters; critical parts such as ejector valves, cameras, and LED modules are kept in stock in Turkey. Many software issues are resolved via remote connection.',
+  },
+];
+
+jsonLd.push({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: sss.map((s) => ({
+    '@type': 'Question',
+    name: s.q,
+    acceptedAnswer: { '@type': 'Answer', text: s.a },
+  })),
+});
+
+const nedenler = [
+  {
+    icon: 'tecrube',
+    title: '22 Years of Industry Experience',
+    text: 'We knew the stems in sultana raisins, the aflatoxin in dried figs, and the shell fragments in hazelnuts before our customers did. We choose the machine to fit your product.',
+  },
+  {
+    icon: 'numune',
+    title: 'Sample Testing',
+    text: "Send us your product; we'll sort it and review the results together. See the machine do its job before you decide.",
+  },
+  {
+    icon: 'servis',
+    title: 'On-Site Service and Spare Parts',
+    text: 'Installation, operator training, and service run from our Manisa headquarters. Critical spare parts kept in stock in Turkey.',
+  },
+  {
+    icon: 'ihracat',
+    title: 'Export Compliance',
+    text: 'Ready for BRC, IFS, and HACCP audits: automatic record-keeping, traceability, and NDK licensing support for X-ray systems.',
+  },
+];
+---
+
+<BaseLayout
+  title="Color Sorter & X-Ray Food Inspection Machines | SAGE Makine"
+  description="Color sorters and X-ray inspection machines for dried fruit, nuts, and pulses. 22 years of experience — sales, installation, and service from Manisa."
+  path="/en/"
+  jsonLd={jsonLd}
+>
+  <!-- ══ HERO ══ -->
+  <section class="hero band-dark">
+    <div class="hero-bg" aria-hidden="true">
+      <Image
+        src={heroImg}
+        alt=""
+        widths={[768, 1200, 1600]}
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+        quality={62}
+      />
+      <div class="hero-scrim"></div>
+    </div>
+
+    <div class="container container--wide hero-in">
+      <p class="eyebrow hero-eyebrow">Color Sorting + X-Ray · Manisa, Turkey</p>
+      <h1>Down to the Last<br />Foreign Material in Your Product.</h1>
+      <p class="hero-lead">
+        X-ray food inspection and color sorting machines for dried fruit, nut, and pulse
+        processors. 22 years of industry experience — sales, installation, and service across
+        Turkey from our Manisa base.
+      </p>
+      <div class="hero-actions">
+        <a href={whatsappQuoteEn('your machines')} class="btn btn--primary btn--lg" target="_blank" rel="noopener">
+          Get a Quote
+        </a>
+        <a href="/en/color-sorter/" class="btn btn--outline btn--lg hero-ghost">Explore Our Machines</a>
+      </div>
+      <ul class="hero-chips" aria-label="Highlights">
+        <li><Icon name="check" size={15} /> Installation + operator training included</li>
+        <li><Icon name="check" size={15} /> Sample testing available</li>
+        <li><Icon name="check" size={15} /> On-site technical service</li>
+      </ul>
+    </div>
+
+    <!-- imza detay: canlı ayıklama simülasyonu -->
+    <span class="belt-label" aria-hidden="true">LIVE SORTING SIMULATION</span>
+    <div class="hero-belt" aria-hidden="true">
+      <div class="belt-track">
+        {
+          Array.from({ length: 26 }, (_, i) => {
+            // deterministik ama düzensiz görünen dağılım (Math.random yok — build stabil)
+            const d = 9.5 + ((i * 37) % 40) / 10; // 9.5–13.4s arası süre
+            const delay = -((i * 173) % 1500) / 100; // 0–15s arası negatif faz
+            const bad = i % 4 === 1; // her 4 taneden biri kusurlu — bol aksiyon
+            return (
+              <span
+                class:list={['belt-dot', { 'belt-dot--bad': bad }]}
+                style={`--d:${d.toFixed(1)}s; --delay:${delay.toFixed(2)}s`}
+              />
+            );
+          })
+        }
+        <span class="belt-scanner">
+          <span class="belt-beam"></span>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ STATS ══ -->
+  <section class="section--tight section stats-band">
+    <div class="container container--wide">
+      <dl class="stats">
+        {
+          stats.map((s, i) => (
+            <div class="stat reveal" style={`--reveal-delay:${i * 0.08}s`}>
+              <dt class="visually-hidden">{s.label}</dt>
+              <dd>
+                <span class="stat-num">
+                  {s.pre && <small>{s.pre}</small>}{s.stat}{s.unit && <small>{s.unit}</small>}
+                </span>
+                <span class="stat-label">{s.label}</span>
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </section>
+
+  <!-- ══ PROBLEM ══ -->
+  <section class="section">
+    <div class="container problem-grid">
+      <div class="problem-text">
+        <p class="eyebrow reveal">The Risk Is Real</p>
+        <h2 class="reveal">One Piece of Foreign Material<br />Can Cost You a Full Container</h2>
+        <p class="reveal" style="--reveal-delay:.08s">
+          Dried fruit and nuts rank among the product groups most frequently flagged at European
+          border controls. A single rejected shipment means returns, disposal, and lost customers.
+          Modern sorting technology is your insurance against that risk: cameras catch color and
+          shape defects, while X-ray sees stone, glass, and metal — even inside the product.
+        </p>
+        <a href="/en/x-ray-food-inspection/" class="text-link reveal" style="--reveal-delay:.14s">
+          What X-ray can and cannot see <Icon name="arrow" size={16} />
+        </a>
+      </div>
+      <figure class="problem-figure reveal" style="--reveal-delay:.1s">
+        <Image
+          src={xrayScan}
+          alt="Stone detected among hazelnuts in an X-ray scan image"
+          widths={[520, 800, 1100]}
+          sizes="(max-width: 900px) 100vw, 46vw"
+        />
+        <figcaption class="mono-cap">X-RAY IMAGE — DENSE OBJECT DETECTION</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ══ SEKTÖRLER ══ -->
+  <section class="section band-sunken">
+    <div class="container container--wide">
+      <p class="eyebrow reveal">Choose Your Industry</p>
+      <div class="sec-head reveal">
+        <h2>We Know Your Product</h2>
+        <p>Every product has its own defects. Pick your industry and let's talk about your line.</p>
+      </div>
+      <div class="sector-grid">
+        {
+          SECTORS_EN.map((s, i) => (
+            <a
+              href={`/en/industries/${s.slug}/`}
+              class="sector-card reveal"
+              style={`--reveal-delay:${(i % 3) * 0.09}s`}
+            >
+              <div class="card-media">
+                <Image
+                  src={sectorImages[s.image]}
+                  alt={s.title}
+                  widths={[420, 640, 900]}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 33vw"
+                />
+              </div>
+              <div class="sector-body">
+                <h3>{s.title}</h3>
+                <p class="mono-tag">{s.sub}</p>
+                <p class="sector-hook">{s.hook}</p>
+                <span class="sector-cta">
+                  Explore <Icon name="arrow" size={15} />
+                </span>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MAKİNELER ══ -->
+  <section class="section">
+    <div class="container container--wide">
+      <p class="eyebrow reveal">Our Machines</p>
+      <div class="sec-head reveal">
+        <h2>Two Technologies, One Solution Partner</h2>
+        <p>
+          Optical sorting sees color, shape, and shell; X-ray sees stone, glass, and metal. The
+          right setup is often a combination of the two — we design it with you, around your line.
+        </p>
+      </div>
+
+      <div class="machine-grid">
+        <a href="/en/color-sorter/" class="machine-card card reveal">
+          <div class="machine-img">
+            <Image
+              src={olukSorter}
+              alt="Chute-type color sorter"
+              widths={[560, 840, 1200]}
+              sizes="(max-width: 900px) 100vw, 46vw"
+            />
+          </div>
+          <div class="machine-body">
+            <p class="machine-tag mono-cap">COLOR SORTER</p>
+            <h3>Color Sorters</h3>
+            <p>
+              Full-color CCD and infrared cameras spot defective kernels and foreign material,
+              then remove them from the line with air ejectors. Available in chute-type and
+              belt-type configurations.
+            </p>
+            <ul class="machine-feats">
+              <li><Icon name="kamera" size={17} /> CCD + NIR cameras</li>
+              <li><Icon name="ejektor" size={17} /> Precision air ejectors</li>
+              <li><Icon name="yazilim" size={17} /> AI-assisted classification</li>
+            </ul>
+            <span class="sector-cta">Explore our color sorters <Icon name="arrow" size={15} /></span>
+          </div>
+        </a>
+
+        <a href="/en/x-ray-food-inspection/" class="machine-card card reveal" style="--reveal-delay:.1s">
+          <div class="machine-img">
+            <Image
+              src={xrayPaketli}
+              alt="X-ray food inspection machine"
+              widths={[560, 840, 1200]}
+              sizes="(max-width: 900px) 100vw, 46vw"
+            />
+          </div>
+          <div class="machine-body">
+            <p class="machine-tag mono-cap">X-RAY INSPECTION</p>
+            <h3>X-Ray Food Inspection Systems</h3>
+            <p>
+              Detects stone, glass, metal, and bone — even inside the product or its packaging.
+              Available as bulk-product sorting and end-of-line package inspection models.
+            </p>
+            <ul class="machine-feats">
+              <li><Icon name="xray" size={17} /> Density-based detection</li>
+              <li><Icon name="belge" size={17} /> BRC / IFS audit records</li>
+              <li><Icon name="garanti" size={17} /> NDK licensing support</li>
+            </ul>
+            <span class="sector-cta">Explore our X-ray systems <Icon name="arrow" size={15} /></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SÜREÇ ══ -->
+  <section class="section band-sunken">
+    <div class="container container--wide">
+      <p class="eyebrow reveal">How We Work</p>
+      <div class="sec-head reveal">
+        <h2>The Right Machine in Five Steps</h2>
+        <p>You see the machine at work before you decide.</p>
+      </div>
+      <ol class="adim-list">
+        {
+          surec.map((a, i) => (
+            <li class="adim reveal" style={`--reveal-delay:${i * 0.07}s`}>
+              <span class="adim-no">{a.no}</span>
+              <h3>{a.baslik}</h3>
+              <p>{a.text}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- ══ SERVİS BANDI ══ -->
+  <section class="servis-band band-dark">
+    <div class="container container--wide servis-grid">
+      <figure class="servis-figure reveal">
+        <Image
+          src={teknisyen}
+          alt="Technician servicing a color sorter"
+          widths={[560, 840, 1200]}
+          sizes="(max-width: 900px) 100vw, 46vw"
+        />
+      </figure>
+      <div class="servis-text">
+        <p class="eyebrow reveal">After-Sales</p>
+        <h2 class="reveal">We Don't Just Sell Machines —<br />We Keep Your Line Running</h2>
+        <p class="reveal" style="--reveal-delay:.08s">
+          Installation, operator training, on-site service, and spare-parts stock are all managed
+          from our Manisa headquarters. We know what downtime means in harvest season — because we
+          come from this industry.
+        </p>
+        <ul class="servis-list reveal" style="--reveal-delay:.14s">
+          <li><Icon name="check" size={16} /> Installation and commissioning</li>
+          <li><Icon name="check" size={16} /> Turkish-language interface and operator training</li>
+          <li><Icon name="check" size={16} /> On-site technical service</li>
+          <li><Icon name="check" size={16} /> Critical spare parts in stock</li>
+        </ul>
+        <a href="/en/service-spare-parts/" class="btn btn--primary reveal" style="--reveal-delay:.2s">
+          Our Service Approach
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ NEDEN SAGE ══ -->
+  <section class="section">
+    <div class="container container--wide">
+      <p class="eyebrow reveal">Why SAGE Makine?</p>
+      <div class="neden-grid">
+        {
+          nedenler.map((n, i) => (
+            <div class="neden card reveal" style={`--reveal-delay:${i * 0.08}s`}>
+              <span class="neden-icon">
+                <Icon name={n.icon as any} size={26} />
+              </span>
+              <h3>{n.title}</h3>
+              <p>{n.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ BLOG VİTRİNİ ══ -->
+  <section class="section band-sunken">
+    <div class="container container--wide">
+      <p class="eyebrow reveal">Our Guides</p>
+      <div class="sec-head reveal">
+        <h2>Honest Guides for the Right Decision</h2>
+        <a href="/en/blog/" class="text-link">All articles <Icon name="arrow" size={16} /></a>
+      </div>
+      <div class="teaser-grid">
+        {
+          ONE_CIKAN_YAZILAR_EN.map((y, i) => (
+              <a href={`/en/blog/${y.slug}/`} class="teaser-card card reveal" style={`--reveal-delay:${i * 0.08}s`}>
+                <div class="card-media">
+                  <Image src={y.cover} alt={y.coverAlt} width={640} widths={[420, 640, 900]} sizes="(max-width: 1000px) 100vw, 30vw" />
+                </div>
+                <div class="teaser-body">
+                  <p class="mono-tag">{y.kategori} · {y.dk} min</p>
+                  <h3>{y.baslik}</h3>
+                </div>
+              </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SSS ══ -->
+  <section class="section">
+    <div class="container sss-grid">
+      <div class="sss-head">
+        <p class="eyebrow reveal">Frequently Asked Questions</p>
+        <h2 class="reveal">The Questions We Hear<br />Most Often on the Phone</h2>
+        <p class="reveal" style="--reveal-delay:.08s">
+          Can't find your answer? <a href="/en/contact/">Write to us</a> — we usually get back to
+          you the same day.
+        </p>
+      </div>
+      <div class="sss-list">
+        {
+          sss.map((s, i) => (
+            <details class="sss-item reveal" style={`--reveal-delay:${i * 0.05}s`}>
+              <summary>{s.q}</summary>
+              <p>{s.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>
+
+<script>
+  /* hero ekrandan çıkınca bant animasyonunu durdur (pil/CPU) */
+  function initBeltPause() {
+    const hero = document.querySelector('.hero');
+    const belt = document.querySelector<HTMLElement>('.hero-belt');
+    if (!hero || !belt || belt.dataset.init) return;
+    belt.dataset.init = '1';
+    new IntersectionObserver(([e]) =>
+      belt.classList.toggle('belt-paused', !e.isIntersecting),
+    ).observe(hero);
+  }
+  document.addEventListener('astro:page-load', initBeltPause);
+</script>

@@ -1,0 +1,199 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Icon from '../../components/Icon.astro';
+import { CONTACT } from '../../data/site';
+import { whatsappQuoteEn } from '../../data/en/site';
+import '../../styles/servis.css';
+
+import parcaImg from '../../assets/photos/servis-yedek-parca.png';
+import egitimImg from '../../assets/photos/servis-egitim.png';
+
+const breadcrumbs = [{ name: 'Service & Spare Parts', path: '/en/service-spare-parts/' }];
+
+const hizmetler = [
+  {
+    icon: 'parca',
+    title: 'Installation & Commissioning',
+    text: 'From the layout plan to the first product run, we manage the installation; your machine is handed over production-ready.',
+  },
+  {
+    icon: 'egitim',
+    title: 'Operator Training',
+    text: 'Hands-on training on the Turkish-language interface: creating recipes, adjusting sensitivity, daily maintenance. Your team ends up in full command of the machine.',
+  },
+  {
+    icon: 'servis',
+    title: 'On-Site Technical Service',
+    text: 'If a fault occurs: diagnosis over the phone, on-site intervention when needed. Priority service scheduling during harvest season.',
+  },
+  {
+    icon: 'depo',
+    title: 'Spare-Parts Stock',
+    text: 'Ejector valves, camera modules, LED lighting, and belts — critical parts are kept in stock in Turkey.',
+  },
+  {
+    icon: 'yazilim',
+    title: 'Remote Support & Diagnostics',
+    text: 'Machines can be monitored over a remote connection; many software and settings issues are resolved before a technician ever travels to your plant.',
+  },
+  {
+    icon: 'garanti',
+    title: 'Preventive Maintenance Agreements',
+    text: 'With pre-season inspection and calibration, your machine enters the campaign ready to run; the risk of unplanned downtime drops.',
+  },
+];
+
+const halkalar = [
+  { ring: 'Aegean — rapid access', cities: 'Manisa · İzmir · Aydın · Denizli · Balıkesir · Uşak' },
+  { ring: 'Surrounding region', cities: 'Bursa · Afyon · Konya · Antalya · Eskişehir' },
+  { ring: 'Nationwide', cities: 'Mersin · Gaziantep · Şanlıurfa · Black Sea hazelnut belt' },
+];
+---
+
+<BaseLayout
+  title="Technical Service for Color Sorters & X-Ray | SAGE Makine"
+  description="Installation, operator training, on-site service, and spare-parts stock — based in Manisa, with priority response during harvest season."
+  path="/en/service-spare-parts/"
+  breadcrumbs={breadcrumbs}
+>
+  <PageHero
+    eyebrow="After-Sales"
+    title="In Harvest Season, Downtime Is Unacceptable. We Don't Accept It Either."
+    lead="Plenty of companies sell machines; few pick up the phone mid-season. At SAGE Makine, service is not an add-on to the sale — it is the sale itself: one point of contact from installation to spare parts, serving all of Turkey from Manisa."
+    breadcrumbs={breadcrumbs}
+  >
+    <Fragment slot="actions">
+      <a href={CONTACT.phoneHref} class="btn btn--primary"><Icon name="telefon" size={17} /> Service Line</a>
+      <a href={whatsappQuoteEn('Technical service')} class="btn btn--outline servis-ghost" target="_blank" rel="noopener">Chat on WhatsApp</a>
+    </Fragment>
+    <Fragment slot="visual">
+      <Image
+        src={parcaImg}
+        alt="Neatly organized spare-parts shelves: ejector valves, camera modules, belts"
+        widths={[480, 760, 1100]}
+        sizes="(max-width: 900px) 100vw, 42vw"
+        loading="eager"
+        quality={65}
+      />
+    </Fragment>
+  </PageHero>
+
+  <!-- Hizmetler -->
+  <section class="section">
+    <div class="container container--wide">
+      <p class="eyebrow reveal">Our Service Commitments</p>
+      <h2 class="reveal">One Point of Contact, Six Areas of Service</h2>
+      <div class="hizmet-grid">
+        {
+          hizmetler.map((h, i) => (
+            <div class="hizmet card reveal" style={`--reveal-delay:${(i % 3) * 0.08}s`}>
+              <span class="hizmet-icon">
+                <Icon name={h.icon as any} size={26} />
+              </span>
+              <h3>{h.title}</h3>
+              <p>{h.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Eğitim görseli + garanti -->
+  <section class="section band-sunken">
+    <div class="container egitim-grid">
+      <figure class="egitim-figure reveal">
+        <Image
+          src={egitimImg}
+          alt="Operator training: a technician walks the team through recipe settings on the touchscreen"
+          widths={[560, 840, 1200]}
+          sizes="(max-width: 900px) 100vw, 48vw"
+        />
+      </figure>
+      <div>
+        <p class="eyebrow reveal">Warranty & Transparency</p>
+        <h2 class="reveal">We Put It in Writing</h2>
+        <p class="reveal" style="--reveal-delay:.08s">
+          The warranty period, its coverage, and the service-response terms are provided in writing
+          together with your quotation — no fine-print surprises. You also see the spare-parts
+          price list before you buy.
+        </p>
+        <ul class="garanti-list reveal" style="--reveal-delay:.14s">
+          <li><Icon name="check" size={16} /> Written warranty terms, delivered with the quotation</li>
+          <li><Icon name="check" size={16} /> Spare-parts pricing disclosed before the sale</li>
+          <li><Icon name="check" size={16} /> Documentation and interface in Turkish</li>
+          <li><Icon name="check" size={16} /> CE-certified models; for X-ray, we handle the NDK licensing process</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kapsama -->
+  <section class="section">
+    <div class="container kapsama-grid">
+      <div>
+        <p class="eyebrow reveal">Service Coverage</p>
+        <h2 class="reveal">Based in Manisa,<br />Serving All of Turkey</h2>
+        <p class="reveal" style="--reveal-delay:.08s">
+          We chose Manisa deliberately: the heart of Turkey's dried-fruit exports, one step from
+          the Port of Izmir and the Aegean production basin. We are positioned to reach facilities
+          across the Aegean the same day.
+        </p>
+        <div class="halka-list reveal" style="--reveal-delay:.14s">
+          {
+            halkalar.map((h) => (
+              <div class="halka">
+                <h3>{h.ring}</h3>
+                <p>{h.cities}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Kapsama halkaları — şematik SVG -->
+      <div class="reveal" style="--reveal-delay:.1s">
+        <figure class="rings-figure">
+          <svg viewBox="0 0 520 520" role="img" aria-label="Service coverage rings centered on Manisa: rapid access across the Aegean, the surrounding region, and all of Turkey">
+            <defs>
+              <radialGradient id="ringGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#7aab35" stop-opacity="0.16"></stop>
+                <stop offset="100%" stop-color="#7aab35" stop-opacity="0"></stop>
+              </radialGradient>
+            </defs>
+            <circle cx="260" cy="260" r="248" fill="none" stroke="#dce3e9" stroke-width="1.5" stroke-dasharray="4 7"></circle>
+            <circle cx="260" cy="260" r="172" fill="none" stroke="#cbd3db" stroke-width="1.5" stroke-dasharray="4 7"></circle>
+            <circle cx="260" cy="260" r="96" fill="url(#ringGlow)" stroke="#7aab35" stroke-width="2"></circle>
+            <!-- merkez -->
+            <circle cx="260" cy="260" r="7" fill="#7aab35"></circle>
+            <circle cx="260" cy="260" r="13" fill="none" stroke="#7aab35" stroke-width="2" opacity="0.5"></circle>
+            <text x="260" y="242" class="ring-lbl ring-lbl--hub">MANISA</text>
+            <!-- iç halka şehirleri -->
+            <text x="138" y="322" class="ring-lbl">İzmir</text>
+            <text x="348" y="346" class="ring-lbl">Aydın</text>
+            <text x="302" y="162" class="ring-lbl">Balıkesir</text>
+            <!-- orta halka -->
+            <text x="360" y="118" class="ring-lbl ring-lbl--soft">Bursa</text>
+            <text x="416" y="300" class="ring-lbl ring-lbl--soft">Konya</text>
+            <text x="128" y="416" class="ring-lbl ring-lbl--soft">Antalya</text>
+            <text x="90" y="140" class="ring-lbl ring-lbl--soft">Afyon</text>
+            <!-- dış halka -->
+            <text x="452" y="452" class="ring-lbl ring-lbl--faint">Gaziantep</text>
+            <text x="60" y="486" class="ring-lbl ring-lbl--faint">Mersin</text>
+            <text x="430" y="52" class="ring-lbl ring-lbl--faint">Black Sea</text>
+          </svg>
+          <figcaption>Schematic coverage — sales, installation, and service are arranged for every province.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Need Service? Call Us Now"
+    text="Whatever brand your current machine is, let's talk through the situation and map out the solution together."
+    topic="Technical service request"
+  />
+</BaseLayout>

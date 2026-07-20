@@ -10,6 +10,11 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { SITE } from '../data/site';
 import { YAZILAR } from '../data/blog';
+import { YAZILAR_EN } from '../data/en/blog';
+import { t } from '../i18n/ui';
+
+const locale = Astro.currentLocale === 'en' ? 'en' : 'tr';
+const ui = t(locale);
 
 interface Props {
   title: string; // <title> + og
@@ -29,21 +34,22 @@ interface Props {
 const props = Astro.props;
 const { title, description, path, lead, tarih, waTopic = 'Makineleriniz', jsonLd = [] } = props;
 
-const slug = path.replace(/^\/blog\//, '').replace(/\/$/, '');
-const meta = YAZILAR.find((y) => y.slug === slug);
-if (!meta) throw new Error(`data/blog.ts kaydı eksik: ${slug}`);
+const slug = path.replace(/^\/(en\/)?blog\//, '').replace(/\/$/, '');
+const meta = (locale === 'en' ? YAZILAR_EN : YAZILAR).find((y) => y.slug === slug);
+if (!meta) throw new Error(`blog veri kaydı eksik (${locale}): ${slug}`);
 
 const h1 = props.h1 ?? meta.baslik;
 const kategori = props.kategori ?? meta.kategori;
 const okumaDk = props.okumaDk ?? meta.dk;
 const cover = meta.cover;
 
+const blogHome = locale === 'en' ? '/en/blog/' : '/blog/';
 const breadcrumbs = [
-  { name: 'Blog', path: '/blog/' },
+  { name: ui.blogCrumb, path: blogHome },
   { name: h1, path },
 ];
 
-const tarihStr = new Date(tarih).toLocaleDateString('tr-TR', {
+const tarihStr = new Date(tarih).toLocaleDateString(ui.dateLocale, {
   day: 'numeric',
   month: 'long',
   year: 'numeric',
@@ -55,7 +61,7 @@ const articleLd = {
   headline: h1,
   description,
   datePublished: tarih,
-  inLanguage: 'tr',
+  inLanguage: locale,
   url: `${SITE.domain}${path}`,
   author: { '@type': 'Organization', name: SITE.name, url: SITE.domain },
   publisher: { '@type': 'Organization', name: SITE.name, url: SITE.domain },
@@ -73,11 +79,11 @@ const articleLd = {
   <article>
     <header class="post-head band-dark">
       <div class="container container--narrow">
-        <Breadcrumbs items={[{ name: 'Blog', path: '/blog/' }]} onDark />
+        <Breadcrumbs items={[{ name: ui.blogCrumb, path: blogHome }]} onDark />
         <p class="post-meta">
           <span class="post-cat">{kategori}</span>
           <time datetime={tarih}>{tarihStr}</time>
-          <span>{okumaDk} dk okuma</span>
+          <span>{okumaDk} {ui.minRead}</span>
         </p>
         <h1>{h1}</h1>
         <p class="post-lead">{lead}</p>

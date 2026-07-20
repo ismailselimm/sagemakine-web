@@ -1,16 +1,18 @@
 ---
 /**
  * Renk ayırma makinesi çalışma prensibi — şematik kesit (SVG).
- * Akış: besleme hunisi → titreşimli besleyici → oluk → kamera+LED →
- * hava ejektörü → sağlam ürün / ıskarta.
+ * Etiketler dile göre i18n/ui sözlüğünden gelir.
  */
+import { t } from '../../i18n/ui';
+
+const dg = t(Astro.currentLocale === 'en' ? 'en' : 'tr').dg;
 ---
 
 <figure class="diagram">
   <svg
     viewBox="0 0 860 584"
     role="img"
-    aria-label="Renk ayırma makinesi çalışma prensibi şeması: besleme hunisinden gelen ürün oluktan akarken kameralarla taranır, kusurlu taneler hava ejektörüyle ıskarta haznesine ayrılır"
+    aria-label={dg.csAria}
   >
     <defs>
       <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -23,7 +25,7 @@
 
     <!-- ── Besleme hunisi ── -->
     <polygon points="330,24 530,24 470,92 390,92" fill="#e4e9ed" stroke="#16283f" stroke-width="2.5"></polygon>
-    <text x="545" y="52" class="lbl">Besleme Hunisi</text>
+    <text x="545" y="52" class="lbl">{dg.besleme}</text>
 
     <!-- huniden dökülen taneler -->
     <g fill="#8494a2">
@@ -39,11 +41,11 @@
       <line x1="430" y1="160" x2="430" y2="170"></line>
       <line x1="492" y1="160" x2="492" y2="170"></line>
     </g>
-    <text x="545" y="147" class="lbl">Titreşimli Besleyici</text>
+    <text x="545" y="147" class="lbl">{dg.besleyici}</text>
 
     <!-- ── Oluk (eğimli) ── -->
     <polygon points="352,168 508,168 448,332 412,332" fill="#f2f5f7" stroke="#16283f" stroke-width="2.5"></polygon>
-    <text x="545" y="230" class="lbl">Oluk (Şüt)</text>
+    <text x="545" y="230" class="lbl">{dg.oluk}</text>
 
     <!-- oluktan akan tane perdesi -->
     <g>
@@ -63,10 +65,10 @@
     <g>
       <rect x="230" y="382" width="88" height="52" rx="6" fill="#16283f"></rect>
       <circle cx="304" cy="408" r="9" fill="#0f1c2e" stroke="#7aab35" stroke-width="3"></circle>
-      <text x="230" y="366" class="lbl">CCD + NIR Kamera</text>
+      <text x="230" y="366" class="lbl">{dg.kamera}</text>
       <rect x="540" y="382" width="88" height="52" rx="6" fill="#16283f"></rect>
       <circle cx="554" cy="408" r="9" fill="#0f1c2e" stroke="#7aab35" stroke-width="3"></circle>
-      <text x="548" y="366" class="lbl">LED Aydınlatma</text>
+      <text x="548" y="366" class="lbl">{dg.led}</text>
     </g>
     <!-- görüş ışınları -->
     <g stroke="#7aab35" stroke-width="1.8" stroke-dasharray="4 5" opacity="0.75">
@@ -78,7 +80,7 @@
 
     <!-- ── Hava ejektörü ── -->
     <rect x="558" y="452" width="70" height="26" rx="4" fill="#1e3a5f"></rect>
-    <text x="638" y="470" class="lbl">Hava Ejektörü</text>
+    <text x="638" y="470" class="lbl">{dg.ejektor}</text>
     <!-- hava jeti -->
     <g stroke="#7aab35" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="1 6">
       <line x1="556" y1="462" x2="470" y2="474"></line>
@@ -91,18 +93,15 @@
 
     <!-- ── Toplama hazneleri ── -->
     <polygon points="330,506 430,506 410,548 350,548" fill="#eaf3dc" stroke="#689426" stroke-width="2.5"></polygon>
-    <text x="380" y="572" class="lbl lbl--mid lbl--green">Sağlam Ürün</text>
+    <text x="380" y="572" class="lbl lbl--mid lbl--green">{dg.saglamUrun}</text>
 
     <polygon points="232,506 310,506 294,548 248,548" fill="#e4e9ed" stroke="#5f7080" stroke-width="2.5"></polygon>
-    <text x="271" y="572" class="lbl lbl--mid lbl--soft">Iskarta</text>
+    <text x="271" y="572" class="lbl lbl--mid lbl--soft">{dg.iskarta}</text>
 
     <!-- akış okları -->
     <line x1="430" y1="452" x2="408" y2="500" stroke="#7aab35" stroke-width="2.2" marker-end="url(#arrg)"></line>
     <line x1="398" y1="486" x2="290" y2="502" stroke="#5f7080" stroke-width="2.2" marker-end="url(#arr)"></line>
   </svg>
-  <figcaption>
-    Ürün, oluktan ince bir perde halinde akarken her tane milisaniyeler içinde taranır; kusurlu
-    tane serbest düşüş sırasında hassas bir hava darbesiyle ıskarta haznesine yönlendirilir.
-  </figcaption>
+  <figcaption>{dg.csCaption}</figcaption>
 </figure>
 

@@ -1,5 +1,6 @@
 ---
 import type { Breadcrumb } from './Seo.astro';
+import { t } from '../i18n/ui';
 
 interface Props {
   items: Breadcrumb[];
@@ -8,11 +9,14 @@ interface Props {
 }
 
 const { items, onDark = false } = Astro.props;
+const locale = Astro.currentLocale === 'en' ? 'en' : 'tr';
+const ui = t(locale);
+const homeHref = locale === 'en' ? '/en/' : '/';
 ---
 
-<nav class:list={['crumbs', { 'crumbs--dark': onDark }]} aria-label="Sayfa yolu">
+<nav class:list={['crumbs', { 'crumbs--dark': onDark }]} aria-label={ui.breadcrumbAria}>
   <ol>
-    <li><a href="/">Ana Sayfa</a></li>
+    <li><a href={homeHref}>{ui.breadcrumbHome}</a></li>
     {
       items.map((b, i) => (
         <li aria-current={i === items.length - 1 ? 'page' : undefined}>

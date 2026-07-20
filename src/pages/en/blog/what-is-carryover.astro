@@ -1,0 +1,74 @@
+---
+import BlogLayout from '../../../layouts/BlogLayout.astro';
+
+/* FAQ — single source: the body and the FAQPage schema are both derived from it */
+const faq = [
+  {
+    q: `Can carryover ever be zero?`,
+    a: `No. Because the air jet affects a small zone rather than a single kernel, and kernels fall side by side within the flow, some amount of good product always ends up in the reject stream. Quality ejectors, balanced feeding, and a well-designed re-sort pass reduce the rate substantially, but it cannot physically be brought to zero. It pays to be cautious with any supplier who promises zero carryover.`,
+  },
+  {
+    q: `What is the difference between accuracy and carryover?`,
+    a: `Accuracy tells you how many of the defective kernels and foreign material are caught; carryover tells you how many good kernels go to the reject stream along with the defects in the process. One measures your quality, the other your efficiency. High accuracy alone does not mean a good machine; the two figures must always be evaluated together.`,
+  },
+  {
+    q: `Which products have higher carryover?`,
+    a: `Carryover is generally higher with small, lightweight kernels, because they flow closer together and are more easily deflected by the air jet. In batches with a high defect rate, the ejectors also fire more often, so more good kernels get dragged along. That is why the measurement should always be made with your own product and your own incoming quality.`,
+  }
+];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q.replace(/<[^>]+>/g, ''),
+    acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') },
+  })),
+};
+---
+
+<BlogLayout
+  title="What Is Carryover? Hidden Loss Guide | SAGE Makine"
+  description="Carryover is good product ejected into the reject stream along with defective kernels. How to measure this hidden loss and reduce it — a practical guide."
+  path="/en/blog/what-is-carryover/"
+  lead="When comparing color sorters, everyone looks at the accuracy percentage — yet the number that quietly erodes your profit often never appears in the brochure at all. The good product blown into the reject stream along with the defective kernels — carryover — adds up to a serious hidden loss over the years. In this article we explain why carryover is unavoidable, how it is measured, and how it is reduced."
+  tarih="2026-07-20"
+  waTopic="Carryover and sample testing"
+  jsonLd={[faqLd]}
+>
+  <h2>What Is Carryover?</h2>
+  <p>When a <a href="/en/color-sorter/">color sorter</a> detects a defective kernel or a piece of foreign material, it removes it from the product flow with a short blast of air. The problem is that this blast is not a surgical strike: the jet fires within milliseconds and affects a small zone, not a single kernel. Good kernels falling right next to the defective one take part of the hit and are blown into the reject channel. This good product that goes to reject together with the defects — good product lost to the reject stream — is called carryover.</p>
+  <p>Carryover is not a fault or a setup error; it is a natural consequence of the physics of sorting. Kernels flow close enough to touch one another in free fall, and the air jet, however precise, is still a stream of air. Carryover therefore cannot be eliminated entirely — but depending on machine quality and operating conditions, it can be reduced very significantly.</p>
+
+  <h2>Why Do We Call It a Hidden Cost?</h2>
+  <p>The first figure everyone looks at when choosing a machine is sorting accuracy: how many of the defects are caught. Carryover, on the other hand, rarely appears in brochures because it does not look good in the shop window. Yet this is exactly the line item that quietly eats into your profit.</p>
+  <p>Think of it this way: take two machines running at the same accuracy, catching the same defective kernels. The machine with the higher carryover sends more good kernels into the reject bag with every defect it removes. The reject is either sold at a very low price or discarded altogether; every good kernel that escapes into it is real product loss deducted from your sellable output. As the rate grows, your sellable tonnage shrinks — and this loss quietly repeats every shift, every batch. A machine that looks cheap on paper can, through high carryover, end up charging you back the difference many times over. That is why we treated this as one of the main components of total cost of ownership in our <a href="/en/blog/color-sorter-prices/">color sorter prices</a> guide.</p>
+
+  <h2>What Affects Carryover?</h2>
+  <ul>
+    <li><strong>Ejector quality and frequency:</strong> The faster the ejector opens and closes, the shorter the air blast and the narrower the zone it hits; neighboring kernels are less affected. Slow, worn ejectors sweep a wider area with every shot.</li>
+    <li><strong>Feed density:</strong> The fuller the channel runs, the more often kernels end up side by side. Opening the feed too far to force capacity raises carryover just as it lowers accuracy.</li>
+    <li><strong>Kernel size and shape:</strong> Small, light kernels are more easily affected by the air stream and more easily dragged along. Kernels that roll and bounce are also harder for the jet to target.</li>
+    <li><strong>Re-sort pass setup:</strong> Whether the machine has a channel for re-sorting the reject directly determines your total loss. <a href="/en/color-sorter/chute-type/">Chute-type machines</a> in particular have dedicated re-sort channels for this job.</li>
+  </ul>
+
+  <h2>How Is Carryover Measured?</h2>
+  <p>No laboratory is needed. While the machine is running under normal conditions, take a representative sample from the reject channel; separate the good and defective kernels by hand and count or weigh them. The good-to-bad ratio you get is the most honest indicator of that machine's carryover performance on that product. Repeating the measurement at different times of day and with different batches keeps you from being misled by a one-off optimistic or pessimistic result.</p>
+  <p>If you are at the quotation stage, ask for the same figure in writing: the expected good-to-bad ratio on your own product, at your own incoming quality and at the cleanliness level you are targeting, should be stated clearly in the quotation. The soundest approach is to ask for a test result obtained with your own sample rather than a generic catalog figure — the same machine behaves one way on chickpeas and another on dried apricots.</p>
+
+  <h2>Re-Sort Economics: Recovering the Loss</h2>
+  <p>Since carryover cannot be brought to zero, the smart approach is to recover the good product that escapes into the reject. The way to do that is a re-sort pass: the reject from the first sort is run through once more, either through a dedicated channel on the same machine or through a second machine. Because feed density is naturally much lower on the re-sort pass, the machine works far more comfortably; most of the good kernels in the reject are recovered, and what remains is the defective product and foreign material that genuinely needs to be discarded.</p>
+  <p>This setup pays for itself quickly on high-unit-value products such as pistachios and dried apricots, because every recovered kernel goes straight onto the sellable-product side of the ledger. Planning the re-sort pass into the line design from the start is both cheaper and more efficient than trying to add it later.</p>
+
+  <h2>Frequently Asked Questions</h2>
+  {
+    faq.map((f) => (
+      <Fragment>
+        <h3 set:html={f.q} />
+        <p set:html={f.a} />
+      </Fragment>
+    ))
+  }
+
+  <p><strong>The SAGE Makine approach:</strong> In our sample tests we do not look at sorting accuracy alone; we open the reject together with you, count the good kernels in it together, and measure carryover on your own product. Send us your sample and we will put the result in front of you in a written quotation; for any questions, you can reach us through our <a href="/en/contact/">contact</a> page.</p>
+</BlogLayout>

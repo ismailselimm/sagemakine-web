@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Icon from '../../components/Icon.astro';
+import { SITE, CONTACT } from '../../data/site';
+import '../../styles/iletisim.css';
+
+const breadcrumbs = [{ name: 'Contact', path: '/en/contact/' }];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Contact — SAGE Makine',
+    url: `${SITE.domain}/en/contact/`,
+  },
+];
+
+const konular = [
+  'Color sorter — quotation',
+  'X-ray food inspection — quotation',
+  'Sample test request',
+  'Technical service / breakdown',
+  'Spare parts',
+  'Other',
+];
+---
+
+<BaseLayout
+  title="Contact – Quotes & Sample Testing | SAGE Makine"
+  description="Contact SAGE Makine: +90 532 343 61 95, info@sagemakine.com. Güzelyurt Mah., Yunusemre/Manisa. Get a fast quote on WhatsApp or schedule a sample test."
+  path="/en/contact/"
+  breadcrumbs={breadcrumbs}
+  jsonLd={jsonLd}
+>
+  <PageHero
+    eyebrow="Contact"
+    title="Let's Talk — We're One Phone Call Away"
+    lead="Quotation, sample testing, or service: the fastest answer comes by phone or WhatsApp. During business hours we usually get back to you the same day."
+    breadcrumbs={breadcrumbs}
+  />
+
+  <section class="section">
+    <div class="container container--wide iletisim-grid">
+      <!-- Sol: kanallar -->
+      <div class="kanallar">
+        <a href={CONTACT.phoneHref} class="kanal card">
+          <span class="kanal-icon"><Icon name="telefon" size={24} /></span>
+          <div>
+            <h2>Phone</h2>
+            <p class="kanal-deger">{CONTACT.phoneDisplay}</p>
+            <p class="kanal-not">Adem Uzan — sales and service</p>
+          </div>
+        </a>
+
+        <a href={CONTACT.whatsapp} class="kanal card kanal--wa" target="_blank" rel="noopener">
+          <span class="kanal-icon kanal-icon--wa">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true">
+              <path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.39c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.9-4.44 9.9-9.9S17.5 2 12.04 2Zm0 18.1c-1.48 0-2.94-.4-4.2-1.15l-.3-.18-3.12.82.83-3.05-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.25-8.24 8.25Z"/>
+            </svg>
+          </span>
+          <div>
+            <h2>WhatsApp</h2>
+            <p class="kanal-deger">Fast quotes and photo-based fault reports</p>
+            <p class="kanal-not">Click to open a chat</p>
+          </div>
+        </a>
+
+        <div class="kanal card">
+          <span class="kanal-icon"><Icon name="mail" size={24} /></span>
+          <div>
+            <h2>Email</h2>
+            <p class="kanal-deger kanal-deger--mail">
+              <a href={`mailto:${CONTACT.emailInfo}`}>{CONTACT.emailInfo}</a>
+            </p>
+            <p class="kanal-not">For quotations and any questions — we usually reply the same day during business hours</p>
+          </div>
+        </div>
+
+        <div class="kanal card">
+          <span class="kanal-icon"><Icon name="saat" size={24} /></span>
+          <div>
+            <h2>Working Hours</h2>
+            <p class="kanal-deger">{CONTACT.hours}</p>
+            <p class="kanal-not">During harvest season you can reach us for service 7 days a week</p>
+          </div>
+        </div>
+
+        <div class="kanal card">
+          <span class="kanal-icon"><Icon name="harita" size={24} /></span>
+          <div>
+            <h2>Address</h2>
+            <p class="kanal-deger">{CONTACT.address.street}</p>
+            <p class="kanal-not">
+              {CONTACT.address.district} / {CONTACT.address.city} ·
+              <a href={CONTACT.mapsLink} target="_blank" rel="noopener">Get directions</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sağ: WhatsApp form -->
+      <div class="form-box">
+        <h2>Get a Fast Quote on WhatsApp</h2>
+        <p class="form-not">
+          Fill out the form below and your message opens in WhatsApp, ready to send. Your details
+          are never stored on a server — they are only added to your message.
+        </p>
+        <form id="wa-form" data-wa={CONTACT.whatsapp}>
+          <label>
+            Your name and company
+            <input type="text" name="isim" placeholder="e.g., John Smith — Atlas Nuts Ltd." required />
+          </label>
+          <label>
+            Topic
+            <select name="konu" required>
+              {konular.map((k) => <option value={k}>{k}</option>)}
+            </select>
+          </label>
+          <label>
+            Your product and capacity (optional)
+            <textarea
+              name="mesaj"
+              rows="3"
+              placeholder="e.g., Sultana raisins, 3–4 tons per hour, stems-and-stalks problem"></textarea>
+          </label>
+          <button type="submit" class="btn btn--primary btn--lg">Open in WhatsApp</button>
+          <p class="kvkk-not">
+            By sending this message, you acknowledge our <a href="/en/privacy/">Privacy Notice</a>.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Harita -->
+  <section class="map-section">
+    <iframe
+      src={CONTACT.mapsEmbed}
+      title="SAGE Makine location — Güzelyurt Mah., Yunusemre/Manisa"
+      loading="lazy"
+      allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </section>
+</BaseLayout>
+
+<script>
+  function initWaForm() {
+    const form = document.getElementById('wa-form') as HTMLFormElement | null;
+    if (!form || form.dataset.init) return;
+    form.dataset.init = '1';
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const isim = String(data.get('isim') || '').trim();
+      const konu = String(data.get('konu') || '');
+      const mesaj = String(data.get('mesaj') || '').trim();
+      const text = [
+        "Hello, I'm writing via sagemakine.com.",
+        isim && `I'm ${isim}.`,
+        `Topic: ${konu}.`,
+        mesaj && `Details: ${mesaj}`,
+      ]
+        .filter(Boolean)
+        .join(' ');
+      window.open(`${form.dataset.wa}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+    });
+  }
+  document.addEventListener('astro:page-load', initWaForm);
+</script>

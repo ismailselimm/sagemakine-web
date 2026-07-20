@@ -1,0 +1,209 @@
+/* Hakkımızda sayfası stilleri — TR/EN paylaşır */
+  .kurucu-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+    gap: var(--sp-8);
+    align-items: center;
+  }
+
+  .kurucu-grid h2 {
+    margin-block: var(--sp-3) var(--sp-5);
+  }
+
+  .kurucu-quote {
+    border-left: 3px solid var(--green-500);
+    padding: var(--sp-4) var(--sp-5);
+    background: var(--bg-sunken);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+
+  .kurucu-quote p {
+    font-size: var(--text-md);
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  .kurucu-quote footer {
+    margin-top: var(--sp-4);
+    display: grid;
+  }
+
+  .kurucu-quote footer span {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    color: var(--accent-ink);
+  }
+
+  .kurucu-figure {
+    margin: 0;
+  }
+
+  .kurucu-figure img {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+  }
+
+  .acilim-band {
+    padding-block: var(--section-y);
+  }
+
+  .acilim-head {
+    display: grid;
+    justify-items: center;
+    gap: var(--sp-4);
+    text-align: center;
+    margin-bottom: var(--sp-7);
+  }
+
+  .acilim-head p {
+    color: var(--ink-soft);
+  }
+
+  .acilim-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-5);
+  }
+
+  .acilim-item {
+    text-align: center;
+    padding: var(--sp-5);
+    border: 1px solid rgb(255 255 255 / 0.1);
+    border-radius: var(--radius-md);
+    background: rgb(255 255 255 / 0.03);
+  }
+
+  .acilim-harf {
+    display: inline-grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    font-family: var(--font-display);
+    font-variation-settings: 'wdth' var(--wdth-wide);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--navy-950);
+    background: var(--green-500);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--sp-3);
+  }
+
+  .acilim-item h3 {
+    color: var(--white);
+    font-size: var(--text-md);
+  }
+
+  .acilim-item p {
+    margin-top: var(--sp-2);
+    font-size: var(--text-sm);
+    color: var(--ink-soft);
+  }
+
+  .manisa-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: var(--sp-8);
+    align-items: start;
+  }
+
+  .manisa-grid h2 {
+    margin-block: var(--sp-3) var(--sp-4);
+  }
+
+  .manisa-grid p {
+    color: var(--ink-soft);
+  }
+
+  .manisa-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-5);
+    margin-top: var(--sp-6);
+  }
+
+  .manisa-stats > div {
+    border-top: 2px solid var(--green-500);
+    padding-top: var(--sp-3);
+    display: grid;
+    gap: var(--sp-1);
+  }
+
+  .m-stat {
+    font-family: var(--font-display);
+    font-variation-settings: 'wdth' var(--wdth-wide);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--navy-800);
+  }
+
+  .m-label {
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+  }
+
+  .kriter-box {
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--green-500);
+    border-radius: var(--radius-md);
+    padding: var(--sp-5);
+  }
+
+  .kriter-box h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: var(--text-md);
+    margin-bottom: var(--sp-3);
+  }
+
+  .kriter-box h3 svg {
+    color: var(--accent-ink);
+  }
+
+  .kriter-box p {
+    font-size: var(--text-sm);
+    color: var(--ink-soft);
+  }
+
+  .kriter-box ul {
+    display: grid;
+    gap: var(--sp-2);
+    list-style: none;
+    padding: 0;
+    margin-top: var(--sp-4);
+  }
+
+  .kriter-box li {
+    display: flex;
+    align-items: center;
+    gap: 0.55em;
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+  }
+
+  .kriter-box li svg {
+    color: var(--accent-ink);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 1000px) {
+    .acilim-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .kurucu-grid,
+    .manisa-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .acilim-grid,
+    .manisa-stats {
+      grid-template-columns: 1fr;
+    }
+  }

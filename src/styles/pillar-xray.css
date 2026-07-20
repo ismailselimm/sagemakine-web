@@ -1,0 +1,114 @@
+/* X-Ray pillar stilleri — TR ve EN sayfaları paylaşır */
+  .tespit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-5);
+    margin-top: var(--sp-6);
+  }
+
+  .tespit {
+    padding: var(--sp-5);
+  }
+
+  .tespit h3 {
+    font-size: var(--text-md);
+    margin-bottom: var(--sp-2);
+  }
+
+  .tespit p {
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+  }
+
+  .scan-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: var(--sp-6);
+    margin-top: var(--sp-7);
+    align-items: stretch;
+  }
+
+  .scan-figure {
+    margin: 0;
+  }
+
+  .scan-figure img {
+    border-radius: var(--radius-lg);
+  }
+
+  .honest-aside {
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--green-500);
+    border-radius: var(--radius-md);
+    padding: var(--sp-5);
+    align-self: start;
+  }
+
+  .honest-aside h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: var(--text-md);
+    margin-bottom: var(--sp-3);
+  }
+
+  .honest-aside h3 svg {
+    color: var(--accent-ink);
+  }
+
+  .honest-aside p {
+    font-size: var(--text-sm);
+    color: var(--ink-soft);
+  }
+
+  .honest-aside ul {
+    margin: var(--sp-3) 0;
+    padding-left: 1.3em;
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+    display: grid;
+    gap: 0.35em;
+  }
+
+  .uyum-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+    gap: var(--sp-7);
+    align-items: center;
+  }
+
+  .uyum-grid h2 {
+    color: var(--white);
+    margin-block: var(--sp-4);
+  }
+
+  .uyum-text {
+    color: var(--ink-soft);
+  }
+
+  .uyum-cards {
+    display: grid;
+    gap: var(--sp-5);
+  }
+
+  @media (max-width: 1000px) {
+    .tespit-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .howto-grid,
+    .tip-grid,
+    .scan-grid,
+    .uyum-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .tespit-grid {
+      grid-template-columns: 1fr;
+    }
+  }

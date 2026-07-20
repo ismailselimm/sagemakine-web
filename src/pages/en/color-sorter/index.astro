@@ -1,0 +1,311 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import CtaBand from '../../../components/CtaBand.astro';
+import Icon from '../../../components/Icon.astro';
+import ColorSorterDiagram from '../../../components/diagrams/ColorSorterDiagram.astro';
+import { SITE } from '../../../data/site';
+import { SECTORS_EN, whatsappQuoteEn } from '../../../data/en/site';
+import '../../../styles/pillar-renk.css';
+
+import ejektorImg from '../../../assets/photos/tech-ejektor.png';
+import kameraImg from '../../../assets/photos/tech-kamera.png';
+import olukImg from '../../../assets/photos/machine-oluk-sorter.png';
+import bantImg from '../../../assets/photos/machine-bant-sorter.png';
+
+const breadcrumbs = [{ name: 'Color Sorter Machines', path: '/en/color-sorter/' }];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: 'Color Sorter Machine',
+    brand: { '@type': 'Brand', name: SITE.name },
+    description:
+      'Chute-type and belt-type color sorters for dried fruit, nuts, pulses and grains. Optical sorting systems with CCD and infrared cameras and air ejectors — backed by installation, training and service across Turkey.',
+    image: `${SITE.domain}/og/og-default.jpg`,
+    url: `${SITE.domain}/en/color-sorter/`,
+  },
+];
+
+const teknolojiler = [
+  {
+    icon: 'kamera',
+    title: 'Full-Color CCD Cameras',
+    text: 'High-resolution RGB cameras pick up the slightest color deviation, spots and blemishes.',
+  },
+  {
+    icon: 'xray',
+    title: 'Infrared / NIR Vision',
+    text: 'InGaAs cameras distinguish shell, glass and stone by material structure, independent of color.',
+  },
+  {
+    icon: 'dogruluk',
+    title: 'Shape Sorting',
+    text: "Geometry analysis catches stems, stalks and broken kernels even when they match the product's color.",
+  },
+  {
+    icon: 'yazilim',
+    title: 'AI Classification',
+    text: 'Deep-learning models learn complex defect patterns that conventional thresholds miss.',
+  },
+];
+
+const kusurlar = [
+  { icon: 'tas', label: 'Stones and soil' },
+  { icon: 'cam', label: 'Glass and ceramic' },
+  { icon: 'metal', label: 'Metal fragments' },
+  { icon: 'kabuk', label: 'Shell and pit fragments' },
+  { icon: 'sap', label: 'Stems, stalks and plant debris' },
+  { icon: 'kuf', label: 'Moldy and rotten kernels' },
+  { icon: 'renk', label: 'Color-defective kernels' },
+  { icon: 'dogruluk', label: 'Dark, aflatoxin-suspect kernels' },
+];
+
+const seriler = [
+  { seri: 'S-1', oluk: '1', kanal: '64', kapasite: '0.3 – 1.5 t/h', kullanim: 'Sample runs, small operations, re-sort passes' },
+  { seri: 'S-3', oluk: '3', kanal: '192', kapasite: '1 – 5 t/h', kullanim: 'Mid-size nut and dried fruit lines' },
+  { seri: 'S-5', oluk: '5', kanal: '320', kapasite: '3 – 10 t/h', kullanim: 'Pulse and grain processing plants' },
+  { seri: 'S-7', oluk: '7', kanal: '448', kapasite: '5 – 16 t/h', kullanim: 'High-tonnage pulse / seed lines' },
+  { seri: 'S-10', oluk: '10', kanal: '640', kapasite: '8 – 25 t/h', kullanim: 'Integrated plants, two-pass installations' },
+];
+---
+
+<BaseLayout
+  title="Color Sorter Machines: Sales & Service | SAGE Makine"
+  description="Chute- and belt-type color sorters with CCD and infrared cameras: high-accuracy removal of stones, glass, shells and defects. Installation and spare parts."
+  path="/en/color-sorter/"
+  breadcrumbs={breadcrumbs}
+  jsonLd={jsonLd}
+>
+  <PageHero
+    eyebrow="Optical Sorting Technology"
+    title="Color Sorter Machines"
+    lead="A color sorter — also known as an optical sorting machine — detects defective kernels and foreign material with cameras and removes them from the line with air ejectors. From dried fruit to pulses, in a chute-type or belt-type configuration to match your product."
+    breadcrumbs={breadcrumbs}
+  >
+    <Fragment slot="actions">
+      <a href={whatsappQuoteEn('Color sorter machines')} class="btn btn--primary" target="_blank" rel="noopener">Get a Quote</a>
+      <a href="#series" class="btn btn--outline pillar-ghost">Explore the Series</a>
+    </Fragment>
+    <Fragment slot="visual">
+      <Image
+        src={ejektorImg}
+        alt="Air ejector nozzles removing a defective kernel from the falling product curtain"
+        widths={[480, 760, 1100]}
+        sizes="(max-width: 900px) 100vw, 42vw"
+        loading="eager"
+        quality={65}
+      />
+    </Fragment>
+  </PageHero>
+
+  <!-- Nasıl çalışır -->
+  <section class="section" id="how-it-works">
+    <div class="container">
+      <p class="eyebrow reveal">How It Works</p>
+      <div class="howto-grid">
+        <div class="howto-text reveal">
+          <h2>Thousands of Kernels per Second,<br />Inspected One by One</h2>
+          <ol class="howto-steps">
+            <li><strong>Feed:</strong> Product is metered from the hopper onto the vibratory feeder in a steady, even flow.</li>
+            <li><strong>Flow:</strong> Kernels travel down the chute — or across the belt in a single layer — forming a thin product curtain.</li>
+            <li><strong>Scanning:</strong> CCD and infrared cameras image every kernel under LED lighting.</li>
+            <li><strong>Decision:</strong> The processor makes the accept-or-reject call within milliseconds.</li>
+            <li><strong>Ejection:</strong> An air ejector fires a pinpoint burst to blow the defective kernel into the reject stream.</li>
+          </ol>
+        </div>
+        <div class="reveal" style="--reveal-delay:.1s">
+          <ColorSorterDiagram />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teknolojiler -->
+  <section class="section band-sunken">
+    <div class="container container--wide">
+      <p class="eyebrow reveal">Cameras and Software</p>
+      <h2 class="reveal">Four Technologies That See Defects</h2>
+      <div class="tek-grid">
+        {
+          teknolojiler.map((t, i) => (
+            <div class="tek card reveal" style={`--reveal-delay:${i * 0.08}s`}>
+              <span class="tek-icon">
+                <Icon name={t.icon as any} size={26} />
+              </span>
+              <h3>{t.title}</h3>
+              <p>{t.text}</p>
+            </div>
+          ))
+        }
+      </div>
+      <figure class="tek-figure reveal">
+        <Image
+          src={kameraImg}
+          alt="High-resolution camera module and LED lighting inside the sorting chamber"
+          widths={[700, 1100, 1500]}
+          sizes="(max-width: 900px) 100vw, 74rem"
+        />
+        <figcaption class="mono-cap">CAMERA MODULE + LED LIGHTING — SORTING CHAMBER</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Oluk mu bant mı -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow reveal">Choosing the Right Type</p>
+      <h2 class="reveal">Chute-Type or Belt-Type?</h2>
+      <p class="sec-lead reveal">
+        Free-flowing hard kernels are sorted on a chute; fragile, sticky or large products on a
+        belt. If you're not sure, a sample test is the clearest answer.
+      </p>
+      <div class="tip-grid">
+        <a href="/en/color-sorter/chute-type/" class="tip-card card reveal">
+          <div class="tip-img">
+            <Image src={olukImg} alt="Chute-type color sorter machine" widths={[480, 760]} sizes="(max-width:900px) 100vw, 40vw" />
+          </div>
+          <div class="tip-body">
+            <h3>Chute-Type (Channel)</h3>
+            <p>High capacity for gravity-fed product: pulses, grains, seeds, coffee.</p>
+            <ul>
+              <li><Icon name="check" size={15} /> Lentils, chickpeas, beans, rice</li>
+              <li><Icon name="check" size={15} /> Sunflower seeds, pumpkin seeds</li>
+              <li><Icon name="check" size={15} /> High tonnage in a compact footprint</li>
+            </ul>
+            <span class="tip-link">Explore the chute type <Icon name="arrow" size={15} /></span>
+          </div>
+        </a>
+        <a href="/en/color-sorter/belt-type/" class="tip-card card reveal" style="--reveal-delay:.1s">
+          <div class="tip-img">
+            <Image src={bantImg} alt="Belt-type color sorter machine" widths={[480, 760]} sizes="(max-width:900px) 100vw, 40vw" />
+          </div>
+          <div class="tip-body">
+            <h3>Belt-Type</h3>
+            <p>Gentle handling and single-layer scanning: dried fruit, walnut kernels, IQF, potato products.</p>
+            <ul>
+              <li><Icon name="check" size={15} /> Raisins, figs, apricots, hazelnut and walnut kernels</li>
+              <li><Icon name="check" size={15} /> IQF fruit and vegetables, french fries</li>
+              <li><Icon name="check" size={15} /> Gentle flow for fragile and sticky products</li>
+            </ul>
+            <span class="tip-link">Explore the belt type <Icon name="arrow" size={15} /></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Neleri ayıklar -->
+  <section class="section band-sunken">
+    <div class="container">
+      <p class="eyebrow reveal">What Does It Remove?</p>
+      <h2 class="reveal">What the Eye Misses, the Camera Doesn't</h2>
+      <ul class="kusur-list">
+        {
+          kusurlar.map((k, i) => (
+            <li class="reveal" style={`--reveal-delay:${(i % 4) * 0.06}s`}>
+              <Icon name={k.icon as any} size={20} />
+              {k.label}
+            </li>
+          ))
+        }
+      </ul>
+      <p class="kusur-not reveal">
+        For clear glass and stones that match the product's color, the safest combination is color
+        sorting plus <a href="/en/x-ray-food-inspection/">X-ray inspection</a> working together.
+      </p>
+    </div>
+  </section>
+
+  <!-- Seriler -->
+  <section class="section" id="series">
+    <div class="container">
+      <p class="eyebrow reveal">Capacity Options</p>
+      <h2 class="reveal">SAGE S-Series — by Number of Chutes</h2>
+      <p class="sec-lead reveal">
+        Typical figures are shown below; exact capacity is confirmed through sample testing, based
+        on your product, defect rate and target quality.
+      </p>
+      <div class="table-scroll reveal">
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th>Series</th>
+              <th>Chutes</th>
+              <th>Channels</th>
+              <th>Capacity*</th>
+              <th>Typical Use</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              seriler.map((s) => (
+                <tr>
+                  <td><strong>{s.seri}</strong></td>
+                  <td>{s.oluk}</td>
+                  <td>{s.kanal}</td>
+                  <td>{s.kapasite}</td>
+                  <td>{s.kullanim}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <p class="table-not reveal">
+        * Capacity varies by product. Across all series: touchscreen interface, stainless contact
+        surfaces, remote-support connection; CE-certified models.
+      </p>
+    </div>
+  </section>
+
+  <!-- Dürüst satın alma rehberi -->
+  <section class="section honest-band band-dark">
+    <div class="container honest-in">
+      <p class="eyebrow reveal">Ask the Right Questions</p>
+      <h2 class="reveal">Don't Look at "Accuracy Percentage" Alone</h2>
+      <div class="honest-grid">
+        <div class="honest card-dark reveal">
+          <h3><Icon name="dogruluk" size={20} /> Carryover</h3>
+          <p>
+            Carryover — good product lost to the reject stream — affects your operating profit as
+            much as accuracy does. Always ask for the good-to-defect ratio of the reject stream in
+            the quotation — we share ours openly.
+          </p>
+        </div>
+        <div class="honest card-dark reveal" style="--reveal-delay:.08s">
+          <h3><Icon name="kapasite" size={20} /> Air Consumption</h3>
+          <p>
+            The ejectors' air consumption means compressor investment and electricity bills. Ask
+            for the L/min figure and the required pressure along with the quotation.
+          </p>
+        </div>
+        <div class="honest card-dark reveal" style="--reveal-delay:.16s">
+          <h3><Icon name="parca" size={20} /> The Service Reality</h3>
+          <p>
+            The machine comes from China; the service comes from Manisa. Ask whether critical parts
+            such as ejector valves, cameras and LED modules are stocked in Turkey.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sektörler -->
+  <section class="section section--tight">
+    <div class="container">
+      <p class="eyebrow">Applications</p>
+      <nav class="sektor-strip" aria-label="Industries">
+        {SECTORS_EN.map((s) => <a href={`/en/industries/${s.slug}/`}>{s.title}</a>)}
+      </nav>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Request a Sample Test"
+    text="Send us your product; we'll sort it and put the results in front of you, carryover included. Decide after you've seen the machine at work."
+    topic="Color sorter machine — sample test"
+  />
+</BaseLayout>

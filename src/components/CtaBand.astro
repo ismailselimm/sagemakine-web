@@ -3,7 +3,9 @@
  * Sayfa sonu aksiyon bandı — WhatsApp-first iletişim.
  */
 import { CONTACT } from '../data/site';
+import { whatsappQuoteEn } from '../data/en/site';
 import Icon from './Icon.astro';
+import { t } from '../i18n/ui';
 
 interface Props {
   title?: string;
@@ -12,11 +14,14 @@ interface Props {
   topic?: string;
 }
 
+const locale = Astro.currentLocale === 'en' ? 'en' : 'tr';
+const ui = t(locale);
 const {
-  title = 'Ürününüz İçin Doğru Makineyi Birlikte Seçelim',
-  text = 'Numune ürününüzü test edelim, hattınıza uygun kapasiteyi birlikte belirleyelim. Teklif için bir telefon uzaktayız.',
-  topic = 'Makineleriniz',
+  title = ui.ctaTitle,
+  text = ui.ctaText,
+  topic = ui.ctaTopic,
 } = Astro.props;
+const waHref = locale === 'en' ? whatsappQuoteEn(topic) : CONTACT.whatsappQuote(topic);
 ---
 
 <section class="cta-band band-dark">
@@ -26,8 +31,8 @@ const {
       <p>{text}</p>
     </div>
     <div class="cta-actions reveal" style="--reveal-delay:.1s">
-      <a href={CONTACT.whatsappQuote(topic)} class="btn btn--primary btn--lg" target="_blank" rel="noopener">
-        WhatsApp'tan Teklif Alın
+      <a href={waHref} class="btn btn--primary btn--lg" target="_blank" rel="noopener">
+        {ui.ctaWa}
       </a>
       <a href={CONTACT.phoneHref} class="btn btn--outline btn--lg cta-tel">
         <Icon name="telefon" size={18} />
@@ -35,7 +40,7 @@ const {
       </a>
     </div>
     <p class="cta-alt reveal" style="--reveal-delay:.18s">
-      veya e-posta: <a href={`mailto:${CONTACT.emailInfo}`}>{CONTACT.emailInfo}</a>
+      {ui.ctaMailPrefix} <a href={`mailto:${CONTACT.emailInfo}`}>{CONTACT.emailInfo}</a>
     </p>
   </div>
 </section>

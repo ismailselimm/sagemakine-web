@@ -25,10 +25,11 @@ interface Props {
 }
 
 const seoProps = Astro.props;
+const lang = Astro.currentLocale === 'en' ? 'en' : 'tr';
 ---
 
 <!doctype html>
-<html lang="tr">
+<html lang={lang}>
   <head>
     <script>
       document.documentElement.classList.add('js');
@@ -37,7 +38,7 @@ const seoProps = Astro.props;
     <ClientRouter />
   </head>
   <body>
-    <a href="#icerik" class="skip-link">İçeriğe atla</a>
+    <a href="#icerik" class="skip-link">{lang === 'en' ? 'Skip to content' : 'İçeriğe atla'}</a>
     <Header />
     <main id="icerik">
       <slot />

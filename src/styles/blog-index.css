@@ -1,0 +1,43 @@
+/* Blog dizin sayfası stilleri — TR/EN paylaşır */
+  .post-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-5);
+  }
+
+  .post-body {
+    display: grid;
+    gap: var(--sp-3);
+    align-content: start;
+    padding: var(--sp-6);
+  }
+
+  .post-card h2 {
+    font-size: var(--text-xl);
+  }
+
+  .post-ozet {
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+  }
+
+  .post-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+    margin-top: var(--sp-2);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--accent-ink);
+  }
+
+  .post-card:hover .post-link {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 800px) {
+    .post-grid {
+      grid-template-columns: 1fr;
+    }
+  }

@@ -1,0 +1,199 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Icon from '../../components/Icon.astro';
+import Logo from '../../components/Logo.astro';
+
+import hallImg from '../../assets/photos/hero-color-sorter-hall.png';
+import oncesiSonrasi from '../../assets/photos/sorting-oncesi-sonrasi.png';
+import '../../styles/hakkimizda.css';
+
+const breadcrumbs = [{ name: 'About Us', path: '/en/about/' }];
+
+const adimlar = [
+  {
+    no: '01',
+    baslik: 'Needs Analysis',
+    text: "We listen: your product, your defect profile, and your target quality. We don't talk machines before we know your line.",
+  },
+  {
+    no: '02',
+    baslik: 'Sample Testing',
+    text: 'We sort your product on a real machine and put the results in front of you — including carryover (good product lost to the reject stream).',
+  },
+  {
+    no: '03',
+    baslik: 'Machine Selection & Quotation',
+    text: 'We pin down the right series for your capacity and budget, and present the warranty and service terms in writing.',
+  },
+  {
+    no: '04',
+    baslik: 'Installation & Training',
+    text: 'We install the machine, train your operators on the Turkish-language interface, and hand the line over ready for production.',
+  },
+  {
+    no: '05',
+    baslik: 'Service & Continuity',
+    text: 'With spare-parts stock, remote support, and preventive maintenance, we stay at your side for the life of the machine.',
+  },
+];
+
+const acilim = [
+  { harf: 'S', kelime: 'Smart', aciklama: 'Intelligent sorting technology, from camera to software' },
+  { harf: 'A', kelime: 'Automation', aciklama: 'Automation solutions that reduce human error' },
+  { harf: 'G', kelime: 'Global', aciklama: "A bridge from the world's manufacturers to the Turkish market" },
+  { harf: 'E', kelime: 'Engineering', aciklama: 'Installation and service with engineering discipline' },
+];
+
+const kriterler = [
+  'CE compliance and an international export track record',
+  'Proven performance in camera and ejector technology',
+  'Assured long-term spare-parts supply',
+  'Software updates and remote-support infrastructure',
+  'Adaptability to a Turkish-language interface',
+];
+---
+
+<BaseLayout
+  title="About Us – 22 Years in the Industry | SAGE Makine"
+  description="SAGE Makine: color sorters and X-ray food inspection machines backed by 22 years in food processing — a supplier from inside the industry, based in Manisa."
+  path="/en/about/"
+  breadcrumbs={breadcrumbs}
+>
+  <PageHero
+    eyebrow="SAGE Makine"
+    title="A Supplier from Inside the Industry"
+    lead="SAGE Makine is not a machine catalog — it is 22 years of hands-on field experience, incorporated. We know your product's defects, your buyer's specifications, and your harvest calendar — before we ever talk machines."
+    breadcrumbs={breadcrumbs}
+  >
+    <Fragment slot="visual">
+      <Image
+        src={hallImg}
+        alt="Color sorter in a modern food-processing facility"
+        widths={[480, 760, 1100]}
+        sizes="(max-width: 900px) 100vw, 42vw"
+        loading="eager"
+        quality={65}
+      />
+    </Fragment>
+  </PageHero>
+
+  <!-- Kurucu hikayesi -->
+  <section class="section">
+    <div class="container kurucu-grid">
+      <div>
+        <p class="eyebrow reveal">From the Founder</p>
+        <h2 class="reveal">22 Years in the Field,<br />Now on Your Side</h2>
+        <blockquote class="kurucu-quote reveal" style="--reveal-delay:.08s">
+          <p>
+            "I have been inside this industry for 22 years: I came to know the stems and stalks in
+            sultana raisins, the aflatoxin in dried figs, and the shell fragments in hazelnuts
+            before my customers did. For years I watched these machines being sold and installed —
+            and, most importantly, what happens when they are left without service. We founded
+            SAGE Makine to bring that experience together with the right machine and real service."
+          </p>
+          <footer>
+            <strong>Adem Uzan</strong>
+            <span>Co-Founder</span>
+          </footer>
+        </blockquote>
+      </div>
+      <figure class="kurucu-figure reveal" style="--reveal-delay:.12s">
+        <Image
+          src={oncesiSonrasi}
+          alt="Mixed product before sorting and clean hazelnut kernels after — our work in a single image"
+          widths={[520, 800, 1100]}
+          sizes="(max-width: 900px) 100vw, 44vw"
+        />
+        <figcaption class="mono-cap">OUR WORK IN SHORT: BEFORE AND AFTER</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- SAGE açılımı -->
+  <section class="section band-dark acilim-band">
+    <div class="container">
+      <div class="acilim-head reveal">
+        <Logo variant="dark" height={56} />
+        <p>Our name is a description of what we do:</p>
+      </div>
+      <div class="acilim-grid">
+        {
+          acilim.map((a, i) => (
+            <div class="acilim-item reveal" style={`--reveal-delay:${i * 0.09}s`}>
+              <span class="acilim-harf">{a.harf}</span>
+              <h3>{a.kelime}</h3>
+              <p>{a.aciklama}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Neden Manisa -->
+  <section class="section">
+    <div class="container manisa-grid">
+      <div>
+        <p class="eyebrow reveal">Why Manisa?</p>
+        <h2 class="reveal">Right Next Door to Our Customers</h2>
+        <p class="reveal" style="--reveal-delay:.08s">
+          More than 90% of Turkey's sultana raisins come from Manisa and its surroundings, and
+          roughly two-thirds of the country's dried-fruit exports ship from the Aegean. We chose
+          this location deliberately: we are positioned to reach facilities across the Aegean the
+          same day, and we move machines arriving at the Port of Izmir from customs to your plant
+          by the shortest route.
+        </p>
+        <div class="manisa-stats reveal" style="--reveal-delay:.14s">
+          <div>
+            <span class="m-stat">90%+</span>
+            <span class="m-label">of sultana raisins come from the basin right outside our door</span>
+          </div>
+          <div>
+            <span class="m-stat">1 hour</span>
+            <span class="m-label">to the Port of Izmir — machine and parts logistics</span>
+          </div>
+        </div>
+      </div>
+      <div class="kriter-box reveal" style="--reveal-delay:.1s">
+        <h3><Icon name="belge" size={20} /> How We Choose Our Manufacturers</h3>
+        <p>
+          We evaluate the manufacturers we represent against a single criterion: will we still be
+          able to stand behind their machines ten years from now?
+        </p>
+        <ul>
+          {kriterler.map((k) => <li><Icon name="check" size={15} /> {k}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nasıl çalışıyoruz -->
+  <section class="section band-sunken">
+    <div class="container">
+      <p class="eyebrow reveal">How We Work</p>
+      <h2 class="reveal">We Start from Your Needs, Not a Catalog</h2>
+      <ol class="adim-list">
+        {
+          adimlar.map((a, i) => (
+            <li class="adim reveal" style={`--reveal-delay:${i * 0.07}s`}>
+              <span class="adim-no">{a.no}</span>
+              <div>
+                <h3>{a.baslik}</h3>
+                <p>{a.text}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Let's Talk"
+    text="Tell us about your line, your product, and your goal — we'll offer you a solution, not a catalog."
+    topic="General inquiry"
+  />
+</BaseLayout>

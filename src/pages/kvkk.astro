@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import { SITE, CONTACT } from '../data/site';
+import '../styles/legal.css';
 
 const breadcrumbs = [{ name: 'KVKK Aydınlatma Metni', path: '/kvkk/' }];
 ---
@@ -79,34 +80,3 @@ const breadcrumbs = [{ name: 'KVKK Aydınlatma Metni', path: '/kvkk/' }];
   </section>
 </BaseLayout>
 
-<style>
-  .legal {
-    max-width: 46rem;
-    display: grid;
-    gap: var(--sp-4);
-  }
-
-  .legal h2 {
-    font-size: var(--text-lg);
-    margin-top: var(--sp-4);
-  }
-
-  .legal p,
-  .legal li {
-    color: var(--ink-soft);
-    font-size: var(--text-sm);
-  }
-
-  .legal ul {
-    padding-left: 1.3em;
-    display: grid;
-    gap: var(--sp-2);
-  }
-
-  .son-not {
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    color: var(--ink-faint);
-    margin-top: var(--sp-4);
-  }
-</style>

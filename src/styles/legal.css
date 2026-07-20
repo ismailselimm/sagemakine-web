@@ -1,0 +1,30 @@
+/* KVKK/Privacy sayfası stilleri — TR/EN paylaşır */
+  .legal {
+    max-width: 46rem;
+    display: grid;
+    gap: var(--sp-4);
+  }
+
+  .legal h2 {
+    font-size: var(--text-lg);
+    margin-top: var(--sp-4);
+  }
+
+  .legal p,
+  .legal li {
+    color: var(--ink-soft);
+    font-size: var(--text-sm);
+  }
+
+  .legal ul {
+    padding-left: 1.3em;
+    display: grid;
+    gap: var(--sp-2);
+  }
+
+  .son-not {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--ink-faint);
+    margin-top: var(--sp-4);
+  }

@@ -1,0 +1,288 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import CtaBand from '../../../components/CtaBand.astro';
+import Icon from '../../../components/Icon.astro';
+import XrayDiagram from '../../../components/diagrams/XrayDiagram.astro';
+import { SITE } from '../../../data/site';
+import { SECTORS_EN, whatsappQuoteEn } from '../../../data/en/site';
+
+import heroXray from '../../../assets/photos/hero-xray-line.png';
+import xrayScan from '../../../assets/photos/tech-xray-goruntu.png';
+import dokmeImg from '../../../assets/photos/machine-xray-dokme.png';
+import paketliImg from '../../../assets/photos/machine-xray-paketli.png';
+import '../../../styles/pillar-xray.css';
+
+const breadcrumbs = [{ name: 'X-Ray Food Inspection Systems', path: '/en/x-ray-food-inspection/' }];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: 'X-Ray Food Inspection System',
+    brand: { '@type': 'Brand', name: SITE.name },
+    description:
+      'X-ray inspection systems that detect stone, glass, metal, and bone inside the product or its packaging. Bulk-product sorting and end-of-line package inspection; NDK licensing support, BRC/IFS compliance.',
+    image: `${SITE.domain}/og/og-default.jpg`,
+    url: `${SITE.domain}/en/x-ray-food-inspection/`,
+  },
+];
+
+const tespitEder = [
+  { icon: 'metal', label: 'Metal', desc: 'Including stainless steel — even inside aluminum foil packaging.' },
+  { icon: 'cam', label: 'Glass', desc: 'Glass fragments a metal detector can never see.' },
+  { icon: 'tas', label: 'Stone and ceramic', desc: 'Recognized by density, even when it is the same color as the product.' },
+  { icon: 'kabuk', label: 'Bone and pits', desc: 'Calcified bone, cherry pits, hard shell fragments.' },
+  { icon: 'kuf', label: 'Dense plastic', desc: 'High-density plastics such as PVC and Teflon.' },
+  { icon: 'dogruluk', label: 'Missing / broken product', desc: 'Fill level, missing pieces, empty/full kernel separation.' },
+];
+
+const tespitEtmez = [
+  'Hair',
+  'Paper and cardboard',
+  'Thin-film plastic',
+  'Insects and larvae',
+  'Wood (low density)',
+];
+
+const seriler = [
+  { seri: 'X-40', bant: '400 mm', tip: 'Packaged product', hassasiyet: 'Ø 0.8 – 1.2 mm SS*', kullanim: 'Final inspection of packs, bags, doypacks' },
+  { seri: 'X-60', bant: '600 mm', tip: 'Packaged / bulk', hassasiyet: 'Ø 1.0 – 1.5 mm SS*', kullanim: 'Mid-size lines, mixed product groups' },
+  { seri: 'X-80B', bant: '800 mm', tip: 'Bulk product', hassasiyet: 'Ø 1.2 – 2.0 mm SS*', kullanim: 'In-line sorting for nuts and pulses' },
+  { seri: 'X-100B', bant: '1000 mm', tip: 'Bulk product', hassasiyet: 'Ø 1.2 – 2.0 mm SS*', kullanim: 'High-tonnage IQF and potato lines' },
+];
+---
+
+<BaseLayout
+  title="X-Ray Food Inspection Systems | SAGE Makine"
+  description="X-ray systems that detect stone, glass, metal and bone inside the product or package. Bulk and packaged models, NDK license support, BRC/IFS compliance."
+  path="/en/x-ray-food-inspection/"
+  breadcrumbs={breadcrumbs}
+  jsonLd={jsonLd}
+>
+  <PageHero
+    eyebrow="Foreign Material Detection"
+    title="X-Ray Food Inspection Systems"
+    lead="As X-rays pass through the product, they image density differences: stone, glass, metal, and bone — even inside the package or the product itself — are detected and automatically rejected. Where the metal detector stops, X-ray begins."
+    breadcrumbs={breadcrumbs}
+  >
+    <Fragment slot="actions">
+      <a href={whatsappQuoteEn('X-ray food inspection systems')} class="btn btn--primary" target="_blank" rel="noopener">Get a Quote</a>
+      <a href="#series" class="btn btn--outline pillar-ghost">Explore the Series</a>
+    </Fragment>
+    <Fragment slot="visual">
+      <Image
+        src={heroXray}
+        alt="Products passing through an X-ray inspection tunnel on a packaging line"
+        widths={[480, 760, 1100]}
+        sizes="(max-width: 900px) 100vw, 42vw"
+        loading="eager"
+        quality={65}
+      />
+    </Fragment>
+  </PageHero>
+
+  <!-- Nasıl çalışır -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow reveal">How It Works</p>
+      <div class="howto-grid">
+        <div class="howto-text reveal">
+          <h2>It Sees Density,<br />Not Color</h2>
+          <ol class="howto-steps">
+            <li><strong>Pass:</strong> The product travels on a conveyor beneath the X-ray curtain.</li>
+            <li><strong>Imaging:</strong> The detector measures how much the beam is attenuated as it passes through the product.</li>
+            <li><strong>Analysis:</strong> Software flags anomalies in the density map.</li>
+            <li><strong>Rejection:</strong> The reject system (pusher arm, air jet, or drop flap) removes the defective product from the line.</li>
+            <li><strong>Logging:</strong> Every detection is archived with its image, ready for audit.</li>
+          </ol>
+        </div>
+        <div class="reveal" style="--reveal-delay:.1s">
+          <XrayDiagram />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Neleri tespit eder -->
+  <section class="section band-sunken">
+    <div class="container container--wide">
+      <p class="eyebrow reveal">Detection Capability</p>
+      <h2 class="reveal">What Does It Detect?</h2>
+      <div class="tespit-grid">
+        {
+          tespitEder.map((t, i) => (
+            <div class="tespit card reveal" style={`--reveal-delay:${(i % 3) * 0.08}s`}>
+              <span class="tespit-icon">
+                <Icon name={t.icon as any} size={24} />
+              </span>
+              <h3>{t.label}</h3>
+              <p>{t.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="scan-grid">
+        <figure class="scan-figure reveal">
+          <Image
+            src={xrayScan}
+            alt="X-ray scan image: a stone showing bright white among hazelnuts, marked with a green target ring"
+            widths={[600, 900, 1300]}
+            sizes="(max-width: 900px) 100vw, 54vw"
+          />
+          <figcaption class="mono-cap">REAL-TIME DENSITY IMAGE — STONE DETECTION</figcaption>
+        </figure>
+
+        <!-- Dürüstlük kutusu -->
+        <aside class="honest-aside reveal" style="--reveal-delay:.1s">
+          <h3><Icon name="dogruluk" size={20} /> The Honest Answer: What Does It Not Detect?</h3>
+          <p>
+            X-ray reads density; it cannot reliably see low-density materials:
+          </p>
+          <ul>
+            {tespitEtmez.map((t) => <li>{t}</li>)}
+          </ul>
+          <p>
+            For these defects, a <a href="/en/color-sorter/">color sorter</a> steps in. Our
+            commitment to you is not a sale — it is building the right combination.
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dökme mi paketli mi -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow reveal">Choosing the Right Point</p>
+      <h2 class="reveal">Bulk Product or Packaged Product?</h2>
+      <div class="tip-grid">
+        <a href="/en/x-ray-food-inspection/bulk-product/" class="tip-card card reveal">
+          <div class="tip-img">
+            <Image src={dokmeImg} alt="Bulk-product X-ray sorting machine" widths={[480, 760]} sizes="(max-width:900px) 100vw, 40vw" />
+          </div>
+          <div class="tip-body">
+            <h3>In-Line — Bulk Product</h3>
+            <p>Foreign material is removed before it is ever packaged; only the defective section is rejected, keeping product loss to a minimum.</p>
+            <ul>
+              <li><Icon name="check" size={15} /> Nuts, pulses, and IQF flows</li>
+              <li><Icon name="check" size={15} /> Machine protection upstream of crushers and mills</li>
+              <li><Icon name="check" size={15} /> Low product loss, high tonnage</li>
+            </ul>
+            <span class="tip-link">Bulk-product X-ray <Icon name="arrow" size={15} /></span>
+          </div>
+        </a>
+        <a href="/en/x-ray-food-inspection/packaged-product/" class="tip-card card reveal" style="--reveal-delay:.1s">
+          <div class="tip-img">
+            <Image src={paketliImg} alt="Packaged-product X-ray inspection machine" widths={[480, 760]} sizes="(max-width:900px) 100vw, 40vw" />
+          </div>
+          <div class="tip-body">
+            <h3>End-of-Line — Packaged Product</h3>
+            <p>The final critical control point: it sees inside sealed packaging and verifies every package on its way to your customer.</p>
+            <ul>
+              <li><Icon name="check" size={15} /> BRC / IFS and retailer audit evidence</li>
+              <li><Icon name="check" size={15} /> Fill-level and missing-product checks</li>
+              <li><Icon name="check" size={15} /> Image-backed reject archive, traceability</li>
+            </ul>
+            <span class="tip-link">Packaged-product X-ray <Icon name="arrow" size={15} /></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Uyum + NDK -->
+  <section class="section honest-band band-dark">
+    <div class="container">
+      <div class="uyum-grid">
+        <div class="reveal">
+          <p class="eyebrow">Export and Audits</p>
+          <h2>When the Auditor Asks,<br />Have Your Answer Ready</h2>
+          <p class="uyum-text">
+            In your BRCGS, IFS, and HACCP plan, X-ray becomes your CCP (critical control point):
+            automatic data logging, a detection image archive, and reject-confirmation sensors
+            keep every batch audit-ready.
+          </p>
+        </div>
+        <div class="uyum-cards">
+          <div class="card-dark reveal" style="--reveal-delay:.08s">
+            <h3><Icon name="belge" size={20} /> NDK Licensing Support</h3>
+            <p>
+              In Turkey, X-ray devices are subject to licensing by the Turkish Nuclear Regulatory
+              Authority (NDK). SAGE Makine handles the application, measurements, and licensing
+              process on your behalf.
+            </p>
+          </div>
+          <div class="card-dark reveal" style="--reveal-delay:.16s">
+            <h3><Icon name="garanti" size={20} /> Radiation Safety</h3>
+            <p>
+              Thanks to the lead-curtain tunnel design, radiation leakage stays far below the
+              1 µSv/h license limit; operator safety is safeguarded.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seriler -->
+  <section class="section" id="series">
+    <div class="container">
+      <p class="eyebrow reveal">Capacity Options</p>
+      <h2 class="reveal">SAGE X-Series — by Line Type</h2>
+      <p class="sec-lead reveal">
+        Typical values are listed below; detection sensitivity depends on product thickness and
+        density, and the exact figure is determined by testing with your product.
+      </p>
+      <div class="table-scroll reveal">
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th>Series</th>
+              <th>Belt Width</th>
+              <th>Line Type</th>
+              <th>Detection Sensitivity*</th>
+              <th>Typical Use</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              seriler.map((s) => (
+                <tr>
+                  <td><strong>{s.seri}</strong></td>
+                  <td>{s.bant}</td>
+                  <td>{s.tip}</td>
+                  <td>{s.hassasiyet}</td>
+                  <td>{s.kullanim}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <p class="table-not reveal">
+        * SS: stainless-steel test sphere diameter; varies by product. Across all series: IP65+
+        enclosure options (IP69K washdown option for IQF lines), touchscreen interface, automatic
+        logging; CE-certified models.
+      </p>
+    </div>
+  </section>
+
+  <!-- Sektörler -->
+  <section class="section section--tight">
+    <div class="container">
+      <p class="eyebrow">Applications</p>
+      <nav class="sektor-strip" aria-label="Industries">
+        {SECTORS_EN.map((s) => <a href={`/en/industries/${s.slug}/`}>{s.title}</a>)}
+      </nav>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Let's Run a Detection Test with Your Product"
+    text="Let's set up a real detection test using your sample product and the suspect foreign materials — and report the results with images."
+    topic="X-ray food inspection — sample testing"
+  />
+</BaseLayout>

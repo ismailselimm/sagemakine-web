@@ -7,6 +7,9 @@ import CtaBand from '../../components/CtaBand.astro';
 import Icon from '../../components/Icon.astro';
 import { SEKTORLER } from '../../data/sektorler';
 import { CONTACT } from '../../data/site';
+import { t } from '../../i18n/ui';
+
+const ui = t('tr');
 
 export function getStaticPaths() {
   return SEKTORLER.map((sektor) => ({ params: { slug: sektor.slug }, props: { sektor } }));
@@ -38,7 +41,7 @@ const heroImg = photos[sektor.image];
 const extraImg = sektor.extraImage ? photos[sektor.extraImage] : undefined;
 
 const breadcrumbs = [
-  { name: 'Sektörler', path: `/sektorler/${SEKTORLER[0].slug}/` },
+  { name: ui.sekSektorLink, path: `/sektorler/${SEKTORLER[0].slug}/` },
   { name: sektor.title, path: `/sektorler/${sektor.slug}/` },
 ];
 
@@ -62,9 +65,9 @@ const digerSektorler = SEKTORLER.filter((s) => s.slug !== sektor.slug);
         href={CONTACT.whatsappQuote(sektor.waTopic)}
         class="btn btn--primary"
         target="_blank"
-        rel="noopener">Teklif Alın</a
+        rel="noopener">{ui.quoteBtn}</a
       >
-      <a href="#cozum" class="btn btn--outline hero-ghost">Önerilen Çözüm</a>
+      <a href="#cozum" class="btn btn--outline hero-ghost">{ui.sekHeroCta}</a>
     </Fragment>
     <Fragment slot="visual">
       <Image
@@ -81,7 +84,7 @@ const digerSektorler = SEKTORLER.filter((s) => s.slug !== sektor.slug);
   <!-- Sektör gerçekleri -->
   <section class="section">
     <div class="container">
-      <p class="eyebrow reveal">Sektörünüzü Tanıyoruz</p>
+      <p class="eyebrow reveal">{ui.sekTaniyoruz}</p>
       <div class="facts-grid">
         <p class="facts-intro reveal">{sektor.factsIntro}</p>
         <div class="facts">
@@ -101,8 +104,8 @@ const digerSektorler = SEKTORLER.filter((s) => s.slug !== sektor.slug);
   <!-- Kusurlar -->
   <section class="section band-sunken">
     <div class="container">
-      <p class="eyebrow reveal">Ayıklanması Gereken Kusurlar</p>
-      <h2 class="reveal">Hattınızdan Neleri Çıkarıyoruz?</h2>
+      <p class="eyebrow reveal">{ui.sekKusurEyebrow}</p>
+      <h2 class="reveal">{ui.sekKusurH2}</h2>
       <div class="defect-grid">
         {
           sektor.defects.map((d, i) => (
@@ -122,8 +125,8 @@ const digerSektorler = SEKTORLER.filter((s) => s.slug !== sektor.slug);
   <!-- Önerilen çözüm -->
   <section class="section" id="cozum">
     <div class="container">
-      <p class="eyebrow reveal">Önerilen Kurulum</p>
-      <h2 class="reveal">Hattınızda Nasıl Çözüyoruz?</h2>
+      <p class="eyebrow reveal">{ui.sekKurulumEyebrow}</p>
+      <h2 class="reveal">{ui.sekKurulumH2}</h2>
       <p class="cozum-intro reveal">{sektor.cozum.intro}</p>
 
       <div class:list={['cozum-grid', { 'has-figure': !!extraImg }]}>
@@ -163,10 +166,10 @@ const digerSektorler = SEKTORLER.filter((s) => s.slug !== sektor.slug);
     <div class="container servis-note reveal">
       <span class="servis-icon"><Icon name="harita" size={28} /></span>
       <div>
-        <h2>Bölgenizdeyiz</h2>
+        <h2>{ui.sekBolge}</h2>
         <p>{sektor.servisNotu}</p>
         <a href="/servis-yedek-parca/" class="cozum-link"
-          >Servis ve yedek parça yaklaşımımız <Icon name="arrow" size={16} /></a
+          >{ui.sekServisLink} <Icon name="arrow" size={16} /></a
         >
       </div>
     </div>
@@ -175,18 +178,14 @@ const digerSektorler = SEKTORLER.filter((s) => s.slug !== sektor.slug);
   <!-- Diğer sektörler -->
   <section class="section section--tight">
     <div class="container">
-      <p class="eyebrow">Diğer Sektörler</p>
-      <nav class="sektor-strip" aria-label="Diğer sektörler">
+      <p class="eyebrow">{ui.sekDiger}</p>
+      <nav class="sektor-strip" aria-label={ui.sekDigerAria}>
         {digerSektorler.map((s) => <a href={`/sektorler/${s.slug}/`}>{s.title}</a>)}
       </nav>
     </div>
   </section>
 
-  <CtaBand
-    title="Ürününüzle Test Edelim"
-    text="Numune ürününüzü gönderin; ayıklama sonucunu birlikte değerlendirelim, hattınıza uygun kapasiteyi netleştirelim."
-    topic={sektor.waTopic}
-  />
+  <CtaBand title={ui.sekCtaTitle} text={ui.sekCtaText} topic={sektor.waTopic} />
 </BaseLayout>
 
 <style>

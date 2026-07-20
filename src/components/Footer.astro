@@ -3,10 +3,21 @@ import { Image } from 'astro:assets';
 import Logo from './Logo.astro';
 import forpusYazi from '../assets/brand/forpus-yazi.png';
 import { SITE, CONTACT, SECTORS, MAKINE_GRUPLARI, KURUMSAL_LINKS } from '../data/site';
+import { SITE_EN, MAKINE_GRUPLARI_EN, KURUMSAL_LINKS_EN, SECTORS_EN } from '../data/en/site';
+import { type Locale } from '../i18n/routes';
+import { t } from '../i18n/ui';
+
+const locale: Locale = Astro.currentLocale === 'en' ? 'en' : 'tr';
+const ui = t(locale);
 
 const yil = new Date().getFullYear();
-const makineLinks = MAKINE_GRUPLARI.flatMap((g) => g.items);
-const kurumsalLinks = KURUMSAL_LINKS;
+const makineLinks = (locale === 'en' ? MAKINE_GRUPLARI_EN : MAKINE_GRUPLARI).flatMap((g) => g.items);
+const kurumsalLinks = locale === 'en' ? KURUMSAL_LINKS_EN : KURUMSAL_LINKS;
+const sektorLinks =
+  locale === 'en'
+    ? SECTORS_EN.map((s) => ({ title: s.title, href: `/en/industries/${s.slug}/` }))
+    : SECTORS.map((s) => ({ title: s.title, href: `/sektorler/${s.slug}/` }));
+const desc = locale === 'en' ? SITE_EN.description : SITE.description;
 ---
 
 <footer class="site-footer band-dark">
@@ -14,19 +25,19 @@ const kurumsalLinks = KURUMSAL_LINKS;
     <div class="footer-grid">
       <div class="footer-brand">
         <Logo variant="dark" full height={84} />
-        <p class="footer-desc">{SITE.description}</p>
+        <p class="footer-desc">{desc}</p>
         <address class="footer-contact">
           <a href={CONTACT.mapsLink} target="_blank" rel="noopener">{CONTACT.address.full}</a>
           <a href={CONTACT.phoneHref} class="mono">{CONTACT.phoneDisplay}</a>
           <a href={`mailto:${CONTACT.emailInfo}`} class="mono">{CONTACT.emailInfo}</a>
         </address>
         <a href={CONTACT.whatsapp} class="btn btn--primary" target="_blank" rel="noopener">
-          WhatsApp'tan Yazın
+          {ui.footerWa}
         </a>
       </div>
 
-      <nav class="footer-col" aria-label="Makineler">
-        <h2>Makineler</h2>
+      <nav class="footer-col" aria-label={ui.colMakineler}>
+        <h2>{ui.colMakineler}</h2>
         <ul>
           {makineLinks.map((l) => (
             <li><a href={l.href}>{l.label}</a></li>
@@ -34,17 +45,17 @@ const kurumsalLinks = KURUMSAL_LINKS;
         </ul>
       </nav>
 
-      <nav class="footer-col" aria-label="Sektörler">
-        <h2>Sektörler</h2>
+      <nav class="footer-col" aria-label={ui.colSektorler}>
+        <h2>{ui.colSektorler}</h2>
         <ul>
-          {SECTORS.map((s) => (
-            <li><a href={`/sektorler/${s.slug}/`}>{s.title}</a></li>
+          {sektorLinks.map((s) => (
+            <li><a href={s.href}>{s.title}</a></li>
           ))}
         </ul>
       </nav>
 
-      <nav class="footer-col" aria-label="Kurumsal">
-        <h2>Kurumsal</h2>
+      <nav class="footer-col" aria-label={ui.colKurumsal}>
+        <h2>{ui.colKurumsal}</h2>
         <ul>
           {kurumsalLinks.map((l) => (
             <li><a href={l.href}>{l.label}</a></li>
@@ -54,8 +65,8 @@ const kurumsalLinks = KURUMSAL_LINKS;
     </div>
 
     <div class="footer-bottom">
-      <p>© {yil} {SITE.legalName} · Tüm hakları saklıdır.</p>
-      <p class="mono footer-loc">Yunusemre / Manisa · Türkiye geneli satış, kurulum ve servis</p>
+      <p>© {yil} {SITE.legalName} · {ui.rights}</p>
+      <p class="mono footer-loc">{ui.footerLoc}</p>
     </div>
 
     <!-- Forpus imzası -->
@@ -64,12 +75,13 @@ const kurumsalLinks = KURUMSAL_LINKS;
         href="https://forpusyazilim.com/"
         target="_blank"
         rel="noopener"
-        aria-label="Forpus Yazılım tarafından geliştirildi"
+        aria-label={ui.imzaAria}
       >
+        {locale === 'en' && <span class="imza-text">{ui.imzaText}</span>}
         <span class="imza-chip">
           <Image src={forpusYazi} alt="Forpus Yazılım" height={22} width={74} densities={[1, 2, 3]} />
         </span>
-        <span class="imza-text">tarafından geliştirilmiştir</span>
+        {locale === 'tr' && <span class="imza-text">{ui.imzaText}</span>}
       </a>
     </div>
   </div>

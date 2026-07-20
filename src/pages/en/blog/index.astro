@@ -1,0 +1,55 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import CtaBand from '../../../components/CtaBand.astro';
+import Icon from '../../../components/Icon.astro';
+import { YAZILAR_EN } from '../../../data/en/blog';
+import '../../../styles/blog-index.css';
+
+const breadcrumbs = [{ name: 'Blog', path: '/en/blog/' }];
+---
+
+<BaseLayout
+  title="Blog – Sorting Technology Guides | SAGE Makine"
+  description="Honest guides on color sorting and X-ray food inspection technology: price factors, technology comparisons, and practical buying advice."
+  path="/en/blog/"
+  breadcrumbs={breadcrumbs}
+>
+  <PageHero
+    eyebrow="Blog"
+    title="Written to Help You Decide, Not to Sell"
+    lead="Investing in sorting technology is a big decision. We write these guides as honest answers to the questions you ask us on the phone."
+    breadcrumbs={breadcrumbs}
+  />
+
+  <section class="section">
+    <div class="container container--wide">
+      <div class="post-grid">
+        {
+          YAZILAR_EN.map((y, i) => (
+              <a href={`/en/blog/${y.slug}/`} class="post-card card reveal" style={`--reveal-delay:${(i % 2) * 0.08}s; --media-ratio: 21 / 9`}>
+                <div class="card-media">
+                  <Image
+                    src={y.cover}
+                    alt={y.coverAlt}
+                    width={900}
+                    widths={[420, 640, 900]}
+                    sizes="(max-width: 800px) 100vw, (max-width: 1570px) 42vw, 660px"
+                  />
+                </div>
+                <div class="post-body">
+                  <p class="mono-tag">{y.kategori} · {y.dk} min</p>
+                  <h2>{y.baslik}</h2>
+                  <p class="post-ozet">{y.ozet}</p>
+                  <span class="post-link">Read the article <Icon name="arrow" size={15} /></span>
+                </div>
+              </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>

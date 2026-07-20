@@ -1,0 +1,89 @@
+---
+import BlogLayout from '../../../layouts/BlogLayout.astro';
+
+/* FAQ — single source: the body and the FAQPage schema are both derived from it */
+const faq = [
+  {
+    q: `Why do color sorter prices vary so much?`,
+    a: `Because the price is built from a configuration, not a single product. Chute count, capacity, camera resolution, the choice of NIR or InGaAs sensors, ejector quality, brand, service scope, plus exchange rates and freight all directly affect the price. Even within the same model family, the price can differ severalfold depending on the hardware.`,
+  },
+  {
+    q: `Does buying used make sense?`,
+    a: `In some cases, yes; but because camera and software technology evolves quickly, older machines can suffer from lower sorting accuracy, and spare-part availability can be uncertain. Before deciding, we recommend reading our <a href="/en/blog/used-color-sorter-guide/">used color sorter guide</a>.`,
+  },
+  {
+    q: `Are installation and training included in the price?`,
+    a: `It depends on the supplier, which is why you should ask for installation, commissioning, operator training, and warranty coverage to be stated explicitly in the quotation. SAGE Makine quotations spell these items out clearly from the start — no surprise costs later.`,
+  }
+];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q.replace(/<[^>]+>/g, ''),
+    acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') },
+  })),
+};
+---
+
+<BlogLayout
+  title="Color Sorter Prices 2026 | SAGE Makine"
+  description="The six factors that drive color sorter prices, total cost of ownership, and how to request a quotation. Clarify your decision with a sample test."
+  path="/en/blog/color-sorter-prices/"
+  lead="The first thing anyone researching color sorter prices notices is always the same: nobody publishes a firm number. The reason is not secrecy — the price depends entirely on the configuration. In this guide we walk through the six factors that determine the price, the total cost of ownership you should really be comparing, and how to request a quotation the right way."
+  tarih="2026-07-20"
+  waTopic="Color sorter price quotation"
+  jsonLd={[faqLd]}
+>
+  <h2>Why Does Nobody Publish a Fixed Price List?</h2>
+  <p>Even when you buy a car, the answer to "how much" depends on the trim level; with a color sorter the spread is far wider. The same frame can be built up as a compact single-chute configuration or as a seven- or ten-chute high-capacity line. Camera count, sensor type, number of ejectors, and the software package change with every project. That is why no serious manufacturer or importer publishes a fixed price list on its website — and if you do find one, you should know that the number does not cover your configuration.</p>
+  <p>Whether you call it a color sorter or an optical sorting machine, the right question is not "what does it cost" but "what is the right configuration for my product and my capacity." On our <a href="/en/color-sorter/">color sorter</a> page you can compare chute-type and belt-type options.</p>
+
+  <h2>The 6 Factors That Determine the Price</h2>
+  <ol>
+    <li><strong>Chute count and capacity:</strong> This is the single biggest driver. On <a href="/en/color-sorter/chute-type/">chute-type machines</a>, every additional channel brings its own camera and ejector hardware with it; as capacity grows, the price climbs along with the chute count.</li>
+    <li><strong>Camera and sensor technology:</strong> The resolution of standard CCD cameras, NIR or InGaAs sensors for foreign material that shows no color difference, and AI-assisted shape-recognition software each add another layer to the price. Removing rot from in-shell hazelnuts and removing stones from rice do not call for the same hardware.</li>
+    <li><strong>Ejector quality and air system:</strong> The ejector is the hardest-working part of the machine. High-frequency, long-life ejectors cost more, but they also reduce carryover (good product lost to the reject stream) and pay for themselves over time.</li>
+    <li><strong>Origin and brand:</strong> Sortex, part of the Bühler Group, is a registered color sorting brand so widely known in the Turkish market that its name has become generic; European-built machines generally sit in the top price segment. Chinese manufacturers, meanwhile, have made serious progress on cameras and software in recent years and, when the right model is chosen, offer a far more affordable investment cost.</li>
+    <li><strong>Service, training, and spare-parts coverage:</strong> Whether installation, commissioning, operator training, and an initial set of wear parts are included makes a real difference between quotations. A quote that looks cheap can turn expensive once these items are excluded.</li>
+    <li><strong>Exchange rates and freight:</strong> Because the machines are imported, prices are set in foreign currency; exchange rates, freight, and customs clearance costs vary with the quotation date.</li>
+  </ol>
+
+  <h2>The Real Question: Total Cost of Ownership</h2>
+  <p>The purchase price is the visible tip of the iceberg. Since the machine will run every day for five, perhaps ten years, the real comparison should be made on total cost of ownership.</p>
+  <table>
+    <thead>
+      <tr><th>Hidden cost item</th><th>Why it matters</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Air consumption</td><td>Ejectors run on compressed air; a machine with high consumption means a bigger compressor investment and a higher electricity bill every month.</td></tr>
+      <tr><td>Carryover</td><td>Every good kernel that ends up in the reject stream is sellable product leaving as product loss. High carryover can add up to a loss that exceeds the machine's price over the years.</td></tr>
+      <tr><td>Maintenance and spare parts</td><td>The price of wear parts such as ejectors, lamps, and belts — and whether they are held in stock in Turkey — determines your downtime when a fault occurs.</td></tr>
+    </tbody>
+  </table>
+  <p>That is why a low-priced machine with high air consumption and poor carryover can end up costing more than an alternative that looks expensive on paper. You can find what we offer on spare-parts stock and technical support on our <a href="/en/service-spare-parts/">service and spare parts</a> page.</p>
+
+  <h2>How to Request the Right Quotation</h2>
+  <p>The only way to compare suppliers fairly is to have every quotation answer the same questions in writing:</p>
+  <ul>
+    <li><strong>Define capacity in terms of your own product:</strong> "So many tons per hour" means nothing on its own; the quotation must state for which product, at what incoming quality, and to what target cleanliness it applies. A capacity valid for chickpeas may not hold for dried apricots.</li>
+    <li><strong>Ask about carryover:</strong> Ask for the expected value — for your product, at your contamination level — to be stated in the quotation.</li>
+    <li><strong>Ask about air consumption:</strong> Find out the required compressor capacity and the estimated consumption; calculate the electricity cost at your own tariff.</li>
+    <li><strong>Ask about the service commitment:</strong> Response time in the event of a breakdown, spare-parts stock, and training scope should all be in writing.</li>
+    <li><strong>Request a sample test:</strong> Watching a sample of your own product being sorted on a real machine is more reliable proof than any brochure.</li>
+  </ul>
+  <p>On lines that carry a risk of foreign material with no color difference — such as glass, stone, and metal — evaluating an <a href="/en/x-ray-food-inspection/">X-ray food inspection</a> solution alongside color sorting in the same quotation process helps you plan the total investment more accurately.</p>
+
+  <h2>Frequently Asked Questions</h2>
+  {
+    faq.map((f) => (
+      <Fragment>
+        <h3 set:html={f.q} />
+        <p set:html={f.a} />
+      </Fragment>
+    ))
+  }
+
+  <p><strong>The SAGE Makine approach:</strong> With 22 years of industry experience, we start the conversation not with price but with the right configuration for your product. Send us your sample and we will test it on the machine — then put a written quotation in front of you covering every item, including carryover and air consumption.</p>
+</BlogLayout>

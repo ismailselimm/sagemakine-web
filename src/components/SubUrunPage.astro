@@ -9,6 +9,11 @@ import PageHero from './PageHero.astro';
 import CtaBand from './CtaBand.astro';
 import Icon from './Icon.astro';
 import { CONTACT } from '../data/site';
+import { whatsappQuoteEn } from '../data/en/site';
+import { t } from '../i18n/ui';
+
+const locale = Astro.currentLocale === 'en' ? 'en' : 'tr';
+const ui = t(locale);
 
 interface UrunGrubu {
   baslik: string;
@@ -60,7 +65,12 @@ const breadcrumbs = [parent, { name: title, path }];
 >
   <PageHero eyebrow={eyebrow} title={title} lead={lead} breadcrumbs={breadcrumbs}>
     <Fragment slot="actions">
-      <a href={CONTACT.whatsappQuote(waTopic)} class="btn btn--primary" target="_blank" rel="noopener">Teklif Alın</a>
+      <a
+        href={locale === 'en' ? whatsappQuoteEn(waTopic) : CONTACT.whatsappQuote(waTopic)}
+        class="btn btn--primary"
+        target="_blank"
+        rel="noopener">{ui.quoteBtn}</a
+      >
       <a href={parent.path} class="btn btn--outline sub-ghost">{parent.name} ↰</a>
     </Fragment>
     <Fragment slot="visual">
@@ -78,8 +88,8 @@ const breadcrumbs = [parent, { name: title, path }];
   <section class="section">
     <div class="container sub-grid">
       <div>
-        <p class="eyebrow reveal">Hangi Ürünler İçin?</p>
-        <h2 class="reveal">Bu Tipin Sahası</h2>
+        <p class="eyebrow reveal">{ui.subHangi}</p>
+        <h2 class="reveal">{ui.subSaha}</h2>
         <div class="grup-list">
           {
             urunGruplari.map((g, i) => (
@@ -98,8 +108,8 @@ const breadcrumbs = [parent, { name: title, path }];
         </div>
       </div>
       <div>
-        <p class="eyebrow reveal">Avantajlar</p>
-        <h2 class="reveal">Neden Bu Tip?</h2>
+        <p class="eyebrow reveal">{ui.subAvantaj}</p>
+        <h2 class="reveal">{ui.subNeden}</h2>
         <div class="av-list">
           {
             avantajlar.map((a, i) => (
@@ -121,8 +131,8 @@ const breadcrumbs = [parent, { name: title, path }];
 
   <section class="section section--tight band-sunken">
     <div class="container">
-      <p class="eyebrow">İlgili Sektörler</p>
-      <nav class="sektor-strip" aria-label="İlgili sektörler">
+      <p class="eyebrow">{ui.subIlgili}</p>
+      <nav class="sektor-strip" aria-label={ui.subIlgili}>
         {sektorler.map((s) => <a href={s.href}>{s.label}</a>)}
       </nav>
     </div>
@@ -130,7 +140,7 @@ const breadcrumbs = [parent, { name: title, path }];
 
   <CtaBand
     title={ctaTitle}
-    text="Numune ürününüzü test edelim; kapasite, taşıma oranı ve yerleşimi birlikte netleştirelim."
+    text={ui.subCtaText}
     topic={waTopic}
   />
 </BaseLayout>

@@ -1,5 +1,8 @@
 ---
 import { CONTACT } from '../data/site';
+import { t } from '../i18n/ui';
+
+const ui = t(Astro.currentLocale === 'en' ? 'en' : 'tr');
 ---
 
 <a
@@ -7,7 +10,7 @@ import { CONTACT } from '../data/site';
   class="wa-fab"
   target="_blank"
   rel="noopener"
-  aria-label="WhatsApp üzerinden bize yazın"
+  aria-label={ui.waFabAria}
 >
   <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true">
     <path

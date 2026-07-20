@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import { SITE, CONTACT } from '../../data/site';
+import '../../styles/legal.css';
+
+const breadcrumbs = [{ name: 'Privacy Notice', path: '/en/privacy/' }];
+---
+
+<BaseLayout
+  title="Privacy Notice | SAGE Makine"
+  description="SAGE Makine privacy notice: which personal data we process and why, and your rights under Turkey's Personal Data Protection Law No. 6698 (KVKK)."
+  path="/en/privacy/"
+  breadcrumbs={breadcrumbs}
+  noindex
+>
+  <PageHero eyebrow="Legal Information" title="Privacy Notice" breadcrumbs={breadcrumbs} />
+
+  <section class="section">
+    <div class="container legal">
+      <p>
+        This privacy notice has been prepared by <strong>{SITE.legalName}</strong> ("SAGE
+        Makine"), acting as data controller, pursuant to Turkey's Personal Data Protection Law
+        No. 6698 ("KVKK").
+      </p>
+
+      <h2>1. Personal Data Processed and Purposes of Processing</h2>
+      <p>
+        Our website (sagemakine.com) has no membership system and no contact form that stores
+        data on our servers. When you contact us:
+      </p>
+      <ul>
+        <li>
+          <strong>Phone / WhatsApp:</strong> Your full name, phone number, and the content of
+          your message are processed to respond to your inquiry, prepare a quotation, and manage
+          the sales and service process. Data exchanged via WhatsApp is additionally subject to
+          the terms of service of WhatsApp LLC.
+        </li>
+        <li>
+          <strong>Email:</strong> Your email address and message content are processed to
+          respond to your inquiry and to conduct the business relationship.
+        </li>
+      </ul>
+      <p>
+        Our site uses no third-party advertising or tracking cookies. The embedded Google Maps
+        viewer on some pages may use cookies set by Google LLC under its own policies.
+      </p>
+
+      <h2>2. Legal Basis for Processing</h2>
+      <p>
+        Your personal data is processed solely for communication and business-relationship
+        management, on the legal grounds set out in Article 5/2 of the KVKK: processing that is
+        "directly related to the establishment or performance of a contract" and the "legitimate
+        interest of the data controller."
+      </p>
+
+      <h2>3. Data Transfers</h2>
+      <p>
+        Your personal data is not shared with third parties except where legally required, is
+        not added to marketing databases, and is not transferred abroad (other than as inherent
+        to the operation of WhatsApp and email infrastructure providers).
+      </p>
+
+      <h2>4. Retention Period</h2>
+      <p>
+        Data is retained for a reasonable period after your inquiry is resolved; where a
+        business relationship is established, it is retained for the limitation periods set out
+        in the applicable legislation.
+      </p>
+
+      <h2>5. Your Rights Under the KVKK</h2>
+      <p>
+        Under Article 11 of the KVKK, you have the right to learn whether your personal data is
+        being processed, to request information if it has been, to request its correction or
+        deletion, to object to processing, and to claim compensation if you suffer damage as a
+        result.
+      </p>
+      <p>
+        You may submit your requests in writing to
+        <a href={`mailto:${CONTACT.emailInfo}`}>{CONTACT.emailInfo}</a> or to
+        <strong>{CONTACT.address.full}</strong>.
+      </p>
+
+      <p class="son-not">
+        This notice is updated as needed. Last updated: July 2026. This is an informational
+        translation; the <a href="/kvkk/">Turkish version</a> prevails.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

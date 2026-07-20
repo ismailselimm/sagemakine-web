@@ -11,6 +11,7 @@ import ejektorImg from '../../assets/photos/tech-ejektor.png';
 import kameraImg from '../../assets/photos/tech-kamera.png';
 import olukImg from '../../assets/photos/machine-oluk-sorter.png';
 import bantImg from '../../assets/photos/machine-bant-sorter.png';
+import '../../styles/pillar-renk.css';
 
 const breadcrumbs = [{ name: 'Renk Ayırma Makineleri', path: '/renk-ayirma-makinesi/' }];
 
@@ -307,101 +308,3 @@ const seriler = [
   />
 </BaseLayout>
 
-<style>
-  .tek-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--sp-5);
-    margin-top: var(--sp-6);
-  }
-
-  .tek {
-    padding: var(--sp-5);
-  }
-
-  .tek h3 {
-    font-size: var(--text-md);
-    margin-bottom: var(--sp-2);
-  }
-
-  .tek p {
-    font-size: var(--text-sm);
-    color: var(--ink-faint);
-  }
-
-  .tek-figure {
-    margin: var(--sp-6) 0 0;
-  }
-
-  .tek-figure :global(img) {
-    border-radius: var(--radius-lg);
-  }
-
-  .kusur-list {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--sp-3);
-    list-style: none;
-    padding: 0;
-    margin-top: var(--sp-6);
-  }
-
-  .kusur-list li {
-    display: flex;
-    align-items: center;
-    gap: 0.6em;
-    padding: 0.85em 1em;
-    background: var(--bg-raised);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--ink-soft);
-  }
-
-  .kusur-list :global(svg) {
-    color: var(--accent-ink);
-    flex-shrink: 0;
-  }
-
-  .kusur-not {
-    margin-top: var(--sp-5);
-    font-size: var(--text-sm);
-    color: var(--ink-faint);
-  }
-
-  .honest-in h2 {
-    color: var(--white);
-  }
-
-  .honest-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--sp-5);
-    margin-top: var(--sp-6);
-  }
-
-  @media (max-width: 1000px) {
-    .tek-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-    .kusur-list {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  @media (max-width: 900px) {
-    .howto-grid,
-    .tip-grid,
-    .honest-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 560px) {
-    .tek-grid,
-    .kusur-list {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
