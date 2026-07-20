@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import Logo from './Logo.astro';
+import forpusYazi from '../assets/brand/forpus-yazi.png';
 import { SITE, CONTACT, SECTORS, MAKINE_GRUPLARI, KURUMSAL_LINKS } from '../data/site';
 
 const yil = new Date().getFullYear();
@@ -54,6 +56,21 @@ const kurumsalLinks = KURUMSAL_LINKS;
     <div class="footer-bottom">
       <p>© {yil} {SITE.legalName} · Tüm hakları saklıdır.</p>
       <p class="mono footer-loc">Yunusemre / Manisa · Türkiye geneli satış, kurulum ve servis</p>
+    </div>
+
+    <!-- Forpus imzası -->
+    <div class="footer-imza">
+      <a
+        href="https://forpusyazilim.com/"
+        target="_blank"
+        rel="noopener"
+        aria-label="Forpus Yazılım tarafından geliştirildi"
+      >
+        <span class="imza-text">Geliştiren</span>
+        <span class="imza-chip">
+          <Image src={forpusYazi} alt="Forpus Yazılım" height={22} width={74} densities={[1, 2, 3]} />
+        </span>
+      </a>
     </div>
   </div>
 </footer>
@@ -152,6 +169,40 @@ const kurumsalLinks = KURUMSAL_LINKS;
     .footer-bottom {
       padding-right: 11rem;
     }
+  }
+
+  /* ── Forpus imzası ── */
+  .footer-imza {
+    display: flex;
+    justify-content: center;
+    padding-bottom: var(--sp-5);
+  }
+
+  .footer-imza a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    text-decoration: none;
+    opacity: 0.75;
+    transition: opacity var(--dur) var(--ease-out);
+  }
+
+  .footer-imza a:hover {
+    opacity: 1;
+  }
+
+  .imza-text {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+  }
+
+  .imza-chip {
+    display: inline-flex;
+    background: #ffffff;
+    padding: 5px 9px;
+    border-radius: 6px;
   }
 
   @media (max-width: 900px) {

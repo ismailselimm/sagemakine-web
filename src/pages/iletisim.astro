@@ -69,12 +69,10 @@ const konular = [
           <span class="kanal-icon"><Icon name="mail" size={24} /></span>
           <div>
             <h2>E-posta</h2>
-            <p class="kanal-deger">
+            <p class="kanal-deger kanal-deger--mail">
               <a href={`mailto:${CONTACT.emailInfo}`}>{CONTACT.emailInfo}</a>
             </p>
-            <p class="kanal-not">
-              Satış: <a href={`mailto:${CONTACT.emailAdem}`}>{CONTACT.emailAdem}</a>
-            </p>
+            <p class="kanal-not">Teklif ve tüm sorularınız için — mesai içinde genellikle aynı gün dönüş</p>
           </div>
         </div>
 
@@ -217,6 +215,10 @@ const konular = [
     font-size: var(--text-xs);
     color: var(--ink-faint);
     margin-top: 0.2em;
+  }
+
+  .kanal-deger--mail {
+    font-size: var(--text-base);
   }
 
   .form-box {
