@@ -153,8 +153,11 @@ const konular = [
 </BaseLayout>
 
 <script>
-  const form = document.getElementById('wa-form') as HTMLFormElement;
-  form?.addEventListener('submit', (e) => {
+  function initWaForm() {
+    const form = document.getElementById('wa-form') as HTMLFormElement | null;
+    if (!form || form.dataset.init) return;
+    form.dataset.init = '1';
+    form.addEventListener('submit', (e) => {
     e.preventDefault();
     const data = new FormData(form);
     const isim = String(data.get('isim') || '').trim();
@@ -168,8 +171,10 @@ const konular = [
     ]
       .filter(Boolean)
       .join(' ');
-    window.open(`https://wa.me/905323436195?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
-  });
+      window.open(`https://wa.me/905323436195?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+    });
+  }
+  document.addEventListener('astro:page-load', initWaForm);
 </script>
 
 <style>

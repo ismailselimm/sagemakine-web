@@ -2,32 +2,39 @@
 /**
  * SAGE logo — kullanıcının sağladığı yüksek çözünürlüklü parçalardan
  * (brand/chatgpt-icon.png + brand/chatgpt-wordmark.png, şeffaflaştırılmış).
- * variant="color" → açık zeminlerde çıplak lockup (ikon + SAGE)
+ * variant="color" → açık zeminlerde çıplak lockup
  * variant="dark"  → koyu zeminlerde beyaz plakacık içinde
+ * full            → wordmark'ın TAM bloğu (SMART·AUTOMATION… + ünvan satırı dahil)
  */
 import { Image } from 'astro:assets';
 import iconImg from '../assets/brand/sage-icon.png';
 import wordmarkImg from '../assets/brand/sage-wordmark.png';
+import wordmarkFullImg from '../assets/brand/sage-wordmark-full.png';
 
 interface Props {
   variant?: 'color' | 'dark';
   /** ikon yüksekliği (px) — lockup buna göre ölçeklenir */
   height?: number;
+  /** tam yazı bloğu (sloganlar + ünvan satırı) */
+  full?: boolean;
   class?: string;
 }
 
-const { variant = 'color', height = 44, class: className } = Astro.props;
+const { variant = 'color', height = 44, full = false, class: className } = Astro.props;
 const iconH = height;
 const iconW = Math.round(iconH * (1250 / 880));
-const wmH = Math.round(height * 0.62);
-const wmW = Math.round(wmH * (1700 / 455));
+
+const wm = full ? wordmarkFullImg : wordmarkImg;
+const wmRatio = full ? 1710 / 780 : 1700 / 455;
+const wmH = full ? Math.round(height * 0.96) : Math.round(height * 0.62);
+const wmW = Math.round(wmH * wmRatio);
 ---
 
 <span
   class:list={['sage-lockup', variant === 'dark' && 'sage-lockup--chip', className]}
 >
   <Image src={iconImg} alt="" height={iconH} width={iconW} densities={[1, 2]} />
-  <Image src={wordmarkImg} alt="SAGE Makine" height={wmH} width={wmW} densities={[1, 2]} />
+  <Image src={wm} alt="SAGE Makine" height={wmH} width={wmW} densities={[1, 2]} />
 </span>
 
 <style>
@@ -39,8 +46,8 @@ const wmW = Math.round(wmH * (1700 / 455));
 
   .sage-lockup--chip {
     background: #ffffff;
-    padding: 10px 16px;
-    border-radius: 8px;
+    padding: 12px 18px;
+    border-radius: 10px;
     box-shadow: 0 2px 14px rgb(0 0 0 / 0.28);
   }
 </style>

@@ -133,14 +133,14 @@ const nedenler = [
 
     <!-- imza detay: canlı ayıklama simülasyonu -->
     <div class="hero-belt" aria-hidden="true">
-      <span class="belt-label">AYIKLAMA HATTI</span>
+      <span class="belt-label">CANLI AYIKLAMA SİMÜLASYONU</span>
       <div class="belt-track">
         {
           Array.from({ length: 26 }, (_, i) => {
             // deterministik ama düzensiz görünen dağılım (Math.random yok — build stabil)
             const d = 9.5 + ((i * 37) % 40) / 10; // 9.5–13.4s arası süre
             const delay = -((i * 173) % 1500) / 100; // 0–15s arası negatif faz
-            const bad = i % 9 === 4; // ~her 9 taneden biri kusurlu
+            const bad = i % 4 === 1; // her 4 taneden biri kusurlu — bol aksiyon
             return (
               <span
                 class:list={['belt-dot', { 'belt-dot--bad': bad }]}
@@ -475,12 +475,17 @@ const nedenler = [
   }
 
   .belt-label {
+    /* çizginin ÜSTÜNDE, taneler ile çakışmayan pill etiket */
     position: absolute;
     left: var(--gutter);
+    top: 0.35rem;
     font-family: var(--font-mono);
     font-size: 0.625rem;
-    letter-spacing: 0.28em;
-    color: rgb(255 255 255 / 0.3);
+    letter-spacing: 0.24em;
+    color: rgb(255 255 255 / 0.55);
+    background: rgb(10 18 32 / 0.6);
+    padding: 0.25em 0.8em;
+    border-radius: var(--radius-pill);
     z-index: 2;
   }
 
@@ -602,8 +607,15 @@ const nedenler = [
   .stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--sp-6);
+    column-gap: var(--sp-7);
+    row-gap: var(--sp-6);
     margin: 0;
+  }
+
+  /* eşit ritim: kolonlar arası ince ayraç */
+  .stat + .stat {
+    border-left: 1px solid var(--line);
+    padding-left: var(--sp-6);
   }
 
   .stat {
@@ -941,6 +953,14 @@ const nedenler = [
     .stats {
       grid-template-columns: 1fr 1fr;
     }
+    .stat + .stat {
+      border-left: 0;
+      padding-left: 0;
+    }
+    .stat:nth-child(even) {
+      border-left: 1px solid var(--line);
+      padding-left: var(--sp-6);
+    }
     .sector-grid {
       grid-template-columns: 1fr 1fr;
     }
@@ -965,6 +985,14 @@ const nedenler = [
     .neden-grid,
     .stats {
       grid-template-columns: 1fr;
+    }
+    .stat:nth-child(even) {
+      border-left: 0;
+      padding-left: 0;
+    }
+    .stat + .stat {
+      border-top: 1px solid var(--line);
+      padding-top: var(--sp-5);
     }
     .servis-list {
       grid-template-columns: 1fr;
