@@ -53,7 +53,7 @@ const jsonLd = [
     knowsAbout: [
       'renk ayırma makinesi',
       'color sorter',
-      'x-ray gıda kontrol sistemi',
+      'X-Ray gıda kontrol sistemi',
       'yabancı madde tespiti',
     ],
   },
@@ -61,7 +61,7 @@ const jsonLd = [
 
 const stats = [
   { stat: '22', unit: 'Yıl', label: 'Sektör tecrübesi — makineden önce ürünü tanıyoruz' },
-  { stat: '%99', unit: "'a varan", label: 'Ayırma doğruluğu, ürüne ve kusura göre' },
+  { stat: "%99'a", unit: 'varan', label: 'Ayırma doğruluğu, ürüne ve kusura göre' },
   { stat: '2', unit: 'Teknoloji', label: 'Optik + X-Ray, tek çözüm ortağı' },
   { stat: '81', unit: 'İl', label: "Manisa'dan tüm Türkiye'ye satış, kurulum, servis" },
 ];
@@ -80,7 +80,7 @@ const nedenler = [
   {
     icon: 'servis',
     title: 'Yerinde Servis ve Yedek Parça',
-    text: 'Kurulum, operatör eğitimi ve servis Manisa merkezimizden. Kritik yedek parçalar Türkiye’de stokta.',
+    text: "Kurulum, operatör eğitimi ve servis Manisa merkezimizden. Kritik yedek parçalar Türkiye'de stokta.",
   },
   {
     icon: 'ihracat',
@@ -91,8 +91,8 @@ const nedenler = [
 ---
 
 <BaseLayout
-  title="SAGE Makine | Renk Ayırma ve X-Ray Gıda Kontrol Makineleri – Manisa"
-  description="Kuru meyve, kuruyemiş ve bakliyat için renk ayırma (color sorter) ve X-Ray yabancı madde kontrol makineleri. 22 yıllık tecrübe, Manisa'dan tüm Türkiye'ye satış, kurulum ve servis."
+  title="SAGE Makine | Renk Ayırma ve X-Ray Gıda Kontrol – Manisa"
+  description="Kuru meyve, kuruyemiş ve bakliyat için renk ayırma ve X-Ray kontrol makineleri. 22 yıllık tecrübe, Manisa'dan tüm Türkiye'ye satış, kurulum ve servis."
   path="/"
   jsonLd={jsonLd}
 >
@@ -136,23 +136,18 @@ const nedenler = [
       <span class="belt-label">AYIKLAMA HATTI</span>
       <div class="belt-track">
         {
-          [
-            { d: '11s', delay: '0s', bad: false },
-            { d: '13s', delay: '-2.2s', bad: false },
-            { d: '12s', delay: '-4.6s', bad: true },
-            { d: '10.5s', delay: '-6.1s', bad: false },
-            { d: '12.6s', delay: '-7.9s', bad: false },
-            { d: '11.4s', delay: '-9.3s', bad: false },
-            { d: '13.5s', delay: '-10.8s', bad: true },
-            { d: '10.8s', delay: '-12.4s', bad: false },
-            { d: '12.2s', delay: '-13.7s', bad: false },
-            { d: '11.7s', delay: '-15.1s', bad: false },
-          ].map((b) => (
-            <span
-              class:list={['belt-dot', { 'belt-dot--bad': b.bad }]}
-              style={`--d:${b.d}; --delay:${b.delay}`}
-            />
-          ))
+          Array.from({ length: 26 }, (_, i) => {
+            // deterministik ama düzensiz görünen dağılım (Math.random yok — build stabil)
+            const d = 9.5 + ((i * 37) % 40) / 10; // 9.5–13.4s arası süre
+            const delay = -((i * 173) % 1500) / 100; // 0–15s arası negatif faz
+            const bad = i % 9 === 4; // ~her 9 taneden biri kusurlu
+            return (
+              <span
+                class:list={['belt-dot', { 'belt-dot--bad': bad }]}
+                style={`--d:${d.toFixed(1)}s; --delay:${delay.toFixed(2)}s`}
+              />
+            );
+          })
         }
         <span class="belt-scanner">
           <span class="belt-beam"></span>
@@ -170,10 +165,7 @@ const nedenler = [
             <div class="stat reveal" style={`--reveal-delay:${i * 0.08}s`}>
               <dt class="visually-hidden">{s.label}</dt>
               <dd>
-                <span class="stat-num">
-                  {s.stat}
-                  <small>{s.unit}</small>
-                </span>
+                <span class="stat-num">{s.stat}<small>{s.unit}</small></span>
                 <span class="stat-label">{s.label}</span>
               </dd>
             </div>
@@ -282,7 +274,7 @@ const nedenler = [
             <ul class="machine-feats">
               <li><Icon name="kamera" size={17} /> CCD + NIR kamera</li>
               <li><Icon name="ejektor" size={17} /> Hassas hava ejektörleri</li>
-              <li><Icon name="yazilim" size={17} /> Yapay zeka destekli sınıflandırma</li>
+              <li><Icon name="yazilim" size={17} /> Yapay zekâ destekli sınıflandırma</li>
             </ul>
             <span class="sector-cta">Renk ayırma makinelerini inceleyin <Icon name="arrow" size={15} /></span>
           </div>
@@ -322,7 +314,7 @@ const nedenler = [
       <figure class="servis-figure reveal">
         <Image
           src={teknisyen}
-          alt="SAGE Makine teknisyeni makine bakımı yaparken"
+          alt="Renk ayırma makinesinde bakım yapan teknisyen"
           widths={[560, 840, 1200]}
           sizes="(max-width: 900px) 100vw, 46vw"
         />
@@ -331,7 +323,7 @@ const nedenler = [
         <p class="eyebrow reveal">Satış Sonrası</p>
         <h2 class="reveal">Makine Satmıyoruz;<br />Hattınızı Ayakta Tutuyoruz</h2>
         <p class="reveal" style="--reveal-delay:.08s">
-          Kurulum, operatör eğitimi, yerinde servis ve yedek parça stoğu Manisa'daki merkezimizden
+          Kurulum, operatör eğitimi, yerinde servis ve yedek parça stoku Manisa'daki merkezimizden
           yönetilir. Hasat sezonunda duruşun ne demek olduğunu biliyoruz — çünkü bu sektörden
           geliyoruz.
         </p>
@@ -339,7 +331,7 @@ const nedenler = [
           <li><Icon name="check" size={16} /> Kurulum ve devreye alma</li>
           <li><Icon name="check" size={16} /> Türkçe arayüz ve operatör eğitimi</li>
           <li><Icon name="check" size={16} /> Yerinde teknik servis</li>
-          <li><Icon name="check" size={16} /> Kritik yedek parça stoğu</li>
+          <li><Icon name="check" size={16} /> Kritik yedek parça stoku</li>
         </ul>
         <a href="/servis-yedek-parca/" class="btn btn--primary reveal" style="--reveal-delay:.2s">
           Servis Yaklaşımımız
@@ -614,16 +606,26 @@ const nedenler = [
     margin: 0;
   }
 
+  .stat {
+    min-width: 0;
+  }
+
   .stat dd {
     margin: 0;
     display: grid;
     gap: var(--sp-2);
+    min-width: 0;
   }
 
   .stat-num {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 0.22em;
     font-family: var(--font-display);
     font-variation-settings: 'wdth' var(--wdth-wide);
-    font-size: var(--text-giant);
+    /* --text-giant yerine hücreye sığan ölçek: en uzun stat (%99'a) 4 sütunda taşmasın */
+    font-size: clamp(2.75rem, 1.3rem + 4.5vw, 5.5rem);
     font-weight: 700;
     line-height: 0.95;
     color: var(--navy-800);
@@ -634,8 +636,8 @@ const nedenler = [
     font-size: 0.32em;
     font-weight: 600;
     color: var(--accent-ink);
-    margin-left: 0.2em;
     letter-spacing: 0;
+    white-space: nowrap;
   }
 
   .stat-label {

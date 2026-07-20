@@ -1,0 +1,216 @@
+- generic [active] [ref=f5e1]:
+  - link "İçeriğe atla" [ref=f5e2] [cursor=pointer]:
+    - /url: "#icerik"
+  - banner [ref=f5e3]:
+    - generic [ref=f5e4]:
+      - link "SAGE Makine — Ana sayfa" [ref=f5e5] [cursor=pointer]:
+        - /url: /
+        - img "SAGE Makine logosu" [ref=f5e6]
+      - button "Menüyü aç" [ref=f5e36] [cursor=pointer]
+    - text: + +
+  - main [ref=f5e40]:
+    - article [ref=f5e41]:
+      - generic [ref=f5e43]:
+        - navigation "Sayfa yolu" [ref=f5e44]:
+          - list [ref=f5e45]:
+            - listitem [ref=f5e46]:
+              - link "Ana Sayfa" [ref=f5e47] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=f5e48]: / Blog
+        - paragraph [ref=f5e49]:
+          - generic [ref=f5e50]: Teknoloji
+          - time [ref=f5e51]: 20 Temmuz 2026
+          - generic [ref=f5e52]: 6 dk okuma
+        - heading "X-Ray mı Metal Dedektör mü? Gıdada Yabancı Madde Tespiti" [level=1] [ref=f5e53]
+        - paragraph [ref=f5e54]: Gıda üretiminde yabancı madde riski hem müşteri güvenini hem de ihracat kapılarını doğrudan etkiler. Metal dedektör ve X-Ray gıda kontrol sistemleri bu riske karşı iki farklı yaklaşım sunar; hangisinin size uygun olduğu ürününüze, ambalajınıza ve müşteri şartlarınıza bağlıdır. Bu yazıda iki teknolojiyi dürüstçe karşılaştırıyoruz.
+      - generic [ref=f5e56]:
+        - heading "İki Teknoloji, İki Farklı Prensip" [level=2] [ref=f5e57]
+        - paragraph [ref=f5e58]: Metal dedektör, adı üstünde yalnızca metali arar. Cihazın içinden geçen ürün bir elektromanyetik alandan geçer; demir, demir dışı metal veya paslanmaz çelik bir parçacık bu alanı bozduğunda sistem sinyal üretir ve şüpheli paketi hava jeti ya da itici kol ile ıskarta tarafına ayırır. Basit, güvenilir ve on yıllardır kendini kanıtlamış bir teknolojidir; ancak metal olmayan hiçbir yabancı maddeyi göremez.
+        - paragraph [ref=f5e59]: X-Ray gıda kontrol sistemi ise yoğunluk görüntüleme prensibiyle çalışır. Ürünün içinden geçen X ışınının bir kısmı ürün tarafından emilir; yoğunluğu ürünün kendisinden belirgin şekilde yüksek olan her cisim, görüntüde koyu bir nokta olarak belirir. Görüntü işleme yazılımı bu noktaları saniyeler içinde değerlendirir ve şüpheli paketi ıskartaya yönlendirir. Bu sayede metalin yanı sıra cam, taş, yoğun kemik ve yoğun plastikler de tespit edilebilir.
+        - paragraph [ref=f5e60]:
+          - text: "Burada önemli bir ayrım var: bu iki sistem de hat sonunda, çoğunlukla paketlenmiş ürün üzerinde çalışan son kontrol cihazlarıdır. Hat başında dökme ürünü tane tane ayıklayan"
+          - link "renk ayırma makinesi" [ref=f5e61] [cursor=pointer]:
+            - /url: /renk-ayirma-makinesi/
+          - text: (piyasada renk ayıklama makinesi veya color sorter olarak da bilinir) ile aynı işi yapmazlar; birbirlerinin yerine değil, birbirlerini tamamlayacak şekilde konumlandırılırlar.
+        - heading "Dürüst Karşılaştırma Tablosu" [level=2] [ref=f5e62]
+        - table [ref=f5e63]:
+          - rowgroup [ref=f5e64]:
+            - row [ref=f5e65]:
+              - columnheader "Kriter" [ref=f5e66]
+              - columnheader "Metal Dedektör" [ref=f5e67]
+              - columnheader "X-Ray Gıda Kontrol" [ref=f5e68]
+          - rowgroup [ref=f5e69]:
+            - row [ref=f5e70]:
+              - cell "Metal (demir, demir dışı, paslanmaz)" [ref=f5e71]
+              - cell "Tespit eder" [ref=f5e72]
+              - cell "Tespit eder" [ref=f5e73]
+            - row [ref=f5e74]:
+              - cell "Cam" [ref=f5e75]
+              - cell "Tespit edemez" [ref=f5e76]
+              - cell "Tespit eder" [ref=f5e77]
+            - row [ref=f5e78]:
+              - cell "Taş" [ref=f5e79]
+              - cell "Tespit edemez" [ref=f5e80]
+              - cell "Tespit eder" [ref=f5e81]
+            - row [ref=f5e82]:
+              - cell "Kemik" [ref=f5e83]
+              - cell "Tespit edemez" [ref=f5e84]
+              - cell "Yoğun (kalsifiye) kemiği tespit eder" [ref=f5e85]
+            - row [ref=f5e86]:
+              - cell "Yoğun plastik (PVC, teflon vb.)" [ref=f5e87]
+              - cell "Tespit edemez" [ref=f5e88]
+              - cell "Tespit eder" [ref=f5e89]
+            - row [ref=f5e90]:
+              - cell "Alüminyum folyolu ambalajda çalışma" [ref=f5e91]
+              - cell "Çalışamaz veya çok kısıtlı çalışır" [ref=f5e92]
+              - cell "Sorunsuz çalışır" [ref=f5e93]
+            - row [ref=f5e94]:
+              - cell "Dolum ve eksik ürün kontrolü" [ref=f5e95]
+              - cell "Yapamaz" [ref=f5e96]
+              - cell "Yapar (eksik parça, kırık ürün, seviye)" [ref=f5e97]
+            - row [ref=f5e98]:
+              - cell "Yatırım maliyeti" [ref=f5e99]
+              - cell "Görece düşük" [ref=f5e100]
+              - cell "Görece yüksek" [ref=f5e101]
+            - row [ref=f5e102]:
+              - cell "Lisans gereksinimi" [ref=f5e103]
+              - cell "Yok" [ref=f5e104]
+              - cell "NDK (Nükleer Düzenleme Kurumu) lisansı gerekir" [ref=f5e105]
+            - row [ref=f5e106]:
+              - cell "Tipik kullanım noktası" [ref=f5e107]
+              - cell "Hat sonu, paket çıkışı" [ref=f5e108]
+              - cell "Hat sonu, folyolu ve cam ambalaj, ihracat hatları" [ref=f5e109]
+        - paragraph [ref=f5e110]: "Dürüst olmak gerekirse X-Ray da her şeyi görmez: düşük yoğunluklu plastik film, saç, kıl, ahşap ve karton gibi maddeler X-Ray için de zordur. Ayrıca çok ince metal teller yönlerine bağlı olarak her iki teknolojiyi de zorlayabilir. Bu yüzden hiçbir cihaz, iyi kurgulanmış bir hijyen ve bakım programının yerini tutmaz; yalnızca onu tamamlar."
+        - heading "Ne Zaman Metal Dedektör Yeterli Olur?" [level=2] [ref=f5e111]
+        - paragraph [ref=f5e112]: "Her işletmenin X-Ray yatırımına ihtiyacı yoktur. Şu koşullar bir arada sağlanıyorsa metal dedektör mantıklı ve ekonomik bir çözümdür:"
+        - list [ref=f5e113]:
+          - listitem [ref=f5e114]:
+            - strong [ref=f5e115]: "Risk yalnızca metal kaynaklı ise:"
+            - text: Yabancı madde riskiniz ağırlıklı olarak hat ekipmanından (bıçak, elek teli, cıvata, kaynak çapağı) geliyorsa metal dedektör bu riski karşılar.
+          - listitem [ref=f5e116]:
+            - strong [ref=f5e117]: "Ambalajınız folyosuz ise:"
+            - text: Şeffaf film, PET veya karton ambalajda metal dedektör rahat çalışır. Alüminyum folyo veya metalize film kullanıyorsanız durum değişir; folyo için geliştirilen özel dedektörler yalnızca demir içeren metalleri görebilir.
+          - listitem [ref=f5e118]:
+            - strong [ref=f5e119]: "Bütçe kısıtlı ise:"
+            - text: Metal dedektörün hem yatırım hem işletme maliyeti belirgin şekilde düşüktür, lisans gerektirmez ve operatör eğitimi kısadır.
+        - heading "Ne Zaman X-Ray Şart?" [level=2] [ref=f5e120]
+        - paragraph [ref=f5e121]:
+          - text: Bazı senaryolarda ise
+          - link "X-Ray gıda kontrol makinesi" [ref=f5e122] [cursor=pointer]:
+            - /url: /x-ray-gida-kontrol-makinesi/
+          - text: "tercih değil, zorunluluktur:"
+        - list [ref=f5e123]:
+          - listitem [ref=f5e124]:
+            - strong [ref=f5e125]: "Cam, taş ve kemik riski varsa:"
+            - text: Cam kavanoza dolum yapıyorsanız cam kırığını ancak X-Ray görür. Tarladan gelen üründe (bakliyat, kuruyemiş, kuru meyve) taş riski hiçbir zaman sıfırlanamaz; hat başındaki ayıklama ne kadar iyi olursa olsun son kontrol X-Ray ile yapılır.
+          - listitem [ref=f5e126]:
+            - strong [ref=f5e127]: "Folyolu veya metalize ambalaj kullanıyorsanız:"
+            - text: Metal dedektörün kör kaldığı bu ambalajlarda X-Ray, folyonun içindeki metali dahi tespit eder.
+          - listitem [ref=f5e128]:
+            - strong [ref=f5e129]: "BRC, IFS veya müşteri şartı varsa:"
+            - text: Büyük perakende zincirleri ve Avrupa alıcıları, tedarikçi denetimlerinde giderek daha sık X-Ray kontrolü talep ediyor. Özellikle
+            - link "kuru meyve" [ref=f5e130] [cursor=pointer]:
+              - /url: /sektorler/kuru-meyve/
+            - text: ve
+            - link "kuruyemiş" [ref=f5e131] [cursor=pointer]:
+              - /url: /sektorler/kuruyemis/
+            - text: ihracatında X-Ray, denetim raporunda güçlü bir güvence maddesidir.
+        - paragraph [ref=f5e132]: "X-Ray tarafında bilinmesi gereken bir konu da lisanstır: Türkiye'de X-Ray cihazı işletmek için Nükleer Düzenleme Kurumu (NDK) lisansı alınması gerekir. Süreç düzgün yürütüldüğünde bir engel değildir; kurulum öncesinde planlamaya dahil edilmesi yeterlidir."
+        - heading "İkisi Birlikte Ne Zaman Mantıklı?" [level=2] [ref=f5e133]
+        - paragraph [ref=f5e134]: Orta ve büyük ölçekli tesislerde en sağlıklı kurgu çoğu zaman ikisinin birlikte kullanılmasıdır. Metal dedektörler, proses içindeki ara noktalarda (değirmen, kıyıcı, dolum makinesi öncesi) hem ekipmanı korur hem de metali kaynağına yakın yakalar; böylece sorunlu partinin tamamı hat sonuna ulaşmadan tespit edilir. X-Ray ise hat sonunda, paketlenmiş ürün üzerinde cam, taş, kemik ve metali kapsayan nihai kontrolü yapar. Bu kurguda iki teknoloji birbirinin eksiğini kapatır ve yabancı madde kaynaklı iade riski en aza iner.
+        - heading "SAGE Makine Yaklaşımı" [level=2] [ref=f5e135]
+        - paragraph [ref=f5e136]: "Yirmi iki yıllık saha tecrübemizde şunu net gördük: doğru cevap her tesiste aynı değildir. İhtiyacınız yalnızca metal dedektörle çözülüyorsa bunu açıkça söyleriz; cam, taş ve folyolu ambalaj riskiniz varsa X-Ray gıda kontrol ve gerekiyorsa hat başı renk ayırma makinesi ile bütünsel bir kurgu öneririz. Kendi ürününüzü, kendi yabancı madde örneklerinizle test etmek isterseniz numune testi ve teklif için bize ulaşmanız yeterli."
+    - generic [ref=f5e138]:
+      - generic [ref=f5e139]:
+        - heading "Ürününüz İçin Doğru Makineyi Birlikte Seçelim" [level=2] [ref=f5e140]
+        - paragraph [ref=f5e141]: Numune ürününüzü test edelim, hattınıza uygun kapasiteyi birlikte belirleyelim. Teklif için bir telefon uzaktayız.
+      - generic [ref=f5e142]:
+        - link "WhatsApp'tan Teklif Alın" [ref=f5e143] [cursor=pointer]:
+          - /url: https://wa.me/905323436195?text=Merhaba%2C%20sagemakine.com%20%C3%BCzerinden%20yaz%C4%B1yorum.%20X-Ray%20%2F%20metal%20dedekt%C3%B6r%20se%C3%A7imi%20hakk%C4%B1nda%20bilgi%20ve%20teklif%20almak%20istiyorum.
+        - link "+90 532 343 61 95" [ref=f5e144] [cursor=pointer]:
+          - /url: tel:+905323436195
+      - paragraph [ref=f5e147]:
+        - text: "veya e-posta:"
+        - link "info@sagemakine.com" [ref=f5e148] [cursor=pointer]:
+          - /url: mailto:info@sagemakine.com
+  - contentinfo [ref=f5e149]:
+    - generic [ref=f5e154]:
+      - generic [ref=f5e155]:
+        - generic [ref=f5e156]:
+          - img "SAGE Makine logosu" [ref=f5e157]
+          - paragraph [ref=f5e186]: SMART · AUTOMATION · GLOBAL · ENGINEERING
+          - paragraph [ref=f5e187]: Kuru meyve, kuruyemiş ve bakliyat işleyicileri için renk ayırma ve X-Ray gıda kontrol makineleri. Manisa merkezli satış, kurulum ve teknik servis.
+          - generic [ref=f5e188]:
+            - link "Güzelyurt Mah. 5748 Sk. No:32 İç Kapı No:6, Yunusemre / Manisa" [ref=f5e189] [cursor=pointer]:
+              - /url: https://www.google.com/maps/search/?api=1&query=G%C3%BCzelyurt+Mahallesi+5748+Sokak+No:32+Yunusemre+Manisa
+            - link "+90 532 343 61 95" [ref=f5e190] [cursor=pointer]:
+              - /url: tel:+905323436195
+            - link "info@sagemakine.com" [ref=f5e191] [cursor=pointer]:
+              - /url: mailto:info@sagemakine.com
+          - link "WhatsApp'tan Yazın" [ref=f5e192] [cursor=pointer]:
+            - /url: https://wa.me/905323436195
+        - navigation "Makineler" [ref=f5e193]:
+          - heading "Makineler" [level=2] [ref=f5e194]
+          - list [ref=f5e195]:
+            - listitem [ref=f5e196]:
+              - link "Renk Ayırma Makineleri" [ref=f5e197] [cursor=pointer]:
+                - /url: /renk-ayirma-makinesi/
+            - listitem [ref=f5e198]:
+              - link "Oluk Tipi Renk Ayırma" [ref=f5e199] [cursor=pointer]:
+                - /url: /renk-ayirma-makinesi/oluk-tipi/
+            - listitem [ref=f5e200]:
+              - link "Bant Tipi Renk Ayırma" [ref=f5e201] [cursor=pointer]:
+                - /url: /renk-ayirma-makinesi/bant-tipi/
+            - listitem [ref=f5e202]:
+              - link "X-Ray Gıda Kontrol" [ref=f5e203] [cursor=pointer]:
+                - /url: /x-ray-gida-kontrol-makinesi/
+            - listitem [ref=f5e204]:
+              - link "Dökme Ürün X-Ray" [ref=f5e205] [cursor=pointer]:
+                - /url: /x-ray-gida-kontrol-makinesi/dokme-urun/
+            - listitem [ref=f5e206]:
+              - link "Paketli Ürün X-Ray" [ref=f5e207] [cursor=pointer]:
+                - /url: /x-ray-gida-kontrol-makinesi/paketli-urun/
+        - navigation "Sektörler" [ref=f5e208]:
+          - heading "Sektörler" [level=2] [ref=f5e209]
+          - list [ref=f5e210]:
+            - listitem [ref=f5e211]:
+              - link "Kuru Meyve" [ref=f5e212] [cursor=pointer]:
+                - /url: /sektorler/kuru-meyve/
+            - listitem [ref=f5e213]:
+              - link "Kuruyemiş" [ref=f5e214] [cursor=pointer]:
+                - /url: /sektorler/kuruyemis/
+            - listitem [ref=f5e215]:
+              - link "Antep Fıstığı" [ref=f5e216] [cursor=pointer]:
+                - /url: /sektorler/antep-fistigi/
+            - listitem [ref=f5e217]:
+              - link "Bakliyat" [ref=f5e218] [cursor=pointer]:
+                - /url: /sektorler/bakliyat/
+            - listitem [ref=f5e219]:
+              - link "Dondurulmuş Gıda (IQF)" [ref=f5e220] [cursor=pointer]:
+                - /url: /sektorler/dondurulmus-gida-iqf/
+            - listitem [ref=f5e221]:
+              - link "Patates ve Cips" [ref=f5e222] [cursor=pointer]:
+                - /url: /sektorler/patates-cips/
+        - navigation "Kurumsal" [ref=f5e223]:
+          - heading "Kurumsal" [level=2] [ref=f5e224]
+          - list [ref=f5e225]:
+            - listitem [ref=f5e226]:
+              - link "Hakkımızda" [ref=f5e227] [cursor=pointer]:
+                - /url: /hakkimizda/
+            - listitem [ref=f5e228]:
+              - link "Servis & Yedek Parça" [ref=f5e229] [cursor=pointer]:
+                - /url: /servis-yedek-parca/
+            - listitem [ref=f5e230]:
+              - link "Blog" [ref=f5e231] [cursor=pointer]:
+                - /url: /blog/
+            - listitem [ref=f5e232]:
+              - link "İletişim" [ref=f5e233] [cursor=pointer]:
+                - /url: /iletisim/
+            - listitem [ref=f5e234]:
+              - link "KVKK Aydınlatma Metni" [ref=f5e235] [cursor=pointer]:
+                - /url: /kvkk/
+      - generic [ref=f5e236]:
+        - paragraph [ref=f5e237]: © 2026 SAGE Makine Servis Temsilcilik Ltd. Şti. Tüm hakları saklıdır.
+        - paragraph [ref=f5e238]: Yunusemre / Manisa · Türkiye geneli satış, kurulum ve servis
+  - link "WhatsApp üzerinden bize yazın" [ref=f5e239] [cursor=pointer]:
+    - /url: https://wa.me/905323436195

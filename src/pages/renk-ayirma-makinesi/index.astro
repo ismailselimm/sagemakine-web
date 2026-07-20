@@ -45,7 +45,7 @@ const teknolojiler = [
   },
   {
     icon: 'yazilim',
-    title: 'Yapay Zeka Sınıflandırma',
+    title: 'Yapay Zekâ Sınıflandırma',
     text: 'Derin öğrenme modelleri, klasik eşiklerin kaçırdığı karmaşık kusur desenlerini öğrenir.',
   },
 ];
@@ -62,17 +62,17 @@ const kusurlar = [
 ];
 
 const seriler = [
-  { seri: 'S-1', oluk: '1', kanal: '64', kapasite: '0,3 – 1,5 t/s', kullanim: 'Numune, küçük işletme, ikinci geçiş' },
-  { seri: 'S-3', oluk: '3', kanal: '192', kapasite: '1 – 5 t/s', kullanim: 'Orta ölçekli kuruyemiş ve kuru meyve hatları' },
-  { seri: 'S-5', oluk: '5', kanal: '320', kapasite: '3 – 10 t/s', kullanim: 'Bakliyat ve hububat işleme tesisleri' },
-  { seri: 'S-7', oluk: '7', kanal: '448', kapasite: '5 – 16 t/s', kullanim: 'Yüksek tonajlı bakliyat / tohum hatları' },
-  { seri: 'S-10', oluk: '10', kanal: '640', kapasite: '8 – 25 t/s', kullanim: 'Entegre tesis, çift geçişli kurulumlar' },
+  { seri: 'S-1', oluk: '1', kanal: '64', kapasite: '0,3 – 1,5 t/saat', kullanim: 'Numune, küçük işletme, ikinci geçiş' },
+  { seri: 'S-3', oluk: '3', kanal: '192', kapasite: '1 – 5 t/saat', kullanim: 'Orta ölçekli kuruyemiş ve kuru meyve hatları' },
+  { seri: 'S-5', oluk: '5', kanal: '320', kapasite: '3 – 10 t/saat', kullanim: 'Bakliyat ve hububat işleme tesisleri' },
+  { seri: 'S-7', oluk: '7', kanal: '448', kapasite: '5 – 16 t/saat', kullanim: 'Yüksek tonajlı bakliyat / tohum hatları' },
+  { seri: 'S-10', oluk: '10', kanal: '640', kapasite: '8 – 25 t/saat', kullanim: 'Entegre tesis, çift geçişli kurulumlar' },
 ];
 ---
 
 <BaseLayout
-  title="Renk Ayırma Makinesi (Color Sorter) – Satış ve Servis | SAGE Makine"
-  description="Oluk ve bant tipi renk ayırma makineleri: CCD ve kızılötesi kameralarla taş, cam, kabuk ve kusurlu taneleri yüksek doğrulukla ayıklayın. Türkiye'de kurulum, eğitim ve yedek parça."
+  title="Renk Ayırma Makinesi (Color Sorter) Satış ve Servis | SAGE Makine"
+  description="Oluk ve bant tipi renk ayırma makineleri: CCD ve kızılötesi kameralarla taş, cam, kabuk ve kusurlu taneleri yüksek doğrulukla ayıklayın. Kurulum, eğitim ve yedek parça Türkiye'de."
   path="/renk-ayirma-makinesi/"
   breadcrumbs={breadcrumbs}
   jsonLd={jsonLd}
@@ -211,7 +211,7 @@ const seriler = [
         }
       </ul>
       <p class="kusur-not reveal">
-        Şeffaf cam ve ürünle birebir aynı yoğunluktaki taşlar için en güvenli kombinasyon, renk
+        Şeffaf cam ve ürünle aynı renkteki taşlar için en güvenli kombinasyon, renk
         ayırma + <a href="/x-ray-gida-kontrol-makinesi/">X-Ray kontrol</a> birlikteliğidir.
       </p>
     </div>
@@ -254,7 +254,7 @@ const seriler = [
       </div>
       <p class="table-not reveal">
         * Kapasite ürüne göre değişir. Tüm serilerde: dokunmatik Türkçe arayüz, paslanmaz temas
-        yüzeyleri, uzaktan destek bağlantısı ve CE uygunluğu.
+        yüzeyleri, uzaktan destek bağlantısı; CE belgeli modeller.
       </p>
     </div>
   </section>
@@ -269,7 +269,7 @@ const seriler = [
           <h3><Icon name="dogruluk" size={20} /> Taşıma Oranı</h3>
           <p>
             Iskartaya kaçan sağlam ürün (carryover), işletme kârınızı doğruluk kadar etkiler.
-            Teklifte iyi:kötü taşıma oranını mutlaka sorun — biz açıkça paylaşırız.
+            Teklifte iyi : kötü taşıma oranını mutlaka sorun — biz açıkça paylaşırız.
           </p>
         </div>
         <div class="honest card-dark reveal" style="--reveal-delay:.08s">
@@ -484,7 +484,7 @@ const seriler = [
     border: 1px solid var(--line);
     border-radius: var(--radius-md);
     font-size: var(--text-sm);
-    font-weight: 500;
+    font-weight: 600;
     color: var(--ink-soft);
   }
 
@@ -562,7 +562,7 @@ const seriler = [
     border: 1px solid var(--line);
     border-radius: var(--radius-pill);
     font-size: var(--text-sm);
-    font-weight: 500;
+    font-weight: 600;
     color: var(--ink-soft);
     text-decoration: none;
     transition: all var(--dur) var(--ease-out);

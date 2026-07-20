@@ -1,82 +1,47 @@
 ---
 /**
- * SAGE logo — JPG orijinalinden SVG yeniden çizim.
- * variant="dark"  → koyu zemin üzeri (harfler beyaz)
- * variant="color" → açık zemin üzeri (harfler lacivert)
+ * SAGE logo — ORİJİNAL logo görselinden (brand/logo-light.jpg) kayıpsız
+ * şeffaflaştırılmış PNG (ffmpeg colorkey; AI yeniden çizim DEĞİL).
+ * variant="color" → açık zeminlerde çıplak logo
+ * variant="dark"  → koyu zeminlerde logo bozulmadan beyaz plakacık içinde
  */
+import { Image } from 'astro:assets';
+import logoImg from '../assets/brand/sage-logo.png';
+
 interface Props {
   variant?: 'color' | 'dark';
-  /** ikon + SAGE toplam yüksekliği (px) */
+  /** logo yüksekliği (px) */
   height?: number;
   class?: string;
 }
 
 const { variant = 'color', height = 44, class: className } = Astro.props;
-const ink = variant === 'dark' ? '#ffffff' : '#16283f';
-const inkSoft = variant === 'dark' ? '#c9d4de' : '#1e3a5f';
-const cubeTop = variant === 'dark' ? '#3d5876' : '#223850';
-const width = Math.round((height * 640) / 164);
+const width = Math.round(height * (1170 / 280));
 ---
 
-<svg
-  class:list={['sage-logo', className]}
-  width={width}
-  height={height}
-  viewBox="0 0 640 164"
-  fill="none"
-  role="img"
-  aria-label="SAGE Makine logosu"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <!-- ── İkon: ayıklama kafası + konveyör + devre ── -->
-  <g>
-    <!-- kamera/ejektör kafası (izometrik küp) -->
-    <polygon points="44,16 76,4 108,16 76,28" fill={cubeTop}></polygon>
-    <polygon points="44,16 76,28 76,60 44,48" fill={ink}></polygon>
-    <polygon points="76,28 108,16 108,48 76,60" fill={inkSoft}></polygon>
-    <!-- mercek halkası -->
-    <ellipse cx="76" cy="68" rx="15" ry="5.5" stroke="#7aab35" stroke-width="3.5" fill="none"></ellipse>
-    <ellipse cx="76" cy="68" rx="6.5" ry="2.4" fill="#7aab35" opacity="0.85"></ellipse>
-    <!-- püskürtme (noktalı ışın yelpazesi) -->
-    <g stroke="#7aab35" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="0.1 7">
-      <line x1="76" y1="76" x2="48" y2="107" opacity="0.55"></line>
-      <line x1="76" y1="76" x2="62" y2="108" opacity="0.75"></line>
-      <line x1="76" y1="76" x2="76" y2="109" opacity="0.95"></line>
-      <line x1="76" y1="76" x2="90" y2="108" opacity="0.75"></line>
-      <line x1="76" y1="76" x2="104" y2="107" opacity="0.55"></line>
-    </g>
-    <!-- konveyör hattı + devre uçları -->
-    <g stroke={ink} stroke-width="3.5" stroke-linecap="round" fill="none">
-      <polyline points="8,118 120,118 138,100 154,100"></polyline>
-      <polyline points="24,136 104,136 120,152 136,152"></polyline>
-    </g>
-    <circle cx="160" cy="100" r="5" fill="#7aab35"></circle>
-    <circle cx="142" cy="152" r="5" fill="#8494a2"></circle>
-    <!-- bant üzerindeki ürün taneleri (yeşilden laciverte) -->
-    <circle cx="22" cy="111" r="6" fill="#7aab35"></circle>
-    <circle cx="40" cy="111" r="6" fill="#5c8a3a"></circle>
-    <circle cx="58" cy="111" r="6" fill="#46687a"></circle>
-    <circle cx="76" cy="111" r="6" fill="#2f4a63"></circle>
-    <circle cx="94" cy="111" r="6" fill={ink}></circle>
-  </g>
+{
+  variant === 'color' ? (
+    <Image
+      src={logoImg}
+      alt="SAGE Makine"
+      height={height}
+      width={width}
+      densities={[1, 2]}
+      class:list={['sage-logo', className]}
+    />
+  ) : (
+    <span class:list={['sage-logo-chip', className]}>
+      <Image src={logoImg} alt="SAGE Makine" height={height} width={width} densities={[1, 2]} />
+    </span>
+  )
+}
 
-  <!-- ── Wordmark: SAGE (45° kesimli geometrik harfler) ── -->
-  <g transform="translate(200 6)">
-    <!-- S -->
-    <path
-      fill={ink}
-      d="M0,32 L66,32 L80,46 L80,51 L19,51 L19,67 L80,67 L80,122 L14,122 L0,108 L0,103 L61,103 L61,86 L0,86 Z"
-    ></path>
-    <!-- A -->
-    <path fill={ink} d="M100,122 L137,32 L151,32 L188,122 L167,122 L144,60 L121,122 Z"></path>
-    <!-- G -->
-    <path
-      fill={ink}
-      d="M296,32 L208,32 L208,122 L296,122 L296,72 L254,72 L254,91 L277,91 L277,103 L227,103 L227,51 L282,51 L296,37 Z"
-    ></path>
-    <!-- E: üç bar, ortadaki yeşil -->
-    <path fill={ink} d="M316,32 L396,32 L396,51 L316,51 Z"></path>
-    <path fill="#7aab35" d="M316,67 L380,67 L380,86 L316,86 Z"></path>
-    <path fill={ink} d="M316,103 L396,103 L396,108 L382,122 L316,122 Z"></path>
-  </g>
-</svg>
+<style>
+  .sage-logo-chip {
+    display: inline-flex;
+    background: #ffffff;
+    padding: 10px 14px;
+    border-radius: 8px;
+    box-shadow: 0 2px 14px rgb(0 0 0 / 0.28);
+  }
+</style>

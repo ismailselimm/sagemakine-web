@@ -1,0 +1,185 @@
+- generic [active] [ref=f8e1]:
+  - link "İçeriğe atla" [ref=f8e2] [cursor=pointer]:
+    - /url: "#icerik"
+  - banner [ref=f8e3]:
+    - generic [ref=f8e4]:
+      - link "SAGE Makine — Ana sayfa" [ref=f8e5] [cursor=pointer]:
+        - /url: /
+        - img "SAGE Makine logosu" [ref=f8e6]
+      - button "Menüyü aç" [ref=f8e36] [cursor=pointer]
+    - text: + +
+  - main [ref=f8e40]:
+    - generic [ref=f8e42]:
+      - navigation "Sayfa yolu" [ref=f8e43]:
+        - list [ref=f8e44]:
+          - listitem [ref=f8e45]:
+            - link "Ana Sayfa" [ref=f8e46] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=f8e47]: / Servis & Yedek Parça
+      - generic [ref=f8e48]:
+        - generic [ref=f8e49]:
+          - paragraph [ref=f8e50]: Satış Sonrası
+          - heading "Hasat Sezonunda Duruş Kabul Edilemez. Biz de Etmiyoruz." [level=1] [ref=f8e51]
+          - paragraph [ref=f8e52]: "Makineyi satan çok; sezon ortasında telefona çıkan az. SAGE Makine'de servis, satışın devamı değil ta kendisidir: kurulumdan yedek parçaya tek muhatap, Manisa'dan tüm Türkiye'ye."
+          - generic [ref=f8e53]:
+            - link "Servis Hattı" [ref=f8e54] [cursor=pointer]:
+              - /url: tel:+905323436195
+            - link "WhatsApp'tan Yazın" [ref=f8e57] [cursor=pointer]:
+              - /url: https://wa.me/905323436195?text=Merhaba%2C%20sagemakine.com%20%C3%BCzerinden%20yaz%C4%B1yorum.%20Teknik%20servis%20hakk%C4%B1nda%20bilgi%20ve%20teklif%20almak%20istiyorum.
+        - 'img "Manisa depomuzda düzenli yedek parça rafları: valfler, kamera modülleri, bantlar" [ref=f8e59]'
+    - generic [ref=f8e61]:
+      - paragraph [ref=f8e62]: Hizmet Taahhütlerimiz
+      - heading "Tek Muhatap, Altı Başlık" [level=2] [ref=f8e63]
+      - generic [ref=f8e64]:
+        - generic [ref=f8e65]:
+          - heading "Kurulum ve Devreye Alma" [level=3] [ref=f8e70]
+          - paragraph [ref=f8e71]: Yerleşim planından ilk ürün geçişine kadar kurulumu biz yönetiriz; makineniz üretime hazır teslim edilir.
+        - generic [ref=f8e72]:
+          - heading "Operatör Eğitimi" [level=3] [ref=f8e78]
+          - paragraph [ref=f8e79]: "Türkçe arayüz üzerinde uygulamalı eğitim: reçete oluşturma, hassasiyet ayarı, günlük bakım. Ekibiniz makineye hükmeder."
+        - generic [ref=f8e80]:
+          - heading "Yerinde Teknik Servis" [level=3] [ref=f8e85]
+          - paragraph [ref=f8e86]: Arıza durumunda telefonla teşhis, gerekirse yerinde müdahale. Hasat sezonunda öncelikli servis planlaması.
+        - generic [ref=f8e87]:
+          - heading "Yedek Parça Stoğu" [level=3] [ref=f8e92]
+          - paragraph [ref=f8e93]: Ejektör valfleri, kamera modülleri, LED aydınlatma ve bantlar — kritik parçalar Türkiye’de stokta tutulur.
+        - generic [ref=f8e94]:
+          - heading "Uzaktan Destek ve Teşhis" [level=3] [ref=f8e99]
+          - paragraph [ref=f8e100]: Makineler uzaktan bağlantıyla izlenebilir; birçok yazılım ve ayar sorunu tesise gelmeden çözülür.
+        - generic [ref=f8e101]:
+          - heading "Periyodik Bakım Anlaşmaları" [level=3] [ref=f8e106]
+          - paragraph [ref=f8e107]: Sezon öncesi kontrol ve kalibrasyonla makineniz kampanyaya hazır girer; plansız duruş riski azalır.
+    - generic [ref=f8e109]:
+      - figure [ref=f8e110]:
+        - 'img "Operatör eğitimi: teknisyen dokunmatik ekran üzerinde ekibe reçete ayarlarını gösteriyor" [ref=f8e111]'
+      - generic [ref=f8e112]:
+        - paragraph [ref=f8e113]: Garanti ve Şeffaflık
+        - heading "Sözü Yazılı Veririz" [level=2] [ref=f8e114]
+        - paragraph [ref=f8e115]: Garanti süresi, kapsamı ve servis müdahale koşulları teklifinizle birlikte yazılı olarak sunulur — küçük yazılı sürprizler yoktur. Yedek parça fiyat listesini de satın almadan önce görürsünüz.
+        - list [ref=f8e116]:
+          - listitem [ref=f8e117]: Yazılı garanti şartları, teklifle birlikte
+          - listitem [ref=f8e120]: Yedek parça fiyatları satıştan önce şeffaf
+          - listitem [ref=f8e123]: Türkçe dokümantasyon ve arayüz
+          - listitem [ref=f8e126]: CE uygunluğu; X-Ray'de NDK lisans süreci bizden
+    - generic [ref=f8e130]:
+      - generic [ref=f8e131]:
+        - paragraph [ref=f8e132]: Servis Bölgesi
+        - heading "Merkez Manisa, Saha Tüm Türkiye" [level=2] [ref=f8e133]: Merkez Manisa,Saha Tüm Türkiye
+        - paragraph [ref=f8e134]: "Merkezi bilerek Manisa'da kurduk: Türkiye kuru meyve ihracatının kalbi, İzmir limanına ve Ege üretim havzasına bir adım. Müşterilerimizin çoğuna aynı gün ulaşıyoruz."
+        - generic [ref=f8e135]:
+          - generic [ref=f8e136]:
+            - heading "Ege — hızlı erişim" [level=3] [ref=f8e137]
+            - paragraph [ref=f8e138]: Manisa · İzmir · Aydın · Denizli · Balıkesir · Uşak
+          - generic [ref=f8e139]:
+            - heading "Yakın bölge" [level=3] [ref=f8e140]
+            - paragraph [ref=f8e141]: Bursa · Afyon · Konya · Antalya · Eskişehir
+          - generic [ref=f8e142]:
+            - heading "Türkiye geneli" [level=3] [ref=f8e143]
+            - paragraph [ref=f8e144]: Mersin · Gaziantep · Şanlıurfa · Karadeniz fındık havzası
+      - figure "Şematik kapsama — tüm illere satış, kurulum ve servis planlanır." [ref=f8e146]:
+        - 'img "Manisa merkezli servis kapsama halkaları: Ege bölgesi hızlı erişim, yakın bölge ve Türkiye geneli" [ref=f8e147]':
+          - generic [ref=f8e153]: MANİSA
+          - generic [ref=f8e154]: İzmir
+          - generic [ref=f8e155]: Aydın
+          - generic [ref=f8e156]: Balıkesir
+          - generic [ref=f8e157]: Bursa
+          - generic [ref=f8e158]: Konya
+          - generic [ref=f8e159]: Antalya
+          - generic [ref=f8e160]: Afyon
+          - generic [ref=f8e161]: Gaziantep
+          - generic [ref=f8e162]: Mersin
+          - generic [ref=f8e163]: Karadeniz
+    - generic [ref=f8e166]:
+      - generic [ref=f8e167]:
+        - heading "Servis mi Lazım? Şimdi Arayın" [level=2] [ref=f8e168]
+        - paragraph [ref=f8e169]: Mevcut makinenizin markası ne olursa olsun durumu konuşalım; çözüm yolunu birlikte netleştirelim.
+      - generic [ref=f8e170]:
+        - link "WhatsApp'tan Teklif Alın" [ref=f8e171] [cursor=pointer]:
+          - /url: https://wa.me/905323436195?text=Merhaba%2C%20sagemakine.com%20%C3%BCzerinden%20yaz%C4%B1yorum.%20Teknik%20servis%20talebi%20hakk%C4%B1nda%20bilgi%20ve%20teklif%20almak%20istiyorum.
+        - link "+90 532 343 61 95" [ref=f8e172] [cursor=pointer]:
+          - /url: tel:+905323436195
+      - paragraph [ref=f8e175]:
+        - text: "veya e-posta:"
+        - link "info@sagemakine.com" [ref=f8e176] [cursor=pointer]:
+          - /url: mailto:info@sagemakine.com
+  - contentinfo [ref=f8e177]:
+    - generic [ref=f8e182]:
+      - generic [ref=f8e183]:
+        - generic [ref=f8e184]:
+          - img "SAGE Makine logosu" [ref=f8e185]
+          - paragraph [ref=f8e214]: SMART · AUTOMATION · GLOBAL · ENGINEERING
+          - paragraph [ref=f8e215]: Kuru meyve, kuruyemiş ve bakliyat işleyicileri için renk ayırma ve X-Ray gıda kontrol makineleri. Manisa merkezli satış, kurulum ve teknik servis.
+          - generic [ref=f8e216]:
+            - link "Güzelyurt Mah. 5748 Sk. No:32 İç Kapı No:6, Yunusemre / Manisa" [ref=f8e217] [cursor=pointer]:
+              - /url: https://www.google.com/maps/search/?api=1&query=G%C3%BCzelyurt+Mahallesi+5748+Sokak+No:32+Yunusemre+Manisa
+            - link "+90 532 343 61 95" [ref=f8e218] [cursor=pointer]:
+              - /url: tel:+905323436195
+            - link "info@sagemakine.com" [ref=f8e219] [cursor=pointer]:
+              - /url: mailto:info@sagemakine.com
+          - link "WhatsApp'tan Yazın" [ref=f8e220] [cursor=pointer]:
+            - /url: https://wa.me/905323436195
+        - navigation "Makineler" [ref=f8e221]:
+          - heading "Makineler" [level=2] [ref=f8e222]
+          - list [ref=f8e223]:
+            - listitem [ref=f8e224]:
+              - link "Renk Ayırma Makineleri" [ref=f8e225] [cursor=pointer]:
+                - /url: /renk-ayirma-makinesi/
+            - listitem [ref=f8e226]:
+              - link "Oluk Tipi Renk Ayırma" [ref=f8e227] [cursor=pointer]:
+                - /url: /renk-ayirma-makinesi/oluk-tipi/
+            - listitem [ref=f8e228]:
+              - link "Bant Tipi Renk Ayırma" [ref=f8e229] [cursor=pointer]:
+                - /url: /renk-ayirma-makinesi/bant-tipi/
+            - listitem [ref=f8e230]:
+              - link "X-Ray Gıda Kontrol" [ref=f8e231] [cursor=pointer]:
+                - /url: /x-ray-gida-kontrol-makinesi/
+            - listitem [ref=f8e232]:
+              - link "Dökme Ürün X-Ray" [ref=f8e233] [cursor=pointer]:
+                - /url: /x-ray-gida-kontrol-makinesi/dokme-urun/
+            - listitem [ref=f8e234]:
+              - link "Paketli Ürün X-Ray" [ref=f8e235] [cursor=pointer]:
+                - /url: /x-ray-gida-kontrol-makinesi/paketli-urun/
+        - navigation "Sektörler" [ref=f8e236]:
+          - heading "Sektörler" [level=2] [ref=f8e237]
+          - list [ref=f8e238]:
+            - listitem [ref=f8e239]:
+              - link "Kuru Meyve" [ref=f8e240] [cursor=pointer]:
+                - /url: /sektorler/kuru-meyve/
+            - listitem [ref=f8e241]:
+              - link "Kuruyemiş" [ref=f8e242] [cursor=pointer]:
+                - /url: /sektorler/kuruyemis/
+            - listitem [ref=f8e243]:
+              - link "Antep Fıstığı" [ref=f8e244] [cursor=pointer]:
+                - /url: /sektorler/antep-fistigi/
+            - listitem [ref=f8e245]:
+              - link "Bakliyat" [ref=f8e246] [cursor=pointer]:
+                - /url: /sektorler/bakliyat/
+            - listitem [ref=f8e247]:
+              - link "Dondurulmuş Gıda (IQF)" [ref=f8e248] [cursor=pointer]:
+                - /url: /sektorler/dondurulmus-gida-iqf/
+            - listitem [ref=f8e249]:
+              - link "Patates ve Cips" [ref=f8e250] [cursor=pointer]:
+                - /url: /sektorler/patates-cips/
+        - navigation "Kurumsal" [ref=f8e251]:
+          - heading "Kurumsal" [level=2] [ref=f8e252]
+          - list [ref=f8e253]:
+            - listitem [ref=f8e254]:
+              - link "Hakkımızda" [ref=f8e255] [cursor=pointer]:
+                - /url: /hakkimizda/
+            - listitem [ref=f8e256]:
+              - link "Servis & Yedek Parça" [ref=f8e257] [cursor=pointer]:
+                - /url: /servis-yedek-parca/
+            - listitem [ref=f8e258]:
+              - link "Blog" [ref=f8e259] [cursor=pointer]:
+                - /url: /blog/
+            - listitem [ref=f8e260]:
+              - link "İletişim" [ref=f8e261] [cursor=pointer]:
+                - /url: /iletisim/
+            - listitem [ref=f8e262]:
+              - link "KVKK Aydınlatma Metni" [ref=f8e263] [cursor=pointer]:
+                - /url: /kvkk/
+      - generic [ref=f8e264]:
+        - paragraph [ref=f8e265]: © 2026 SAGE Makine Servis Temsilcilik Ltd. Şti. Tüm hakları saklıdır.
+        - paragraph [ref=f8e266]: Yunusemre / Manisa · Türkiye geneli satış, kurulum ve servis
+  - link "WhatsApp üzerinden bize yazın" [ref=f8e267] [cursor=pointer]:
+    - /url: https://wa.me/905323436195

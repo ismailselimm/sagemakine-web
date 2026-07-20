@@ -41,7 +41,7 @@ export const SEKTORLER: Sektor[] = [
     navTitle: 'Kuru Meyve',
     metaTitle: 'Kuru Üzüm, İncir ve Kayısı Ayıklama Makineleri | SAGE Makine',
     metaDescription:
-      "Manisa üzümünde çöp-sap ve taş, incirde aflatoksin şüpheli tane, kayısıda çekirdek kırığı: kuru meyve için renk ayırma ve X-Ray çözümleri, Ege'de yerinde servis.",
+      "Manisa üzümünde çöp-sap ve taş, incirde aflatoksin şüpheli tane, kayısıda çekirdek kırığı: kuru meyve için renk ayırma ve X-Ray çözümleri.",
     eyebrow: 'Sektör · Kuru Meyve',
     heroTitle: 'Kuru Meyve İşleyicileri İçin Ayıklama Çözümleri',
     heroLead:
@@ -54,7 +54,7 @@ export const SEKTORLER: Sektor[] = [
       'Merkezimiz Manisa — yani Türkiye kuru meyve ihracatının kalbi. Ürününüzün hasadını, kurutmasını ve alıcısının beklentisini yakından tanıyoruz.',
     facts: [
       { stat: '%90+', label: 'Türkiye çekirdeksiz kuru üzümünün Manisa ve çevresinden çıkan payı' },
-      { stat: '~2/3', label: 'Ege Bölgesi’nin Türkiye kuru meyve ihracatındaki yaklaşık payı' },
+      { stat: '~2/3', label: "Ege Bölgesi'nin Türkiye kuru meyve ihracatındaki yaklaşık payı" },
       { stat: '1 parti', label: 'AB sınırında reddedilen tek bir konteynerin maliyeti; iade, imha ve müşteri kaybı' },
     ],
     defects: [
@@ -84,7 +84,7 @@ export const SEKTORLER: Sektor[] = [
       ],
     },
     servisNotu:
-      'Manisa merkezimizden Salihli, Alaşehir, Sarıgöl ve tüm Ege üretim havzasına aynı gün yerinde servis verebiliyoruz. Hasat sezonunda duruş yaşatmamak önceliğimizdir.',
+      'Manisa merkezimizden Salihli, Alaşehir, Sarıgöl ve tüm Ege üretim havzasına aynı gün ulaşabilecek konumdayız. Hasat sezonunda duruş yaşatmamak önceliğimizdir.',
     waTopic: 'Kuru meyve ayıklama makineleri',
   },
   {
@@ -103,11 +103,11 @@ export const SEKTORLER: Sektor[] = [
     extraImage: 'sorting-oncesi-sonrasi',
     extraImageAlt: 'Ayıklama öncesi karışık ürün ve ayıklama sonrası temiz iç fındık tepsileri',
     factsIntro:
-      'Türkiye dünya fındık üretiminin yaklaşık üçte ikisini karşılar — ve dünyanın en titiz alıcılarına satar. Çikolata ve şekerleme sanayiin şartnameleri, ayıklama hattınızın kalitesi kadar iyidir.',
+      'Türkiye dünya fındık üretiminin yaklaşık üçte ikisini karşılar — ve dünyanın en titiz alıcılarına satar. Çikolata ve şekerleme sanayiinin şartnameleri, ayıklama hattınızın kalitesi kadar iyidir.',
     facts: [
-      { stat: '~2/3', label: 'Türkiye’nin dünya fındık üretimindeki yaklaşık payı' },
+      { stat: '~2/3', label: "Türkiye'nin dünya fındık üretimindeki yaklaşık payı" },
       { stat: '0', label: 'Çikolata sanayiinin iç fındıkta kabuk parçası toleransı' },
-      { stat: '2 teknoloji', label: 'Kabuğu optik, taşı ve camı X-Ray görür — tam güvence ikisiyle sağlanır' },
+      { stat: '2', label: 'Teknoloji birlikte: kabuğu optik, taşı ve camı X-Ray görür' },
     ],
     defects: [
       { icon: 'kabuk', label: 'Kabuk parçası', desc: 'İç fındıkla aynı renkte olabilen kabuk, kızılötesi (NIR) kamerayla; yoğun parçalar X-Ray ile ayrılır.' },
@@ -155,7 +155,7 @@ export const SEKTORLER: Sektor[] = [
     factsIntro:
       'Gaziantep ve Şanlıurfa hattındaki işleyiciler için fıstık, hem gurur hem risk demektir: en değerli ihraç ürünlerimizden biri, aynı zamanda AB sınır kontrollerinin en sıkı izlediği ürünlerden.',
     facts: [
-      { stat: 'İlk 3', label: 'Türkiye’nin dünya Antep fıstığı üretimindeki yeri' },
+      { stat: 'İlk 3', label: "Türkiye'nin dünya Antep fıstığı üretimindeki yeri" },
       { stat: '#1 neden', label: 'Fıstık ihracat retlerinde aflatoksin — en sık görülen gerekçe' },
       { stat: 'Boş/Dolu', label: 'X-Ray, kabuğu kırmadan iç doluluğunu görüntüler' },
     ],
@@ -253,7 +253,7 @@ export const SEKTORLER: Sektor[] = [
     image: 'sector-iqf',
     imageAlt: 'Buz kristalleriyle kaplı IQF şoklanmış vişne ve meyveler',
     factsIntro:
-      'Türkiye’nin dondurulmuş meyve-sebze ihracatı hızla büyüyor; vişne, kiraz ve kırmızı meyvelerde Avrupa’nın önemli tedarikçilerindeniz. Donmuş hatta hız ve hijyen birlikte çalışmak zorundadır.',
+      "Türkiye'nin dondurulmuş meyve-sebze ihracatı hızla büyüyor; vişne, kiraz ve kırmızı meyvelerde Avrupa'nın önemli tedarikçilerindeniz. Donmuş hatta hız ve hijyen birlikte çalışmak zorundadır.",
     facts: [
       { stat: '-18°C', label: 'Soğuk ortamda kesintisiz çalışacak şekilde konfigüre edilen sistemler' },
       { stat: 'IP69K', label: 'Yıkanabilir tasarım — hijyen rejiminize uyumlu gövde seçenekleri' },
@@ -286,7 +286,7 @@ export const SEKTORLER: Sektor[] = [
       ],
     },
     servisNotu:
-      'Ege ve Marmara’daki dondurulmuş gıda tesislerine hızlı yerinde servis; sezonluk yoğunlukta öncelikli müdahale planı sunuyoruz.',
+      "Ege ve Marmara'daki dondurulmuş gıda tesislerine hızlı yerinde servis; sezonluk yoğunlukta öncelikli müdahale planı sunuyoruz.",
     waTopic: 'IQF optik ayıklama makineleri',
   },
   {
@@ -303,7 +303,7 @@ export const SEKTORLER: Sektor[] = [
     image: 'sector-patates',
     imageAlt: 'Paslanmaz konveyör bandında altın sarısı parmak patatesler',
     factsIntro:
-      'Türkiye’de hızla büyüyen dondurulmuş patates yatırımları, yüksek hatlarda hız ve tutarlılık ister. Kızartma öncesi kaçan bir taş, fritözünüze; kaçan bir yeşil parmak, markanıza zarar verir.',
+      "Türkiye'de hızla büyüyen dondurulmuş patates yatırımları, yüksek kapasiteli hatlarda hız ve tutarlılık ister. Kızartma öncesi kaçan bir taş, fritözünüze; kaçan bir yeşil parmak, markanıza zarar verir.",
     facts: [
       { stat: '2 nokta', label: 'Kritik kontrol: kızartma öncesi hammadde + paketleme öncesi son ürün' },
       { stat: 'Şekil+Renk', label: 'Yanık uç, yeşillenme ve kabuk kalıntısı aynı geçişte ayıklanır' },

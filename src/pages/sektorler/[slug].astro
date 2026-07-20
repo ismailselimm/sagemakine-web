@@ -111,7 +111,7 @@ const digerSektorler = SEKTORLER.filter((s) => s.slug !== sektor.slug);
       <h2 class="reveal">Hattınızda Nasıl Çözüyoruz?</h2>
       <p class="cozum-intro reveal">{sektor.cozum.intro}</p>
 
-      <div class="cozum-grid">
+      <div class:list={['cozum-grid', { 'has-figure': !!extraImg }]}>
         {
           sektor.cozum.adimlar.map((a, i) => (
             <a href={a.href} class="cozum-card card reveal" style={`--reveal-delay:${i * 0.1}s`}>
@@ -264,10 +264,15 @@ const digerSektorler = SEKTORLER.filter((s) => s.slug !== sektor.slug);
 
   .cozum-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(0, 0.9fr);
+    grid-template-columns: 1fr 1fr;
     gap: var(--sp-5);
     margin-top: var(--sp-6);
     align-items: stretch;
+  }
+
+  /* yan görsel varsa üçüncü sütun açılır */
+  .cozum-grid.has-figure {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(0, 0.9fr);
   }
 
   .cozum-card {
@@ -359,7 +364,7 @@ const digerSektorler = SEKTORLER.filter((s) => s.slug !== sektor.slug);
     border: 1px solid var(--line);
     border-radius: var(--radius-pill);
     font-size: var(--text-sm);
-    font-weight: 500;
+    font-weight: 600;
     color: var(--ink-soft);
     text-decoration: none;
     transition: all var(--dur) var(--ease-out);
@@ -372,7 +377,8 @@ const digerSektorler = SEKTORLER.filter((s) => s.slug !== sektor.slug);
   }
 
   @media (max-width: 1000px) {
-    .cozum-grid {
+    .cozum-grid,
+    .cozum-grid.has-figure {
       grid-template-columns: 1fr 1fr;
     }
     .cozum-figure {

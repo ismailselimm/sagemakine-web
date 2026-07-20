@@ -8,7 +8,7 @@
 
 <figure class="diagram">
   <svg
-    viewBox="0 0 860 480"
+    viewBox="0 0 860 504"
     role="img"
     aria-label="X-Ray gıda kontrol sistemi şeması: konveyörden geçen ürün X-ışını jeneratörü ile taranır, dedektör görüntüsü işlenir ve yabancı madde içeren ürün reddetme sistemiyle ıskartaya ayrılır"
   >
@@ -24,7 +24,7 @@
     <!-- ── X-ışını jeneratörü ── -->
     <rect x="330" y="28" width="120" height="56" rx="8" fill="#16283f"></rect>
     <polygon points="380,84 372,100 388,100" fill="#16283f"></polygon>
-    <text x="465" y="62" class="lbl">X-Işını Jeneratörü</text>
+    <text x="316" y="62" class="lbl lbl--end">X-Işını Jeneratörü</text>
 
     <!-- ışın yelpazesi -->
     <polygon points="380,100 300,236 460,236" fill="#7aab35" opacity="0.14"></polygon>
@@ -73,7 +73,7 @@
     <rect x="600" y="308" width="26" height="64" rx="4" fill="#1e3a5f"></rect>
     <line x1="613" y1="372" x2="613" y2="396" stroke="#1e3a5f" stroke-width="8" stroke-linecap="round"></line>
     <text x="640" y="342" class="lbl">Reddetme Sistemi</text>
-    <text x="640" y="364" class="lbl lbl--small">itici kol / hava jeti / klape</text>
+    <text x="640" y="364" class="lbl lbl--small">itici kol / hava jeti</text>
 
     <!-- akışlar -->
     <line x1="700" y1="248" x2="790" y2="248" stroke="#7aab35" stroke-width="2.4" marker-end="url(#xarrg)"></line>
@@ -82,7 +82,7 @@
     <path d="M613,400 Q613,428 560,436" fill="none" stroke="#5f7080" stroke-width="2.4" marker-end="url(#xarr)"></path>
     <!-- ıskarta haznesi -->
     <polygon points="468,428 552,428 536,468 484,468" fill="#e4e9ed" stroke="#5f7080" stroke-width="2.5"></polygon>
-    <text x="510" y="454" class="lbl lbl--mid lbl--soft">Iskarta</text>
+    <text x="510" y="494" class="lbl lbl--mid lbl--soft">Iskarta</text>
   </svg>
   <figcaption>
     X-ışını, üründen geçerken yoğunluk farklarını görüntüler: taş, cam, metal ve kemik —
@@ -115,6 +115,20 @@
   .lbl--small {
     font-size: 12.5px;
     fill: var(--ink-faint);
+  }
+
+  .lbl--end {
+    text-anchor: end;
+  }
+
+  /* dar ekranda viewBox küçüldüğü için etiketleri büyüt */
+  @media (max-width: 640px) {
+    .lbl {
+      font-size: 26px;
+    }
+    .lbl--small {
+      font-size: 20px;
+    }
   }
 
   .lbl--mid {

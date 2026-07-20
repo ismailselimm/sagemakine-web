@@ -5,8 +5,8 @@
 
 export const SITE = {
   name: 'SAGE Makine',
-  // TODO(Adem abi): Kesin ticari ünvan teyit edilecek (tescildeki haliyle).
-  legalName: 'SAGE Makine Servis Temsilcilik Ltd. Şti.',
+  // Ünvan logodaki yazımla birebir (kullanıcı teyidi: 2026-07-20).
+  legalName: 'SAGE Makine Servis Temsilcilik ve Limited Şirketi',
   tagline: 'Smart · Automation · Global · Engineering',
   domain: 'https://sagemakine.com',
   description:

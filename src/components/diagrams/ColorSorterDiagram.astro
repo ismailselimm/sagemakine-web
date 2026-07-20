@@ -8,7 +8,7 @@
 
 <figure class="diagram">
   <svg
-    viewBox="0 0 860 560"
+    viewBox="0 0 860 584"
     role="img"
     aria-label="Renk ayırma makinesi çalışma prensibi şeması: besleme hunisinden gelen ürün oluktan akarken kameralarla taranır, kusurlu taneler hava ejektörüyle ıskarta haznesine ayrılır"
   >
@@ -91,10 +91,10 @@
 
     <!-- ── Toplama hazneleri ── -->
     <polygon points="330,506 430,506 410,548 350,548" fill="#eaf3dc" stroke="#689426" stroke-width="2.5"></polygon>
-    <text x="380" y="533" class="lbl lbl--mid lbl--green">Sağlam Ürün</text>
+    <text x="380" y="572" class="lbl lbl--mid lbl--green">Sağlam Ürün</text>
 
     <polygon points="232,506 310,506 294,548 248,548" fill="#e4e9ed" stroke="#5f7080" stroke-width="2.5"></polygon>
-    <text x="271" y="533" class="lbl lbl--mid lbl--soft">Iskarta</text>
+    <text x="271" y="572" class="lbl lbl--mid lbl--soft">Iskarta</text>
 
     <!-- akış okları -->
     <line x1="430" y1="452" x2="408" y2="500" stroke="#7aab35" stroke-width="2.2" marker-end="url(#arrg)"></line>
@@ -125,6 +125,13 @@
     font-size: 15px;
     letter-spacing: 0.04em;
     fill: var(--ink-soft);
+  }
+
+  /* dar ekranda viewBox küçüldüğü için etiketleri büyüt */
+  @media (max-width: 640px) {
+    .lbl {
+      font-size: 26px;
+    }
   }
 
   .lbl--mid {

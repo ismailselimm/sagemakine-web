@@ -82,7 +82,7 @@ const kurumsalLinks = [
     </div>
 
     <div class="footer-bottom">
-      <p>© {yil} {SITE.legalName} Tüm hakları saklıdır.</p>
+      <p>© {yil} {SITE.legalName} · Tüm hakları saklıdır.</p>
       <p class="mono footer-loc">Yunusemre / Manisa · Türkiye geneli satış, kurulum ve servis</p>
     </div>
   </div>
@@ -187,6 +187,13 @@ const kurumsalLinks = [
 
   .footer-loc {
     letter-spacing: 0.06em;
+  }
+
+  /* sabit WhatsApp butonu alt satırı örtmesin */
+  @media (min-width: 900px) {
+    .footer-bottom {
+      padding-right: 11rem;
+    }
   }
 
   @media (max-width: 900px) {

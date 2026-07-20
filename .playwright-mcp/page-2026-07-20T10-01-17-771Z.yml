@@ -1,0 +1,288 @@
+- generic [active] [ref=f4e1]:
+  - link "İçeriğe atla" [ref=f4e2] [cursor=pointer]:
+    - /url: "#icerik"
+  - banner [ref=f4e3]:
+    - generic [ref=f4e4]:
+      - link "SAGE Makine — Ana sayfa" [ref=f4e5] [cursor=pointer]:
+        - /url: /
+        - img "SAGE Makine logosu" [ref=f4e6]
+      - button "Menüyü aç" [ref=f4e36] [cursor=pointer]
+    - text: + +
+  - main [ref=f4e40]:
+    - generic [ref=f4e42]:
+      - navigation "Sayfa yolu" [ref=f4e43]:
+        - list [ref=f4e44]:
+          - listitem [ref=f4e45]:
+            - link "Ana Sayfa" [ref=f4e46] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=f4e47]: / X-Ray Gıda Kontrol Sistemleri
+      - generic [ref=f4e48]:
+        - generic [ref=f4e49]:
+          - paragraph [ref=f4e50]: Yabancı Madde Tespiti
+          - heading "X-Ray Gıda Kontrol Sistemleri" [level=1] [ref=f4e51]
+          - paragraph [ref=f4e52]: "X-ışını, ürünün içinden geçerken yoğunluk farklarını görüntüler: taş, cam, metal ve kemik — ambalajın veya ürünün içinde dahi — tespit edilip otomatik olarak ayrılır. Metal dedektörün bittiği yerde X-Ray başlar."
+          - generic [ref=f4e53]:
+            - link "Teklif Alın" [ref=f4e54] [cursor=pointer]:
+              - /url: https://wa.me/905323436195?text=Merhaba%2C%20sagemakine.com%20%C3%BCzerinden%20yaz%C4%B1yorum.%20X-Ray%20g%C4%B1da%20kontrol%20sistemleri%20hakk%C4%B1nda%20bilgi%20ve%20teklif%20almak%20istiyorum.
+            - link "Serileri İnceleyin" [ref=f4e55] [cursor=pointer]:
+              - /url: "#seriler"
+        - img "Paketleme hattında X-Ray kontrol tünelinden geçen ürünler" [ref=f4e57]
+    - generic [ref=f4e59]:
+      - paragraph [ref=f4e60]: Nasıl Çalışır?
+      - generic [ref=f4e61]:
+        - generic [ref=f4e62]:
+          - heading "Rengi Değil, Yoğunluğu Görür" [level=2] [ref=f4e63]: Rengi Değil,Yoğunluğu Görür
+          - list [ref=f4e64]:
+            - listitem [ref=f4e65]:
+              - strong [ref=f4e66]: "Geçiş:"
+              - text: Ürün, konveyörle X-ışını perdesinin altından geçer.
+            - listitem [ref=f4e67]:
+              - strong [ref=f4e68]: "Görüntüleme:"
+              - text: Dedektör, üründen geçen ışının zayıflamasını ölçer.
+            - listitem [ref=f4e69]:
+              - strong [ref=f4e70]: "Analiz:"
+              - text: Yazılım, yoğunluk haritasında anormallikleri işaretler.
+            - listitem [ref=f4e71]:
+              - strong [ref=f4e72]: "Ayırma:"
+              - text: Reddetme sistemi (itici kol, hava jeti veya klape) kusurlu ürünü hat dışına alır.
+            - listitem [ref=f4e73]:
+              - strong [ref=f4e74]: "Kayıt:"
+              - text: Her tespit, görüntüsüyle birlikte denetime hazır şekilde arşivlenir.
+        - 'figure "X-ışını, üründen geçerken yoğunluk farklarını görüntüler: taş, cam, metal ve kemik — ambalajın içinde dahi — milisaniyeler içinde tespit edilir ve reddetme sistemi kusurlu ürünü hat dışına alır." [ref=f4e76]':
+          - 'img "X-Ray gıda kontrol sistemi şeması: konveyörden geçen ürün X-ışını jeneratörü ile taranır, dedektör görüntüsü işlenir ve yabancı madde içeren ürün reddetme sistemiyle ıskartaya ayrılır" [ref=f4e77]':
+            - generic [ref=f4e80]: X-Işını Jeneratörü
+            - generic [ref=f4e89]: Konveyör Bant
+            - generic [ref=f4e96]: Dedektör Hattı
+            - generic [ref=f4e105]: Görüntü İşleme
+            - generic [ref=f4e108]: Reddetme Sistemi
+            - generic [ref=f4e109]: itici kol / hava jeti / klape
+            - generic [ref=f4e110]: Sağlam
+            - generic [ref=f4e113]: Iskarta
+    - generic [ref=f4e116]:
+      - paragraph [ref=f4e117]: Tespit Kabiliyeti
+      - heading "Neleri Tespit Eder?" [level=2] [ref=f4e118]
+      - generic [ref=f4e119]:
+        - generic [ref=f4e120]:
+          - heading "Metal" [level=3] [ref=f4e125]
+          - paragraph [ref=f4e126]: Paslanmaz dahil — alüminyum folyo ambalajın içinde bile.
+        - generic [ref=f4e127]:
+          - heading "Cam" [level=3] [ref=f4e132]
+          - paragraph [ref=f4e133]: Metal dedektörünün asla göremediği cam kırıkları.
+        - generic [ref=f4e134]:
+          - heading "Taş ve seramik" [level=3] [ref=f4e139]
+          - paragraph [ref=f4e140]: Ürünle aynı renkte olsa da yoğunluğundan tanınır.
+        - generic [ref=f4e141]:
+          - heading "Kemik ve çekirdek" [level=3] [ref=f4e146]
+          - paragraph [ref=f4e147]: Kalsifiye kemik, vişne çekirdeği, sert kabuk parçası.
+        - generic [ref=f4e148]:
+          - heading "Yoğun plastik" [level=3] [ref=f4e155]
+          - paragraph [ref=f4e156]: PVC, teflon gibi yüksek yoğunluklu plastikler.
+        - generic [ref=f4e157]:
+          - heading "Eksik / kırık ürün" [level=3] [ref=f4e163]
+          - paragraph [ref=f4e164]: Dolum seviyesi, eksik parça, boş-dolu ayrımı.
+      - generic [ref=f4e165]:
+        - figure "GERÇEK ZAMANLI YOĞUNLUK GÖRÜNTÜSÜ — TAŞ TESPİTİ" [ref=f4e166]:
+          - 'img "X-Ray tarama görüntüsü: fındıkların arasında parlak beyaz görünen taş, yeşil hedef halkasıyla işaretli" [ref=f4e167]'
+        - complementary [ref=f4e169]:
+          - 'heading "Dürüst Cevap: Neleri Tespit Etmez?" [level=3] [ref=f4e170]'
+          - paragraph [ref=f4e175]: "X-Ray yoğunluk okur; düşük yoğunluklu maddeleri güvenilir şekilde göremez:"
+          - list [ref=f4e176]:
+            - listitem [ref=f4e177]: Saç ve kıl
+            - listitem [ref=f4e178]: Kâğıt ve karton
+            - listitem [ref=f4e179]: İnce film plastik
+            - listitem [ref=f4e180]: Böcek ve larva
+            - listitem [ref=f4e181]: Ahşap (düşük yoğunluklu)
+          - paragraph [ref=f4e182]:
+            - text: Bu kusurlar için
+            - link "renk ayırma makinesi" [ref=f4e183] [cursor=pointer]:
+              - /url: /renk-ayirma-makinesi/
+            - text: devreye girer. Size satış değil, doğru kombinasyonu kurmayı taahhüt ediyoruz.
+    - generic [ref=f4e185]:
+      - paragraph [ref=f4e186]: Doğru Nokta Seçimi
+      - heading "Dökme Ürün mü, Paketli Ürün mü?" [level=2] [ref=f4e187]
+      - generic [ref=f4e188]:
+        - link [ref=f4e189] [cursor=pointer]:
+          - /url: /x-ray-gida-kontrol-makinesi/dokme-urun/
+          - img "Dökme ürün X-Ray ayıklama makinesi" [ref=f4e191]
+          - generic [ref=f4e192]:
+            - heading "Hat İçi — Dökme Ürün" [level=3] [ref=f4e193]
+            - paragraph [ref=f4e194]: Yabancı madde daha paketlenmeden ayrılır; yalnızca kusurlu bölge atılır, ürün kaybı minimumdur.
+            - list [ref=f4e195]:
+              - listitem [ref=f4e196]: Kuruyemiş, bakliyat, IQF akışları
+              - listitem [ref=f4e199]: Kırıcı ve değirmen öncesi makine koruması
+              - listitem [ref=f4e202]: Düşük fire, yüksek tonaj
+            - generic [ref=f4e205]: Dökme ürün X-Ray
+        - link [ref=f4e208] [cursor=pointer]:
+          - /url: /x-ray-gida-kontrol-makinesi/paketli-urun/
+          - img "Paketli ürün X-Ray kontrol makinesi" [ref=f4e210]
+          - generic [ref=f4e211]:
+            - heading "Hat Sonu — Paketli Ürün" [level=3] [ref=f4e212]
+            - paragraph [ref=f4e213]: "Son kritik kontrol noktası: kapalı ambalajın içini görür, müşteriye giden her paketi doğrular."
+            - list [ref=f4e214]:
+              - listitem [ref=f4e215]: BRC / IFS ve perakendeci denetim kanıtı
+              - listitem [ref=f4e218]: Dolum seviyesi ve eksik ürün kontrolü
+              - listitem [ref=f4e221]: Görüntülü ret arşivi, izlenebilirlik
+            - generic [ref=f4e224]: Paketli ürün X-Ray
+    - generic [ref=f4e229]:
+      - generic [ref=f4e230]:
+        - paragraph [ref=f4e231]: İhracat ve Denetim
+        - heading "Denetçi Sorduğunda Cevabınız Hazır Olsun" [level=2] [ref=f4e232]: Denetçi SorduğundaCevabınız Hazır Olsun
+        - paragraph [ref=f4e233]: "BRCGS, IFS ve HACCP planınızda X-Ray, kritik kontrol noktanız (KKN) olur: otomatik veri kaydı, tespit görüntüsü arşivi ve ret doğrulama sensörleriyle her parti denetime hazırdır."
+      - generic [ref=f4e234]:
+        - generic [ref=f4e235]:
+          - heading "NDK Lisans Desteği" [level=3] [ref=f4e236]
+          - paragraph [ref=f4e240]: Türkiye'de X-ışını cihazları Nükleer Düzenleme Kurumu lisansına tabidir. Başvuru, ölçüm ve lisans sürecini sizin adınıza SAGE Makine yürütür.
+        - generic [ref=f4e241]:
+          - heading "Radyasyon Güvenliği" [level=3] [ref=f4e242]
+          - paragraph [ref=f4e246]: Kurşun perdeli tünel ve sızıntı değeri 1 µSv/saat altındaki gövde tasarımıyla operatör güvenliği uluslararası limitlerin çok altındadır.
+    - generic [ref=f4e248]:
+      - paragraph [ref=f4e249]: Kapasite Seçenekleri
+      - heading "SAGE X-Serisi — Hat Tipine Göre" [level=2] [ref=f4e250]
+      - paragraph [ref=f4e251]: Tipik değerler aşağıdadır; tespit hassasiyeti ürün kalınlığına ve yoğunluğuna bağlıdır, kesin değer ürününüzle yapılan testle belirlenir.
+      - table [ref=f4e253]:
+        - rowgroup [ref=f4e254]:
+          - row [ref=f4e255]:
+            - columnheader "Seri" [ref=f4e256]
+            - columnheader "Bant Genişliği" [ref=f4e257]
+            - columnheader "Hat Tipi" [ref=f4e258]
+            - columnheader "Tespit Hassasiyeti*" [ref=f4e259]
+            - columnheader "Tipik Kullanım" [ref=f4e260]
+        - rowgroup [ref=f4e261]:
+          - row [ref=f4e262]:
+            - cell [ref=f4e263]:
+              - strong [ref=f4e264]: X-40
+            - cell "400 mm" [ref=f4e265]
+            - cell "Paketli ürün" [ref=f4e266]
+            - cell "Ø 0,8 – 1,2 mm SS*" [ref=f4e267]
+            - cell "Paket, poşet, doypack son kontrol" [ref=f4e268]
+          - row [ref=f4e269]:
+            - cell [ref=f4e270]:
+              - strong [ref=f4e271]: X-60
+            - cell "600 mm" [ref=f4e272]
+            - cell "Paketli / dökme" [ref=f4e273]
+            - cell "Ø 1,0 – 1,5 mm SS*" [ref=f4e274]
+            - cell "Orta hat, karma ürün grupları" [ref=f4e275]
+          - row [ref=f4e276]:
+            - cell [ref=f4e277]:
+              - strong [ref=f4e278]: X-80B
+            - cell "800 mm" [ref=f4e279]
+            - cell "Dökme ürün" [ref=f4e280]
+            - cell "Ø 1,2 – 2,0 mm SS*" [ref=f4e281]
+            - cell "Kuruyemiş, bakliyat hat içi ayıklama" [ref=f4e282]
+          - row [ref=f4e283]:
+            - cell [ref=f4e284]:
+              - strong [ref=f4e285]: X-100B
+            - cell "1000 mm" [ref=f4e286]
+            - cell "Dökme ürün" [ref=f4e287]
+            - cell "Ø 1,2 – 2,0 mm SS*" [ref=f4e288]
+            - cell "Yüksek tonajlı IQF ve patates hatları" [ref=f4e289]
+      - paragraph [ref=f4e290]: "* SS: paslanmaz çelik test küresi çapı; ürüne göre değişir. Tüm serilerde: IP65+ gövde seçenekleri, Türkçe dokunmatik arayüz, otomatik kayıt ve CE uygunluğu."
+    - generic [ref=f4e292]:
+      - paragraph [ref=f4e293]: Uygulamalar
+      - navigation "Sektörler" [ref=f4e294]:
+        - link "Kuru Meyve" [ref=f4e295] [cursor=pointer]:
+          - /url: /sektorler/kuru-meyve/
+        - link "Kuruyemiş" [ref=f4e296] [cursor=pointer]:
+          - /url: /sektorler/kuruyemis/
+        - link "Antep Fıstığı" [ref=f4e297] [cursor=pointer]:
+          - /url: /sektorler/antep-fistigi/
+        - link "Bakliyat" [ref=f4e298] [cursor=pointer]:
+          - /url: /sektorler/bakliyat/
+        - link "Dondurulmuş Gıda (IQF)" [ref=f4e299] [cursor=pointer]:
+          - /url: /sektorler/dondurulmus-gida-iqf/
+        - link "Patates ve Cips" [ref=f4e300] [cursor=pointer]:
+          - /url: /sektorler/patates-cips/
+    - generic [ref=f4e302]:
+      - generic [ref=f4e303]:
+        - heading "Ürününüzle Tespit Testi Yapalım" [level=2] [ref=f4e304]
+        - paragraph [ref=f4e305]: Numune ürününüz ve şüpheli yabancı maddelerinizle gerçek bir tespit testi kurgulayalım; sonucu görüntülerle raporlayalım.
+      - generic [ref=f4e306]:
+        - link "WhatsApp'tan Teklif Alın" [ref=f4e307] [cursor=pointer]:
+          - /url: https://wa.me/905323436195?text=Merhaba%2C%20sagemakine.com%20%C3%BCzerinden%20yaz%C4%B1yorum.%20X-Ray%20g%C4%B1da%20kontrol%20%E2%80%94%20numune%20testi%20hakk%C4%B1nda%20bilgi%20ve%20teklif%20almak%20istiyorum.
+        - link "+90 532 343 61 95" [ref=f4e308] [cursor=pointer]:
+          - /url: tel:+905323436195
+      - paragraph [ref=f4e311]:
+        - text: "veya e-posta:"
+        - link "info@sagemakine.com" [ref=f4e312] [cursor=pointer]:
+          - /url: mailto:info@sagemakine.com
+  - contentinfo [ref=f4e313]:
+    - generic [ref=f4e318]:
+      - generic [ref=f4e319]:
+        - generic [ref=f4e320]:
+          - img "SAGE Makine logosu" [ref=f4e321]
+          - paragraph [ref=f4e350]: SMART · AUTOMATION · GLOBAL · ENGINEERING
+          - paragraph [ref=f4e351]: Kuru meyve, kuruyemiş ve bakliyat işleyicileri için renk ayırma ve X-Ray gıda kontrol makineleri. Manisa merkezli satış, kurulum ve teknik servis.
+          - generic [ref=f4e352]:
+            - link "Güzelyurt Mah. 5748 Sk. No:32 İç Kapı No:6, Yunusemre / Manisa" [ref=f4e353] [cursor=pointer]:
+              - /url: https://www.google.com/maps/search/?api=1&query=G%C3%BCzelyurt+Mahallesi+5748+Sokak+No:32+Yunusemre+Manisa
+            - link "+90 532 343 61 95" [ref=f4e354] [cursor=pointer]:
+              - /url: tel:+905323436195
+            - link "info@sagemakine.com" [ref=f4e355] [cursor=pointer]:
+              - /url: mailto:info@sagemakine.com
+          - link "WhatsApp'tan Yazın" [ref=f4e356] [cursor=pointer]:
+            - /url: https://wa.me/905323436195
+        - navigation "Makineler" [ref=f4e357]:
+          - heading "Makineler" [level=2] [ref=f4e358]
+          - list [ref=f4e359]:
+            - listitem [ref=f4e360]:
+              - link "Renk Ayırma Makineleri" [ref=f4e361] [cursor=pointer]:
+                - /url: /renk-ayirma-makinesi/
+            - listitem [ref=f4e362]:
+              - link "Oluk Tipi Renk Ayırma" [ref=f4e363] [cursor=pointer]:
+                - /url: /renk-ayirma-makinesi/oluk-tipi/
+            - listitem [ref=f4e364]:
+              - link "Bant Tipi Renk Ayırma" [ref=f4e365] [cursor=pointer]:
+                - /url: /renk-ayirma-makinesi/bant-tipi/
+            - listitem [ref=f4e366]:
+              - link "X-Ray Gıda Kontrol" [ref=f4e367] [cursor=pointer]:
+                - /url: /x-ray-gida-kontrol-makinesi/
+            - listitem [ref=f4e368]:
+              - link "Dökme Ürün X-Ray" [ref=f4e369] [cursor=pointer]:
+                - /url: /x-ray-gida-kontrol-makinesi/dokme-urun/
+            - listitem [ref=f4e370]:
+              - link "Paketli Ürün X-Ray" [ref=f4e371] [cursor=pointer]:
+                - /url: /x-ray-gida-kontrol-makinesi/paketli-urun/
+        - navigation "Sektörler" [ref=f4e372]:
+          - heading "Sektörler" [level=2] [ref=f4e373]
+          - list [ref=f4e374]:
+            - listitem [ref=f4e375]:
+              - link "Kuru Meyve" [ref=f4e376] [cursor=pointer]:
+                - /url: /sektorler/kuru-meyve/
+            - listitem [ref=f4e377]:
+              - link "Kuruyemiş" [ref=f4e378] [cursor=pointer]:
+                - /url: /sektorler/kuruyemis/
+            - listitem [ref=f4e379]:
+              - link "Antep Fıstığı" [ref=f4e380] [cursor=pointer]:
+                - /url: /sektorler/antep-fistigi/
+            - listitem [ref=f4e381]:
+              - link "Bakliyat" [ref=f4e382] [cursor=pointer]:
+                - /url: /sektorler/bakliyat/
+            - listitem [ref=f4e383]:
+              - link "Dondurulmuş Gıda (IQF)" [ref=f4e384] [cursor=pointer]:
+                - /url: /sektorler/dondurulmus-gida-iqf/
+            - listitem [ref=f4e385]:
+              - link "Patates ve Cips" [ref=f4e386] [cursor=pointer]:
+                - /url: /sektorler/patates-cips/
+        - navigation "Kurumsal" [ref=f4e387]:
+          - heading "Kurumsal" [level=2] [ref=f4e388]
+          - list [ref=f4e389]:
+            - listitem [ref=f4e390]:
+              - link "Hakkımızda" [ref=f4e391] [cursor=pointer]:
+                - /url: /hakkimizda/
+            - listitem [ref=f4e392]:
+              - link "Servis & Yedek Parça" [ref=f4e393] [cursor=pointer]:
+                - /url: /servis-yedek-parca/
+            - listitem [ref=f4e394]:
+              - link "Blog" [ref=f4e395] [cursor=pointer]:
+                - /url: /blog/
+            - listitem [ref=f4e396]:
+              - link "İletişim" [ref=f4e397] [cursor=pointer]:
+                - /url: /iletisim/
+            - listitem [ref=f4e398]:
+              - link "KVKK Aydınlatma Metni" [ref=f4e399] [cursor=pointer]:
+                - /url: /kvkk/
+      - generic [ref=f4e400]:
+        - paragraph [ref=f4e401]: © 2026 SAGE Makine Servis Temsilcilik Ltd. Şti. Tüm hakları saklıdır.
+        - paragraph [ref=f4e402]: Yunusemre / Manisa · Türkiye geneli satış, kurulum ve servis
+  - link "WhatsApp üzerinden bize yazın" [ref=f4e403] [cursor=pointer]:
+    - /url: https://wa.me/905323436195
