@@ -1,0 +1,100 @@
+---
+/**
+ * İç sayfa hero'su — koyu lacivert bant, breadcrumb, eyebrow, başlık, lead.
+ * Opsiyonel sağ görsel slotu (slot="visual").
+ */
+import Breadcrumbs from './Breadcrumbs.astro';
+import type { Breadcrumb } from './Seo.astro';
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  lead?: string;
+  breadcrumbs: Breadcrumb[];
+}
+
+const { eyebrow, title, lead, breadcrumbs } = Astro.props;
+const hasVisual = Astro.slots.has('visual');
+---
+
+<section class="page-hero band-dark">
+  <div class="container container--wide">
+    <Breadcrumbs items={breadcrumbs} onDark />
+    <div class:list={['hero-grid', { 'has-visual': hasVisual }]}>
+      <div class="hero-text">
+        <p class="eyebrow">{eyebrow}</p>
+        <h1>{title}</h1>
+        {lead && <p class="lead">{lead}</p>}
+        <div class="hero-actions">
+          <slot name="actions" />
+        </div>
+      </div>
+      {
+        hasVisual && (
+          <div class="hero-visual">
+            <slot name="visual" />
+          </div>
+        )
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .page-hero {
+    padding-block: var(--sp-5) var(--sp-8);
+  }
+
+  .hero-grid {
+    display: grid;
+    gap: var(--sp-7);
+    margin-top: var(--sp-6);
+    align-items: center;
+  }
+
+  .hero-grid.has-visual {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  }
+
+  .eyebrow {
+    color: var(--green-400);
+  }
+
+  .eyebrow::before {
+    background: var(--green-400);
+  }
+
+  h1 {
+    color: var(--white);
+    max-width: 22ch;
+  }
+
+  .lead {
+    margin-top: var(--sp-5);
+    font-size: var(--text-lg);
+    color: var(--ink-soft);
+    max-width: 58ch;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+    margin-top: var(--sp-6);
+  }
+
+  .hero-actions:empty {
+    display: none;
+  }
+
+  .hero-visual :global(img) {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+  }
+
+  @media (max-width: 900px) {
+    .hero-grid.has-visual {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

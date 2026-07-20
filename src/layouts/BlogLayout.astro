@@ -1,0 +1,190 @@
+---
+/**
+ * Blog yazısı şablonu. Kullanım:
+ * <BlogLayout {...meta}> <p>...</p> </BlogLayout>
+ * Gövde: yalnızca prose HTML (h2, h3, p, ul, ol, table, blockquote, a).
+ */
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { SITE } from '../data/site';
+
+interface Props {
+  title: string; // <title> + og
+  description: string;
+  path: string; // /blog/slug/
+  h1: string;
+  lead: string;
+  kategori: string;
+  tarih: string; // ISO: 2026-07-20
+  okumaDk: number;
+  waTopic?: string;
+  /** ek JSON-LD (ör. FAQPage) */
+  jsonLd?: Record<string, unknown>[];
+}
+
+const { title, description, path, h1, lead, kategori, tarih, okumaDk, waTopic = 'Makineleriniz', jsonLd = [] } = Astro.props;
+
+const breadcrumbs = [
+  { name: 'Blog', path: '/blog/' },
+  { name: h1, path },
+];
+
+const tarihStr = new Date(tarih).toLocaleDateString('tr-TR', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: h1,
+  description,
+  datePublished: tarih,
+  inLanguage: 'tr',
+  url: `${SITE.domain}${path}`,
+  author: { '@type': 'Organization', name: SITE.name, url: SITE.domain },
+  publisher: { '@type': 'Organization', name: SITE.name, url: SITE.domain },
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={path}
+  type="article"
+  breadcrumbs={breadcrumbs}
+  jsonLd={[articleLd, ...jsonLd]}
+>
+  <article>
+    <header class="post-head band-dark">
+      <div class="container container--narrow">
+        <Breadcrumbs items={[{ name: 'Blog', path: '/blog/' }]} onDark />
+        <p class="post-meta">
+          <span class="post-cat">{kategori}</span>
+          <time datetime={tarih}>{tarihStr}</time>
+          <span>{okumaDk} dk okuma</span>
+        </p>
+        <h1>{h1}</h1>
+        <p class="post-lead">{lead}</p>
+      </div>
+    </header>
+
+    <div class="container container--narrow">
+      <div class="prose">
+        <slot />
+      </div>
+    </div>
+  </article>
+
+  <CtaBand topic={waTopic} />
+</BaseLayout>
+
+<style>
+  .container--narrow {
+    width: min(46rem, 100% - 2 * var(--gutter));
+    margin-inline: auto;
+  }
+
+  .post-head {
+    padding-block: var(--sp-5) var(--sp-8);
+  }
+
+  .post-head h1 {
+    color: var(--white);
+    font-size: var(--text-3xl);
+    margin-top: var(--sp-5);
+  }
+
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--sp-4);
+    margin-top: var(--sp-6);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.06em;
+    color: var(--steel-300);
+  }
+
+  .post-cat {
+    color: var(--green-400);
+    border: 1px solid rgb(122 171 53 / 0.4);
+    border-radius: var(--radius-pill);
+    padding: 0.25em 0.8em;
+  }
+
+  .post-lead {
+    margin-top: var(--sp-4);
+    font-size: var(--text-lg);
+    color: var(--ink-soft);
+  }
+
+  .prose {
+    padding-block: var(--sp-8);
+    display: grid;
+    gap: var(--sp-4);
+  }
+
+  .prose :global(h2) {
+    font-size: var(--text-xl);
+    margin-top: var(--sp-5);
+  }
+
+  .prose :global(h3) {
+    font-size: var(--text-md);
+    margin-top: var(--sp-3);
+  }
+
+  .prose :global(p) {
+    color: var(--ink-soft);
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    padding-left: 1.4em;
+    color: var(--ink-soft);
+    display: grid;
+    gap: 0.5em;
+  }
+
+  .prose :global(li::marker) {
+    color: var(--accent-ink);
+  }
+
+  .prose :global(blockquote) {
+    border-left: 3px solid var(--green-500);
+    padding: var(--sp-3) var(--sp-5);
+    background: var(--bg-sunken);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  .prose :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
+  }
+
+  .prose :global(th),
+  .prose :global(td) {
+    padding: 0.65em 0.9em;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .prose :global(th) {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+  }
+
+  .prose :global(strong) {
+    color: var(--ink);
+  }
+</style>

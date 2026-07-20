@@ -1,0 +1,69 @@
+---
+import type { Breadcrumb } from './Seo.astro';
+
+interface Props {
+  items: Breadcrumb[];
+  /** koyu hero üzerinde mi */
+  onDark?: boolean;
+}
+
+const { items, onDark = false } = Astro.props;
+---
+
+<nav class:list={['crumbs', { 'crumbs--dark': onDark }]} aria-label="Sayfa yolu">
+  <ol>
+    <li><a href="/">Ana Sayfa</a></li>
+    {
+      items.map((b, i) => (
+        <li aria-current={i === items.length - 1 ? 'page' : undefined}>
+          {i === items.length - 1 ? <span>{b.name}</span> : <a href={b.path}>{b.name}</a>}
+        </li>
+      ))
+    }
+  </ol>
+</nav>
+
+<style>
+  .crumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35em;
+    list-style: none;
+    padding: 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.04em;
+  }
+
+  .crumbs li:not(:first-child)::before {
+    content: '/';
+    margin-right: 0.35em;
+    color: var(--ink-faint);
+  }
+
+  .crumbs a {
+    color: var(--ink-faint);
+    text-decoration: none;
+  }
+
+  .crumbs a:hover {
+    color: var(--accent-ink);
+  }
+
+  .crumbs span {
+    color: var(--ink-soft);
+  }
+
+  .crumbs--dark a,
+  .crumbs--dark li:not(:first-child)::before {
+    color: var(--steel-400);
+  }
+
+  .crumbs--dark a:hover {
+    color: var(--green-400);
+  }
+
+  .crumbs--dark span {
+    color: var(--steel-200);
+  }
+</style>

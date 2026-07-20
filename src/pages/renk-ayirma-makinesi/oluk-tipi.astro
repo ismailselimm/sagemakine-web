@@ -1,0 +1,59 @@
+---
+import SubUrunPage from '../../components/SubUrunPage.astro';
+import img from '../../assets/photos/machine-oluk-sorter.png';
+---
+
+<SubUrunPage
+  metaTitle="Oluk Tipi Renk Ayırma Makinesi – Bakliyat ve Hububat | SAGE Makine"
+  metaDescription="Mercimek, nohut, pirinç ve çekirdek için yüksek kapasiteli oluk (kanal) tipi renk ayırma makineleri. 1-10 şüt seçenekleri, çift geçişli kurulum, Türkiye'de servis."
+  path="/renk-ayirma-makinesi/oluk-tipi/"
+  parent={{ name: 'Renk Ayırma Makineleri', path: '/renk-ayirma-makinesi/' }}
+  eyebrow="Renk Ayırma · Oluk Tipi"
+  title="Oluk Tipi Renk Ayırma Makineleri"
+  lead="Serbest akan sert taneler için endüstri standardı: ürün, eğimli oluklardan ince bir perde halinde akar; saniyede binlerce tane taranır, kusurlular hava ejektörüyle ayrılır. Yüksek tonaj, kompakt yerleşim."
+  image={img}
+  imageAlt="Oluk tipi renk ayırma makinesi — stüdyo çekimi"
+  urunGruplari={[
+    {
+      baslik: 'Bakliyat',
+      urunler: ['Kırmızı ve yeşil mercimek', 'Nohut', 'Kuru fasulye, barbunya', 'Bulgur'],
+    },
+    {
+      baslik: 'Hububat ve Tohum',
+      urunler: ['Pirinç, buğday, arpa', 'Susam, haşhaş', 'Tohumluk temizleme'],
+    },
+    {
+      baslik: 'Çekirdek ve Sert Kabuklular',
+      urunler: ['Ay çekirdeği, kabak çekirdeği', 'Kabuklu ve iç Antep fıstığı', 'Kahve çekirdeği'],
+    },
+  ]}
+  avantajlar={[
+    {
+      icon: 'kapasite',
+      baslik: 'Yüksek Kapasite, Az Yer',
+      text: 'Yerçekimiyle beslenen dikey akış, bant sistemlerine göre metrekare başına en yüksek tonajı verir.',
+    },
+    {
+      icon: 'dogruluk',
+      baslik: 'Çift Geçiş (Re-Sort) Düzeni',
+      text: 'Iskarta ikinci geçişte yeniden ayıklanır; sağlam ürün kaybı (taşıma oranı) minimuma iner.',
+    },
+    {
+      icon: 'yazilim',
+      baslik: 'Hızlı Ürün Değişimi',
+      text: 'Mercimekten nohuta geçiş, kayıtlı reçeteyle dakikalar içinde — sezonluk çeşitlilikte zaman kazandırır.',
+    },
+    {
+      icon: 'parca',
+      baslik: 'Basit ve Dayanıklı Mekanik',
+      text: 'Az hareketli parça, kolay temizlik, düşük bakım maliyeti; yoğun sezonda kesintisiz çalışma.',
+    },
+  ]}
+  sektorler={[
+    { label: 'Bakliyat', href: '/sektorler/bakliyat/' },
+    { label: 'Antep Fıstığı', href: '/sektorler/antep-fistigi/' },
+    { label: 'Kuruyemiş', href: '/sektorler/kuruyemis/' },
+  ]}
+  waTopic="Oluk tipi renk ayırma makinesi"
+  ctaTitle="Ürününüz Olukta Nasıl Akar, Görelim"
+/>

@@ -1,0 +1,149 @@
+---
+/**
+ * Renk ayırma makinesi çalışma prensibi — şematik kesit (SVG).
+ * Akış: besleme hunisi → titreşimli besleyici → oluk → kamera+LED →
+ * hava ejektörü → sağlam ürün / ıskarta.
+ */
+---
+
+<figure class="diagram">
+  <svg
+    viewBox="0 0 860 560"
+    role="img"
+    aria-label="Renk ayırma makinesi çalışma prensibi şeması: besleme hunisinden gelen ürün oluktan akarken kameralarla taranır, kusurlu taneler hava ejektörüyle ıskarta haznesine ayrılır"
+  >
+    <defs>
+      <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#5f7080"></path>
+      </marker>
+      <marker id="arrg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#7aab35"></path>
+      </marker>
+    </defs>
+
+    <!-- ── Besleme hunisi ── -->
+    <polygon points="330,24 530,24 470,92 390,92" fill="#e4e9ed" stroke="#16283f" stroke-width="2.5"></polygon>
+    <text x="545" y="52" class="lbl">Besleme Hunisi</text>
+
+    <!-- huniden dökülen taneler -->
+    <g fill="#8494a2">
+      <circle cx="420" cy="104" r="4"></circle>
+      <circle cx="438" cy="112" r="4"></circle>
+      <circle cx="426" cy="122" r="4"></circle>
+    </g>
+
+    <!-- ── Titreşimli besleyici ── -->
+    <rect x="352" y="132" width="156" height="18" rx="3" fill="#cbd3db" stroke="#16283f" stroke-width="2.5"></rect>
+    <g stroke="#5f7080" stroke-width="2" stroke-linecap="round">
+      <line x1="368" y1="160" x2="368" y2="170"></line>
+      <line x1="430" y1="160" x2="430" y2="170"></line>
+      <line x1="492" y1="160" x2="492" y2="170"></line>
+    </g>
+    <text x="545" y="147" class="lbl">Titreşimli Besleyici</text>
+
+    <!-- ── Oluk (eğimli) ── -->
+    <polygon points="352,168 508,168 448,332 412,332" fill="#f2f5f7" stroke="#16283f" stroke-width="2.5"></polygon>
+    <text x="545" y="230" class="lbl">Oluk (Şüt)</text>
+
+    <!-- oluktan akan tane perdesi -->
+    <g>
+      <circle cx="442" cy="196" r="5" fill="#c9a86a"></circle>
+      <circle cx="436" cy="226" r="5" fill="#c9a86a"></circle>
+      <circle cx="444" cy="256" r="5" fill="#3d3428"></circle>
+      <circle cx="434" cy="286" r="5" fill="#c9a86a"></circle>
+      <circle cx="440" cy="316" r="5" fill="#c9a86a"></circle>
+    </g>
+
+    <!-- serbest düşüş bölgesi taneleri -->
+    <circle cx="430" cy="368" r="5" fill="#c9a86a"></circle>
+    <circle cx="424" cy="404" r="5" fill="#3d3428"></circle>
+    <circle cx="428" cy="440" r="5" fill="#c9a86a"></circle>
+
+    <!-- ── Kameralar + LED ── -->
+    <g>
+      <rect x="230" y="382" width="88" height="52" rx="6" fill="#16283f"></rect>
+      <circle cx="304" cy="408" r="9" fill="#0f1c2e" stroke="#7aab35" stroke-width="3"></circle>
+      <text x="230" y="366" class="lbl">CCD + NIR Kamera</text>
+      <rect x="540" y="382" width="88" height="52" rx="6" fill="#16283f"></rect>
+      <circle cx="554" cy="408" r="9" fill="#0f1c2e" stroke="#7aab35" stroke-width="3"></circle>
+      <text x="548" y="366" class="lbl">LED Aydınlatma</text>
+    </g>
+    <!-- görüş ışınları -->
+    <g stroke="#7aab35" stroke-width="1.8" stroke-dasharray="4 5" opacity="0.75">
+      <line x1="316" y1="400" x2="420" y2="400"></line>
+      <line x1="316" y1="416" x2="420" y2="412"></line>
+      <line x1="542" y1="400" x2="436" y2="400"></line>
+      <line x1="542" y1="416" x2="436" y2="412"></line>
+    </g>
+
+    <!-- ── Hava ejektörü ── -->
+    <rect x="558" y="452" width="70" height="26" rx="4" fill="#1e3a5f"></rect>
+    <text x="638" y="470" class="lbl">Hava Ejektörü</text>
+    <!-- hava jeti -->
+    <g stroke="#7aab35" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="1 6">
+      <line x1="556" y1="462" x2="470" y2="474"></line>
+      <line x1="556" y1="468" x2="474" y2="484"></line>
+    </g>
+
+    <!-- kusurlu tane savruluyor -->
+    <circle cx="404" cy="480" r="5" fill="#3d3428"></circle>
+    <path d="M424,462 Q414,470 406,476" fill="none" stroke="#5f7080" stroke-width="1.6" stroke-dasharray="3 4"></path>
+
+    <!-- ── Toplama hazneleri ── -->
+    <polygon points="330,506 430,506 410,548 350,548" fill="#eaf3dc" stroke="#689426" stroke-width="2.5"></polygon>
+    <text x="380" y="533" class="lbl lbl--mid lbl--green">Sağlam Ürün</text>
+
+    <polygon points="248,506 322,506 306,548 264,548" fill="#e4e9ed" stroke="#5f7080" stroke-width="2.5"></polygon>
+    <text x="285" y="533" class="lbl lbl--mid lbl--soft">Iskarta</text>
+
+    <!-- akış okları -->
+    <line x1="430" y1="452" x2="408" y2="500" stroke="#7aab35" stroke-width="2.2" marker-end="url(#arrg)"></line>
+    <line x1="398" y1="486" x2="304" y2="502" stroke="#5f7080" stroke-width="2.2" marker-end="url(#arr)"></line>
+  </svg>
+  <figcaption>
+    Ürün, oluktan ince bir perde halinde akarken her tane milisaniyeler içinde taranır; kusurlu
+    tane serbest düşüş sırasında hassas bir hava darbesiyle ıskarta haznesine yönlendirilir.
+  </figcaption>
+</figure>
+
+<style>
+  .diagram {
+    margin: 0;
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: var(--sp-5);
+  }
+
+  .diagram svg {
+    width: 100%;
+    height: auto;
+  }
+
+  .lbl {
+    font-family: var(--font-mono);
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    fill: var(--ink-soft);
+  }
+
+  .lbl--mid {
+    text-anchor: middle;
+  }
+
+  .lbl--green {
+    fill: #4a6e1b;
+    font-weight: 600;
+  }
+
+  .lbl--soft {
+    fill: #5f7080;
+  }
+
+  figcaption {
+    margin-top: var(--sp-3);
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+    max-width: 70ch;
+  }
+</style>

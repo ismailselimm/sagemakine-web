@@ -1,0 +1,379 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Icon from '../components/Icon.astro';
+import { CONTACT } from '../data/site';
+
+import parcaImg from '../assets/photos/servis-yedek-parca.png';
+import egitimImg from '../assets/photos/servis-egitim.png';
+
+const breadcrumbs = [{ name: 'Servis & Yedek Parça', path: '/servis-yedek-parca/' }];
+
+const hizmetler = [
+  {
+    icon: 'parca',
+    title: 'Kurulum ve Devreye Alma',
+    text: 'Yerleşim planından ilk ürün geçişine kadar kurulumu biz yönetiriz; makineniz üretime hazır teslim edilir.',
+  },
+  {
+    icon: 'egitim',
+    title: 'Operatör Eğitimi',
+    text: 'Türkçe arayüz üzerinde uygulamalı eğitim: reçete oluşturma, hassasiyet ayarı, günlük bakım. Ekibiniz makineye hükmeder.',
+  },
+  {
+    icon: 'servis',
+    title: 'Yerinde Teknik Servis',
+    text: 'Arıza durumunda telefonla teşhis, gerekirse yerinde müdahale. Hasat sezonunda öncelikli servis planlaması.',
+  },
+  {
+    icon: 'depo',
+    title: 'Yedek Parça Stoğu',
+    text: 'Ejektör valfleri, kamera modülleri, LED aydınlatma ve bantlar — kritik parçalar Türkiye’de stokta tutulur.',
+  },
+  {
+    icon: 'yazilim',
+    title: 'Uzaktan Destek ve Teşhis',
+    text: 'Makineler uzaktan bağlantıyla izlenebilir; birçok yazılım ve ayar sorunu tesise gelmeden çözülür.',
+  },
+  {
+    icon: 'garanti',
+    title: 'Periyodik Bakım Anlaşmaları',
+    text: 'Sezon öncesi kontrol ve kalibrasyonla makineniz kampanyaya hazır girer; plansız duruş riski azalır.',
+  },
+];
+
+const halkalar = [
+  { ring: 'Ege — hızlı erişim', cities: 'Manisa · İzmir · Aydın · Denizli · Balıkesir · Uşak' },
+  { ring: 'Yakın bölge', cities: 'Bursa · Afyon · Konya · Antalya · Eskişehir' },
+  { ring: 'Türkiye geneli', cities: 'Mersin · Gaziantep · Şanlıurfa · Karadeniz fındık havzası' },
+];
+---
+
+<BaseLayout
+  title="Renk Ayırma ve X-Ray Makineleri Teknik Servis | SAGE Makine"
+  description="Kurulum, operatör eğitimi, yerinde servis ve yedek parça stoğu — Manisa merkezli, hasat sezonunda öncelikli müdahale. Çin'den ithal makinenize Türkiye'de gerçek servis."
+  path="/servis-yedek-parca/"
+  breadcrumbs={breadcrumbs}
+>
+  <PageHero
+    eyebrow="Satış Sonrası"
+    title="Hasat Sezonunda Duruş Kabul Edilemez. Biz de Etmiyoruz."
+    lead="Makineyi satan çok; sezon ortasında telefona çıkan az. SAGE Makine'de servis, satışın devamı değil ta kendisidir: kurulumdan yedek parçaya tek muhatap, Manisa'dan tüm Türkiye'ye."
+    breadcrumbs={breadcrumbs}
+  >
+    <Fragment slot="actions">
+      <a href={CONTACT.phoneHref} class="btn btn--primary"><Icon name="telefon" size={17} /> Servis Hattı</a>
+      <a href={CONTACT.whatsappQuote('Teknik servis')} class="btn btn--outline servis-ghost" target="_blank" rel="noopener">WhatsApp'tan Yazın</a>
+    </Fragment>
+    <Fragment slot="visual">
+      <Image
+        src={parcaImg}
+        alt="Manisa depomuzda düzenli yedek parça rafları: valfler, kamera modülleri, bantlar"
+        widths={[480, 760, 1100]}
+        sizes="(max-width: 900px) 100vw, 42vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </Fragment>
+  </PageHero>
+
+  <!-- Hizmetler -->
+  <section class="section">
+    <div class="container container--wide">
+      <p class="eyebrow reveal">Hizmet Taahhütlerimiz</p>
+      <h2 class="reveal">Tek Muhatap, Altı Başlık</h2>
+      <div class="hizmet-grid">
+        {
+          hizmetler.map((h, i) => (
+            <div class="hizmet card reveal" style={`--reveal-delay:${(i % 3) * 0.08}s`}>
+              <span class="hizmet-icon">
+                <Icon name={h.icon as any} size={26} />
+              </span>
+              <h3>{h.title}</h3>
+              <p>{h.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Eğitim görseli + garanti -->
+  <section class="section band-sunken">
+    <div class="container egitim-grid">
+      <figure class="egitim-figure reveal">
+        <Image
+          src={egitimImg}
+          alt="Operatör eğitimi: teknisyen dokunmatik ekran üzerinde ekibe reçete ayarlarını gösteriyor"
+          widths={[560, 840, 1200]}
+          sizes="(max-width: 900px) 100vw, 48vw"
+        />
+      </figure>
+      <div>
+        <p class="eyebrow reveal">Garanti ve Şeffaflık</p>
+        <h2 class="reveal">Sözü Yazılı Veririz</h2>
+        <p class="reveal" style="--reveal-delay:.08s">
+          Garanti süresi, kapsamı ve servis müdahale koşulları teklifinizle birlikte yazılı olarak
+          sunulur — küçük yazılı sürprizler yoktur. Yedek parça fiyat listesini de satın almadan
+          önce görürsünüz.
+        </p>
+        <ul class="garanti-list reveal" style="--reveal-delay:.14s">
+          <li><Icon name="check" size={16} /> Yazılı garanti şartları, teklifle birlikte</li>
+          <li><Icon name="check" size={16} /> Yedek parça fiyatları satıştan önce şeffaf</li>
+          <li><Icon name="check" size={16} /> Türkçe dokümantasyon ve arayüz</li>
+          <li><Icon name="check" size={16} /> CE uygunluğu; X-Ray'de NDK lisans süreci bizden</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kapsama -->
+  <section class="section">
+    <div class="container kapsama-grid">
+      <div>
+        <p class="eyebrow reveal">Servis Bölgesi</p>
+        <h2 class="reveal">Merkez Manisa,<br />Saha Tüm Türkiye</h2>
+        <p class="reveal" style="--reveal-delay:.08s">
+          Merkezi bilerek Manisa'da kurduk: Türkiye kuru meyve ihracatının kalbi, İzmir limanına
+          ve Ege üretim havzasına bir adım. Müşterilerimizin çoğuna aynı gün ulaşıyoruz.
+        </p>
+        <div class="halka-list reveal" style="--reveal-delay:.14s">
+          {
+            halkalar.map((h) => (
+              <div class="halka">
+                <h3>{h.ring}</h3>
+                <p>{h.cities}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Kapsama halkaları — şematik SVG -->
+      <div class="reveal" style="--reveal-delay:.1s">
+        <figure class="rings-figure">
+          <svg viewBox="0 0 520 520" role="img" aria-label="Manisa merkezli servis kapsama halkaları: Ege bölgesi hızlı erişim, yakın bölge ve Türkiye geneli">
+            <defs>
+              <radialGradient id="ringGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#7aab35" stop-opacity="0.16"></stop>
+                <stop offset="100%" stop-color="#7aab35" stop-opacity="0"></stop>
+              </radialGradient>
+            </defs>
+            <circle cx="260" cy="260" r="248" fill="none" stroke="#dce3e9" stroke-width="1.5" stroke-dasharray="4 7"></circle>
+            <circle cx="260" cy="260" r="172" fill="none" stroke="#cbd3db" stroke-width="1.5" stroke-dasharray="4 7"></circle>
+            <circle cx="260" cy="260" r="96" fill="url(#ringGlow)" stroke="#7aab35" stroke-width="2"></circle>
+            <!-- merkez -->
+            <circle cx="260" cy="260" r="7" fill="#7aab35"></circle>
+            <circle cx="260" cy="260" r="13" fill="none" stroke="#7aab35" stroke-width="2" opacity="0.5"></circle>
+            <text x="260" y="242" class="ring-lbl ring-lbl--hub">MANİSA</text>
+            <!-- iç halka şehirleri -->
+            <text x="152" y="310" class="ring-lbl">İzmir</text>
+            <text x="330" y="330" class="ring-lbl">Aydın</text>
+            <text x="298" y="180" class="ring-lbl">Balıkesir</text>
+            <!-- orta halka -->
+            <text x="360" y="118" class="ring-lbl ring-lbl--soft">Bursa</text>
+            <text x="416" y="300" class="ring-lbl ring-lbl--soft">Konya</text>
+            <text x="128" y="416" class="ring-lbl ring-lbl--soft">Antalya</text>
+            <text x="90" y="140" class="ring-lbl ring-lbl--soft">Afyon</text>
+            <!-- dış halka -->
+            <text x="452" y="452" class="ring-lbl ring-lbl--faint">Gaziantep</text>
+            <text x="60" y="486" class="ring-lbl ring-lbl--faint">Mersin</text>
+            <text x="430" y="52" class="ring-lbl ring-lbl--faint">Karadeniz</text>
+          </svg>
+          <figcaption>Şematik kapsama — tüm illere satış, kurulum ve servis planlanır.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Servis mi Lazım? Şimdi Arayın"
+    text="Mevcut makinenizin markası ne olursa olsun durumu konuşalım; çözüm yolunu birlikte netleştirelim."
+    topic="Teknik servis talebi"
+  />
+</BaseLayout>
+
+<style>
+  .servis-ghost {
+    border-color: var(--line-strong);
+    color: var(--white);
+  }
+
+  .servis-ghost:hover {
+    border-color: var(--green-400);
+    color: var(--green-400);
+  }
+
+  .hizmet-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-5);
+    margin-top: var(--sp-6);
+  }
+
+  .hizmet {
+    padding: var(--sp-5);
+  }
+
+  .hizmet-icon {
+    display: inline-flex;
+    padding: 0.65rem;
+    border-radius: var(--radius-md);
+    background: var(--green-100);
+    color: var(--accent-ink);
+    margin-bottom: var(--sp-3);
+  }
+
+  .hizmet h3 {
+    font-size: var(--text-md);
+    margin-bottom: var(--sp-2);
+  }
+
+  .hizmet p {
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+  }
+
+  .egitim-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+    gap: var(--sp-8);
+    align-items: center;
+  }
+
+  .egitim-figure {
+    margin: 0;
+  }
+
+  .egitim-figure :global(img) {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+  }
+
+  .egitim-grid h2 {
+    margin-block: var(--sp-3) var(--sp-4);
+  }
+
+  .egitim-grid p {
+    color: var(--ink-soft);
+  }
+
+  .garanti-list {
+    display: grid;
+    gap: var(--sp-3);
+    list-style: none;
+    padding: 0;
+    margin-top: var(--sp-5);
+  }
+
+  .garanti-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    font-size: var(--text-sm);
+    color: var(--ink-soft);
+  }
+
+  .garanti-list :global(svg) {
+    color: var(--accent-ink);
+    flex-shrink: 0;
+  }
+
+  .kapsama-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+    gap: var(--sp-8);
+    align-items: center;
+  }
+
+  .kapsama-grid h2 {
+    margin-block: var(--sp-3) var(--sp-4);
+  }
+
+  .kapsama-grid > div > p {
+    color: var(--ink-soft);
+  }
+
+  .halka-list {
+    display: grid;
+    gap: var(--sp-4);
+    margin-top: var(--sp-5);
+  }
+
+  .halka {
+    border-left: 3px solid var(--green-500);
+    padding-left: var(--sp-4);
+  }
+
+  .halka h3 {
+    font-size: var(--text-md);
+  }
+
+  .halka p {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.05em;
+    color: var(--ink-faint);
+    margin-top: 0.3em;
+  }
+
+  .rings-figure {
+    margin: 0;
+  }
+
+  .rings-figure svg {
+    width: 100%;
+    height: auto;
+  }
+
+  .ring-lbl {
+    font-family: var(--font-mono);
+    font-size: 15px;
+    letter-spacing: 0.06em;
+    fill: var(--ink-soft);
+    text-anchor: middle;
+  }
+
+  .ring-lbl--hub {
+    font-weight: 700;
+    fill: #4a6e1b;
+    letter-spacing: 0.14em;
+  }
+
+  .ring-lbl--soft {
+    fill: var(--steel-400);
+  }
+
+  .ring-lbl--faint {
+    fill: var(--steel-300);
+  }
+
+  .rings-figure figcaption {
+    text-align: center;
+    margin-top: var(--sp-2);
+    font-size: var(--text-xs);
+    font-family: var(--font-mono);
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 1000px) {
+    .hizmet-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .egitim-grid,
+    .kapsama-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .hizmet-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

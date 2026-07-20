@@ -1,0 +1,60 @@
+---
+import SubUrunPage from '../../components/SubUrunPage.astro';
+import img from '../../assets/photos/machine-xray-dokme.png';
+---
+
+<SubUrunPage
+  metaTitle="Dökme Ürün X-Ray Ayıklama Makinesi – Hat İçi Kontrol | SAGE Makine"
+  metaDescription="Kuruyemiş, bakliyat ve IQF akışlarında taş, cam ve metali paketlemeden önce ayıklayan hat içi dökme ürün X-Ray sistemleri. Bölgesel ret ile minimum ürün kaybı."
+  path="/x-ray-gida-kontrol-makinesi/dokme-urun/"
+  parent={{ name: 'X-Ray Gıda Kontrol Sistemleri', path: '/x-ray-gida-kontrol-makinesi/' }}
+  eyebrow="X-Ray · Dökme Ürün"
+  title="Dökme Ürün X-Ray Ayıklama"
+  lead="Yabancı madde daha paketlenmeden, hattın içinde ayrılır: geniş bant üzerinde akan dökme ürün sürekli taranır, tespit anında yalnızca kusurlu bölge hava jeti veya klapeyle dışarı alınır. Ürün kaybı minimum, tonaj maksimum."
+  image={img}
+  imageAlt="Dökme ürün X-Ray ayıklama makinesi — stüdyo çekimi"
+  urunGruplari={[
+    {
+      baslik: 'Kuruyemiş ve Kuru Meyve',
+      urunler: ['İç fındık, badem, ceviz', 'Antep fıstığı (boş-dolu dahil)', 'Kuru üzüm, incir, kayısı'],
+    },
+    {
+      baslik: 'Bakliyat ve Hububat',
+      urunler: ['Mercimek, nohut, fasulye', 'Bulgur, pirinç', 'Tohum ve baharat'],
+    },
+    {
+      baslik: 'Donmuş ve Taze',
+      urunler: ['IQF meyve-sebze', 'Patates ürünleri', 'Sebze karışımları'],
+    },
+  ]}
+  avantajlar={[
+    {
+      icon: 'dogruluk',
+      baslik: 'Bölgesel Ret — Minimum Fire',
+      text: 'Paket değil, yalnızca kusurlu ürün şeridi atılır; hat sonu sistemlere göre fire kat kat düşer.',
+    },
+    {
+      icon: 'parca',
+      baslik: 'Makine Koruması',
+      text: 'Kırıcı, değirmen ve dilimleyici öncesine kurulan X-Ray, taş ve metalin pahalı ekipmanınıza ulaşmasını engeller.',
+    },
+    {
+      icon: 'kapasite',
+      baslik: 'Yüksek Tonaj',
+      text: '800–1000 mm bant genişlikleriyle saatte tonlarca ürün, hat hızını düşürmeden taranır.',
+    },
+    {
+      icon: 'garanti',
+      baslik: 'Erken Nokta, Az Risk',
+      text: 'Kontaminasyon kaynağına en yakın noktada ayıklama: riskli ürün stok ve proseste yayılmadan çözülür.',
+    },
+  ]}
+  sektorler={[
+    { label: 'Kuruyemiş', href: '/sektorler/kuruyemis/' },
+    { label: 'Bakliyat', href: '/sektorler/bakliyat/' },
+    { label: 'Antep Fıstığı', href: '/sektorler/antep-fistigi/' },
+    { label: 'Dondurulmuş Gıda (IQF)', href: '/sektorler/dondurulmus-gida-iqf/' },
+  ]}
+  waTopic="Dökme ürün X-Ray ayıklama"
+  ctaTitle="Hattınıza Göre Dökme X-Ray Planlayalım"
+/>

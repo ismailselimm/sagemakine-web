@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { SITE, CONTACT } from '../data/site';
+
+const breadcrumbs = [{ name: 'KVKK Aydınlatma Metni', path: '/kvkk/' }];
+---
+
+<BaseLayout
+  title="KVKK Aydınlatma Metni | SAGE Makine"
+  description="SAGE Makine kişisel verilerin korunması hakkında aydınlatma metni: hangi veriler, hangi amaçla işlenir; 6698 sayılı KVKK kapsamındaki haklarınız."
+  path="/kvkk/"
+  breadcrumbs={breadcrumbs}
+  noindex
+>
+  <section class="page-hero band-dark">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} onDark />
+      <h1>KVKK Aydınlatma Metni</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container legal">
+      <p>
+        Bu aydınlatma metni, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca,
+        veri sorumlusu sıfatıyla <strong>{SITE.legalName}</strong> ("SAGE Makine") tarafından
+        hazırlanmıştır.
+      </p>
+
+      <h2>1. İşlenen Kişisel Veriler ve İşleme Amaçları</h2>
+      <p>
+        Web sitemiz (sagemakine.com) üzerinde üyelik sistemi veya sunucularımızda saklanan bir
+        iletişim formu bulunmamaktadır. Bizimle iletişime geçtiğinizde:
+      </p>
+      <ul>
+        <li>
+          <strong>Telefon / WhatsApp:</strong> Ad-soyad, telefon numarası ve ilettiğiniz mesaj
+          içeriği; talebinizi yanıtlamak, teklif hazırlamak ve satış-servis sürecini yürütmek
+          amacıyla işlenir. WhatsApp üzerinden kurulan iletişimde veriler ayrıca WhatsApp LLC'nin
+          hizmet şartlarına tabidir.
+        </li>
+        <li>
+          <strong>E-posta:</strong> E-posta adresiniz ve mesaj içeriğiniz, talebinizin
+          yanıtlanması ve ticari ilişkinin yürütülmesi amacıyla işlenir.
+        </li>
+      </ul>
+      <p>
+        Sitemiz üçüncü taraf reklam ve takip çerezi kullanmaz. Sayfalarda gömülü Google Haritalar
+        görüntüleyicisi, Google LLC tarafından kendi politikaları uyarınca çerez kullanabilir.
+      </p>
+
+      <h2>2. İşlemenin Hukuki Sebebi</h2>
+      <p>
+        Kişisel verileriniz; KVKK md. 5/2 uyarınca "bir sözleşmenin kurulması veya ifasıyla
+        doğrudan doğruya ilgili olması" ve "veri sorumlusunun meşru menfaati" hukuki sebeplerine
+        dayanılarak, yalnızca iletişim ve ticari ilişki yönetimi amacıyla işlenir.
+      </p>
+
+      <h2>3. Verilerin Aktarılması</h2>
+      <p>
+        Kişisel verileriniz; yasal yükümlülükler dışında üçüncü kişilerle paylaşılmaz,
+        pazarlama amaçlı veri tabanlarına eklenmez ve yurt dışına aktarılmaz (WhatsApp/e-posta
+        altyapı sağlayıcılarının kendi işleyişi hariç).
+      </p>
+
+      <h2>4. Saklama Süresi</h2>
+      <p>
+        Veriler, iletişim talebinin sonuçlanmasından itibaren makul süre; ticari ilişki kurulması
+        halinde ilgili mevzuattaki zamanaşımı süreleri boyunca saklanır.
+      </p>
+
+      <h2>5. KVKK Kapsamındaki Haklarınız</h2>
+      <p>KVKK md. 11 uyarınca; kişisel verilerinizin işlenip işlenmediğini öğrenme, işlenmişse
+        bilgi talep etme, düzeltilmesini veya silinmesini isteme, işlemeye itiraz etme ve zarara
+        uğramanız hâlinde giderilmesini talep etme haklarına sahipsiniz.</p>
+      <p>
+        Başvurularınızı <a href={`mailto:${CONTACT.emailInfo}`}>{CONTACT.emailInfo}</a> adresine
+        veya <strong>{CONTACT.address.full}</strong> adresine yazılı olarak iletebilirsiniz.
+      </p>
+
+      <p class="son-not">Bu metin ihtiyaç halinde güncellenir. Son güncelleme: Temmuz 2026.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    padding-block: var(--sp-5) var(--sp-7);
+  }
+
+  .page-hero h1 {
+    color: var(--white);
+    margin-top: var(--sp-5);
+    font-size: var(--text-3xl);
+  }
+
+  .legal {
+    max-width: 46rem;
+    display: grid;
+    gap: var(--sp-4);
+  }
+
+  .legal h2 {
+    font-size: var(--text-lg);
+    margin-top: var(--sp-4);
+  }
+
+  .legal p,
+  .legal li {
+    color: var(--ink-soft);
+    font-size: var(--text-sm);
+  }
+
+  .legal ul {
+    padding-left: 1.3em;
+    display: grid;
+    gap: var(--sp-2);
+  }
+
+  .son-not {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--ink-faint);
+    margin-top: var(--sp-4);
+  }
+</style>

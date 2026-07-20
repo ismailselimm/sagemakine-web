@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<BaseLayout
+  title="Sayfa Bulunamadı | SAGE Makine"
+  description="Aradığınız sayfa bulunamadı."
+  path="/404/"
+  noindex
+>
+  <section class="section nf">
+    <div class="container nf-in">
+      <p class="nf-code">404</p>
+      <h1>Bu Sayfa Iskartaya Ayrılmış</h1>
+      <p class="nf-text">
+        Kameralarımız aradığınız sayfayı hatta bulamadı. Adres değişmiş veya hiç var olmamış
+        olabilir — sağlam ürün aşağıdaki hatlarda.
+      </p>
+      <div class="nf-links">
+        <a href="/" class="btn btn--primary">Ana Sayfa</a>
+        <a href="/renk-ayirma-makinesi/" class="btn btn--outline">Renk Ayırma</a>
+        <a href="/x-ray-gida-kontrol-makinesi/" class="btn btn--outline">X-Ray Kontrol</a>
+        <a href="/iletisim/" class="btn btn--outline"><Icon name="telefon" size={16} /> İletişim</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .nf {
+    min-height: 55vh;
+    display: grid;
+    align-items: center;
+  }
+
+  .nf-in {
+    text-align: center;
+    display: grid;
+    justify-items: center;
+    gap: var(--sp-4);
+  }
+
+  .nf-code {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    color: var(--accent-ink);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+    padding: 0.4em 1.2em;
+  }
+
+  .nf-text {
+    color: var(--ink-faint);
+    max-width: 46ch;
+  }
+
+  .nf-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--sp-3);
+    margin-top: var(--sp-4);
+  }
+</style>

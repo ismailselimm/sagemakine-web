@@ -1,0 +1,600 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Icon from '../../components/Icon.astro';
+import ColorSorterDiagram from '../../components/diagrams/ColorSorterDiagram.astro';
+import { SITE, CONTACT, SECTORS } from '../../data/site';
+
+import ejektorImg from '../../assets/photos/tech-ejektor.png';
+import kameraImg from '../../assets/photos/tech-kamera.png';
+import olukImg from '../../assets/photos/machine-oluk-sorter.png';
+import bantImg from '../../assets/photos/machine-bant-sorter.png';
+
+const breadcrumbs = [{ name: 'Renk Ayırma Makineleri', path: '/renk-ayirma-makinesi/' }];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: 'Renk Ayırma Makinesi (Color Sorter)',
+    brand: { '@type': 'Brand', name: SITE.name },
+    description:
+      'Kuru meyve, kuruyemiş, bakliyat ve hububat için oluk ve bant tipi renk ayırma makineleri. CCD ve kızılötesi kameralı, hava ejektörlü optik ayıklama sistemleri; kurulum, eğitim ve Türkiye genelinde servisle.',
+    image: `${SITE.domain}/og/og-default.png`,
+    url: `${SITE.domain}/renk-ayirma-makinesi/`,
+  },
+];
+
+const teknolojiler = [
+  {
+    icon: 'kamera',
+    title: 'Tam Renkli CCD Kameralar',
+    text: 'Yüksek çözünürlüklü RGB kameralar en küçük renk sapmasını, leke ve beneği tanır.',
+  },
+  {
+    icon: 'xray',
+    title: 'Kızılötesi / NIR Görüş',
+    text: 'InGaAs kameralar, renkten bağımsız olarak kabuğu, camı ve taşı malzeme yapısından ayırt eder.',
+  },
+  {
+    icon: 'dogruluk',
+    title: 'Şekil Ayıklama',
+    text: 'Geometri analizi; sap, çöp ve kırık taneyi ürünle aynı renkte olsa bile yakalar.',
+  },
+  {
+    icon: 'yazilim',
+    title: 'Yapay Zeka Sınıflandırma',
+    text: 'Derin öğrenme modelleri, klasik eşiklerin kaçırdığı karmaşık kusur desenlerini öğrenir.',
+  },
+];
+
+const kusurlar = [
+  { icon: 'tas', label: 'Taş ve toprak' },
+  { icon: 'cam', label: 'Cam ve seramik' },
+  { icon: 'metal', label: 'Metal parçalar' },
+  { icon: 'kabuk', label: 'Kabuk ve çekirdek kırığı' },
+  { icon: 'sap', label: 'Sap, çöp, bitkisel kalıntı' },
+  { icon: 'kuf', label: 'Küflü ve çürük tane' },
+  { icon: 'renk', label: 'Renk kusurlu tane' },
+  { icon: 'dogruluk', label: 'Aflatoksin şüpheli koyu tane' },
+];
+
+const seriler = [
+  { seri: 'S-1', oluk: '1', kanal: '64', kapasite: '0,3 – 1,5 t/s', kullanim: 'Numune, küçük işletme, ikinci geçiş' },
+  { seri: 'S-3', oluk: '3', kanal: '192', kapasite: '1 – 5 t/s', kullanim: 'Orta ölçekli kuruyemiş ve kuru meyve hatları' },
+  { seri: 'S-5', oluk: '5', kanal: '320', kapasite: '3 – 10 t/s', kullanim: 'Bakliyat ve hububat işleme tesisleri' },
+  { seri: 'S-7', oluk: '7', kanal: '448', kapasite: '5 – 16 t/s', kullanim: 'Yüksek tonajlı bakliyat / tohum hatları' },
+  { seri: 'S-10', oluk: '10', kanal: '640', kapasite: '8 – 25 t/s', kullanim: 'Entegre tesis, çift geçişli kurulumlar' },
+];
+---
+
+<BaseLayout
+  title="Renk Ayırma Makinesi (Color Sorter) – Satış ve Servis | SAGE Makine"
+  description="Oluk ve bant tipi renk ayırma makineleri: CCD ve kızılötesi kameralarla taş, cam, kabuk ve kusurlu taneleri yüksek doğrulukla ayıklayın. Türkiye'de kurulum, eğitim ve yedek parça."
+  path="/renk-ayirma-makinesi/"
+  breadcrumbs={breadcrumbs}
+  jsonLd={jsonLd}
+>
+  <PageHero
+    eyebrow="Optik Ayıklama Teknolojisi"
+    title="Renk Ayırma Makineleri"
+    lead="Renk ayırma — piyasadaki adıyla renk ayıklama makinesi ya da color sorter — kusurlu taneleri ve yabancı maddeleri kameralarla tespit edip hava ejektörleriyle hattan çıkarır. Kuru meyveden bakliyata, ürününüze göre oluk veya bant tipiyle."
+    breadcrumbs={breadcrumbs}
+  >
+    <Fragment slot="actions">
+      <a href={CONTACT.whatsappQuote('Renk ayırma makineleri')} class="btn btn--primary" target="_blank" rel="noopener">Teklif Alın</a>
+      <a href="#seriler" class="btn btn--outline pillar-ghost">Serileri İnceleyin</a>
+    </Fragment>
+    <Fragment slot="visual">
+      <Image
+        src={ejektorImg}
+        alt="Hava ejektör nozulları düşen ürün perdesindeki kusurlu taneyi ayırırken"
+        widths={[480, 760, 1100]}
+        sizes="(max-width: 900px) 100vw, 42vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </Fragment>
+  </PageHero>
+
+  <!-- Nasıl çalışır -->
+  <section class="section" id="nasil-calisir">
+    <div class="container">
+      <p class="eyebrow reveal">Nasıl Çalışır?</p>
+      <div class="howto-grid">
+        <div class="howto-text reveal">
+          <h2>Saniyede Binlerce Tane,<br />Tek Tek Kontrol</h2>
+          <ol class="howto-steps">
+            <li><strong>Besleme:</strong> Ürün, huniden titreşimli besleyiciye düzenli akışla verilir.</li>
+            <li><strong>Akış:</strong> Taneler oluktan (veya bantta tek katman) ince bir perde halinde geçer.</li>
+            <li><strong>Tarama:</strong> CCD ve kızılötesi kameralar, LED aydınlatma altında her taneyi görüntüler.</li>
+            <li><strong>Karar:</strong> İşlemci, milisaniyeler içinde sağlam/kusurlu kararını verir.</li>
+            <li><strong>Ayırma:</strong> Hava ejektörü kusurlu taneyi nokta atışıyla ıskartaya üfler.</li>
+          </ol>
+        </div>
+        <div class="reveal" style="--reveal-delay:.1s">
+          <ColorSorterDiagram />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teknolojiler -->
+  <section class="section band-sunken">
+    <div class="container container--wide">
+      <p class="eyebrow reveal">Kamera ve Yazılım</p>
+      <h2 class="reveal">Kusuru Gören Dört Teknoloji</h2>
+      <div class="tek-grid">
+        {
+          teknolojiler.map((t, i) => (
+            <div class="tek card reveal" style={`--reveal-delay:${i * 0.08}s`}>
+              <span class="tek-icon">
+                <Icon name={t.icon as any} size={26} />
+              </span>
+              <h3>{t.title}</h3>
+              <p>{t.text}</p>
+            </div>
+          ))
+        }
+      </div>
+      <figure class="tek-figure reveal">
+        <Image
+          src={kameraImg}
+          alt="Ayıklama haznesi içindeki yüksek çözünürlüklü kamera modülü ve LED aydınlatma"
+          widths={[700, 1100, 1500]}
+          sizes="(max-width: 900px) 100vw, 74rem"
+        />
+        <figcaption class="mono-cap">KAMERA MODÜLÜ + LED AYDINLATMA — AYIKLAMA HAZNESİ</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Oluk mu bant mı -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow reveal">Doğru Tip Seçimi</p>
+      <h2 class="reveal">Oluk Tipi mi, Bant Tipi mi?</h2>
+      <p class="sec-lead reveal">
+        Serbest akan sert taneler olukta; kırılgan, yapışkan veya iri ürünler bantta ayıklanır.
+        Emin değilseniz numune testi en net cevaptır.
+      </p>
+      <div class="tip-grid">
+        <a href="/renk-ayirma-makinesi/oluk-tipi/" class="tip-card card reveal">
+          <div class="tip-img">
+            <Image src={olukImg} alt="Oluk tipi renk ayırma makinesi" widths={[480, 760]} sizes="(max-width:900px) 100vw, 40vw" />
+          </div>
+          <div class="tip-body">
+            <h3>Oluk (Kanal) Tipi</h3>
+            <p>Yerçekimiyle akan ürün için yüksek kapasite: bakliyat, hububat, çekirdek, kahve.</p>
+            <ul>
+              <li><Icon name="check" size={15} /> Mercimek, nohut, fasulye, pirinç</li>
+              <li><Icon name="check" size={15} /> Ay çekirdeği, kabak çekirdeği</li>
+              <li><Icon name="check" size={15} /> Yüksek tonaj, kompakt yerleşim</li>
+            </ul>
+            <span class="tip-link">Oluk tipini inceleyin <Icon name="arrow" size={15} /></span>
+          </div>
+        </a>
+        <a href="/renk-ayirma-makinesi/bant-tipi/" class="tip-card card reveal" style="--reveal-delay:.1s">
+          <div class="tip-img">
+            <Image src={bantImg} alt="Bant tipi renk ayırma makinesi" widths={[480, 760]} sizes="(max-width:900px) 100vw, 40vw" />
+          </div>
+          <div class="tip-body">
+            <h3>Bant Tipi</h3>
+            <p>Hassas taşıma ve tek katman tarama: kuru meyve, iç ceviz, IQF, patates ürünleri.</p>
+            <ul>
+              <li><Icon name="check" size={15} /> Üzüm, incir, kayısı, iç fındık-ceviz</li>
+              <li><Icon name="check" size={15} /> IQF meyve-sebze, parmak patates</li>
+              <li><Icon name="check" size={15} /> Kırılgan ve yapışkan ürünlerde nazik akış</li>
+            </ul>
+            <span class="tip-link">Bant tipini inceleyin <Icon name="arrow" size={15} /></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Neleri ayıklar -->
+  <section class="section band-sunken">
+    <div class="container">
+      <p class="eyebrow reveal">Neleri Ayıklar?</p>
+      <h2 class="reveal">Gözden Kaçanı Kamera Kaçırmaz</h2>
+      <ul class="kusur-list">
+        {
+          kusurlar.map((k, i) => (
+            <li class="reveal" style={`--reveal-delay:${(i % 4) * 0.06}s`}>
+              <Icon name={k.icon as any} size={20} />
+              {k.label}
+            </li>
+          ))
+        }
+      </ul>
+      <p class="kusur-not reveal">
+        Şeffaf cam ve ürünle birebir aynı yoğunluktaki taşlar için en güvenli kombinasyon, renk
+        ayırma + <a href="/x-ray-gida-kontrol-makinesi/">X-Ray kontrol</a> birlikteliğidir.
+      </p>
+    </div>
+  </section>
+
+  <!-- Seriler -->
+  <section class="section" id="seriler">
+    <div class="container">
+      <p class="eyebrow reveal">Kapasite Seçenekleri</p>
+      <h2 class="reveal">SAGE S-Serisi — Oluk Sayısına Göre</h2>
+      <p class="sec-lead reveal">
+        Tipik değerler aşağıdadır; kesin kapasite ürününüze, kusur oranına ve hedef kaliteye göre
+        numune testiyle netleşir.
+      </p>
+      <div class="table-scroll reveal">
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th>Seri</th>
+              <th>Oluk (Şüt)</th>
+              <th>Kanal</th>
+              <th>Kapasite*</th>
+              <th>Tipik Kullanım</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              seriler.map((s) => (
+                <tr>
+                  <td><strong>{s.seri}</strong></td>
+                  <td>{s.oluk}</td>
+                  <td>{s.kanal}</td>
+                  <td>{s.kapasite}</td>
+                  <td>{s.kullanim}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <p class="table-not reveal">
+        * Kapasite ürüne göre değişir. Tüm serilerde: dokunmatik Türkçe arayüz, paslanmaz temas
+        yüzeyleri, uzaktan destek bağlantısı ve CE uygunluğu.
+      </p>
+    </div>
+  </section>
+
+  <!-- Dürüst satın alma rehberi -->
+  <section class="section honest-band band-dark">
+    <div class="container honest-in">
+      <p class="eyebrow reveal">Doğru Soruları Sorun</p>
+      <h2 class="reveal">Yalnızca "Doğruluk Yüzdesine" Bakmayın</h2>
+      <div class="honest-grid">
+        <div class="honest card-dark reveal">
+          <h3><Icon name="dogruluk" size={20} /> Taşıma Oranı</h3>
+          <p>
+            Iskartaya kaçan sağlam ürün (carryover), işletme kârınızı doğruluk kadar etkiler.
+            Teklifte iyi:kötü taşıma oranını mutlaka sorun — biz açıkça paylaşırız.
+          </p>
+        </div>
+        <div class="honest card-dark reveal" style="--reveal-delay:.08s">
+          <h3><Icon name="kapasite" size={20} /> Hava Tüketimi</h3>
+          <p>
+            Ejektörlerin hava tüketimi, kompresör yatırımı ve elektrik faturası demektir.
+            L/dk değerini ve gereken basıncı teklifle birlikte isteyin.
+          </p>
+        </div>
+        <div class="honest card-dark reveal" style="--reveal-delay:.16s">
+          <h3><Icon name="parca" size={20} /> Servis Gerçeği</h3>
+          <p>
+            Makine Çin'den gelir; servis Manisa'dan. Ejektör valfi, kamera ve LED modülü gibi
+            kritik parçaların Türkiye'de stokta olup olmadığını sorun.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sektörler -->
+  <section class="section section--tight">
+    <div class="container">
+      <p class="eyebrow">Uygulamalar</p>
+      <nav class="sektor-strip" aria-label="Sektörler">
+        {SECTORS.map((s) => <a href={`/sektorler/${s.slug}/`}>{s.title}</a>)}
+      </nav>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Numune Testi Talep Edin"
+    text="Ürününüzü gönderin; ayıklayalım, taşıma oranıyla birlikte sonucu önünüze koyalım. Karar makineyi gördükten sonra."
+    topic="Renk ayırma makinesi — numune testi"
+  />
+</BaseLayout>
+
+<style>
+  .pillar-ghost {
+    border-color: var(--line-strong);
+    color: var(--white);
+  }
+
+  .pillar-ghost:hover {
+    border-color: var(--green-400);
+    color: var(--green-400);
+  }
+
+  .howto-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--sp-7);
+    align-items: center;
+  }
+
+  .howto-text h2 {
+    margin-bottom: var(--sp-5);
+  }
+
+  .howto-steps {
+    display: grid;
+    gap: var(--sp-3);
+    padding-left: 1.4em;
+    color: var(--ink-soft);
+  }
+
+  .howto-steps li::marker {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--accent-ink);
+  }
+
+  .tek-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-5);
+    margin-top: var(--sp-6);
+  }
+
+  .tek {
+    padding: var(--sp-5);
+  }
+
+  .tek-icon {
+    display: inline-flex;
+    padding: 0.65rem;
+    border-radius: var(--radius-md);
+    background: var(--green-100);
+    color: var(--accent-ink);
+    margin-bottom: var(--sp-3);
+  }
+
+  .tek h3 {
+    font-size: var(--text-md);
+    margin-bottom: var(--sp-2);
+  }
+
+  .tek p {
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+  }
+
+  .tek-figure {
+    margin: var(--sp-6) 0 0;
+  }
+
+  .tek-figure :global(img) {
+    border-radius: var(--radius-lg);
+  }
+
+  .mono-cap {
+    display: block;
+    margin-top: var(--sp-3);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
+    color: var(--ink-faint);
+  }
+
+  .sec-lead {
+    margin-top: var(--sp-4);
+    color: var(--ink-soft);
+    max-width: 60ch;
+  }
+
+  .tip-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-6);
+    margin-top: var(--sp-6);
+  }
+
+  .tip-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+  }
+
+  .tip-img {
+    background: linear-gradient(165deg, var(--steel-100), var(--steel-50));
+    padding: var(--sp-4);
+  }
+
+  .tip-img :global(img) {
+    border-radius: var(--radius-md);
+  }
+
+  .tip-body {
+    padding: var(--sp-5);
+    display: grid;
+    gap: var(--sp-3);
+  }
+
+  .tip-body h3 {
+    font-size: var(--text-xl);
+  }
+
+  .tip-body > p {
+    color: var(--ink-soft);
+    font-size: var(--text-sm);
+  }
+
+  .tip-body ul {
+    display: grid;
+    gap: var(--sp-2);
+    list-style: none;
+    padding: 0;
+  }
+
+  .tip-body li {
+    display: flex;
+    align-items: center;
+    gap: 0.55em;
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+  }
+
+  .tip-body li :global(svg) {
+    color: var(--accent-ink);
+    flex-shrink: 0;
+  }
+
+  .tip-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--accent-ink);
+  }
+
+  .tip-card:hover .tip-link {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .kusur-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-3);
+    list-style: none;
+    padding: 0;
+    margin-top: var(--sp-6);
+  }
+
+  .kusur-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    padding: 0.85em 1em;
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--ink-soft);
+  }
+
+  .kusur-list :global(svg) {
+    color: var(--accent-ink);
+    flex-shrink: 0;
+  }
+
+  .kusur-not {
+    margin-top: var(--sp-5);
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+  }
+
+  .table-scroll {
+    margin-top: var(--sp-6);
+  }
+
+  .table-not {
+    margin-top: var(--sp-3);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--ink-faint);
+  }
+
+  .honest-band {
+    padding-block: var(--section-y);
+  }
+
+  .honest-in h2 {
+    color: var(--white);
+  }
+
+  .honest-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-5);
+    margin-top: var(--sp-6);
+  }
+
+  .card-dark {
+    background: rgb(255 255 255 / 0.04);
+    border: 1px solid rgb(255 255 255 / 0.1);
+    border-radius: var(--radius-md);
+    padding: var(--sp-5);
+  }
+
+  .card-dark h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: var(--text-md);
+    color: var(--white);
+    margin-bottom: var(--sp-3);
+  }
+
+  .card-dark h3 :global(svg) {
+    color: var(--green-400);
+  }
+
+  .card-dark p {
+    font-size: var(--text-sm);
+    color: var(--ink-soft);
+  }
+
+  .sektor-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+    margin-top: var(--sp-4);
+  }
+
+  .sektor-strip a {
+    padding: 0.5em 1em;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: all var(--dur) var(--ease-out);
+  }
+
+  .sektor-strip a:hover {
+    border-color: var(--green-500);
+    color: var(--accent-ink);
+    background: var(--green-100);
+  }
+
+  @media (max-width: 1000px) {
+    .tek-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .kusur-list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .howto-grid,
+    .tip-grid,
+    .honest-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .tek-grid,
+    .kusur-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

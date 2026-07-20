@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Icon from '../../components/Icon.astro';
+
+const breadcrumbs = [{ name: 'Blog', path: '/blog/' }];
+
+const yazilar = [
+  {
+    slug: 'renk-ayirma-makinesi-fiyatlari',
+    kategori: 'Satın Alma Rehberi',
+    baslik: 'Renk Ayırma Makinesi Fiyatları 2026: Neye Göre Değişir?',
+    ozet: 'Fiyatı belirleyen 6 faktör, toplam sahip olma maliyeti ve doğru teklif isteme rehberi.',
+    dk: 6,
+  },
+  {
+    slug: 'x-ray-mi-metal-dedektor-mu',
+    kategori: 'Teknoloji',
+    baslik: 'X-Ray mı Metal Dedektör mü? Gıdada Yabancı Madde Tespiti',
+    ozet: 'İki teknolojinin dürüst karşılaştırması: hangisi neyi görür, ne zaman hangisi yeter?',
+    dk: 5,
+  },
+  {
+    slug: 'sortex-makinasi-nedir',
+    kategori: 'Terimler',
+    baslik: 'Sortex Makinası Nedir? Color Sorter ile Farkı Var mı?',
+    ozet: 'Jenerikleşen bir marka adının ardındaki gerçek: renk ayırma makinesi nedir, markadan önce neye bakılır?',
+    dk: 4,
+  },
+  {
+    slug: 'ikinci-el-renk-ayirma-makinesi',
+    kategori: 'Satın Alma Rehberi',
+    baslik: '2. El Renk Ayırma Makinesi Almadan Önce Bilmeniz Gerekenler',
+    ozet: 'Düşük ilk yatırımın görünmeyen riskleri: ejektör ömrü, kamera eskimesi, yedek parça ve servis gerçeği.',
+    dk: 5,
+  },
+];
+---
+
+<BaseLayout
+  title="Blog – Ayıklama Teknolojisi Rehberleri | SAGE Makine"
+  description="Renk ayırma ve X-Ray gıda kontrol teknolojisi üzerine dürüst rehberler: fiyat faktörleri, teknoloji karşılaştırmaları ve satın alma tavsiyeleri."
+  path="/blog/"
+  breadcrumbs={breadcrumbs}
+>
+  <section class="page-hero band-dark">
+    <div class="container container--wide">
+      <Breadcrumbs items={breadcrumbs} onDark />
+      <div class="hero-head">
+        <p class="eyebrow">Blog</p>
+        <h1>Satmak İçin Değil, Doğru Karar İçin</h1>
+        <p class="lead">
+          Ayıklama teknolojisine yatırım büyük karardır. Bu rehberleri, telefonda sorduğunuz
+          soruların dürüst cevapları olarak yazıyoruz.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--wide">
+      <div class="post-grid">
+        {
+          yazilar.map((y, i) => (
+            <a href={`/blog/${y.slug}/`} class="post-card card reveal" style={`--reveal-delay:${(i % 2) * 0.08}s`}>
+              <p class="post-kat">{y.kategori} · {y.dk} dk</p>
+              <h2>{y.baslik}</h2>
+              <p class="post-ozet">{y.ozet}</p>
+              <span class="post-link">Yazıyı okuyun <Icon name="arrow" size={15} /></span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    padding-block: var(--sp-5) var(--sp-8);
+  }
+
+  .hero-head {
+    margin-top: var(--sp-6);
+  }
+
+  .hero-head .eyebrow {
+    color: var(--green-400);
+  }
+
+  .hero-head .eyebrow::before {
+    background: var(--green-400);
+  }
+
+  .hero-head h1 {
+    color: var(--white);
+  }
+
+  .lead {
+    margin-top: var(--sp-4);
+    font-size: var(--text-lg);
+    color: var(--ink-soft);
+    max-width: 56ch;
+  }
+
+  .post-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-5);
+  }
+
+  .post-card {
+    display: grid;
+    gap: var(--sp-3);
+    align-content: start;
+    padding: var(--sp-6);
+    text-decoration: none;
+  }
+
+  .post-kat {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+  }
+
+  .post-card h2 {
+    font-size: var(--text-xl);
+  }
+
+  .post-ozet {
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+  }
+
+  .post-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+    margin-top: var(--sp-2);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--accent-ink);
+  }
+
+  .post-card:hover .post-link {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 800px) {
+    .post-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

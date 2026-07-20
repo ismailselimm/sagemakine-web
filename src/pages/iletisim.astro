@@ -1,0 +1,343 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Icon from '../components/Icon.astro';
+import { SITE, CONTACT } from '../data/site';
+
+const breadcrumbs = [{ name: 'İletişim', path: '/iletisim/' }];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'İletişim — SAGE Makine',
+    url: `${SITE.domain}/iletisim/`,
+  },
+];
+
+const konular = [
+  'Renk ayırma makinesi — teklif',
+  'X-Ray gıda kontrol — teklif',
+  'Numune testi talebi',
+  'Teknik servis / arıza',
+  'Yedek parça',
+  'Diğer',
+];
+---
+
+<BaseLayout
+  title="İletişim – Teklif ve Numune Testi | SAGE Makine"
+  description="SAGE Makine iletişim: +90 532 343 61 95, info@sagemakine.com. Güzelyurt Mah. Yunusemre/Manisa. WhatsApp'tan hızlı teklif alın, numune testi planlayalım."
+  path="/iletisim/"
+  breadcrumbs={breadcrumbs}
+  jsonLd={jsonLd}
+>
+  <section class="page-hero band-dark">
+    <div class="container container--wide">
+      <Breadcrumbs items={breadcrumbs} onDark />
+      <div class="hero-head">
+        <p class="eyebrow">İletişim</p>
+        <h1>Konuşalım — Bir Telefon Uzaktayız</h1>
+        <p class="lead">
+          Teklif, numune testi veya servis: en hızlı cevabı telefonla ya da WhatsApp'tan alırsınız.
+          Mesai saatleri içinde genellikle aynı gün döneriz.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--wide iletisim-grid">
+      <!-- Sol: kanallar -->
+      <div class="kanallar">
+        <a href={CONTACT.phoneHref} class="kanal card">
+          <span class="kanal-icon"><Icon name="telefon" size={24} /></span>
+          <div>
+            <h2>Telefon</h2>
+            <p class="kanal-deger">{CONTACT.phoneDisplay}</p>
+            <p class="kanal-not">Adem Uzan — satış ve servis</p>
+          </div>
+        </a>
+
+        <a href={CONTACT.whatsapp} class="kanal card kanal--wa" target="_blank" rel="noopener">
+          <span class="kanal-icon kanal-icon--wa">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true">
+              <path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.39c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.9-4.44 9.9-9.9S17.5 2 12.04 2Zm0 18.1c-1.48 0-2.94-.4-4.2-1.15l-.3-.18-3.12.82.83-3.05-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.25-8.24 8.25Z"/>
+            </svg>
+          </span>
+          <div>
+            <h2>WhatsApp</h2>
+            <p class="kanal-deger">Hızlı teklif ve fotoğraflı arıza bildirimi</p>
+            <p class="kanal-not">Tıklayın, sohbet açılsın</p>
+          </div>
+        </a>
+
+        <div class="kanal card">
+          <span class="kanal-icon"><Icon name="mail" size={24} /></span>
+          <div>
+            <h2>E-posta</h2>
+            <p class="kanal-deger">
+              <a href={`mailto:${CONTACT.emailInfo}`}>{CONTACT.emailInfo}</a>
+            </p>
+            <p class="kanal-not">
+              Satış: <a href={`mailto:${CONTACT.emailAdem}`}>{CONTACT.emailAdem}</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="kanal card">
+          <span class="kanal-icon"><Icon name="saat" size={24} /></span>
+          <div>
+            <h2>Çalışma Saatleri</h2>
+            <p class="kanal-deger">{CONTACT.hours}</p>
+            <p class="kanal-not">Sezon döneminde servis için 7 gün ulaşabilirsiniz</p>
+          </div>
+        </div>
+
+        <div class="kanal card">
+          <span class="kanal-icon"><Icon name="harita" size={24} /></span>
+          <div>
+            <h2>Adres</h2>
+            <p class="kanal-deger">{CONTACT.address.street}</p>
+            <p class="kanal-not">
+              {CONTACT.address.district} / {CONTACT.address.city} ·
+              <a href={CONTACT.mapsLink} target="_blank" rel="noopener">Yol tarifi al</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sağ: WhatsApp form -->
+      <div class="form-box">
+        <h2>WhatsApp'tan Hızlı Teklif</h2>
+        <p class="form-not">
+          Aşağıyı doldurun; mesajınız hazır şekilde WhatsApp'ta açılsın. Bilgileriniz sunucuda
+          saklanmaz, yalnızca mesajınıza eklenir.
+        </p>
+        <form id="wa-form">
+          <label>
+            Adınız ve firmanız
+            <input type="text" name="isim" placeholder="Örn: Mehmet Bey — Ege Kuruyemiş" required />
+          </label>
+          <label>
+            Konu
+            <select name="konu" required>
+              {konular.map((k) => <option value={k}>{k}</option>)}
+            </select>
+          </label>
+          <label>
+            Ürününüz ve kapasite (isteğe bağlı)
+            <textarea
+              name="mesaj"
+              rows="3"
+              placeholder="Örn: Çekirdeksiz kuru üzüm, saatte 3-4 ton, çöp-sap sorunu"></textarea>
+          </label>
+          <button type="submit" class="btn btn--primary btn--lg">WhatsApp'ta Aç</button>
+          <p class="kvkk-not">
+            Gönderirken <a href="/kvkk/">KVKK Aydınlatma Metni</a>'ni kabul etmiş sayılırsınız.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Harita -->
+  <section class="map-section">
+    <iframe
+      src={CONTACT.mapsEmbed}
+      title="SAGE Makine konumu — Güzelyurt Mah. Yunusemre/Manisa"
+      loading="lazy"
+      allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </section>
+</BaseLayout>
+
+<script>
+  const form = document.getElementById('wa-form') as HTMLFormElement;
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const isim = String(data.get('isim') || '').trim();
+    const konu = String(data.get('konu') || '');
+    const mesaj = String(data.get('mesaj') || '').trim();
+    const text = [
+      'Merhaba, sagemakine.com üzerinden yazıyorum.',
+      isim && `Ben ${isim}.`,
+      `Konu: ${konu}.`,
+      mesaj && `Detay: ${mesaj}`,
+    ]
+      .filter(Boolean)
+      .join(' ');
+    window.open(`https://wa.me/905323436195?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+  });
+</script>
+
+<style>
+  .page-hero {
+    padding-block: var(--sp-5) var(--sp-8);
+  }
+
+  .hero-head {
+    margin-top: var(--sp-6);
+  }
+
+  .hero-head .eyebrow {
+    color: var(--green-400);
+  }
+
+  .hero-head .eyebrow::before {
+    background: var(--green-400);
+  }
+
+  .hero-head h1 {
+    color: var(--white);
+  }
+
+  .lead {
+    margin-top: var(--sp-4);
+    font-size: var(--text-lg);
+    color: var(--ink-soft);
+    max-width: 56ch;
+  }
+
+  .iletisim-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: var(--sp-7);
+    align-items: start;
+  }
+
+  .kanallar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-4);
+  }
+
+  .kanal {
+    display: flex;
+    gap: var(--sp-4);
+    padding: var(--sp-5);
+    align-items: start;
+    text-decoration: none;
+  }
+
+  .kanal--wa {
+    grid-column: 1 / -1;
+    border-left: 3px solid #25d366;
+  }
+
+  .kanal-icon {
+    display: inline-flex;
+    padding: 0.65rem;
+    border-radius: var(--radius-md);
+    background: var(--green-100);
+    color: var(--accent-ink);
+    flex-shrink: 0;
+  }
+
+  .kanal-icon--wa {
+    background: #e7f9ee;
+    color: #128c42;
+  }
+
+  .kanal h2 {
+    font-size: var(--text-md);
+    margin-bottom: var(--sp-1);
+  }
+
+  .kanal-deger {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .kanal-not {
+    font-size: var(--text-xs);
+    color: var(--ink-faint);
+    margin-top: 0.2em;
+  }
+
+  .form-box {
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--green-500);
+    border-radius: var(--radius-lg);
+    padding: var(--sp-6);
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: calc(var(--header-h) + var(--sp-4));
+  }
+
+  .form-box h2 {
+    font-size: var(--text-xl);
+  }
+
+  .form-not {
+    margin-top: var(--sp-2);
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+  }
+
+  form {
+    display: grid;
+    gap: var(--sp-4);
+    margin-top: var(--sp-5);
+  }
+
+  label {
+    display: grid;
+    gap: var(--sp-2);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 0.7em 0.9em;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-sm);
+    background: var(--bg);
+    font-size: var(--text-sm);
+    font-weight: 400;
+    transition: border-color var(--dur) var(--ease-out);
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--green-500);
+    box-shadow: 0 0 0 3px rgb(122 171 53 / 0.15);
+  }
+
+  .kvkk-not {
+    font-size: var(--text-xs);
+    color: var(--ink-faint);
+  }
+
+  .map-section iframe {
+    display: block;
+    width: 100%;
+    height: 26rem;
+    border: 0;
+    border-top: 1px solid var(--line);
+    filter: grayscale(0.2);
+  }
+
+  @media (max-width: 900px) {
+    .iletisim-grid {
+      grid-template-columns: 1fr;
+    }
+    .form-box {
+      position: static;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .kanallar {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

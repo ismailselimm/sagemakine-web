@@ -1,0 +1,4 @@
+[   39787ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ http://localhost:4321/src/styles/global.css?t=1784537238653:0
+[   39788ms] [ERROR] [vite] Failed to reload /src/styles/global.css. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:4321/@vite/client:1613
+[   39788ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:4321/@vite/client:1695
+[   39789ms] [ERROR] WebSocket connection to 'ws://localhost:4321/' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:4321/@vite/client:1766

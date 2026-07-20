@@ -1,0 +1,288 @@
+- generic [active] [ref=f3e1]:
+  - link "İçeriğe atla" [ref=f3e2] [cursor=pointer]:
+    - /url: "#icerik"
+  - banner [ref=f3e3]:
+    - generic [ref=f3e4]:
+      - link "SAGE Makine — Ana sayfa" [ref=f3e5] [cursor=pointer]:
+        - /url: /
+        - img "SAGE Makine logosu" [ref=f3e6]
+      - navigation "Ana menü" [ref=f3e35]:
+        - list [ref=f3e36]:
+          - listitem [ref=f3e37]:
+            - button "Makineler" [ref=f3e38] [cursor=pointer]
+          - listitem [ref=f3e40]:
+            - button "Sektörler" [ref=f3e41] [cursor=pointer]
+          - listitem [ref=f3e43]:
+            - link "Servis & Yedek Parça" [ref=f3e44] [cursor=pointer]:
+              - /url: /servis-yedek-parca/
+          - listitem [ref=f3e45]:
+            - link "Hakkımızda" [ref=f3e46] [cursor=pointer]:
+              - /url: /hakkimizda/
+          - listitem [ref=f3e47]:
+            - link "Blog" [ref=f3e48] [cursor=pointer]:
+              - /url: /blog/
+          - listitem [ref=f3e49]:
+            - link "İletişim" [ref=f3e50] [cursor=pointer]:
+              - /url: /iletisim/
+      - generic [ref=f3e51]:
+        - link "+90 532 343 61 95" [ref=f3e52] [cursor=pointer]:
+          - /url: tel:+905323436195
+        - link "Teklif Alın" [ref=f3e53] [cursor=pointer]:
+          - /url: /iletisim/
+  - main [ref=f3e54]:
+    - generic [ref=f3e58]:
+      - paragraph [ref=f3e59]: Renk Ayırma + X-Ray · Manisa
+      - heading "Ürününüzdeki Son Yabancı Maddeye Kadar." [level=1] [ref=f3e60]: Ürününüzdeki SonYabancı Maddeye Kadar.
+      - paragraph [ref=f3e61]: Kuru meyve, kuruyemiş ve bakliyat işleyicileri için X-Ray gıda kontrol ve renk ayırma makineleri. 22 yıllık sektör tecrübesi, Manisa'dan tüm Türkiye'ye satış, kurulum ve servis.
+      - generic [ref=f3e62]:
+        - link "Teklif Alın" [ref=f3e63] [cursor=pointer]:
+          - /url: https://wa.me/905323436195?text=Merhaba%2C%20sagemakine.com%20%C3%BCzerinden%20yaz%C4%B1yorum.%20Makineleriniz%20hakk%C4%B1nda%20bilgi%20ve%20teklif%20almak%20istiyorum.
+        - link "Makineleri İnceleyin" [ref=f3e64] [cursor=pointer]:
+          - /url: /renk-ayirma-makinesi/
+      - list "Öne çıkanlar" [ref=f3e65]:
+        - listitem [ref=f3e66]: Kurulum + operatör eğitimi dahil
+        - listitem [ref=f3e69]: Numune testi imkânı
+        - listitem [ref=f3e72]: Yerinde teknik servis
+    - generic [ref=f3e78]:
+      - generic [ref=f3e79]:
+        - term [ref=f3e80]: Sektör tecrübesi — makineden önce ürünü tanıyoruz
+        - definition [ref=f3e81]:
+          - generic [ref=f3e82]: 22 Yıl
+          - generic [ref=f3e83]: Sektör tecrübesi — makineden önce ürünü tanıyoruz
+      - generic [ref=f3e84]:
+        - term [ref=f3e85]: Ayırma doğruluğu, ürüne ve kusura göre
+        - definition [ref=f3e86]:
+          - generic [ref=f3e87]: "%99 'a varan"
+          - generic [ref=f3e88]: Ayırma doğruluğu, ürüne ve kusura göre
+      - generic [ref=f3e89]:
+        - term [ref=f3e90]: Optik + X-Ray, tek çözüm ortağı
+        - definition [ref=f3e91]:
+          - generic [ref=f3e92]: 2 Teknoloji
+          - generic [ref=f3e93]: Optik + X-Ray, tek çözüm ortağı
+      - generic [ref=f3e94]:
+        - term [ref=f3e95]: Manisa'dan tüm Türkiye'ye satış, kurulum, servis
+        - definition [ref=f3e96]:
+          - generic [ref=f3e97]: 81 İl
+          - generic [ref=f3e98]: Manisa'dan tüm Türkiye'ye satış, kurulum, servis
+    - generic [ref=f3e100]:
+      - generic [ref=f3e101]:
+        - paragraph [ref=f3e102]: Risk Gerçek
+        - heading "Tek Bir Yabancı Madde, Bir Konteynerinize Mal Olabilir" [level=2] [ref=f3e103]: Tek Bir Yabancı Madde,Bir Konteynerinize Mal Olabilir
+        - paragraph [ref=f3e104]: "Avrupa sınır kontrollerinde en çok bildirim alan ürün gruplarının başında kuru meyve ve kuruyemiş geliyor. Reddedilen tek bir parti; iade, imha ve müşteri kaybı demektir. Modern ayıklama teknolojisi bu riskin sigortasıdır: kamera renk ve şekil kusurunu, X-Ray taş, cam ve metali ürünün içinde dahi görür."
+        - link "X-Ray neyi görür, neyi görmez?" [ref=f3e105] [cursor=pointer]:
+          - /url: /x-ray-gida-kontrol-makinesi/
+      - figure "X-RAY GÖRÜNTÜSÜ — YOĞUN CİSİM TESPİTİ" [ref=f3e108]:
+        - img "X-Ray tarama görüntüsünde fındıkların arasında tespit edilmiş taş" [ref=f3e109]
+    - generic [ref=f3e112]:
+      - paragraph [ref=f3e113]: Sektörünüzü Seçin
+      - generic [ref=f3e114]:
+        - heading "Ürününüzü Tanıyoruz" [level=2] [ref=f3e115]
+        - paragraph [ref=f3e116]: Her ürünün kusuru başka. Sektörünüze girin, hattınıza göre konuşalım.
+      - generic [ref=f3e117]:
+        - link [ref=f3e118] [cursor=pointer]:
+          - /url: /sektorler/kuru-meyve/
+          - img "Kuru Meyve" [ref=f3e120]
+          - generic [ref=f3e121]:
+            - heading "Kuru Meyve" [level=3] [ref=f3e122]
+            - paragraph [ref=f3e123]: Üzüm · İncir · Kayısı
+            - paragraph [ref=f3e124]: Manisa üzümünde tek bir çöp-sap markanıza mal olmasın.
+            - generic [ref=f3e125]: İncele
+        - link [ref=f3e128] [cursor=pointer]:
+          - /url: /sektorler/kuruyemis/
+          - img "Kuruyemiş" [ref=f3e130]
+          - generic [ref=f3e131]:
+            - heading "Kuruyemiş" [level=3] [ref=f3e132]
+            - paragraph [ref=f3e133]: Fındık · Badem · Ceviz
+            - paragraph [ref=f3e134]: İç fındıkta kabuk parçası toleransı sıfırdır.
+            - generic [ref=f3e135]: İncele
+        - link [ref=f3e138] [cursor=pointer]:
+          - /url: /sektorler/antep-fistigi/
+          - img "Antep Fıstığı" [ref=f3e140]
+          - generic [ref=f3e141]:
+            - heading "Antep Fıstığı" [level=3] [ref=f3e142]
+            - paragraph [ref=f3e143]: Boş-dolu ayrımı · Kabuk
+            - paragraph [ref=f3e144]: Aflatoksin ve boş tane — iki büyük riski de makine görür.
+            - generic [ref=f3e145]: İncele
+        - link [ref=f3e148] [cursor=pointer]:
+          - /url: /sektorler/bakliyat/
+          - img "Bakliyat" [ref=f3e150]
+          - generic [ref=f3e151]:
+            - heading "Bakliyat" [level=3] [ref=f3e152]
+            - paragraph [ref=f3e153]: Mercimek · Nohut · Fasulye
+            - paragraph [ref=f3e154]: Mercimekle aynı boydaki taşı elek göremez; kamera görür.
+            - generic [ref=f3e155]: İncele
+        - link [ref=f3e158] [cursor=pointer]:
+          - /url: /sektorler/dondurulmus-gida-iqf/
+          - img "Dondurulmuş Gıda (IQF)" [ref=f3e160]
+          - generic [ref=f3e161]:
+            - heading "Dondurulmuş Gıda (IQF)" [level=3] [ref=f3e162]
+            - paragraph [ref=f3e163]: Şoklanmış meyve · Sebze
+            - paragraph [ref=f3e164]: Paketlemeden önceki son savunma hattı.
+            - generic [ref=f3e165]: İncele
+        - link [ref=f3e168] [cursor=pointer]:
+          - /url: /sektorler/patates-cips/
+          - img "Patates ve Cips" [ref=f3e170]
+          - generic [ref=f3e171]:
+            - heading "Patates ve Cips" [level=3] [ref=f3e172]
+            - paragraph [ref=f3e173]: Parmak patates · Cips
+            - paragraph [ref=f3e174]: Yanık parmak ve tarla taşı, kızartma hattına girmeden ayrılır.
+            - generic [ref=f3e175]: İncele
+    - generic [ref=f3e179]:
+      - paragraph [ref=f3e180]: Makinelerimiz
+      - generic [ref=f3e181]:
+        - heading "İki Teknoloji, Tek Çözüm Ortağı" [level=2] [ref=f3e182]
+        - paragraph [ref=f3e183]: Optik ayıklama renk, şekil ve kabuğu; X-Ray taş, cam ve metali görür. Doğru kurulum çoğu zaman ikisinin kombinasyonudur — hattınıza göre birlikte tasarlarız.
+      - generic [ref=f3e184]:
+        - link [ref=f3e185] [cursor=pointer]:
+          - /url: /renk-ayirma-makinesi/
+          - img "Oluk tipi renk ayırma makinesi" [ref=f3e187]
+          - generic [ref=f3e188]:
+            - paragraph [ref=f3e189]: COLOR SORTER
+            - heading "Renk Ayırma Makineleri" [level=3] [ref=f3e190]
+            - paragraph [ref=f3e191]: Tam renkli CCD ve kızılötesi kameralar; kusurlu taneyi ve yabancı maddeyi hava ejektörleriyle hattan çıkarır. Oluk ve bant tipi seçenekleriyle.
+            - list [ref=f3e192]:
+              - listitem [ref=f3e193]: CCD + NIR kamera
+              - listitem [ref=f3e198]: Hassas hava ejektörleri
+              - listitem [ref=f3e202]: Yapay zeka destekli sınıflandırma
+            - generic [ref=f3e206]: Renk ayırma makinelerini inceleyin
+        - link [ref=f3e209] [cursor=pointer]:
+          - /url: /x-ray-gida-kontrol-makinesi/
+          - img "X-Ray gıda kontrol makinesi" [ref=f3e211]
+          - generic [ref=f3e212]:
+            - paragraph [ref=f3e213]: X-RAY INSPECTION
+            - heading "X-Ray Gıda Kontrol Sistemleri" [level=3] [ref=f3e214]
+            - paragraph [ref=f3e215]: Taş, cam, metal ve kemiği ürünün veya ambalajın içinde dahi tespit eder. Dökme ürün ayıklama ve hat sonu paket kontrolü modelleriyle.
+            - list [ref=f3e216]:
+              - listitem [ref=f3e217]: Yoğunluk bazlı tespit
+              - listitem [ref=f3e221]: BRC / IFS denetim kaydı
+              - listitem [ref=f3e225]: NDK lisans süreci desteği
+            - generic [ref=f3e229]: X-Ray sistemlerini inceleyin
+    - generic [ref=f3e233]:
+      - figure [ref=f3e234]:
+        - img "SAGE Makine teknisyeni makine bakımı yaparken" [ref=f3e235]
+      - generic [ref=f3e236]:
+        - paragraph [ref=f3e237]: Satış Sonrası
+        - heading "Makine Satmıyoruz; Hattınızı Ayakta Tutuyoruz" [level=2] [ref=f3e238]: Makine Satmıyoruz;Hattınızı Ayakta Tutuyoruz
+        - paragraph [ref=f3e239]: Kurulum, operatör eğitimi, yerinde servis ve yedek parça stoğu Manisa'daki merkezimizden yönetilir. Hasat sezonunda duruşun ne demek olduğunu biliyoruz — çünkü bu sektörden geliyoruz.
+        - list [ref=f3e240]:
+          - listitem [ref=f3e241]: Kurulum ve devreye alma
+          - listitem [ref=f3e244]: Türkçe arayüz ve operatör eğitimi
+          - listitem [ref=f3e247]: Yerinde teknik servis
+          - listitem [ref=f3e250]: Kritik yedek parça stoğu
+        - link "Servis Yaklaşımımız" [ref=f3e253] [cursor=pointer]:
+          - /url: /servis-yedek-parca/
+    - generic [ref=f3e255]:
+      - paragraph [ref=f3e256]: Neden SAGE Makine?
+      - generic [ref=f3e257]:
+        - generic [ref=f3e258]:
+          - heading "22 Yıllık Sektör Tecrübesi" [level=3] [ref=f3e263]
+          - paragraph [ref=f3e264]: Kuru üzümün çöpünü, incirin aflatoksinini, fındığın kabuğunu müşterilerimizden önce tanıdık. Makineyi ürününüze göre seçiyoruz.
+        - generic [ref=f3e265]:
+          - heading "Numune Testi" [level=3] [ref=f3e269]
+          - paragraph [ref=f3e270]: Ürününüzü gönderin; ayıklayalım, sonucu birlikte görelim. Karar vermeden önce makinenin işini görün.
+        - generic [ref=f3e271]:
+          - heading "Yerinde Servis ve Yedek Parça" [level=3] [ref=f3e276]
+          - paragraph [ref=f3e277]: Kurulum, operatör eğitimi ve servis Manisa merkezimizden. Kritik yedek parçalar Türkiye’de stokta.
+        - generic [ref=f3e278]:
+          - heading "İhracat Uyumluluğu" [level=3] [ref=f3e283]
+          - paragraph [ref=f3e284]: "BRC, IFS ve HACCP denetimlerine hazır: otomatik kayıt, izlenebilirlik ve X-Ray için NDK lisans desteği."
+    - generic [ref=f3e286]:
+      - generic [ref=f3e287]:
+        - heading "Ürününüz İçin Doğru Makineyi Birlikte Seçelim" [level=2] [ref=f3e288]
+        - paragraph [ref=f3e289]: Numune ürününüzü test edelim, hattınıza uygun kapasiteyi birlikte belirleyelim. Teklif için bir telefon uzaktayız.
+      - generic [ref=f3e290]:
+        - link "WhatsApp'tan Teklif Alın" [ref=f3e291] [cursor=pointer]:
+          - /url: https://wa.me/905323436195?text=Merhaba%2C%20sagemakine.com%20%C3%BCzerinden%20yaz%C4%B1yorum.%20Makineleriniz%20hakk%C4%B1nda%20bilgi%20ve%20teklif%20almak%20istiyorum.
+        - link "+90 532 343 61 95" [ref=f3e292] [cursor=pointer]:
+          - /url: tel:+905323436195
+      - paragraph [ref=f3e295]:
+        - text: "veya e-posta:"
+        - link "info@sagemakine.com" [ref=f3e296] [cursor=pointer]:
+          - /url: mailto:info@sagemakine.com
+  - contentinfo [ref=f3e297]:
+    - generic [ref=f3e302]:
+      - generic [ref=f3e303]:
+        - generic [ref=f3e304]:
+          - img "SAGE Makine logosu" [ref=f3e305]
+          - paragraph [ref=f3e334]: SMART · AUTOMATION · GLOBAL · ENGINEERING
+          - paragraph [ref=f3e335]: Kuru meyve, kuruyemiş ve bakliyat işleyicileri için renk ayırma ve X-Ray gıda kontrol makineleri. Manisa merkezli satış, kurulum ve teknik servis.
+          - generic [ref=f3e336]:
+            - link "Güzelyurt Mah. 5748 Sk. No:32 İç Kapı No:6, Yunusemre / Manisa" [ref=f3e337] [cursor=pointer]:
+              - /url: https://www.google.com/maps/search/?api=1&query=G%C3%BCzelyurt+Mahallesi+5748+Sokak+No:32+Yunusemre+Manisa
+            - link "+90 532 343 61 95" [ref=f3e338] [cursor=pointer]:
+              - /url: tel:+905323436195
+            - link "info@sagemakine.com" [ref=f3e339] [cursor=pointer]:
+              - /url: mailto:info@sagemakine.com
+          - link "WhatsApp'tan Yazın" [ref=f3e340] [cursor=pointer]:
+            - /url: https://wa.me/905323436195
+        - navigation "Makineler" [ref=f3e341]:
+          - heading "Makineler" [level=2] [ref=f3e342]
+          - list [ref=f3e343]:
+            - listitem [ref=f3e344]:
+              - link "Renk Ayırma Makineleri" [ref=f3e345] [cursor=pointer]:
+                - /url: /renk-ayirma-makinesi/
+            - listitem [ref=f3e346]:
+              - link "Oluk Tipi Renk Ayırma" [ref=f3e347] [cursor=pointer]:
+                - /url: /renk-ayirma-makinesi/oluk-tipi/
+            - listitem [ref=f3e348]:
+              - link "Bant Tipi Renk Ayırma" [ref=f3e349] [cursor=pointer]:
+                - /url: /renk-ayirma-makinesi/bant-tipi/
+            - listitem [ref=f3e350]:
+              - link "X-Ray Gıda Kontrol" [ref=f3e351] [cursor=pointer]:
+                - /url: /x-ray-gida-kontrol-makinesi/
+            - listitem [ref=f3e352]:
+              - link "Dökme Ürün X-Ray" [ref=f3e353] [cursor=pointer]:
+                - /url: /x-ray-gida-kontrol-makinesi/dokme-urun/
+            - listitem [ref=f3e354]:
+              - link "Paketli Ürün X-Ray" [ref=f3e355] [cursor=pointer]:
+                - /url: /x-ray-gida-kontrol-makinesi/paketli-urun/
+        - navigation "Sektörler" [ref=f3e356]:
+          - heading "Sektörler" [level=2] [ref=f3e357]
+          - list [ref=f3e358]:
+            - listitem [ref=f3e359]:
+              - link "Kuru Meyve" [ref=f3e360] [cursor=pointer]:
+                - /url: /sektorler/kuru-meyve/
+            - listitem [ref=f3e361]:
+              - link "Kuruyemiş" [ref=f3e362] [cursor=pointer]:
+                - /url: /sektorler/kuruyemis/
+            - listitem [ref=f3e363]:
+              - link "Antep Fıstığı" [ref=f3e364] [cursor=pointer]:
+                - /url: /sektorler/antep-fistigi/
+            - listitem [ref=f3e365]:
+              - link "Bakliyat" [ref=f3e366] [cursor=pointer]:
+                - /url: /sektorler/bakliyat/
+            - listitem [ref=f3e367]:
+              - link "Dondurulmuş Gıda (IQF)" [ref=f3e368] [cursor=pointer]:
+                - /url: /sektorler/dondurulmus-gida-iqf/
+            - listitem [ref=f3e369]:
+              - link "Patates ve Cips" [ref=f3e370] [cursor=pointer]:
+                - /url: /sektorler/patates-cips/
+        - navigation "Kurumsal" [ref=f3e371]:
+          - heading "Kurumsal" [level=2] [ref=f3e372]
+          - list [ref=f3e373]:
+            - listitem [ref=f3e374]:
+              - link "Hakkımızda" [ref=f3e375] [cursor=pointer]:
+                - /url: /hakkimizda/
+            - listitem [ref=f3e376]:
+              - link "Servis & Yedek Parça" [ref=f3e377] [cursor=pointer]:
+                - /url: /servis-yedek-parca/
+            - listitem [ref=f3e378]:
+              - link "Blog" [ref=f3e379] [cursor=pointer]:
+                - /url: /blog/
+            - listitem [ref=f3e380]:
+              - link "İletişim" [ref=f3e381] [cursor=pointer]:
+                - /url: /iletisim/
+            - listitem [ref=f3e382]:
+              - link "KVKK Aydınlatma Metni" [ref=f3e383] [cursor=pointer]:
+                - /url: /kvkk/
+      - generic [ref=f3e384]:
+        - paragraph [ref=f3e385]: © 2026 SAGE Makine Servis Temsilcilik Ltd. Şti. Tüm hakları saklıdır.
+        - paragraph [ref=f3e386]: Yunusemre / Manisa · Türkiye geneli satış, kurulum ve servis
+  - link "WhatsApp üzerinden bize yazın" [ref=f3e387] [cursor=pointer]:
+    - /url: https://wa.me/905323436195
+    - generic [ref=f3e390]: WhatsApp
+  - generic [ref=f3e393]:
+    - button [ref=f3e394]
+    - button [ref=f3e400]
+    - button [ref=f3e404]
+    - button [ref=f3e412]

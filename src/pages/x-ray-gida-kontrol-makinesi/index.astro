@@ -1,0 +1,593 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Icon from '../../components/Icon.astro';
+import XrayDiagram from '../../components/diagrams/XrayDiagram.astro';
+import { SITE, CONTACT, SECTORS } from '../../data/site';
+
+import heroXray from '../../assets/photos/hero-xray-line.png';
+import xrayScan from '../../assets/photos/tech-xray-goruntu.png';
+import dokmeImg from '../../assets/photos/machine-xray-dokme.png';
+import paketliImg from '../../assets/photos/machine-xray-paketli.png';
+
+const breadcrumbs = [{ name: 'X-Ray Gıda Kontrol Sistemleri', path: '/x-ray-gida-kontrol-makinesi/' }];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: 'X-Ray Gıda Kontrol Sistemi',
+    brand: { '@type': 'Brand', name: SITE.name },
+    description:
+      'Gıdada taş, cam, metal ve kemiği ürünün veya ambalajın içinde tespit eden X-Ray kontrol sistemleri. Dökme ürün ayıklama ve hat sonu paket kontrolü; NDK lisans desteği, BRC/IFS uyumu.',
+    image: `${SITE.domain}/og/og-default.png`,
+    url: `${SITE.domain}/x-ray-gida-kontrol-makinesi/`,
+  },
+];
+
+const tespitEder = [
+  { icon: 'metal', label: 'Metal', desc: 'Paslanmaz dahil — alüminyum folyo ambalajın içinde bile.' },
+  { icon: 'cam', label: 'Cam', desc: 'Metal dedektörünün asla göremediği cam kırıkları.' },
+  { icon: 'tas', label: 'Taş ve seramik', desc: 'Ürünle aynı renkte olsa da yoğunluğundan tanınır.' },
+  { icon: 'kabuk', label: 'Kemik ve çekirdek', desc: 'Kalsifiye kemik, vişne çekirdeği, sert kabuk parçası.' },
+  { icon: 'kuf', label: 'Yoğun plastik', desc: 'PVC, teflon gibi yüksek yoğunluklu plastikler.' },
+  { icon: 'dogruluk', label: 'Eksik / kırık ürün', desc: 'Dolum seviyesi, eksik parça, boş-dolu ayrımı.' },
+];
+
+const tespitEtmez = [
+  'Saç ve kıl',
+  'Kâğıt ve karton',
+  'İnce film plastik',
+  'Böcek ve larva',
+  'Ahşap (düşük yoğunluklu)',
+];
+
+const seriler = [
+  { seri: 'X-40', bant: '400 mm', tip: 'Paketli ürün', hassasiyet: 'Ø 0,8 – 1,2 mm SS*', kullanim: 'Paket, poşet, doypack son kontrol' },
+  { seri: 'X-60', bant: '600 mm', tip: 'Paketli / dökme', hassasiyet: 'Ø 1,0 – 1,5 mm SS*', kullanim: 'Orta hat, karma ürün grupları' },
+  { seri: 'X-80B', bant: '800 mm', tip: 'Dökme ürün', hassasiyet: 'Ø 1,2 – 2,0 mm SS*', kullanim: 'Kuruyemiş, bakliyat hat içi ayıklama' },
+  { seri: 'X-100B', bant: '1000 mm', tip: 'Dökme ürün', hassasiyet: 'Ø 1,2 – 2,0 mm SS*', kullanim: 'Yüksek tonajlı IQF ve patates hatları' },
+];
+---
+
+<BaseLayout
+  title="X-Ray Gıda Kontrol Makinesi – Yabancı Madde Tespiti | SAGE Makine"
+  description="Gıdada taş, cam, metal ve kemiği ürünün içinde tespit eden X-Ray kontrol sistemleri. Dökme ve paketli ürün modelleri, NDK lisans desteği, BRC/IFS uyumu. Manisa'dan tüm Türkiye'ye."
+  path="/x-ray-gida-kontrol-makinesi/"
+  breadcrumbs={breadcrumbs}
+  jsonLd={jsonLd}
+>
+  <PageHero
+    eyebrow="Yabancı Madde Tespiti"
+    title="X-Ray Gıda Kontrol Sistemleri"
+    lead="X-ışını, ürünün içinden geçerken yoğunluk farklarını görüntüler: taş, cam, metal ve kemik — ambalajın veya ürünün içinde dahi — tespit edilip otomatik olarak ayrılır. Metal dedektörün bittiği yerde X-Ray başlar."
+    breadcrumbs={breadcrumbs}
+  >
+    <Fragment slot="actions">
+      <a href={CONTACT.whatsappQuote('X-Ray gıda kontrol sistemleri')} class="btn btn--primary" target="_blank" rel="noopener">Teklif Alın</a>
+      <a href="#seriler" class="btn btn--outline pillar-ghost">Serileri İnceleyin</a>
+    </Fragment>
+    <Fragment slot="visual">
+      <Image
+        src={heroXray}
+        alt="Paketleme hattında X-Ray kontrol tünelinden geçen ürünler"
+        widths={[480, 760, 1100]}
+        sizes="(max-width: 900px) 100vw, 42vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </Fragment>
+  </PageHero>
+
+  <!-- Nasıl çalışır -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow reveal">Nasıl Çalışır?</p>
+      <div class="howto-grid">
+        <div class="howto-text reveal">
+          <h2>Rengi Değil,<br />Yoğunluğu Görür</h2>
+          <ol class="howto-steps">
+            <li><strong>Geçiş:</strong> Ürün, konveyörle X-ışını perdesinin altından geçer.</li>
+            <li><strong>Görüntüleme:</strong> Dedektör, üründen geçen ışının zayıflamasını ölçer.</li>
+            <li><strong>Analiz:</strong> Yazılım, yoğunluk haritasında anormallikleri işaretler.</li>
+            <li><strong>Ayırma:</strong> Reddetme sistemi (itici kol, hava jeti veya klape) kusurlu ürünü hat dışına alır.</li>
+            <li><strong>Kayıt:</strong> Her tespit, görüntüsüyle birlikte denetime hazır şekilde arşivlenir.</li>
+          </ol>
+        </div>
+        <div class="reveal" style="--reveal-delay:.1s">
+          <XrayDiagram />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Neleri tespit eder -->
+  <section class="section band-sunken">
+    <div class="container container--wide">
+      <p class="eyebrow reveal">Tespit Kabiliyeti</p>
+      <h2 class="reveal">Neleri Tespit Eder?</h2>
+      <div class="tespit-grid">
+        {
+          tespitEder.map((t, i) => (
+            <div class="tespit card reveal" style={`--reveal-delay:${(i % 3) * 0.08}s`}>
+              <span class="tespit-icon">
+                <Icon name={t.icon as any} size={24} />
+              </span>
+              <h3>{t.label}</h3>
+              <p>{t.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="scan-grid">
+        <figure class="scan-figure reveal">
+          <Image
+            src={xrayScan}
+            alt="X-Ray tarama görüntüsü: fındıkların arasında parlak beyaz görünen taş, yeşil hedef halkasıyla işaretli"
+            widths={[600, 900, 1300]}
+            sizes="(max-width: 900px) 100vw, 54vw"
+          />
+          <figcaption class="mono-cap">GERÇEK ZAMANLI YOĞUNLUK GÖRÜNTÜSÜ — TAŞ TESPİTİ</figcaption>
+        </figure>
+
+        <!-- Dürüstlük kutusu -->
+        <aside class="honest-aside reveal" style="--reveal-delay:.1s">
+          <h3><Icon name="dogruluk" size={20} /> Dürüst Cevap: Neleri Tespit Etmez?</h3>
+          <p>
+            X-Ray yoğunluk okur; düşük yoğunluklu maddeleri güvenilir şekilde göremez:
+          </p>
+          <ul>
+            {tespitEtmez.map((t) => <li>{t}</li>)}
+          </ul>
+          <p>
+            Bu kusurlar için <a href="/renk-ayirma-makinesi/">renk ayırma makinesi</a> devreye
+            girer. Size satış değil, doğru kombinasyonu kurmayı taahhüt ediyoruz.
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dökme mi paketli mi -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow reveal">Doğru Nokta Seçimi</p>
+      <h2 class="reveal">Dökme Ürün mü, Paketli Ürün mü?</h2>
+      <div class="tip-grid">
+        <a href="/x-ray-gida-kontrol-makinesi/dokme-urun/" class="tip-card card reveal">
+          <div class="tip-img">
+            <Image src={dokmeImg} alt="Dökme ürün X-Ray ayıklama makinesi" widths={[480, 760]} sizes="(max-width:900px) 100vw, 40vw" />
+          </div>
+          <div class="tip-body">
+            <h3>Hat İçi — Dökme Ürün</h3>
+            <p>Yabancı madde daha paketlenmeden ayrılır; yalnızca kusurlu bölge atılır, ürün kaybı minimumdur.</p>
+            <ul>
+              <li><Icon name="check" size={15} /> Kuruyemiş, bakliyat, IQF akışları</li>
+              <li><Icon name="check" size={15} /> Kırıcı ve değirmen öncesi makine koruması</li>
+              <li><Icon name="check" size={15} /> Düşük fire, yüksek tonaj</li>
+            </ul>
+            <span class="tip-link">Dökme ürün X-Ray <Icon name="arrow" size={15} /></span>
+          </div>
+        </a>
+        <a href="/x-ray-gida-kontrol-makinesi/paketli-urun/" class="tip-card card reveal" style="--reveal-delay:.1s">
+          <div class="tip-img">
+            <Image src={paketliImg} alt="Paketli ürün X-Ray kontrol makinesi" widths={[480, 760]} sizes="(max-width:900px) 100vw, 40vw" />
+          </div>
+          <div class="tip-body">
+            <h3>Hat Sonu — Paketli Ürün</h3>
+            <p>Son kritik kontrol noktası: kapalı ambalajın içini görür, müşteriye giden her paketi doğrular.</p>
+            <ul>
+              <li><Icon name="check" size={15} /> BRC / IFS ve perakendeci denetim kanıtı</li>
+              <li><Icon name="check" size={15} /> Dolum seviyesi ve eksik ürün kontrolü</li>
+              <li><Icon name="check" size={15} /> Görüntülü ret arşivi, izlenebilirlik</li>
+            </ul>
+            <span class="tip-link">Paketli ürün X-Ray <Icon name="arrow" size={15} /></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Uyum + NDK -->
+  <section class="section honest-band band-dark">
+    <div class="container">
+      <div class="uyum-grid">
+        <div class="reveal">
+          <p class="eyebrow">İhracat ve Denetim</p>
+          <h2>Denetçi Sorduğunda<br />Cevabınız Hazır Olsun</h2>
+          <p class="uyum-text">
+            BRCGS, IFS ve HACCP planınızda X-Ray, kritik kontrol noktanız (KKN) olur: otomatik
+            veri kaydı, tespit görüntüsü arşivi ve ret doğrulama sensörleriyle her parti
+            denetime hazırdır.
+          </p>
+        </div>
+        <div class="uyum-cards">
+          <div class="card-dark reveal" style="--reveal-delay:.08s">
+            <h3><Icon name="belge" size={20} /> NDK Lisans Desteği</h3>
+            <p>
+              Türkiye'de X-ışını cihazları Nükleer Düzenleme Kurumu lisansına tabidir. Başvuru,
+              ölçüm ve lisans sürecini sizin adınıza SAGE Makine yürütür.
+            </p>
+          </div>
+          <div class="card-dark reveal" style="--reveal-delay:.16s">
+            <h3><Icon name="garanti" size={20} /> Radyasyon Güvenliği</h3>
+            <p>
+              Kurşun perdeli tünel ve sızıntı değeri 1 µSv/saat altındaki gövde tasarımıyla
+              operatör güvenliği uluslararası limitlerin çok altındadır.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seriler -->
+  <section class="section" id="seriler">
+    <div class="container">
+      <p class="eyebrow reveal">Kapasite Seçenekleri</p>
+      <h2 class="reveal">SAGE X-Serisi — Hat Tipine Göre</h2>
+      <p class="sec-lead reveal">
+        Tipik değerler aşağıdadır; tespit hassasiyeti ürün kalınlığına ve yoğunluğuna bağlıdır,
+        kesin değer ürününüzle yapılan testle belirlenir.
+      </p>
+      <div class="table-scroll reveal">
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th>Seri</th>
+              <th>Bant Genişliği</th>
+              <th>Hat Tipi</th>
+              <th>Tespit Hassasiyeti*</th>
+              <th>Tipik Kullanım</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              seriler.map((s) => (
+                <tr>
+                  <td><strong>{s.seri}</strong></td>
+                  <td>{s.bant}</td>
+                  <td>{s.tip}</td>
+                  <td>{s.hassasiyet}</td>
+                  <td>{s.kullanim}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <p class="table-not reveal">
+        * SS: paslanmaz çelik test küresi çapı; ürüne göre değişir. Tüm serilerde: IP65+ gövde
+        seçenekleri, Türkçe dokunmatik arayüz, otomatik kayıt ve CE uygunluğu.
+      </p>
+    </div>
+  </section>
+
+  <!-- Sektörler -->
+  <section class="section section--tight">
+    <div class="container">
+      <p class="eyebrow">Uygulamalar</p>
+      <nav class="sektor-strip" aria-label="Sektörler">
+        {SECTORS.map((s) => <a href={`/sektorler/${s.slug}/`}>{s.title}</a>)}
+      </nav>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Ürününüzle Tespit Testi Yapalım"
+    text="Numune ürününüz ve şüpheli yabancı maddelerinizle gerçek bir tespit testi kurgulayalım; sonucu görüntülerle raporlayalım."
+    topic="X-Ray gıda kontrol — numune testi"
+  />
+</BaseLayout>
+
+<style>
+  .pillar-ghost {
+    border-color: var(--line-strong);
+    color: var(--white);
+  }
+
+  .pillar-ghost:hover {
+    border-color: var(--green-400);
+    color: var(--green-400);
+  }
+
+  .howto-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--sp-7);
+    align-items: center;
+  }
+
+  .howto-text h2 {
+    margin-bottom: var(--sp-5);
+  }
+
+  .howto-steps {
+    display: grid;
+    gap: var(--sp-3);
+    padding-left: 1.4em;
+    color: var(--ink-soft);
+  }
+
+  .howto-steps li::marker {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--accent-ink);
+  }
+
+  .tespit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-5);
+    margin-top: var(--sp-6);
+  }
+
+  .tespit {
+    padding: var(--sp-5);
+  }
+
+  .tespit-icon {
+    display: inline-flex;
+    padding: 0.65rem;
+    border-radius: var(--radius-md);
+    background: var(--green-100);
+    color: var(--accent-ink);
+    margin-bottom: var(--sp-3);
+  }
+
+  .tespit h3 {
+    font-size: var(--text-md);
+    margin-bottom: var(--sp-2);
+  }
+
+  .tespit p {
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+  }
+
+  .scan-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: var(--sp-6);
+    margin-top: var(--sp-7);
+    align-items: stretch;
+  }
+
+  .scan-figure {
+    margin: 0;
+  }
+
+  .scan-figure :global(img) {
+    border-radius: var(--radius-lg);
+  }
+
+  .mono-cap {
+    display: block;
+    margin-top: var(--sp-3);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
+    color: var(--ink-faint);
+  }
+
+  .honest-aside {
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--green-500);
+    border-radius: var(--radius-md);
+    padding: var(--sp-5);
+    align-self: start;
+  }
+
+  .honest-aside h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: var(--text-md);
+    margin-bottom: var(--sp-3);
+  }
+
+  .honest-aside h3 :global(svg) {
+    color: var(--accent-ink);
+  }
+
+  .honest-aside p {
+    font-size: var(--text-sm);
+    color: var(--ink-soft);
+  }
+
+  .honest-aside ul {
+    margin: var(--sp-3) 0;
+    padding-left: 1.3em;
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+    display: grid;
+    gap: 0.35em;
+  }
+
+  .tip-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-6);
+    margin-top: var(--sp-6);
+  }
+
+  .tip-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+  }
+
+  .tip-img {
+    background: linear-gradient(165deg, var(--steel-100), var(--steel-50));
+    padding: var(--sp-4);
+  }
+
+  .tip-img :global(img) {
+    border-radius: var(--radius-md);
+  }
+
+  .tip-body {
+    padding: var(--sp-5);
+    display: grid;
+    gap: var(--sp-3);
+  }
+
+  .tip-body h3 {
+    font-size: var(--text-xl);
+  }
+
+  .tip-body > p {
+    color: var(--ink-soft);
+    font-size: var(--text-sm);
+  }
+
+  .tip-body ul {
+    display: grid;
+    gap: var(--sp-2);
+    list-style: none;
+    padding: 0;
+  }
+
+  .tip-body li {
+    display: flex;
+    align-items: center;
+    gap: 0.55em;
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+  }
+
+  .tip-body li :global(svg) {
+    color: var(--accent-ink);
+    flex-shrink: 0;
+  }
+
+  .tip-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--accent-ink);
+  }
+
+  .tip-card:hover .tip-link {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .honest-band {
+    padding-block: var(--section-y);
+  }
+
+  .uyum-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+    gap: var(--sp-7);
+    align-items: center;
+  }
+
+  .uyum-grid h2 {
+    color: var(--white);
+    margin-block: var(--sp-4);
+  }
+
+  .uyum-text {
+    color: var(--ink-soft);
+  }
+
+  .uyum-cards {
+    display: grid;
+    gap: var(--sp-5);
+  }
+
+  .card-dark {
+    background: rgb(255 255 255 / 0.04);
+    border: 1px solid rgb(255 255 255 / 0.1);
+    border-radius: var(--radius-md);
+    padding: var(--sp-5);
+  }
+
+  .card-dark h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: var(--text-md);
+    color: var(--white);
+    margin-bottom: var(--sp-3);
+  }
+
+  .card-dark h3 :global(svg) {
+    color: var(--green-400);
+  }
+
+  .card-dark p {
+    font-size: var(--text-sm);
+    color: var(--ink-soft);
+  }
+
+  .sec-lead {
+    margin-top: var(--sp-4);
+    color: var(--ink-soft);
+    max-width: 60ch;
+  }
+
+  .table-scroll {
+    margin-top: var(--sp-6);
+  }
+
+  .table-not {
+    margin-top: var(--sp-3);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--ink-faint);
+  }
+
+  .sektor-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+    margin-top: var(--sp-4);
+  }
+
+  .sektor-strip a {
+    padding: 0.5em 1em;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: all var(--dur) var(--ease-out);
+  }
+
+  .sektor-strip a:hover {
+    border-color: var(--green-500);
+    color: var(--accent-ink);
+    background: var(--green-100);
+  }
+
+  @media (max-width: 1000px) {
+    .tespit-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .howto-grid,
+    .tip-grid,
+    .scan-grid,
+    .uyum-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .tespit-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

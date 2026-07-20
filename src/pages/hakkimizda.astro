@@ -1,0 +1,454 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Icon from '../components/Icon.astro';
+import Logo from '../components/Logo.astro';
+
+import hallImg from '../assets/photos/hero-color-sorter-hall.png';
+import oncesiSonrasi from '../assets/photos/sorting-oncesi-sonrasi.png';
+
+const breadcrumbs = [{ name: 'Hakkımızda', path: '/hakkimizda/' }];
+
+const adimlar = [
+  {
+    no: '01',
+    baslik: 'İhtiyaç Analizi',
+    text: 'Ürününüzü, kusur profilinizi ve hedef kalitenizi dinleriz. Hattınızı tanımadan makine konuşmayız.',
+  },
+  {
+    no: '02',
+    baslik: 'Numune Testi',
+    text: 'Ürününüzü gerçek makinede ayıklarız; sonucu taşıma oranıyla birlikte önünüze koyarız.',
+  },
+  {
+    no: '03',
+    baslik: 'Makine Seçimi ve Teklif',
+    text: 'Kapasiteye ve bütçeye göre doğru seriyi netleştirir, garanti ve servis şartlarını yazılı sunarız.',
+  },
+  {
+    no: '04',
+    baslik: 'Kurulum ve Eğitim',
+    text: 'Kurulumu yapar, operatörlerinizi Türkçe arayüzde eğitir, hattı üretime hazır teslim ederiz.',
+  },
+  {
+    no: '05',
+    baslik: 'Servis ve Süreklilik',
+    text: 'Yedek parça stoğu, uzaktan destek ve periyodik bakımla makinenizin ömrü boyunca yanınızdayız.',
+  },
+];
+
+const acilim = [
+  { harf: 'S', kelime: 'Smart', aciklama: 'Kameradan yazılıma akıllı ayıklama teknolojileri' },
+  { harf: 'A', kelime: 'Automation', aciklama: 'İnsan hatasını azaltan otomasyon çözümleri' },
+  { harf: 'G', kelime: 'Global', aciklama: 'Dünya üreticilerinden Türkiye pazarına köprü' },
+  { harf: 'E', kelime: 'Engineering', aciklama: 'Mühendislik disipliniyle kurulum ve servis' },
+];
+
+const kriterler = [
+  'CE uygunluğu ve uluslararası ihracat sicili',
+  'Kamera ve ejektör teknolojisinde kanıtlanmış performans',
+  'Uzun vadeli yedek parça temin güvencesi',
+  'Yazılım güncellemeleri ve uzaktan destek altyapısı',
+  'Türkçe arayüz uyarlanabilirliği',
+];
+---
+
+<BaseLayout
+  title="Hakkımızda – 22 Yıllık Sektör Tecrübesi | SAGE Makine"
+  description="SAGE Makine: 22 yıllık gıda işleme tecrübesiyle Manisa'dan tüm Türkiye'ye renk ayırma ve X-Ray gıda kontrol makineleri. Sektörün içinden gelen tedarikçi."
+  path="/hakkimizda/"
+  breadcrumbs={breadcrumbs}
+>
+  <PageHero
+    eyebrow="SAGE Makine"
+    title="Sektörün İçinden Gelen Tedarikçi"
+    lead="SAGE Makine bir makine katalogu değil, 22 yıllık saha tecrübesinin şirketleşmiş halidir. Ürününüzün kusurunu, alıcınızın şartnamesini ve hasat takviminizi — makineden önce — biliyoruz."
+    breadcrumbs={breadcrumbs}
+  >
+    <Fragment slot="visual">
+      <Image
+        src={hallImg}
+        alt="Modern gıda işleme tesisinde renk ayırma makinesi"
+        widths={[480, 760, 1100]}
+        sizes="(max-width: 900px) 100vw, 42vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </Fragment>
+  </PageHero>
+
+  <!-- Kurucu hikayesi -->
+  <section class="section">
+    <div class="container kurucu-grid">
+      <div>
+        <p class="eyebrow reveal">Kurucunun Sözü</p>
+        <h2 class="reveal">22 Yıl Sahada,<br />Şimdi Sizin Tarafınızda</h2>
+        <blockquote class="kurucu-quote reveal" style="--reveal-delay:.08s">
+          <p>
+            "22 yıldır bu sektörün içindeyim: kuru üzümün çöpünü, incirin aflatoksinini, fındığın
+            kabuğunu müşterilerimden önce tanıdım. Yıllarca bu makinelerin sattığını, kurulduğunu
+            ve — en önemlisi — servissiz kalınca yaşananları gördüm. SAGE Makine'yi, bu tecrübeyi
+            doğru makineyle ve gerçek servisle buluşturmak için kurduk."
+          </p>
+          <footer>
+            <strong>Adem Uzan</strong>
+            <span>Kurucu Ortak</span>
+          </footer>
+        </blockquote>
+      </div>
+      <figure class="kurucu-figure reveal" style="--reveal-delay:.12s">
+        <Image
+          src={oncesiSonrasi}
+          alt="Ayıklama öncesi karışık ürün ve sonrası temiz iç fındık — işimizin özeti"
+          widths={[520, 800, 1100]}
+          sizes="(max-width: 900px) 100vw, 44vw"
+        />
+        <figcaption class="mono-cap">İŞİMİZİN ÖZETİ: ÖNCESİ VE SONRASI</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- SAGE açılımı -->
+  <section class="section band-dark acilim-band">
+    <div class="container">
+      <div class="acilim-head reveal">
+        <Logo variant="dark" height={56} />
+        <p>Adımız, işimizin tarifi:</p>
+      </div>
+      <div class="acilim-grid">
+        {
+          acilim.map((a, i) => (
+            <div class="acilim-item reveal" style={`--reveal-delay:${i * 0.09}s`}>
+              <span class="acilim-harf">{a.harf}</span>
+              <h3 lang="en">{a.kelime}</h3>
+              <p>{a.aciklama}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Neden Manisa -->
+  <section class="section">
+    <div class="container manisa-grid">
+      <div>
+        <p class="eyebrow reveal">Neden Manisa?</p>
+        <h2 class="reveal">Müşterimizin Yanı Başında</h2>
+        <p class="reveal" style="--reveal-delay:.08s">
+          Türkiye çekirdeksiz kuru üzümünün %90'ından fazlası Manisa ve çevresinden çıkar; kuru
+          meyve ihracatının yaklaşık üçte ikisi Ege'den yapılır. Merkezi buraya bilerek kurduk:
+          müşterilerimizin çoğuna aynı gün ulaşır, İzmir limanından gelen makineyi gümrükten
+          tesise en kısa yoldan taşırız.
+        </p>
+        <div class="manisa-stats reveal" style="--reveal-delay:.14s">
+          <div>
+            <span class="m-stat">%90+</span>
+            <span class="m-label">çekirdeksiz üzümün çıktığı havza, kapımızın önü</span>
+          </div>
+          <div>
+            <span class="m-stat">1 saat</span>
+            <span class="m-label">İzmir limanına uzaklık — makine ve parça lojistiği</span>
+          </div>
+        </div>
+      </div>
+      <div class="kriter-box reveal" style="--reveal-delay:.1s">
+        <h3><Icon name="belge" size={20} /> Üreticilerimizi Nasıl Seçiyoruz?</h3>
+        <p>
+          Temsil ettiğimiz üretici hatlarını tek kritere göre değerlendiririz: on yıl sonra da
+          arkasında durabilecek miyiz?
+        </p>
+        <ul>
+          {kriterler.map((k) => <li><Icon name="check" size={15} /> {k}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nasıl çalışıyoruz -->
+  <section class="section band-sunken">
+    <div class="container">
+      <p class="eyebrow reveal">Nasıl Çalışıyoruz?</p>
+      <h2 class="reveal">Katalogdan Değil, İhtiyaçtan Başlarız</h2>
+      <ol class="adim-list">
+        {
+          adimlar.map((a, i) => (
+            <li class="adim reveal" style={`--reveal-delay:${i * 0.07}s`}>
+              <span class="adim-no">{a.no}</span>
+              <div>
+                <h3>{a.baslik}</h3>
+                <p>{a.text}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Tanışalım"
+    text="Hattınızı, ürününüzü ve hedefinizi anlatın; size katalog değil, çözüm önerelim."
+    topic="Genel bilgi ve tanışma"
+  />
+</BaseLayout>
+
+<style>
+  .kurucu-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+    gap: var(--sp-8);
+    align-items: center;
+  }
+
+  .kurucu-grid h2 {
+    margin-block: var(--sp-3) var(--sp-5);
+  }
+
+  .kurucu-quote {
+    border-left: 3px solid var(--green-500);
+    padding: var(--sp-4) var(--sp-5);
+    background: var(--bg-sunken);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+
+  .kurucu-quote p {
+    font-size: var(--text-md);
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  .kurucu-quote footer {
+    margin-top: var(--sp-4);
+    display: grid;
+  }
+
+  .kurucu-quote footer span {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    color: var(--accent-ink);
+  }
+
+  .kurucu-figure {
+    margin: 0;
+  }
+
+  .kurucu-figure :global(img) {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+  }
+
+  .mono-cap {
+    display: block;
+    margin-top: var(--sp-3);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
+    color: var(--ink-faint);
+  }
+
+  .acilim-band {
+    padding-block: var(--section-y);
+  }
+
+  .acilim-head {
+    display: grid;
+    justify-items: center;
+    gap: var(--sp-4);
+    text-align: center;
+    margin-bottom: var(--sp-7);
+  }
+
+  .acilim-head p {
+    color: var(--ink-soft);
+  }
+
+  .acilim-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-5);
+  }
+
+  .acilim-item {
+    text-align: center;
+    padding: var(--sp-5);
+    border: 1px solid rgb(255 255 255 / 0.1);
+    border-radius: var(--radius-md);
+    background: rgb(255 255 255 / 0.03);
+  }
+
+  .acilim-harf {
+    display: inline-grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    font-family: var(--font-display);
+    font-variation-settings: 'wdth' var(--wdth-wide);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--navy-950);
+    background: var(--green-500);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--sp-3);
+  }
+
+  .acilim-item h3 {
+    color: var(--white);
+    font-size: var(--text-md);
+  }
+
+  .acilim-item p {
+    margin-top: var(--sp-2);
+    font-size: var(--text-sm);
+    color: var(--ink-soft);
+  }
+
+  .manisa-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: var(--sp-8);
+    align-items: start;
+  }
+
+  .manisa-grid h2 {
+    margin-block: var(--sp-3) var(--sp-4);
+  }
+
+  .manisa-grid p {
+    color: var(--ink-soft);
+  }
+
+  .manisa-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-5);
+    margin-top: var(--sp-6);
+  }
+
+  .manisa-stats > div {
+    border-top: 2px solid var(--green-500);
+    padding-top: var(--sp-3);
+    display: grid;
+    gap: var(--sp-1);
+  }
+
+  .m-stat {
+    font-family: var(--font-display);
+    font-variation-settings: 'wdth' var(--wdth-wide);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--navy-800);
+  }
+
+  .m-label {
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+  }
+
+  .kriter-box {
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--green-500);
+    border-radius: var(--radius-md);
+    padding: var(--sp-5);
+  }
+
+  .kriter-box h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: var(--text-md);
+    margin-bottom: var(--sp-3);
+  }
+
+  .kriter-box h3 :global(svg) {
+    color: var(--accent-ink);
+  }
+
+  .kriter-box p {
+    font-size: var(--text-sm);
+    color: var(--ink-soft);
+  }
+
+  .kriter-box ul {
+    display: grid;
+    gap: var(--sp-2);
+    list-style: none;
+    padding: 0;
+    margin-top: var(--sp-4);
+  }
+
+  .kriter-box li {
+    display: flex;
+    align-items: center;
+    gap: 0.55em;
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+  }
+
+  .kriter-box li :global(svg) {
+    color: var(--accent-ink);
+    flex-shrink: 0;
+  }
+
+  .adim-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--sp-5);
+    list-style: none;
+    padding: 0;
+    margin-top: var(--sp-6);
+    counter-reset: none;
+  }
+
+  .adim {
+    display: grid;
+    gap: var(--sp-3);
+    align-content: start;
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: var(--sp-5);
+  }
+
+  .adim-no {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--accent-ink);
+  }
+
+  .adim h3 {
+    font-size: var(--text-md);
+  }
+
+  .adim p {
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 1000px) {
+    .acilim-grid,
+    .adim-list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .kurucu-grid,
+    .manisa-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .acilim-grid,
+    .adim-list,
+    .manisa-stats {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

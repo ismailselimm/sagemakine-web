@@ -282,8 +282,8 @@ strong {
   background: var(--bg-raised);
 }
 
-/* ── Scroll reveal ──────────────────────────────────────────── */
-.reveal {
+/* ── Scroll reveal (yalnızca JS varsa gizlenir — no-JS'te içerik daima görünür) ── */
+html.js .reveal {
   opacity: 0;
   transform: translateY(24px);
   transition:
@@ -292,7 +292,7 @@ strong {
   transition-delay: var(--reveal-delay, 0s);
 }
 
-.reveal.is-visible {
+html.js .reveal.is-visible {
   opacity: 1;
   transform: none;
 }

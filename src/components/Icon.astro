@@ -1,0 +1,64 @@
+---
+/**
+ * Minimal çizgi ikon seti — 24×24, stroke: currentColor.
+ * Marka diliyle uyumlu: keskin köşeler, 1.8 kalınlık.
+ */
+interface Props {
+  name: keyof typeof PATHS;
+  size?: number;
+  class?: string;
+}
+
+const PATHS = {
+  /* kirleticiler */
+  tas: '<path d="M8 4l7-1 5 4 1 6-4 6-7 2-5-4-1-6z"/><path d="M9 9l4 1 2 4"/>',
+  cam: '<path d="M6 3l12 2-3 16-4-1z"/><path d="M10 8l4 1M9 13l4 1"/>',
+  metal: '<circle cx="12" cy="12" r="7"/><path d="M12 5v3M12 16v3M5 12h3M16 12h3M7.5 7.5l2 2M14.5 14.5l2 2M16.5 7.5l-2 2M9.5 14.5l-2 2"/>',
+  kabuk: '<path d="M4 14a8 8 0 0116 0"/><path d="M4 14c2 1 4 1 5-1 2 2 4 2 6 0 1 2 3 2 5 1"/>',
+  sap: '<path d="M5 19C8 15 9 9 19 5"/><path d="M12 10c2 1 4 1 6-1M9 14c1 2 3 3 5 3"/>',
+  kuf: '<circle cx="12" cy="12" r="8"/><circle cx="9" cy="10" r="1.4"/><circle cx="14" cy="14" r="1.8"/><circle cx="14.5" cy="8.5" r="1"/>',
+  renk: '<circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 000 16z" fill="currentColor" stroke="none"/>',
+  /* teknoloji */
+  kamera: '<rect x="3" y="7" width="18" height="12" rx="1.5"/><circle cx="12" cy="13" r="3.5"/><path d="M8 7l1.5-3h5L16 7"/>',
+  ejektor: '<path d="M9 3h6v6H9z"/><path d="M12 9v3"/><path d="M12 13l-5 7M12 13v8M12 13l5 7" stroke-dasharray="1.5 2.4"/>',
+  xray: '<rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 12h4l2-4 3 8 2-5 1 1h6" />',
+  yazilim: '<rect x="6" y="6" width="12" height="12" rx="1.5"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/>',
+  bant: '<rect x="2" y="10" width="20" height="5" rx="2.5"/><circle cx="6" cy="12.5" r="1.2"/><circle cx="12" cy="12.5" r="1.2"/><circle cx="18" cy="12.5" r="1.2"/>',
+  oluk: '<path d="M6 3h12M8 3l3 9v9M16 3l-3 9v9"/><path d="M11 21h2"/>',
+  dogruluk: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/><path d="M12 1.5v4M12 18.5v4M1.5 12h4M18.5 12h4"/>',
+  /* değer önermeleri */
+  tecrube: '<circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 3"/>',
+  servis: '<path d="M14 6a4 4 0 105.3 5.3L22 14l-3 3-2.7-2.7A4 4 0 0110 9.7L7 7l3-3z"/><path d="M3 21l6-6"/>',
+  egitim: '<rect x="3" y="4" width="18" height="11" rx="1"/><path d="M9 19h6M12 15v4"/><path d="M7 11l3-3 2 2 4-4"/>',
+  parca: '<rect x="3" y="8" width="18" height="12" rx="1"/><path d="M3 12h18M8 8V5a2 2 0 012-2h4a2 2 0 012 2v3M12 12v8"/>',
+  ihracat: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 4 6 4 9s-1 6-4 9c-3-3-4-6-4-9s1-6 4-9z"/>',
+  belge: '<path d="M6 2h9l4 4v16H6z"/><path d="M15 2v4h4M9 12h6M9 16h6M9 8h3"/>',
+  garanti: '<path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>',
+  numune: '<path d="M9 2h6M10 2v7l-5 9a2.4 2.4 0 002 3.5h10a2.4 2.4 0 002-3.5l-5-9V2"/><path d="M7.5 15h9"/>',
+  depo: '<path d="M3 21V9l9-6 9 6v12"/><path d="M7 21v-8h10v8M7 17h10M3 21h18"/>',
+  /* iletişim & yön */
+  harita: '<path d="M12 21s7-5.5 7-11a7 7 0 10-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+  telefon: '<path d="M5 3h4l2 5-2.5 1.5a12 12 0 006 6L16 13l5 2v4a2 2 0 01-2 2A16 16 0 013 5a2 2 0 012-2z"/>',
+  mail: '<rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 7l9 6 9-6"/>',
+  saat: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  check: '<path d="M4 12.5l5 5L20 6.5"/>',
+  arrow: '<path d="M4 12h15M13 6l6 6-6 6"/>',
+  kapasite: '<path d="M4 19a9 9 0 0116 0"/><path d="M12 13l4-5"/><circle cx="12" cy="14" r="1.6"/>',
+} as const;
+
+const { name, size = 24, class: className } = Astro.props;
+---
+
+<svg
+  class:list={['icon', className]}
+  width={size}
+  height={size}
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.8"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+  set:html={PATHS[name]}
+/>

@@ -1,17 +1,971 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Icon from '../components/Icon.astro';
+import { SITE, CONTACT, SECTORS } from '../data/site';
+
+import heroImg from '../assets/photos/hero-color-sorter-hall.png';
+import xrayScan from '../assets/photos/tech-xray-goruntu.png';
+import olukSorter from '../assets/photos/machine-oluk-sorter.png';
+import xrayPaketli from '../assets/photos/machine-xray-paketli.png';
+import teknisyen from '../assets/photos/servis-teknisyen.png';
+
+import uzum from '../assets/photos/sector-kuru-uzum.png';
+import findik from '../assets/photos/sector-kuruyemis-findik.png';
+import fistik from '../assets/photos/sector-antep-fistigi.png';
+import mercimek from '../assets/photos/sector-bakliyat-mercimek.png';
+import iqf from '../assets/photos/sector-iqf.png';
+import patates from '../assets/photos/sector-patates.png';
+
+const sectorImages: Record<string, ImageMetadata> = {
+  'sector-kuru-uzum': uzum,
+  'sector-kuruyemis-findik': findik,
+  'sector-antep-fistigi': fistik,
+  'sector-bakliyat-mercimek': mercimek,
+  'sector-iqf': iqf,
+  'sector-patates': patates,
+};
+
+import type { ImageMetadata } from 'astro';
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': ['Organization', 'LocalBusiness'],
+    '@id': `${SITE.domain}/#organization`,
+    name: SITE.name,
+    legalName: SITE.legalName,
+    url: SITE.domain,
+    logo: `${SITE.domain}/favicon.svg`,
+    description: SITE.description,
+    telephone: '+905323436195',
+    email: CONTACT.emailInfo,
+    slogan: 'Smart · Automation · Global · Engineering',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: CONTACT.address.street,
+      addressLocality: `${CONTACT.address.district}, ${CONTACT.address.city}`,
+      addressRegion: CONTACT.address.city,
+      addressCountry: 'TR',
+    },
+    areaServed: ['Manisa', 'İzmir', 'Ege Bölgesi', 'Türkiye'],
+    knowsAbout: [
+      'renk ayırma makinesi',
+      'color sorter',
+      'x-ray gıda kontrol sistemi',
+      'yabancı madde tespiti',
+    ],
+  },
+];
+
+const stats = [
+  { stat: '22', unit: 'Yıl', label: 'Sektör tecrübesi — makineden önce ürünü tanıyoruz' },
+  { stat: '%99', unit: "'a varan", label: 'Ayırma doğruluğu, ürüne ve kusura göre' },
+  { stat: '2', unit: 'Teknoloji', label: 'Optik + X-Ray, tek çözüm ortağı' },
+  { stat: '81', unit: 'İl', label: "Manisa'dan tüm Türkiye'ye satış, kurulum, servis" },
+];
+
+const nedenler = [
+  {
+    icon: 'tecrube',
+    title: '22 Yıllık Sektör Tecrübesi',
+    text: 'Kuru üzümün çöpünü, incirin aflatoksinini, fındığın kabuğunu müşterilerimizden önce tanıdık. Makineyi ürününüze göre seçiyoruz.',
+  },
+  {
+    icon: 'numune',
+    title: 'Numune Testi',
+    text: 'Ürününüzü gönderin; ayıklayalım, sonucu birlikte görelim. Karar vermeden önce makinenin işini görün.',
+  },
+  {
+    icon: 'servis',
+    title: 'Yerinde Servis ve Yedek Parça',
+    text: 'Kurulum, operatör eğitimi ve servis Manisa merkezimizden. Kritik yedek parçalar Türkiye’de stokta.',
+  },
+  {
+    icon: 'ihracat',
+    title: 'İhracat Uyumluluğu',
+    text: 'BRC, IFS ve HACCP denetimlerine hazır: otomatik kayıt, izlenebilirlik ve X-Ray için NDK lisans desteği.',
+  },
+];
 ---
 
 <BaseLayout
   title="SAGE Makine | Renk Ayırma ve X-Ray Gıda Kontrol Makineleri – Manisa"
   description="Kuru meyve, kuruyemiş ve bakliyat için renk ayırma (color sorter) ve X-Ray yabancı madde kontrol makineleri. 22 yıllık tecrübe, Manisa'dan tüm Türkiye'ye satış, kurulum ve servis."
   path="/"
+  jsonLd={jsonLd}
 >
-  <section class="section">
-    <div class="container">
-      <p class="eyebrow">Kuruluş aşaması</p>
-      <h1>Ürününüzdeki Son Yabancı Maddeye Kadar.</h1>
-      <p>Bu sayfa Faz 2'de gerçek içerikle inşa edilecek — şimdilik altyapı test iskeleti.</p>
+  <!-- ══ HERO ══ -->
+  <section class="hero band-dark">
+    <div class="hero-bg" aria-hidden="true">
+      <Image
+        src={heroImg}
+        alt=""
+        widths={[900, 1400, 2000]}
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+        quality={72}
+      />
+      <div class="hero-scrim"></div>
+    </div>
+
+    <div class="container container--wide hero-in">
+      <p class="eyebrow hero-eyebrow">Renk Ayırma + X-Ray · Manisa</p>
+      <h1>Ürününüzdeki Son<br />Yabancı Maddeye Kadar.</h1>
+      <p class="hero-lead">
+        Kuru meyve, kuruyemiş ve bakliyat işleyicileri için X-Ray gıda kontrol ve renk ayırma
+        makineleri. 22 yıllık sektör tecrübesi, Manisa'dan tüm Türkiye'ye satış, kurulum ve servis.
+      </p>
+      <div class="hero-actions">
+        <a href={CONTACT.whatsappQuote('Makineleriniz')} class="btn btn--primary btn--lg" target="_blank" rel="noopener">
+          Teklif Alın
+        </a>
+        <a href="/renk-ayirma-makinesi/" class="btn btn--outline btn--lg hero-ghost">Makineleri İnceleyin</a>
+      </div>
+      <ul class="hero-chips" aria-label="Öne çıkanlar">
+        <li><Icon name="check" size={15} /> Kurulum + operatör eğitimi dahil</li>
+        <li><Icon name="check" size={15} /> Numune testi imkânı</li>
+        <li><Icon name="check" size={15} /> Yerinde teknik servis</li>
+      </ul>
+    </div>
+
+    <!-- imza detay: canlı ayıklama simülasyonu -->
+    <div class="hero-belt" aria-hidden="true">
+      <span class="belt-label">AYIKLAMA HATTI</span>
+      <div class="belt-track">
+        {
+          [
+            { d: '11s', delay: '0s', bad: false },
+            { d: '13s', delay: '-2.2s', bad: false },
+            { d: '12s', delay: '-4.6s', bad: true },
+            { d: '10.5s', delay: '-6.1s', bad: false },
+            { d: '12.6s', delay: '-7.9s', bad: false },
+            { d: '11.4s', delay: '-9.3s', bad: false },
+            { d: '13.5s', delay: '-10.8s', bad: true },
+            { d: '10.8s', delay: '-12.4s', bad: false },
+            { d: '12.2s', delay: '-13.7s', bad: false },
+            { d: '11.7s', delay: '-15.1s', bad: false },
+          ].map((b) => (
+            <span
+              class:list={['belt-dot', { 'belt-dot--bad': b.bad }]}
+              style={`--d:${b.d}; --delay:${b.delay}`}
+            />
+          ))
+        }
+        <span class="belt-scanner">
+          <span class="belt-beam"></span>
+        </span>
+      </div>
     </div>
   </section>
+
+  <!-- ══ STATS ══ -->
+  <section class="section--tight section stats-band">
+    <div class="container container--wide">
+      <dl class="stats">
+        {
+          stats.map((s, i) => (
+            <div class="stat reveal" style={`--reveal-delay:${i * 0.08}s`}>
+              <dt class="visually-hidden">{s.label}</dt>
+              <dd>
+                <span class="stat-num">
+                  {s.stat}
+                  <small>{s.unit}</small>
+                </span>
+                <span class="stat-label">{s.label}</span>
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </section>
+
+  <!-- ══ PROBLEM ══ -->
+  <section class="section">
+    <div class="container problem-grid">
+      <div class="problem-text">
+        <p class="eyebrow reveal">Risk Gerçek</p>
+        <h2 class="reveal">Tek Bir Yabancı Madde,<br />Bir Konteynerinize Mal Olabilir</h2>
+        <p class="reveal" style="--reveal-delay:.08s">
+          Avrupa sınır kontrollerinde en çok bildirim alan ürün gruplarının başında kuru meyve ve
+          kuruyemiş geliyor. Reddedilen tek bir parti; iade, imha ve müşteri kaybı demektir.
+          Modern ayıklama teknolojisi bu riskin sigortasıdır: kamera renk ve şekil kusurunu,
+          X-Ray taş, cam ve metali ürünün içinde dahi görür.
+        </p>
+        <a href="/x-ray-gida-kontrol-makinesi/" class="text-link reveal" style="--reveal-delay:.14s">
+          X-Ray neyi görür, neyi görmez? <Icon name="arrow" size={16} />
+        </a>
+      </div>
+      <figure class="problem-figure reveal" style="--reveal-delay:.1s">
+        <Image
+          src={xrayScan}
+          alt="X-Ray tarama görüntüsünde fındıkların arasında tespit edilmiş taş"
+          widths={[520, 800, 1100]}
+          sizes="(max-width: 900px) 100vw, 46vw"
+        />
+        <figcaption class="mono-cap">X-RAY GÖRÜNTÜSÜ — YOĞUN CİSİM TESPİTİ</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ══ SEKTÖRLER ══ -->
+  <section class="section band-sunken">
+    <div class="container container--wide">
+      <p class="eyebrow reveal">Sektörünüzü Seçin</p>
+      <div class="sec-head reveal">
+        <h2>Ürününüzü Tanıyoruz</h2>
+        <p>Her ürünün kusuru başka. Sektörünüze girin, hattınıza göre konuşalım.</p>
+      </div>
+      <div class="sector-grid">
+        {
+          SECTORS.map((s, i) => (
+            <a
+              href={`/sektorler/${s.slug}/`}
+              class="sector-card reveal"
+              style={`--reveal-delay:${(i % 3) * 0.09}s`}
+            >
+              <div class="sector-img">
+                <Image
+                  src={sectorImages[s.image]}
+                  alt={s.title}
+                  widths={[420, 640, 900]}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 33vw"
+                />
+              </div>
+              <div class="sector-body">
+                <h3>{s.title}</h3>
+                <p class="sector-sub">{s.sub}</p>
+                <p class="sector-hook">{s.hook}</p>
+                <span class="sector-cta">
+                  İncele <Icon name="arrow" size={15} />
+                </span>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MAKİNELER ══ -->
+  <section class="section">
+    <div class="container container--wide">
+      <p class="eyebrow reveal">Makinelerimiz</p>
+      <div class="sec-head reveal">
+        <h2>İki Teknoloji, Tek Çözüm Ortağı</h2>
+        <p>
+          Optik ayıklama renk, şekil ve kabuğu; X-Ray taş, cam ve metali görür. Doğru kurulum çoğu
+          zaman ikisinin kombinasyonudur — hattınıza göre birlikte tasarlarız.
+        </p>
+      </div>
+
+      <div class="machine-grid">
+        <a href="/renk-ayirma-makinesi/" class="machine-card card reveal">
+          <div class="machine-img">
+            <Image
+              src={olukSorter}
+              alt="Oluk tipi renk ayırma makinesi"
+              widths={[560, 840, 1200]}
+              sizes="(max-width: 900px) 100vw, 46vw"
+            />
+          </div>
+          <div class="machine-body">
+            <p class="machine-tag mono-cap">COLOR SORTER</p>
+            <h3>Renk Ayırma Makineleri</h3>
+            <p>
+              Tam renkli CCD ve kızılötesi kameralar; kusurlu taneyi ve yabancı maddeyi hava
+              ejektörleriyle hattan çıkarır. Oluk ve bant tipi seçenekleriyle.
+            </p>
+            <ul class="machine-feats">
+              <li><Icon name="kamera" size={17} /> CCD + NIR kamera</li>
+              <li><Icon name="ejektor" size={17} /> Hassas hava ejektörleri</li>
+              <li><Icon name="yazilim" size={17} /> Yapay zeka destekli sınıflandırma</li>
+            </ul>
+            <span class="sector-cta">Renk ayırma makinelerini inceleyin <Icon name="arrow" size={15} /></span>
+          </div>
+        </a>
+
+        <a href="/x-ray-gida-kontrol-makinesi/" class="machine-card card reveal" style="--reveal-delay:.1s">
+          <div class="machine-img">
+            <Image
+              src={xrayPaketli}
+              alt="X-Ray gıda kontrol makinesi"
+              widths={[560, 840, 1200]}
+              sizes="(max-width: 900px) 100vw, 46vw"
+            />
+          </div>
+          <div class="machine-body">
+            <p class="machine-tag mono-cap">X-RAY INSPECTION</p>
+            <h3>X-Ray Gıda Kontrol Sistemleri</h3>
+            <p>
+              Taş, cam, metal ve kemiği ürünün veya ambalajın içinde dahi tespit eder. Dökme ürün
+              ayıklama ve hat sonu paket kontrolü modelleriyle.
+            </p>
+            <ul class="machine-feats">
+              <li><Icon name="xray" size={17} /> Yoğunluk bazlı tespit</li>
+              <li><Icon name="belge" size={17} /> BRC / IFS denetim kaydı</li>
+              <li><Icon name="garanti" size={17} /> NDK lisans süreci desteği</li>
+            </ul>
+            <span class="sector-cta">X-Ray sistemlerini inceleyin <Icon name="arrow" size={15} /></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SERVİS BANDI ══ -->
+  <section class="servis-band band-dark">
+    <div class="container container--wide servis-grid">
+      <figure class="servis-figure reveal">
+        <Image
+          src={teknisyen}
+          alt="SAGE Makine teknisyeni makine bakımı yaparken"
+          widths={[560, 840, 1200]}
+          sizes="(max-width: 900px) 100vw, 46vw"
+        />
+      </figure>
+      <div class="servis-text">
+        <p class="eyebrow reveal">Satış Sonrası</p>
+        <h2 class="reveal">Makine Satmıyoruz;<br />Hattınızı Ayakta Tutuyoruz</h2>
+        <p class="reveal" style="--reveal-delay:.08s">
+          Kurulum, operatör eğitimi, yerinde servis ve yedek parça stoğu Manisa'daki merkezimizden
+          yönetilir. Hasat sezonunda duruşun ne demek olduğunu biliyoruz — çünkü bu sektörden
+          geliyoruz.
+        </p>
+        <ul class="servis-list reveal" style="--reveal-delay:.14s">
+          <li><Icon name="check" size={16} /> Kurulum ve devreye alma</li>
+          <li><Icon name="check" size={16} /> Türkçe arayüz ve operatör eğitimi</li>
+          <li><Icon name="check" size={16} /> Yerinde teknik servis</li>
+          <li><Icon name="check" size={16} /> Kritik yedek parça stoğu</li>
+        </ul>
+        <a href="/servis-yedek-parca/" class="btn btn--primary reveal" style="--reveal-delay:.2s">
+          Servis Yaklaşımımız
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ NEDEN SAGE ══ -->
+  <section class="section">
+    <div class="container container--wide">
+      <p class="eyebrow reveal">Neden SAGE Makine?</p>
+      <div class="neden-grid">
+        {
+          nedenler.map((n, i) => (
+            <div class="neden card reveal" style={`--reveal-delay:${i * 0.08}s`}>
+              <span class="neden-icon">
+                <Icon name={n.icon as any} size={26} />
+              </span>
+              <h3>{n.title}</h3>
+              <p>{n.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
 </BaseLayout>
+
+<style>
+  /* ── Hero ── */
+  .hero {
+    position: relative;
+    min-height: min(88vh, 56rem);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero-bg :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 72% center;
+  }
+
+  .hero-scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgb(10 18 32 / 0.93) 0%, rgb(10 18 32 / 0.78) 38%, rgb(10 18 32 / 0.25) 75%, rgb(10 18 32 / 0.45) 100%),
+      linear-gradient(0deg, rgb(10 18 32 / 0.85) 0%, transparent 30%);
+  }
+
+  .hero-in {
+    position: relative;
+    padding-block: var(--sp-9) calc(var(--sp-9) + 3rem);
+  }
+
+  .hero-eyebrow {
+    color: var(--green-400);
+  }
+
+  .hero-eyebrow::before {
+    background: var(--green-400);
+  }
+
+  .hero h1 {
+    color: var(--white);
+    text-shadow: 0 2px 24px rgb(10 18 32 / 0.5);
+  }
+
+  .hero-lead {
+    margin-top: var(--sp-5);
+    font-size: var(--text-lg);
+    color: var(--steel-200);
+    max-width: 54ch;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+    margin-top: var(--sp-6);
+  }
+
+  .hero-ghost {
+    border-color: rgb(255 255 255 / 0.3);
+    color: var(--white);
+    backdrop-filter: blur(4px);
+  }
+
+  .hero-ghost:hover {
+    border-color: var(--green-400);
+    color: var(--green-400);
+  }
+
+  .hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-3) var(--sp-5);
+    margin-top: var(--sp-6);
+    padding: 0;
+    list-style: none;
+  }
+
+  .hero-chips li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.04em;
+    color: var(--steel-200);
+  }
+
+  .hero-chips :global(svg) {
+    color: var(--green-400);
+  }
+
+  /* ── Canlı ayıklama simülasyonu ── */
+  .hero-belt {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3.25rem;
+    border-top: 1px solid rgb(255 255 255 / 0.1);
+    background: rgb(10 18 32 / 0.65);
+    backdrop-filter: blur(6px);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+
+  .belt-label {
+    position: absolute;
+    left: var(--gutter);
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.28em;
+    color: rgb(255 255 255 / 0.3);
+    z-index: 2;
+  }
+
+  .belt-track {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* bant çizgisi */
+  .belt-track::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(50% + 0.55rem);
+    height: 1px;
+    background: rgb(255 255 255 / 0.14);
+  }
+
+  .belt-dot {
+    position: absolute;
+    top: calc(50% - 0.3rem);
+    left: -2rem;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: #c9a86a;
+    animation: belt-run var(--d) linear infinite;
+    animation-delay: var(--delay);
+    will-change: transform;
+  }
+
+  .belt-dot--bad {
+    background: #4a3f2e;
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 0.12);
+    animation-name: belt-eject;
+  }
+
+  @keyframes belt-run {
+    to {
+      transform: translateX(calc(100vw + 4rem));
+    }
+  }
+
+  /* kusurlu tane: kamera hizasında (%62) hava jetiyle aşağı savrulur */
+  @keyframes belt-eject {
+    0%,
+    60% {
+      opacity: 1;
+    }
+    61.5% {
+      opacity: 1;
+      transform: translateX(calc(62vw + 0.5rem)) translateY(0);
+    }
+    68% {
+      opacity: 0;
+      transform: translateX(calc(64vw + 1rem)) translateY(2.6rem);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(calc(64vw + 1rem)) translateY(2.6rem);
+    }
+  }
+
+  /* kamera / tarama kapısı */
+  .belt-scanner {
+    position: absolute;
+    left: 62vw;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+  }
+
+  .belt-scanner::before {
+    /* kamera kafası işareti */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    translate: -50%;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 7px solid var(--green-500);
+  }
+
+  .belt-beam {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, var(--green-500), transparent 85%);
+    opacity: 0.55;
+    animation: beam-pulse 2.2s ease-in-out infinite;
+  }
+
+  @keyframes beam-pulse {
+    0%,
+    100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.85;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .belt-dot {
+      animation: none;
+      opacity: 0;
+    }
+    .belt-beam {
+      animation: none;
+    }
+  }
+
+  /* ── Stats ── */
+  .stats-band {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-6);
+    margin: 0;
+  }
+
+  .stat dd {
+    margin: 0;
+    display: grid;
+    gap: var(--sp-2);
+  }
+
+  .stat-num {
+    font-family: var(--font-display);
+    font-variation-settings: 'wdth' var(--wdth-wide);
+    font-size: var(--text-giant);
+    font-weight: 700;
+    line-height: 0.95;
+    color: var(--navy-800);
+    letter-spacing: -0.02em;
+  }
+
+  .stat-num small {
+    font-size: 0.32em;
+    font-weight: 600;
+    color: var(--accent-ink);
+    margin-left: 0.2em;
+    letter-spacing: 0;
+  }
+
+  .stat-label {
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+    max-width: 26ch;
+  }
+
+  /* ── Problem ── */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+    gap: var(--sp-8);
+    align-items: center;
+  }
+
+  .problem-text h2 {
+    margin-bottom: var(--sp-5);
+  }
+
+  .problem-text p {
+    color: var(--ink-soft);
+  }
+
+  .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+    margin-top: var(--sp-5);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .text-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .problem-figure {
+    margin: 0;
+  }
+
+  .problem-figure :global(img) {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .mono-cap {
+    display: block;
+    margin-top: var(--sp-3);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
+    color: var(--ink-faint);
+  }
+
+  /* ── Bölüm başlığı ── */
+  .sec-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: var(--sp-4);
+    margin-bottom: var(--sp-7);
+  }
+
+  .sec-head p {
+    color: var(--ink-faint);
+    max-width: 48ch;
+  }
+
+  /* ── Sektör kartları ── */
+  .sector-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-5);
+  }
+
+  .sector-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    text-decoration: none;
+    transition:
+      transform var(--dur) var(--ease-out),
+      box-shadow var(--dur) var(--ease-out);
+  }
+
+  .sector-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .sector-img {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+
+  .sector-img :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--dur-slow) var(--ease-out);
+  }
+
+  .sector-card:hover .sector-img :global(img) {
+    transform: scale(1.05);
+  }
+
+  .sector-body {
+    display: grid;
+    gap: var(--sp-2);
+    padding: var(--sp-5);
+  }
+
+  .sector-body h3 {
+    font-size: var(--text-xl);
+  }
+
+  .sector-sub {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.1em;
+    color: var(--accent-ink);
+  }
+
+  .sector-hook {
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+  }
+
+  .sector-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+    margin-top: var(--sp-2);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--accent-ink);
+  }
+
+  .sector-card:hover .sector-cta,
+  .machine-card:hover .sector-cta {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ── Makine kartları ── */
+  .machine-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-6);
+  }
+
+  .machine-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+  }
+
+  .machine-img {
+    background: linear-gradient(165deg, var(--steel-100), var(--steel-50));
+    padding: var(--sp-5);
+  }
+
+  .machine-img :global(img) {
+    border-radius: var(--radius-md);
+  }
+
+  .machine-body {
+    display: grid;
+    gap: var(--sp-3);
+    padding: var(--sp-6);
+  }
+
+  .machine-tag {
+    margin: 0;
+    color: var(--accent-ink);
+  }
+
+  .machine-body h3 {
+    font-size: var(--text-xl);
+  }
+
+  .machine-body > p {
+    color: var(--ink-soft);
+    font-size: var(--text-sm);
+  }
+
+  .machine-feats {
+    display: grid;
+    gap: var(--sp-2);
+    list-style: none;
+    padding: var(--sp-3) 0 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .machine-feats li {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.03em;
+    color: var(--ink-soft);
+  }
+
+  .machine-feats :global(svg) {
+    color: var(--accent-ink);
+    flex-shrink: 0;
+  }
+
+  /* ── Servis bandı ── */
+  .servis-band {
+    padding-block: var(--section-y);
+  }
+
+  .servis-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: var(--sp-8);
+    align-items: center;
+  }
+
+  .servis-figure {
+    margin: 0;
+  }
+
+  .servis-figure :global(img) {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .servis-text h2 {
+    color: var(--white);
+    margin-bottom: var(--sp-4);
+  }
+
+  .servis-text > p {
+    color: var(--ink-soft);
+  }
+
+  .servis-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-3);
+    list-style: none;
+    padding: 0;
+    margin-block: var(--sp-5);
+  }
+
+  .servis-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    font-size: var(--text-sm);
+    color: var(--steel-200);
+  }
+
+  .servis-list :global(svg) {
+    color: var(--green-400);
+    flex-shrink: 0;
+  }
+
+  /* ── Neden ── */
+  .neden-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-5);
+    margin-top: var(--sp-6);
+  }
+
+  .neden {
+    padding: var(--sp-5);
+  }
+
+  .neden-icon {
+    display: inline-flex;
+    padding: 0.65rem;
+    border-radius: var(--radius-md);
+    background: var(--green-100);
+    color: var(--accent-ink);
+    margin-bottom: var(--sp-3);
+  }
+
+  .neden h3 {
+    font-size: var(--text-md);
+    margin-bottom: var(--sp-2);
+  }
+
+  .neden p {
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1000px) {
+    .stats {
+      grid-template-columns: 1fr 1fr;
+    }
+    .sector-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .neden-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .problem-grid,
+    .machine-grid,
+    .servis-grid {
+      grid-template-columns: 1fr;
+    }
+    .servis-figure {
+      order: 2;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .sector-grid,
+    .neden-grid,
+    .stats {
+      grid-template-columns: 1fr;
+    }
+    .servis-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

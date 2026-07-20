@@ -1,0 +1,60 @@
+---
+import SubUrunPage from '../../components/SubUrunPage.astro';
+import img from '../../assets/photos/machine-xray-paketli.png';
+---
+
+<SubUrunPage
+  metaTitle="Paketli Ürün X-Ray Kontrol Makinesi – Hat Sonu | SAGE Makine"
+  metaDescription="Kapalı ambalajın içini gören hat sonu X-Ray kontrol: metal, cam, taş tespiti + dolum seviyesi ve eksik ürün kontrolü. BRC/IFS denetimlerine görüntülü kayıt."
+  path="/x-ray-gida-kontrol-makinesi/paketli-urun/"
+  parent={{ name: 'X-Ray Gıda Kontrol Sistemleri', path: '/x-ray-gida-kontrol-makinesi/' }}
+  eyebrow="X-Ray · Paketli Ürün"
+  title="Paketli Ürün X-Ray Kontrolü"
+  lead="Müşteriye giden son adımda, kapalı ambalajın içini görün: doypack, poşet, kavanoz veya koli — metalize film ve alüminyum folyo dahil. Tespit edilen paket otomatik reddedilir, görüntüsü denetim için arşivlenir."
+  image={img}
+  imageAlt="Hat sonu paketli ürün X-Ray kontrol makinesi — stüdyo çekimi"
+  urunGruplari={[
+    {
+      baslik: 'Esnek Ambalaj',
+      urunler: ['Doypack ve poşet', 'Metalize film, alüminyum folyo', 'Vakumlu ambalaj'],
+    },
+    {
+      baslik: 'Sert Ambalaj',
+      urunler: ['Kavanoz ve şişe', 'Teneke ve konserve', 'Plastik kap'],
+    },
+    {
+      baslik: 'Toplu Ambalaj',
+      urunler: ['Koli içi kontrol', 'Büyük torba (5-25 kg)'],
+    },
+  ]}
+  avantajlar={[
+    {
+      icon: 'belge',
+      baslik: 'Denetim Kanıtı',
+      text: 'BRC, IFS ve perakendeci denetimlerinde son KKN: her ret, tarih-saat-görüntü ile arşivde.',
+    },
+    {
+      icon: 'dogruluk',
+      baslik: 'Dolum ve Bütünlük Kontrolü',
+      text: 'Aynı geçişte eksik dolum, kırık ürün ve eksik parça da tespit edilir — iki iş tek makinede.',
+    },
+    {
+      icon: 'metal',
+      baslik: 'Folyoda Metal Tespiti',
+      text: 'Metal dedektörün kör kaldığı alüminyum ambalajda X-Ray sorunsuz çalışır.',
+    },
+    {
+      icon: 'garanti',
+      baslik: 'Geri Çağırma Sigortası',
+      text: 'Piyasadan ürün toplatmanın maliyeti ve itibar kaybı yanında, hat sonu X-Ray yatırımı küçük kalır.',
+    },
+  ]}
+  sektorler={[
+    { label: 'Kuru Meyve', href: '/sektorler/kuru-meyve/' },
+    { label: 'Kuruyemiş', href: '/sektorler/kuruyemis/' },
+    { label: 'Dondurulmuş Gıda (IQF)', href: '/sektorler/dondurulmus-gida-iqf/' },
+    { label: 'Patates ve Cips', href: '/sektorler/patates-cips/' },
+  ]}
+  waTopic="Paketli ürün X-Ray kontrol"
+  ctaTitle="Ambalajınızla Tespit Testi Yapalım"
+/>

@@ -1,0 +1,92 @@
+---
+/**
+ * Sayfa sonu aksiyon bandı — WhatsApp-first iletişim.
+ */
+import { CONTACT } from '../data/site';
+import Icon from './Icon.astro';
+
+interface Props {
+  title?: string;
+  text?: string;
+  /** WhatsApp mesajına girecek konu */
+  topic?: string;
+}
+
+const {
+  title = 'Ürününüz İçin Doğru Makineyi Birlikte Seçelim',
+  text = 'Numune ürününüzü test edelim, hattınıza uygun kapasiteyi birlikte belirleyelim. Teklif için bir telefon uzaktayız.',
+  topic = 'Makineleriniz',
+} = Astro.props;
+---
+
+<section class="cta-band band-dark">
+  <div class="container cta-in">
+    <div class="cta-text reveal">
+      <h2>{title}</h2>
+      <p>{text}</p>
+    </div>
+    <div class="cta-actions reveal" style="--reveal-delay:.1s">
+      <a href={CONTACT.whatsappQuote(topic)} class="btn btn--primary btn--lg" target="_blank" rel="noopener">
+        WhatsApp'tan Teklif Alın
+      </a>
+      <a href={CONTACT.phoneHref} class="btn btn--outline btn--lg cta-tel">
+        <Icon name="telefon" size={18} />
+        {CONTACT.phoneDisplay}
+      </a>
+    </div>
+    <p class="cta-alt reveal" style="--reveal-delay:.18s">
+      veya e-posta: <a href={`mailto:${CONTACT.emailInfo}`}>{CONTACT.emailInfo}</a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .cta-band {
+    padding-block: var(--section-y);
+    text-align: center;
+  }
+
+  .cta-in {
+    display: grid;
+    justify-items: center;
+    gap: var(--sp-6);
+  }
+
+  .cta-text h2 {
+    color: var(--white);
+    max-width: 24ch;
+    margin-inline: auto;
+  }
+
+  .cta-text p {
+    margin-top: var(--sp-4);
+    color: var(--ink-soft);
+    max-width: 52ch;
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--sp-4);
+  }
+
+  .cta-tel {
+    border-color: var(--line-strong);
+    color: var(--white);
+  }
+
+  .cta-tel:hover {
+    border-color: var(--green-400);
+    color: var(--green-400);
+  }
+
+  .cta-alt {
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+  }
+
+  .cta-alt a {
+    color: var(--green-400);
+  }
+</style>
