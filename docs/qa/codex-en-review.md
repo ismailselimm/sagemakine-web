@@ -1,3 +1,10 @@
+> **Karar notu (2026-07-20):** Bu rapor uygulandı ve kapatıldı. Doğallık/dilbilgisi/tutarlılık
+> önerileri işlendi (Türkiye→Turkey, Güzelyurt, X-Ray başlık düzeni, enclosure, tire düzeni vb.).
+> İddia gücünü yumuşatan öneriler ise bilinçli olarak REDDEDİLDİ: işaretlenen satırlar TR
+> orijinalinde birebir aynı iddiayı taşıyor ve çeviri sadakati kuralı gereği İngilizce'de de
+> aynı güçte kalıyor ("1 µSv/saat" gerçek NDK limitidir; "Metal dedektörün bittiği yerde X-Ray
+> başlar" onaylı marka sesidir). Satır numaraları rapor tarihine aittir, güncel değildir.
+
 # English Copy Review
 
 | file | line | severity (high/med/low) | issue | suggested fix |

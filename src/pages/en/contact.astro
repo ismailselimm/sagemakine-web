@@ -145,6 +145,8 @@ const konular = [
 </BaseLayout>
 
 <script>
+  /* İki dilin iletişim sayfasında BAYT-AYNI script: ClientRouter tek modül yükler,
+     mesaj şablonu çalışma anında <html lang>'den seçilir. */
   function initWaForm() {
     const form = document.getElementById('wa-form') as HTMLFormElement | null;
     if (!form || form.dataset.init) return;
@@ -155,12 +157,21 @@ const konular = [
       const isim = String(data.get('isim') || '').trim();
       const konu = String(data.get('konu') || '');
       const mesaj = String(data.get('mesaj') || '').trim();
-      const text = [
-        "Hello, I'm writing via sagemakine.com.",
-        isim && `I'm ${isim}.`,
-        `Topic: ${konu}.`,
-        mesaj && `Details: ${mesaj}`,
-      ]
+      const en = document.documentElement.lang === 'en';
+      const text = (en
+        ? [
+            "Hello, I'm writing via sagemakine.com.",
+            isim && `I'm ${isim}.`,
+            `Topic: ${konu}.`,
+            mesaj && `Details: ${mesaj}`,
+          ]
+        : [
+            'Merhaba, sagemakine.com üzerinden yazıyorum.',
+            isim && `Ben ${isim}.`,
+            `Konu: ${konu}.`,
+            mesaj && `Detay: ${mesaj}`,
+          ]
+      )
         .filter(Boolean)
         .join(' ');
       window.open(`${form.dataset.wa}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');

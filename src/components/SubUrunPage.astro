@@ -8,11 +8,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from './PageHero.astro';
 import CtaBand from './CtaBand.astro';
 import Icon from './Icon.astro';
-import { CONTACT } from '../data/site';
-import { whatsappQuoteEn } from '../data/en/site';
+import { waQuote } from '../data/en/site';
 import { t } from '../i18n/ui';
+import { asLocale } from '../i18n/routes';
 
-const locale = Astro.currentLocale === 'en' ? 'en' : 'tr';
+const locale = asLocale(Astro.currentLocale);
 const ui = t(locale);
 
 interface UrunGrubu {
@@ -66,7 +66,7 @@ const breadcrumbs = [parent, { name: title, path }];
   <PageHero eyebrow={eyebrow} title={title} lead={lead} breadcrumbs={breadcrumbs}>
     <Fragment slot="actions">
       <a
-        href={locale === 'en' ? whatsappQuoteEn(waTopic) : CONTACT.whatsappQuote(waTopic)}
+        href={waQuote(locale, waTopic)}
         class="btn btn--primary"
         target="_blank"
         rel="noopener">{ui.quoteBtn}</a

@@ -15,6 +15,10 @@ export const whatsappQuoteEn = (topic: string) =>
     `Hello, I'm writing via sagemakine.com. I'd like information and a quotation about ${topic}.`,
   )}`;
 
+/** Dile göre doğru ön-mesaj — paylaşılan komponentler ternary kurmasın */
+export const waQuote = (locale: 'tr' | 'en', topic: string) =>
+  locale === 'en' ? whatsappQuoteEn(topic) : CONTACT.whatsappQuote(topic);
+
 export const MAKINE_GRUPLARI_EN = [
   {
     label: 'Optical Sorting',

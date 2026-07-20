@@ -1,0 +1,47 @@
+---
+/**
+ * Hero bant simülasyonu — TR/EN ana sayfaların ortak imza detayı.
+ * Stiller src/styles/home.css içinde.
+ */
+interface Props {
+  label: string;
+}
+const { label } = Astro.props;
+---
+
+<span class="belt-label" aria-hidden="true">{label}</span>
+<div class="hero-belt" aria-hidden="true">
+  <div class="belt-track">
+    {
+      Array.from({ length: 26 }, (_, i) => {
+        // deterministik ama düzensiz görünen dağılım (Math.random yok — build stabil)
+        const d = 9.5 + ((i * 37) % 40) / 10; // 9.5–13.4s arası süre
+        const delay = -((i * 173) % 1500) / 100; // 0–15s arası negatif faz
+        const bad = i % 4 === 1; // her 4 taneden biri kusurlu — bol aksiyon
+        return (
+          <span
+            class:list={['belt-dot', { 'belt-dot--bad': bad }]}
+            style={`--d:${d.toFixed(1)}s; --delay:${delay.toFixed(2)}s`}
+          />
+        );
+      })
+    }
+    <span class="belt-scanner">
+      <span class="belt-beam"></span>
+    </span>
+  </div>
+</div>
+
+<script>
+  /* hero ekrandan çıkınca bant animasyonunu durdur (pil/CPU) */
+  function initBeltPause() {
+    const hero = document.querySelector('.hero');
+    const belt = document.querySelector<HTMLElement>('.hero-belt');
+    if (!hero || !belt || belt.dataset.init) return;
+    belt.dataset.init = '1';
+    new IntersectionObserver(([e]) =>
+      belt.classList.toggle('belt-paused', !e.isIntersecting),
+    ).observe(hero);
+  }
+  document.addEventListener('astro:page-load', initBeltPause);
+</script>

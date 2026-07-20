@@ -3,9 +3,10 @@
  * Sayfa sonu aksiyon bandı — WhatsApp-first iletişim.
  */
 import { CONTACT } from '../data/site';
-import { whatsappQuoteEn } from '../data/en/site';
+import { waQuote } from '../data/en/site';
 import Icon from './Icon.astro';
 import { t } from '../i18n/ui';
+import { asLocale } from '../i18n/routes';
 
 interface Props {
   title?: string;
@@ -14,14 +15,14 @@ interface Props {
   topic?: string;
 }
 
-const locale = Astro.currentLocale === 'en' ? 'en' : 'tr';
+const locale = asLocale(Astro.currentLocale);
 const ui = t(locale);
 const {
   title = ui.ctaTitle,
   text = ui.ctaText,
   topic = ui.ctaTopic,
 } = Astro.props;
-const waHref = locale === 'en' ? whatsappQuoteEn(topic) : CONTACT.whatsappQuote(topic);
+const waHref = waQuote(locale, topic);
 ---
 
 <section class="cta-band band-dark">

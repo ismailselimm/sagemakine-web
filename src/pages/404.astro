@@ -47,11 +47,13 @@ import Icon from '../components/Icon.astro';
 </BaseLayout>
 
 <script>
-  /* /en/ altında kaybolan ziyaretçiye İngilizce 404 göster */
+  /* /en/ altında kaybolan ziyaretçiye İngilizce 404 göster.
+     Modül ClientRouter'da kalıcı — 404 markup'ı yoksa dokunma (başlık ezme!). */
   function init404Lang() {
-    if (!location.pathname.startsWith('/en/')) return;
-    document.querySelector('[data-l="tr"]')?.setAttribute('hidden', '');
-    document.querySelector('[data-l="en"]')?.removeAttribute('hidden');
+    const enBlok = document.querySelector('.nf-in[data-l="en"]');
+    if (!enBlok || !location.pathname.startsWith('/en/')) return;
+    document.querySelector('.nf-in[data-l="tr"]')?.setAttribute('hidden', '');
+    enBlok.removeAttribute('hidden');
     document.documentElement.lang = 'en';
     document.title = 'Page Not Found | SAGE Makine';
   }

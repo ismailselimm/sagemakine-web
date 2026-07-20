@@ -20,8 +20,6 @@ const UI = {
     menuOpen: 'Menüyü aç',
     menuClose: 'Menüyü kapat',
     langAria: 'Dil seçimi',
-    mobilePhoneBtn: '+90 532 343 61 95',
-    mobileWaBtn: "WhatsApp'tan Yazın",
 
     /* Footer */
     colMakineler: 'MAKİNELER',
@@ -29,13 +27,12 @@ const UI = {
     colKurumsal: 'KURUMSAL',
     rights: 'Tüm hakları saklıdır.',
     footerLoc: 'Yunusemre / Manisa · Türkiye geneli satış, kurulum ve servis',
-    footerWa: "WhatsApp'tan Yazın",
+    waBtn: "WhatsApp'tan Yazın",
     imzaText: 'tarafından geliştirilmiştir',
     imzaAria: 'Forpus Yazılım tarafından geliştirildi',
 
     /* WhatsApp FAB */
     waFabAria: 'WhatsApp üzerinden bize yazın',
-    waFabLabel: 'WhatsApp',
 
     /* CtaBand varsayılanları */
     ctaTitle: 'Ürününüz İçin Doğru Makineyi Birlikte Seçelim',
@@ -116,20 +113,17 @@ const UI = {
     menuOpen: 'Open menu',
     menuClose: 'Close menu',
     langAria: 'Language selection',
-    mobilePhoneBtn: '+90 532 343 61 95',
-    mobileWaBtn: 'Chat on WhatsApp',
 
     colMakineler: 'MACHINES',
     colSektorler: 'INDUSTRIES',
     colKurumsal: 'COMPANY',
     rights: 'All rights reserved.',
     footerLoc: 'Yunusemre / Manisa · Sales, installation and service across Turkey',
-    footerWa: 'Chat on WhatsApp',
+    waBtn: 'Chat on WhatsApp',
     imzaText: 'Developed by',
     imzaAria: 'Developed by Forpus Yazılım',
 
     waFabAria: 'Chat with us on WhatsApp',
-    waFabLabel: 'WhatsApp',
 
     ctaTitle: "Let's Choose the Right Machine for Your Product",
     ctaText:

@@ -4,19 +4,19 @@ import Logo from './Logo.astro';
 import forpusYazi from '../assets/brand/forpus-yazi.png';
 import { SITE, CONTACT, SECTORS, MAKINE_GRUPLARI, KURUMSAL_LINKS } from '../data/site';
 import { SITE_EN, MAKINE_GRUPLARI_EN, KURUMSAL_LINKS_EN, SECTORS_EN } from '../data/en/site';
-import { type Locale } from '../i18n/routes';
+import { asLocale, sectorPath } from '../i18n/routes';
 import { t } from '../i18n/ui';
 
-const locale: Locale = Astro.currentLocale === 'en' ? 'en' : 'tr';
+const locale = asLocale(Astro.currentLocale);
 const ui = t(locale);
 
 const yil = new Date().getFullYear();
 const makineLinks = (locale === 'en' ? MAKINE_GRUPLARI_EN : MAKINE_GRUPLARI).flatMap((g) => g.items);
 const kurumsalLinks = locale === 'en' ? KURUMSAL_LINKS_EN : KURUMSAL_LINKS;
-const sektorLinks =
-  locale === 'en'
-    ? SECTORS_EN.map((s) => ({ title: s.title, href: `/en/industries/${s.slug}/` }))
-    : SECTORS.map((s) => ({ title: s.title, href: `/sektorler/${s.slug}/` }));
+const sektorLinks = (locale === 'en' ? SECTORS_EN : SECTORS).map((s) => ({
+  title: s.title,
+  href: sectorPath(locale, s.slug),
+}));
 const desc = locale === 'en' ? SITE_EN.description : SITE.description;
 ---
 
@@ -32,7 +32,7 @@ const desc = locale === 'en' ? SITE_EN.description : SITE.description;
           <a href={`mailto:${CONTACT.emailInfo}`} class="mono">{CONTACT.emailInfo}</a>
         </address>
         <a href={CONTACT.whatsapp} class="btn btn--primary" target="_blank" rel="noopener">
-          {ui.footerWa}
+          {ui.waBtn}
         </a>
       </div>
 

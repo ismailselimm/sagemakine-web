@@ -6,6 +6,8 @@ import Icon from '../../components/Icon.astro';
 import { SITE, CONTACT } from '../../data/site';
 import { SITE_EN, SECTORS_EN, whatsappQuoteEn } from '../../data/en/site';
 import { ONE_CIKAN_YAZILAR_EN } from '../../data/en/blog';
+import { SECTOR_IMAGES } from '../../data/images';
+import HeroBelt from '../../components/HeroBelt.astro';
 import '../../styles/home.css';
 
 import heroImg from '../../assets/photos/hero-color-sorter-hall.png';
@@ -14,23 +16,6 @@ import olukSorter from '../../assets/photos/machine-oluk-sorter.png';
 import xrayPaketli from '../../assets/photos/machine-xray-paketli.png';
 import teknisyen from '../../assets/photos/servis-teknisyen.png';
 
-import uzum from '../../assets/photos/sector-kuru-uzum.png';
-import findik from '../../assets/photos/sector-kuruyemis-findik.png';
-import fistik from '../../assets/photos/sector-antep-fistigi.png';
-import mercimek from '../../assets/photos/sector-bakliyat-mercimek.png';
-import iqf from '../../assets/photos/sector-iqf.png';
-import patates from '../../assets/photos/sector-patates.png';
-
-const sectorImages: Record<string, ImageMetadata> = {
-  'sector-kuru-uzum': uzum,
-  'sector-kuruyemis-findik': findik,
-  'sector-antep-fistigi': fistik,
-  'sector-bakliyat-mercimek': mercimek,
-  'sector-iqf': iqf,
-  'sector-patates': patates,
-};
-
-import type { ImageMetadata } from 'astro';
 
 const jsonLd = [
   {
@@ -180,28 +165,7 @@ const nedenler = [
     </div>
 
     <!-- imza detay: canlı ayıklama simülasyonu -->
-    <span class="belt-label" aria-hidden="true">LIVE SORTING SIMULATION</span>
-    <div class="hero-belt" aria-hidden="true">
-      <div class="belt-track">
-        {
-          Array.from({ length: 26 }, (_, i) => {
-            // deterministik ama düzensiz görünen dağılım (Math.random yok — build stabil)
-            const d = 9.5 + ((i * 37) % 40) / 10; // 9.5–13.4s arası süre
-            const delay = -((i * 173) % 1500) / 100; // 0–15s arası negatif faz
-            const bad = i % 4 === 1; // her 4 taneden biri kusurlu — bol aksiyon
-            return (
-              <span
-                class:list={['belt-dot', { 'belt-dot--bad': bad }]}
-                style={`--d:${d.toFixed(1)}s; --delay:${delay.toFixed(2)}s`}
-              />
-            );
-          })
-        }
-        <span class="belt-scanner">
-          <span class="belt-beam"></span>
-        </span>
-      </div>
-    </div>
+    <HeroBelt label="LIVE SORTING SIMULATION" />
   </section>
 
   <!-- ══ STATS ══ -->
@@ -271,7 +235,7 @@ const nedenler = [
             >
               <div class="card-media">
                 <Image
-                  src={sectorImages[s.image]}
+                  src={SECTOR_IMAGES[s.image]}
                   alt={s.title}
                   widths={[420, 640, 900]}
                   sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 33vw"
@@ -486,16 +450,3 @@ const nedenler = [
   <CtaBand />
 </BaseLayout>
 
-<script>
-  /* hero ekrandan çıkınca bant animasyonunu durdur (pil/CPU) */
-  function initBeltPause() {
-    const hero = document.querySelector('.hero');
-    const belt = document.querySelector<HTMLElement>('.hero-belt');
-    if (!hero || !belt || belt.dataset.init) return;
-    belt.dataset.init = '1';
-    new IntersectionObserver(([e]) =>
-      belt.classList.toggle('belt-paused', !e.isIntersecting),
-    ).observe(hero);
-  }
-  document.addEventListener('astro:page-load', initBeltPause);
-</script>

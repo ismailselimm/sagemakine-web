@@ -1,8 +1,9 @@
 ---
 import { SITE } from '../data/site';
-import { hreflangPair, type Locale } from '../i18n/routes';
+import { asLocale, hreflangPair, ROUTES } from '../i18n/routes';
+import { t } from '../i18n/ui';
 
-const locale: Locale = Astro.currentLocale === 'en' ? 'en' : 'tr';
+const locale = asLocale(Astro.currentLocale);
 
 export interface Breadcrumb {
   name: string;
@@ -43,7 +44,7 @@ const breadcrumbLd =
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Ana Sayfa', item: new URL('/', Astro.site).href },
+          { '@type': 'ListItem', position: 1, name: t(locale).breadcrumbHome, item: new URL(ROUTES.home[locale], Astro.site).href },
           ...breadcrumbs.map((b, i) => ({
             '@type': 'ListItem',
             position: i + 2,

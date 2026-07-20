@@ -1,8 +1,9 @@
 ---
 import { CONTACT } from '../data/site';
 import { t } from '../i18n/ui';
+import { asLocale } from '../i18n/routes';
 
-const ui = t(Astro.currentLocale === 'en' ? 'en' : 'tr');
+const ui = t(asLocale(Astro.currentLocale));
 ---
 
 <a

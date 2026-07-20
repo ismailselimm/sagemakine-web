@@ -12,6 +12,8 @@ import Seo, { type Breadcrumb } from '../components/Seo.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { asLocale } from '../i18n/routes';
+import { t } from '../i18n/ui';
 
 interface Props {
   title: string;
@@ -25,7 +27,7 @@ interface Props {
 }
 
 const seoProps = Astro.props;
-const lang = Astro.currentLocale === 'en' ? 'en' : 'tr';
+const lang = asLocale(Astro.currentLocale);
 ---
 
 <!doctype html>
@@ -38,7 +40,7 @@ const lang = Astro.currentLocale === 'en' ? 'en' : 'tr';
     <ClientRouter />
   </head>
   <body>
-    <a href="#icerik" class="skip-link">{lang === 'en' ? 'Skip to content' : 'İçeriğe atla'}</a>
+    <a href="#icerik" class="skip-link">{t(lang).skipLink}</a>
     <Header />
     <main id="icerik">
       <slot />

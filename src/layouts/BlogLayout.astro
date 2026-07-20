@@ -12,8 +12,9 @@ import { SITE } from '../data/site';
 import { YAZILAR } from '../data/blog';
 import { YAZILAR_EN } from '../data/en/blog';
 import { t } from '../i18n/ui';
+import { asLocale, ROUTES } from '../i18n/routes';
 
-const locale = Astro.currentLocale === 'en' ? 'en' : 'tr';
+const locale = asLocale(Astro.currentLocale);
 const ui = t(locale);
 
 interface Props {
@@ -32,7 +33,7 @@ interface Props {
 }
 
 const props = Astro.props;
-const { title, description, path, lead, tarih, waTopic = 'Makineleriniz', jsonLd = [] } = props;
+const { title, description, path, lead, tarih, waTopic, jsonLd = [] } = props;
 
 const slug = path.replace(/^\/(en\/)?blog\//, '').replace(/\/$/, '');
 const meta = (locale === 'en' ? YAZILAR_EN : YAZILAR).find((y) => y.slug === slug);
@@ -43,7 +44,7 @@ const kategori = props.kategori ?? meta.kategori;
 const okumaDk = props.okumaDk ?? meta.dk;
 const cover = meta.cover;
 
-const blogHome = locale === 'en' ? '/en/blog/' : '/blog/';
+const blogHome = ROUTES.blog[locale];
 const breadcrumbs = [
   { name: ui.blogCrumb, path: blogHome },
   { name: h1, path },

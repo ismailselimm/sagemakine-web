@@ -2,23 +2,23 @@
 import Logo from './Logo.astro';
 import { CONTACT, MAKINE_GRUPLARI, DUZ_LINKLER, SECTORS } from '../data/site';
 import { MAKINE_GRUPLARI_EN, DUZ_LINKLER_EN, SECTORS_EN } from '../data/en/site';
-import { alternatePath, type Locale } from '../i18n/routes';
+import { alternatePath, asLocale, sectorPath, ROUTES } from '../i18n/routes';
 import { t } from '../i18n/ui';
 
-const locale: Locale = Astro.currentLocale === 'en' ? 'en' : 'tr';
+const locale = asLocale(Astro.currentLocale);
 const ui = t(locale);
 const path = Astro.url.pathname;
 const isActive = (href: string) => path.startsWith(href);
 
 const makineGroups = locale === 'en' ? MAKINE_GRUPLARI_EN : MAKINE_GRUPLARI;
-const sektorler =
-  locale === 'en'
-    ? SECTORS_EN.map((s) => ({ label: s.title, href: `/en/industries/${s.slug}/` }))
-    : SECTORS.map((s) => ({ label: s.title, href: `/sektorler/${s.slug}/` }));
+const sektorler = (locale === 'en' ? SECTORS_EN : SECTORS).map((s) => ({
+  label: s.title,
+  href: sectorPath(locale, s.slug),
+}));
 const duzLinkler = locale === 'en' ? DUZ_LINKLER_EN : DUZ_LINKLER;
 
-const homeHref = locale === 'en' ? '/en/' : '/';
-const iletisimHref = locale === 'en' ? '/en/contact/' : '/iletisim/';
+const homeHref = ROUTES.home[locale];
+const iletisimHref = ROUTES.iletisim[locale];
 const altHref = alternatePath(path);
 ---
 
@@ -115,8 +115,8 @@ const altHref = alternatePath(path);
       <a href={locale === 'en' ? path : altHref} class:list={[{ 'is-active': locale === 'en' }]}>English</a>
     </div>
     <div class="mp-contact">
-      <a href={CONTACT.phoneHref} class="btn btn--dark">{ui.mobilePhoneBtn}</a>
-      <a href={CONTACT.whatsapp} class="btn btn--primary" target="_blank" rel="noopener">{ui.mobileWaBtn}</a>
+      <a href={CONTACT.phoneHref} class="btn btn--dark">{CONTACT.phoneDisplay}</a>
+      <a href={CONTACT.whatsapp} class="btn btn--primary" target="_blank" rel="noopener">{ui.waBtn}</a>
     </div>
   </div>
 </header>

@@ -5,8 +5,13 @@
 
 export type Locale = 'tr' | 'en';
 
-export const LOCALES: Locale[] = ['tr', 'en'];
-export const DEFAULT_LOCALE: Locale = 'tr';
+/** Astro.currentLocale → Locale (komponentlerdeki tek dil tespiti bu) */
+export const asLocale = (currentLocale: string | undefined): Locale =>
+  currentLocale === 'en' ? 'en' : 'tr';
+
+/** Sektör detay yolu — Header/Footer/şablonlar bu kalıbı tekrar kurmasın */
+export const sectorPath = (locale: Locale, slug: string): string =>
+  locale === 'en' ? `/en/industries/${slug}/` : `/sektorler/${slug}/`;
 
 /** Sayfa çiftleri (blog yazıları hariç — onlar BLOG_SLUGS'tan türer) */
 export const ROUTES: Record<string, { tr: string; en: string }> = {
@@ -56,7 +61,7 @@ for (const [trSlug, enSlug] of Object.entries(BLOG_SLUGS)) {
 
 const norm = (p: string) => (p.endsWith('/') ? p : `${p}/`);
 
-export const getLocale = (pathname: string): Locale =>
+const getLocale = (pathname: string): Locale =>
   norm(pathname).startsWith('/en/') ? 'en' : 'tr';
 
 /** Mevcut sayfanın diğer dildeki karşılığı (yoksa o dilin ana sayfası) */
