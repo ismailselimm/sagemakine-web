@@ -8,6 +8,7 @@ export default defineConfig({
   devToolbar: { enabled: false },
   integrations: [sitemap()],
   build: {
-    inlineStylesheets: 'auto',
+    // Tüm CSS HTML'e gömülür: render-blocking istek kalmaz (statik site için en hızlısı)
+    inlineStylesheets: 'always',
   },
 });
