@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CtaBand from '../components/CtaBand.astro';
 import Icon from '../components/Icon.astro';
 import { SITE, CONTACT, SECTORS } from '../data/site';
+import { YAZILAR, ONE_CIKANLAR } from '../data/blog';
 
 import heroImg from '../assets/photos/hero-color-sorter-hall.png';
 import xrayScan from '../assets/photos/tech-xray-goruntu.png';
@@ -65,6 +66,56 @@ const stats = [
   { stat: '2', unit: 'Teknoloji', label: 'Optik + X-Ray, tek çözüm ortağı' },
   { stat: '81', unit: 'İl', label: "Manisa'dan tüm Türkiye'ye satış, kurulum, servis" },
 ];
+
+/* blog vitrini */
+const oneCikanYazilar = ONE_CIKANLAR.map((slug) => YAZILAR.find((y) => y.slug === slug)!).filter(Boolean);
+const blogCovers = import.meta.glob<{ default: ImageMetadata }>('../assets/blog/*.png', {
+  eager: true,
+});
+const coverOf = (name: string) => blogCovers[`../assets/blog/${name}.png`]?.default;
+
+/* süreç şeridi */
+const surec = [
+  { no: '01', baslik: 'İhtiyaç Analizi', text: 'Ürününüzü, kusur profilinizi ve hedef kalitenizi dinleriz.' },
+  { no: '02', baslik: 'Numune Testi', text: 'Ürününüzü gerçek makinede ayıklar, sonucu birlikte görürüz.' },
+  { no: '03', baslik: 'Teklif', text: 'Doğru seri, yazılı garanti ve servis şartlarıyla net teklif.' },
+  { no: '04', baslik: 'Kurulum + Eğitim', text: 'Devreye alma ve Türkçe arayüzde operatör eğitimi.' },
+  { no: '05', baslik: 'Servis', text: 'Yedek parça stoku ve yerinde servisle yanınızdayız.' },
+];
+
+/* SSS */
+const sss = [
+  {
+    q: 'Numune testi nasıl yapılıyor?',
+    a: 'Ürününüzden birkaç kilogramlık temsili numuneyi bize ulaştırıyorsunuz; gerçek makinede ayıklayıp sonucu — ıskarta kalitesi ve taşıma oranı dahil — sizinle birlikte değerlendiriyoruz.',
+  },
+  {
+    q: 'Hangi ürünlerde çalışıyorsunuz?',
+    a: 'Kuru meyve (üzüm, incir, kayısı), kuruyemiş (fındık, badem, ceviz), Antep fıstığı, bakliyat, IQF dondurulmuş meyve-sebze ve patates ürünleri ana odağımızdır; benzer taneli gıdalar için de çözüm sunarız.',
+  },
+  {
+    q: 'X-Ray cihazı için lisans gerekiyor mu?',
+    a: "Evet. Türkiye'de X-ışını içeren cihazlar Nükleer Düzenleme Kurumu (NDK) lisansına tabidir; başvuru ve lisans sürecini sizin adınıza SAGE Makine yürütür.",
+  },
+  {
+    q: 'Kurulum ve operatör eğitimi fiyata dahil mi?',
+    a: 'Teklifinizde kurulum, devreye alma ve operatör eğitimi ayrı kalemler halinde açıkça yazılır — sonradan sürpriz maliyet çıkmaz.',
+  },
+  {
+    q: 'Servis ve yedek parça nasıl işliyor?',
+    a: 'Servis Manisa merkezimizden yönetilir; ejektör valfi, kamera ve LED modülü gibi kritik parçalar Türkiye’de stokta tutulur. Birçok yazılım sorunu uzaktan bağlantıyla çözülür.',
+  },
+];
+
+jsonLd.push({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: sss.map((s) => ({
+    '@type': 'Question',
+    name: s.q,
+    acceptedAnswer: { '@type': 'Answer', text: s.a },
+  })),
+});
 
 const nedenler = [
   {
@@ -308,6 +359,28 @@ const nedenler = [
     </div>
   </section>
 
+  <!-- ══ SÜREÇ ══ -->
+  <section class="section band-sunken">
+    <div class="container container--wide">
+      <p class="eyebrow reveal">Nasıl Çalışıyoruz?</p>
+      <div class="sec-head reveal">
+        <h2>Katalogdan Değil, İhtiyaçtan Başlarız</h2>
+        <p>Beş adımlık netlik: karar vermeden önce makineyi işinin başında görürsünüz.</p>
+      </div>
+      <ol class="surec-strip">
+        {
+          surec.map((a, i) => (
+            <li class="surec-adim reveal" style={`--reveal-delay:${i * 0.07}s`}>
+              <span class="surec-no">{a.no}</span>
+              <h3>{a.baslik}</h3>
+              <p>{a.text}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
   <!-- ══ SERVİS BANDI ══ -->
   <section class="servis-band band-dark">
     <div class="container container--wide servis-grid">
@@ -354,6 +427,61 @@ const nedenler = [
               <h3>{n.title}</h3>
               <p>{n.text}</p>
             </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ BLOG VİTRİNİ ══ -->
+  <section class="section band-sunken">
+    <div class="container container--wide">
+      <p class="eyebrow reveal">Rehberlerimiz</p>
+      <div class="sec-head reveal">
+        <h2>Doğru Karar İçin Dürüst Rehberler</h2>
+        <a href="/blog/" class="text-link">Tüm yazılar <Icon name="arrow" size={16} /></a>
+      </div>
+      <div class="teaser-grid">
+        {
+          oneCikanYazilar.map((y, i) => {
+            const cover = coverOf(y.cover);
+            return (
+              <a href={`/blog/${y.slug}/`} class="teaser-card card reveal" style={`--reveal-delay:${i * 0.08}s`}>
+                {cover && (
+                  <div class="teaser-cover">
+                    <Image src={cover} alt={y.coverAlt} widths={[420, 640]} sizes="(max-width: 640px) 100vw, 30vw" />
+                  </div>
+                )}
+                <div class="teaser-body">
+                  <p class="teaser-kat">{y.kategori} · {y.dk} dk</p>
+                  <h3>{y.baslik}</h3>
+                </div>
+              </a>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SSS ══ -->
+  <section class="section">
+    <div class="container sss-grid">
+      <div class="sss-head">
+        <p class="eyebrow reveal">Sık Sorulan Sorular</p>
+        <h2 class="reveal">Telefonda En Çok<br />Sorulanlar</h2>
+        <p class="reveal" style="--reveal-delay:.08s">
+          Cevabını bulamadığınız soru için <a href="/iletisim/">bize yazın</a> — genellikle aynı
+          gün döneriz.
+        </p>
+      </div>
+      <div class="sss-list">
+        {
+          sss.map((s, i) => (
+            <details class="sss-item reveal" style={`--reveal-delay:${i * 0.05}s`}>
+              <summary>{s.q}</summary>
+              <p>{s.a}</p>
+            </details>
           ))
         }
       </div>
@@ -630,6 +758,8 @@ const nedenler = [
 
   .stat {
     min-width: 0;
+    /* rakam sağdaki ayraca yapışmasın */
+    padding-right: var(--sp-6);
   }
 
   .stat dd {
@@ -866,6 +996,160 @@ const nedenler = [
     flex-shrink: 0;
   }
 
+  /* ── Süreç şeridi ── */
+  .surec-strip {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--sp-5);
+    list-style: none;
+    padding: 0;
+    counter-reset: none;
+  }
+
+  .surec-adim {
+    position: relative;
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: var(--sp-5);
+    display: grid;
+    gap: var(--sp-2);
+    align-content: start;
+  }
+
+  .surec-no {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--accent-ink);
+  }
+
+  .surec-adim h3 {
+    font-size: var(--text-md);
+  }
+
+  .surec-adim p {
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+  }
+
+  /* ── Blog vitrini ── */
+  .teaser-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-5);
+  }
+
+  .teaser-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+  }
+
+  .teaser-cover {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+
+  .teaser-cover :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--dur-slow) var(--ease-out);
+  }
+
+  .teaser-card:hover .teaser-cover :global(img) {
+    transform: scale(1.04);
+  }
+
+  .teaser-body {
+    padding: var(--sp-5);
+    display: grid;
+    gap: var(--sp-2);
+  }
+
+  .teaser-kat {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+  }
+
+  .teaser-card h3 {
+    font-size: var(--text-md);
+  }
+
+  /* ── SSS ── */
+  .sss-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--sp-8);
+    align-items: start;
+  }
+
+  .sss-head h2 {
+    margin-block: var(--sp-3) var(--sp-4);
+  }
+
+  .sss-head p {
+    color: var(--ink-soft);
+  }
+
+  .sss-list {
+    display: grid;
+    gap: var(--sp-3);
+  }
+
+  .sss-item {
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 0 var(--sp-5);
+    transition: border-color var(--dur) var(--ease-out);
+  }
+
+  .sss-item[open] {
+    border-color: var(--green-500);
+  }
+
+  .sss-item summary {
+    padding: var(--sp-4) 0;
+    font-family: var(--font-display);
+    font-variation-settings: 'wdth' 108;
+    font-weight: 600;
+    color: var(--navy-800);
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    padding-right: 2rem;
+  }
+
+  .sss-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .sss-item summary::after {
+    content: '+';
+    position: absolute;
+    right: 0.25rem;
+    top: 50%;
+    translate: 0 -50%;
+    font-family: var(--font-mono);
+    font-size: var(--text-lg);
+    color: var(--accent-ink);
+  }
+
+  .sss-item[open] summary::after {
+    content: '−';
+  }
+
+  .sss-item p {
+    padding-bottom: var(--sp-4);
+    font-size: var(--text-sm);
+    color: var(--ink-soft);
+  }
+
   /* ── Servis bandı ── */
   .servis-band {
     padding-block: var(--section-y);
@@ -945,6 +1229,12 @@ const nedenler = [
     .stats {
       grid-template-columns: 1fr 1fr;
     }
+    .surec-strip {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .teaser-grid {
+      grid-template-columns: 1fr;
+    }
     .stat + .stat {
       border-left: 0;
       padding-left: 0;
@@ -964,7 +1254,8 @@ const nedenler = [
   @media (max-width: 900px) {
     .problem-grid,
     .machine-grid,
-    .servis-grid {
+    .servis-grid,
+    .sss-grid {
       grid-template-columns: 1fr;
     }
     .servis-figure {
@@ -985,6 +1276,9 @@ const nedenler = [
     .stat + .stat {
       border-top: 1px solid var(--line);
       padding-top: var(--sp-5);
+    }
+    .surec-strip {
+      grid-template-columns: 1fr;
     }
     .servis-list {
       grid-template-columns: 1fr;

@@ -275,32 +275,23 @@ strong {
 }
 
 .table-scroll {
-  position: relative;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  background: var(--bg-raised);
+  /* kaydırılabilirken kenarlarda gölge ipucu, kenara gelince kaybolur (scroll-shadow) */
+  background:
+    linear-gradient(90deg, var(--bg-raised) 30%, transparent) left / 40px 100% no-repeat local,
+    linear-gradient(270deg, var(--bg-raised) 30%, transparent) right / 40px 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%, rgb(15 28 46 / 0.18), transparent) left / 14px 100%
+      no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, rgb(15 28 46 / 0.18), transparent) right / 14px 100%
+      no-repeat scroll,
+    var(--bg-raised);
 }
 
 .spec-table {
   min-width: 560px;
-}
-
-/* dar ekranda "devamı var" ipucu: sağ kenar solması */
-@media (max-width: 700px) {
-  .table-scroll::after {
-    content: '';
-    position: sticky;
-    display: block;
-    margin-top: -100%;
-    left: calc(100% - 2rem);
-    top: 0;
-    width: 2rem;
-    height: 100%;
-    background: linear-gradient(270deg, var(--bg-raised) 15%, transparent);
-    pointer-events: none;
-  }
 }
 
 /* ── Scroll reveal (yalnızca JS varsa gizlenir — no-JS'te içerik daima görünür) ── */

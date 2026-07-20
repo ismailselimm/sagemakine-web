@@ -1,41 +1,18 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import Icon from '../../components/Icon.astro';
+import { YAZILAR } from '../../data/blog';
 
 const breadcrumbs = [{ name: 'Blog', path: '/blog/' }];
 
-const yazilar = [
-  {
-    slug: 'renk-ayirma-makinesi-fiyatlari',
-    kategori: 'Satın Alma Rehberi',
-    baslik: 'Renk Ayırma Makinesi Fiyatları 2026: Neye Göre Değişir?',
-    ozet: 'Fiyatı belirleyen 6 faktör, toplam sahip olma maliyeti ve doğru teklif isteme rehberi.',
-    dk: 6,
-  },
-  {
-    slug: 'x-ray-mi-metal-dedektor-mu',
-    kategori: 'Teknoloji',
-    baslik: 'X-Ray mı Metal Dedektör mü? Gıdada Yabancı Madde Tespiti',
-    ozet: 'İki teknolojinin dürüst karşılaştırması: hangisi neyi görür, ne zaman hangisi yeter?',
-    dk: 6,
-  },
-  {
-    slug: 'sortex-makinasi-nedir',
-    kategori: 'Terimler',
-    baslik: 'Sortex Makinası Nedir? Color Sorter ile Farkı Var mı?',
-    ozet: 'Jenerikleşen bir marka adının ardındaki gerçek: renk ayırma makinesi nedir, markadan önce neye bakılır?',
-    dk: 4,
-  },
-  {
-    slug: 'ikinci-el-renk-ayirma-makinesi',
-    kategori: 'Satın Alma Rehberi',
-    baslik: '2. El Renk Ayırma Makinesi Almadan Önce Bilmeniz Gerekenler',
-    ozet: 'Düşük ilk yatırımın görünmeyen riskleri: ejektör ömrü, kamera eskimesi, yedek parça ve servis gerçeği.',
-    dk: 6,
-  },
-];
+const covers = import.meta.glob<{ default: ImageMetadata }>('../../assets/blog/*.png', {
+  eager: true,
+});
+const coverOf = (name: string) => covers[`../../assets/blog/${name}.png`]?.default;
 ---
 
 <BaseLayout
@@ -55,14 +32,29 @@ const yazilar = [
     <div class="container container--wide">
       <div class="post-grid">
         {
-          yazilar.map((y, i) => (
-            <a href={`/blog/${y.slug}/`} class="post-card card reveal" style={`--reveal-delay:${(i % 2) * 0.08}s`}>
-              <p class="post-kat">{y.kategori} · {y.dk} dk</p>
-              <h2>{y.baslik}</h2>
-              <p class="post-ozet">{y.ozet}</p>
-              <span class="post-link">Yazıyı okuyun <Icon name="arrow" size={15} /></span>
-            </a>
-          ))
+          YAZILAR.map((y, i) => {
+            const cover = coverOf(y.cover);
+            return (
+              <a href={`/blog/${y.slug}/`} class="post-card card reveal" style={`--reveal-delay:${(i % 2) * 0.08}s`}>
+                {cover && (
+                  <div class="post-cover-thumb">
+                    <Image
+                      src={cover}
+                      alt={y.coverAlt}
+                      widths={[420, 640, 900]}
+                      sizes="(max-width: 800px) 100vw, 42vw"
+                    />
+                  </div>
+                )}
+                <div class="post-body">
+                  <p class="post-kat">{y.kategori} · {y.dk} dk</p>
+                  <h2>{y.baslik}</h2>
+                  <p class="post-ozet">{y.ozet}</p>
+                  <span class="post-link">Yazıyı okuyun <Icon name="arrow" size={15} /></span>
+                </div>
+              </a>
+            );
+          })
         }
       </div>
     </div>
@@ -79,11 +71,32 @@ const yazilar = [
   }
 
   .post-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+  }
+
+  .post-cover-thumb {
+    aspect-ratio: 21 / 9;
+    overflow: hidden;
+  }
+
+  .post-cover-thumb :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--dur-slow) var(--ease-out);
+  }
+
+  .post-card:hover .post-cover-thumb :global(img) {
+    transform: scale(1.04);
+  }
+
+  .post-body {
     display: grid;
     gap: var(--sp-3);
     align-content: start;
     padding: var(--sp-6);
-    text-decoration: none;
   }
 
   .post-kat {
