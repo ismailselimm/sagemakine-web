@@ -44,28 +44,7 @@
     color: var(--ink-soft);
   }
 
-  .garanti-list {
-    display: grid;
-    gap: var(--sp-3);
-    list-style: none;
-    padding: 0;
-    margin-top: var(--sp-5);
-  }
-
-  .garanti-list li {
-    display: flex;
-    align-items: center;
-    gap: 0.6em;
-    font-size: var(--text-sm);
-    color: var(--ink-soft);
-  }
-
-  .garanti-list svg {
-    color: var(--accent-ink);
-    flex-shrink: 0;
-  }
-
-  .kapsama-grid {
+        .kapsama-grid {
     display: grid;
     grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
     gap: var(--sp-8);

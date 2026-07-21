@@ -20,11 +20,14 @@
     color: var(--ink-faint);
   }
 
-  .tek-figure {
+  .tek-figure,
+  .hat-panorama {
     margin: var(--sp-6) 0 0;
   }
 
-  .tek-figure img {
+  .tek-figure img,
+  .hat-panorama img,
+  .hat-figure img {
     border-radius: var(--radius-lg);
   }
 
@@ -55,12 +58,6 @@
     flex-shrink: 0;
   }
 
-  .kusur-not {
-    margin-top: var(--sp-5);
-    font-size: var(--text-sm);
-    color: var(--ink-faint);
-  }
-
   /* ── Modeller ── */
   .model-grid {
     display: grid;
@@ -72,7 +69,6 @@
   .model-img {
     aspect-ratio: 4 / 3;
     overflow: hidden;
-    border-radius: var(--radius-md) var(--radius-md) 0 0;
     background: #0a0a0a; /* stüdyo çekimleri siyah fonlu — kart üstünde kesintisiz görünür */
   }
 
@@ -97,15 +93,6 @@
   }
 
   /* ── Hat çözümleri ── */
-  .hat-panorama {
-    margin: var(--sp-6) 0 0;
-  }
-
-  .hat-panorama img,
-  .hat-figure img {
-    border-radius: var(--radius-lg);
-  }
-
   .hat-figure {
     margin: var(--sp-5) 0 0;
   }

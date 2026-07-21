@@ -7,7 +7,7 @@
     display: flex;
     align-items: center;
     overflow: hidden;
-    /* stüdyo çekiminin fonu saf siyah — contain'de kenarlar dikişsiz birleşir */
+    /* banner'ın fonuyla aynı: kırpma payı kalırsa kenar dikişsiz görünür */
     background: #000;
   }
 
@@ -16,7 +16,7 @@
     inset: 0;
   }
 
-  /* banner 2400×1200: makine sağda, solu saf siyah — kırpma metni hiç örtmez */
+  /* banner 3300×1820: makine sağda, solu saf siyah — kırpma metni örtmez */
   .hero-bg img {
     width: 100%;
     height: 100%;
@@ -43,12 +43,7 @@
 
   /* dar ekranda makine küçülmesin: ortadan kırparak doldur */
   @media (max-width: 900px) {
-    .hero-bg {
-      padding: 0;
-    }
-
     .hero-bg img {
-      object-fit: cover;
       object-position: 58% center;
     }
 

@@ -1,24 +1,20 @@
 /* Hakkımızda sayfası stilleri — TR/EN paylaşır */
-  .kurucu-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
-    gap: var(--sp-8);
-    align-items: center;
-  }
-
+  /* gerçek kurucu fotoğrafı gelene kadar tek sütun — söz sayfayı boydan boya kullanır */
   .kurucu-grid h2 {
     margin-block: var(--sp-3) var(--sp-5);
+    max-width: 24ch;
   }
 
   .kurucu-quote {
     border-left: 3px solid var(--green-500);
-    padding: var(--sp-4) var(--sp-5);
+    padding: var(--sp-5) var(--sp-6);
     background: var(--bg-sunken);
     border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    max-width: 70ch;
   }
 
   .kurucu-quote p {
-    font-size: var(--text-md);
+    font-size: var(--text-lg);
     color: var(--ink-soft);
     font-style: italic;
   }
@@ -35,16 +31,7 @@
     color: var(--accent-ink);
   }
 
-  .kurucu-figure {
-    margin: 0;
-  }
-
-  .kurucu-figure img {
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-  }
-
-  .acilim-band {
+      .acilim-band {
     padding-block: var(--section-y);
   }
 
