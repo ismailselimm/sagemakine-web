@@ -35,37 +35,31 @@ export const SEKTORLER_EN: Sektor[] = [
     defects: [
       {
         icon: "sap",
-        label: "Stems and stalks (raisins)",
-        desc: "Plant debris from the drying yard — the number-one item in buyer specifications."
+        label: "Stems and stalks (raisins)"
       },
       {
         icon: "tas",
-        label: "Stones and soil",
-        desc: "Drying-yard stones the same size and weight as the raisins pass through screens; X-ray sees the density difference."
+        label: "Stones and soil"
       },
       {
         icon: "kuf",
-        label: "Soured / moldy berries",
-        desc: "Separated optically by differences in color and surface texture."
+        label: "Soured / moldy berries"
       },
       {
         icon: "renk",
-        label: "Aflatoxin-suspect dark fruit (figs)",
-        desc: "Abnormally dark, dull fruit is removed from the line by color sorting."
+        label: "Aflatoxin-suspect dark fruit (figs)"
       },
       {
         icon: "kabuk",
-        label: "Pits and pit fragments (apricots)",
-        desc: "X-ray detects even a pit fragment left inside the flesh."
+        label: "Pits and worm-damaged or dirty fruit (apricots)"
       },
       {
         icon: "cam",
-        label: "Glass, metal, plastic",
-        desc: "Foreign material that can enter from the processing line is caught at final inspection."
+        label: "Glass, metal, plastic"
       }
     ],
     cozum: {
-      intro: "In dried fruit, the right setup is usually two-stage: bulk X-ray at line intake removes high-density foreign material, and belt-type color sorting after processing removes color and texture defects.",
+      intro: "In dried fruit, the right setup is usually two-stage: first, belt-type color sorting at line intake removes stems, stalks and color defects; afterward, bulk X-ray removes high-density foreign material.",
       adimlar: [
         {
           baslik: "Belt-Type Color Sorting",
@@ -88,7 +82,7 @@ export const SEKTORLER_EN: Sektor[] = [
     slug: "nuts",
     title: "Nuts",
     metaTitle: "Hazelnut, Almond & Walnut Sorting Machines | SAGE Makine",
-    metaDescription: "Shell fragments in hazelnut kernels, membrane in walnuts, stones in almonds: color sorting and X-ray solutions for nut processors. Sample testing offered.",
+    metaDescription: "Shell fragments in hazelnut kernels, membrane in walnuts, stones in almonds: color sorting and X-ray solutions for nut processors.",
     eyebrow: "Industry · Nuts",
     heroTitle: "Sorting Solutions for Nut Processors",
     heroLead: "For hazelnut kernels headed to the chocolate industry, the tolerance for shell fragments is zero. In hazelnuts, almonds, and walnuts, remove shell, stones, and moldy kernels from the line with color sorting + X-ray.",
@@ -114,47 +108,41 @@ export const SEKTORLER_EN: Sektor[] = [
     defects: [
       {
         icon: "kabuk",
-        label: "Shell fragments",
-        desc: "Shell that can match the kernel's color is separated by infrared (NIR) cameras; dense fragments by X-ray."
+        label: "Shell fragments"
       },
       {
         icon: "kuf",
-        label: "Moldy / spoiled kernels",
-        desc: "Sent to the reject stream on the optical sorting line by color and surface differences."
+        label: "Moldy / spoiled kernels"
       },
       {
         icon: "tas",
-        label: "Stones and hard foreign material",
-        desc: "Stones and soil from the orchard light up in the X-ray density image."
+        label: "Stones and hard foreign material"
       },
       {
         icon: "sap",
-        label: "Membrane and plant debris (walnuts)",
-        desc: "Membrane and twig fragments in walnut kernels are separated by shape + color analysis."
+        label: "Membrane and plant debris (walnuts)"
       },
       {
         icon: "renk",
-        label: "Color-defective kernels",
-        desc: "Burnt, stained, or pale kernels are graded to the buyer's standard."
+        label: "Color-defective kernels"
       },
       {
         icon: "metal",
-        label: "Metal",
-        desc: "Metal fragments that can break off cracking and screening equipment are caught at final inspection."
+        label: "Metal"
       }
     ],
     cozum: {
       intro: "In nuts, the safest setup has two layers: belt- or chute-type color sorting after cracking for shell and color defects, plus X-ray before packaging for stone, glass, and metal control.",
       adimlar: [
         {
-          baslik: "Color Sorting (NIR-Assisted)",
-          text: "Infrared cameras recognize even shell that matches the kernel's color by its difference in chemical reflectance.",
+          baslik: "Color Sorting",
+          text: "High-resolution RGB cameras recognize shell and color defects by differences in color and surface texture.",
           href: "/en/color-sorter/",
           linkLabel: "Explore color sorting machines"
         },
         {
           baslik: "Pre-Packaging X-Ray",
-          text: "The final critical control point — with the automatic logging and traceability that BRC/IFS audits look for.",
+          text: "The final inspection point before packing — with automatic logging and image archiving.",
           href: "/en/x-ray-food-inspection/",
           linkLabel: "Explore X-ray systems"
         }
@@ -191,37 +179,31 @@ export const SEKTORLER_EN: Sektor[] = [
     defects: [
       {
         icon: "renk",
-        label: "Aflatoxin-suspect kernels",
-        desc: "Kernels showing abnormal color or staining are removed from the line optically; the at-risk lot shrinks."
+        label: "Aflatoxin-suspect kernels"
       },
       {
         icon: "kabuk",
-        label: "Shell fragments",
-        desc: "Shell pieces mixed into the kernels are separated by NIR cameras and X-ray."
+        label: "Shell fragments"
       },
       {
         icon: "dogruluk",
-        label: "Empty and half-filled nuts",
-        desc: "X-ray density imaging detects empty nuts without cracking the shell."
+        label: "Empty and half-filled nuts"
       },
       {
         icon: "tas",
-        label: "Stones and soil",
-        desc: "Mineral foreign material from threshing is caught by its density difference."
+        label: "Stones and soil"
       },
       {
         icon: "kuf",
-        label: "Moldy / spoiled kernels",
-        desc: "Sent to the reject stream by color and texture analysis."
+        label: "Moldy / spoiled kernels"
       },
       {
         icon: "sap",
-        label: "Stems and plant debris",
-        desc: "Shape sorting recognizes stems the same color as the pistachios by their geometry."
+        label: "Stems and plant debris"
       }
     ],
     cozum: {
-      intro: "Our recommended flow for pistachios: X-ray on in-shell product for empty/full and stone separation, then NIR-assisted color sorting on kernels to control shell and aflatoxin-suspect nuts.",
+      intro: "Our recommended flow for pistachios: X-ray on in-shell product to separate empty nuts from full ones and remove stones, then color sorting on kernels to control shell and aflatoxin-suspect nuts.",
       adimlar: [
         {
           baslik: "X-Ray Empty/Full and Stone Separation",
@@ -230,7 +212,7 @@ export const SEKTORLER_EN: Sektor[] = [
           linkLabel: "Explore the bulk X-ray solution"
         },
         {
-          baslik: "NIR-Assisted Color Sorting",
+          baslik: "Color Sorting",
           text: "Shell fragments, mold, and color defects in kernels are sorted out with high-resolution cameras.",
           href: "/en/color-sorter/",
           linkLabel: "Explore color sorting machines"
@@ -268,33 +250,27 @@ export const SEKTORLER_EN: Sektor[] = [
     defects: [
       {
         icon: "tas",
-        label: "Stones and soil clods",
-        desc: "Can match the product in both size and weight; separated by differences in color and density."
+        label: "Stones and soil clods"
       },
       {
         icon: "renk",
-        label: "Discolored kernels",
-        desc: "Darkened, stained, or immature kernels are sorted out to the buyer's standard."
+        label: "Discolored kernels"
       },
       {
         icon: "kuf",
-        label: "Insect-damaged kernels",
-        desc: "Detected through surface-pattern and shape analysis."
+        label: "Insect-damaged kernels"
       },
       {
         icon: "sap",
-        label: "Stems, hulls, and plant debris",
-        desc: "Lightweight residues from harvest are removed optically."
+        label: "Stems, hulls, and plant debris"
       },
       {
         icon: "cam",
-        label: "Glass and ceramic",
-        desc: "X-ray catches transparent glass by its density — something color sorting cannot see."
+        label: "Glass and ceramic"
       },
       {
         icon: "metal",
-        label: "Metal",
-        desc: "Fragments shed by screening and conveying equipment are caught in the final check."
+        label: "Metal"
       }
     ],
     cozum: {
@@ -308,7 +284,7 @@ export const SEKTORLER_EN: Sektor[] = [
         },
         {
           baslik: "Final X-Ray Inspection",
-          text: "A safety net for glass, stone, and metal before packing — with automatic, audit-ready record keeping.",
+          text: "A safety net for glass, stone, and metal before packing — with automatic record keeping and image archiving.",
           href: "/en/x-ray-food-inspection/",
           linkLabel: "Explore X-ray systems"
         }
@@ -338,40 +314,34 @@ export const SEKTORLER_EN: Sektor[] = [
         label: "Washdown-ready design — enclosure options to match your hygiene regime"
       },
       {
-        stat: "Final CCP",
-        label: "X-ray before packing becomes the critical control point in your HACCP plan"
+        stat: "Final step",
+        label: "X-ray before packing is the last inspection point on your line"
       }
     ],
     defects: [
       {
         icon: "kabuk",
-        label: "Pits and pit fragments",
-        desc: "In sour cherries and cherries, X-ray density imaging reveals pits even inside frozen fruit."
+        label: "Pits and pit fragments"
       },
       {
         icon: "sap",
-        label: "Stems and leaves",
-        desc: "Product is scanned in a single layer on the belt, and plant debris is removed optically."
+        label: "Stems and leaves"
       },
       {
         icon: "cam",
-        label: "Glass and hard plastic",
-        desc: "Transparent foreign material is caught by density, not color."
+        label: "Glass and hard plastic"
       },
       {
         icon: "renk",
-        label: "Discolored / bruised fruit",
-        desc: "Cameras detect color deviations even on frosted surfaces."
+        label: "Discolored / bruised fruit"
       },
       {
         icon: "metal",
-        label: "Metal",
-        desc: "Fragments that can break off line equipment are caught in the final check."
+        label: "Metal"
       },
       {
         icon: "tas",
-        label: "Stones",
-        desc: "Mineral debris from the orchard is removed by X-ray."
+        label: "Stones"
       }
     ],
     cozum: {
@@ -422,33 +392,27 @@ export const SEKTORLER_EN: Sektor[] = [
     defects: [
       {
         icon: "renk",
-        label: "Burnt ends and dark blemishes",
-        desc: "Color deviations on fried slices and fries are removed optically."
+        label: "Burnt ends and dark blemishes"
       },
       {
         icon: "kuf",
-        label: "Greening and rot",
-        desc: "Detected at raw-material intake through color and surface analysis."
+        label: "Greening and rot"
       },
       {
         icon: "kabuk",
-        label: "Peel residue",
-        desc: "Peel fragments left behind after peeling are identified with NIR."
+        label: "Peel residue"
       },
       {
         icon: "tas",
-        label: "Field stones",
-        desc: "Stones arriving with the potatoes are removed by X-ray before they enter the fryer line."
+        label: "Field stones"
       },
       {
         icon: "cam",
-        label: "Glass and plastic",
-        desc: "Foreign material entering from the process line is caught in the final check."
+        label: "Glass and plastic"
       },
       {
         icon: "metal",
-        label: "Metal",
-        desc: "Fragments that can break off cutting equipment are caught before packing."
+        label: "Metal"
       }
     ],
     cozum: {

@@ -102,7 +102,6 @@ const digerSektorler = sektorler.filter((s) => s.slug !== sektor.slug);
                 <Icon name={d.icon as any} size={26} />
               </span>
               <h3>{d.label}</h3>
-              <p>{d.desc}</p>
             </div>
           ))
         }
@@ -226,16 +225,13 @@ const digerSektorler = sektorler.filter((s) => s.slug !== sektor.slug);
 
   .defect {
     padding: var(--sp-5);
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
   }
 
   .defect h3 {
     font-size: var(--text-md);
-    margin-bottom: var(--sp-2);
-  }
-
-  .defect p {
-    font-size: var(--text-sm);
-    color: var(--ink-faint);
   }
 
   .cozum-intro {

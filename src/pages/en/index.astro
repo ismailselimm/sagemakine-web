@@ -58,25 +58,20 @@ const stats = [
 /* süreç şeridi */
 const surec = [
   { no: '01', baslik: 'Needs Analysis', text: 'We listen: your product, your defect profile, and your target quality.' },
-  { no: '02', baslik: 'Sample Testing', text: 'We sort your product on a real machine and review the results together.' },
-  { no: '03', baslik: 'Quotation', text: 'A clear quotation with the right series, a written warranty, and service terms.' },
-  { no: '04', baslik: 'Installation + Training', text: "Commissioning and operator training on the machine's Turkish-language interface." },
-  { no: '05', baslik: 'Service', text: 'We stay at your side with spare-parts stock and on-site service.' },
+  { no: '02', baslik: 'Model Selection + Quotation', text: 'We pin down the right model for your product and put the terms in a written quotation.' },
+  { no: '03', baslik: 'Installation + Training', text: "Commissioning and operator training on the machine's interface." },
+  { no: '04', baslik: 'Service', text: 'We stay at your side with spare-parts stock and on-site service.' },
 ];
 
 /* SSS */
 const sss = [
-  {
-    q: 'How does sample testing work?',
-    a: 'You send us a representative sample of a few kilograms; we sort it on a real machine and review the results with you — including reject quality and carryover (good product lost to the reject stream).',
-  },
   {
     q: 'Which products do you work with?',
     a: 'Dried fruit (raisins, figs, apricots), nuts (hazelnuts, almonds, walnuts), pistachios, pulses, IQF frozen fruit and vegetables, and potato products are our core focus; we also offer solutions for similar granular foods.',
   },
   {
     q: 'Do I need a license for an X-ray machine?',
-    a: 'Yes. In Turkey, X-ray-emitting devices are subject to licensing by the Turkish Nuclear Regulatory Authority (NDK); SAGE Makine handles the application and licensing process on your behalf.',
+    a: 'Yes. In Turkey, X-ray-emitting devices are subject to licensing by the Turkish Nuclear Regulatory Authority (NDK); the license application is made in the operator\'s name, and we share guidance on the process.',
   },
   {
     q: 'Are installation and operator training included in the price?',
@@ -102,12 +97,12 @@ const nedenler = [
   {
     icon: 'tecrube',
     title: '22 Years of Industry Experience',
-    text: 'We knew the stems in sultana raisins, the aflatoxin in dried figs, and the shell fragments in hazelnuts before our customers did. We choose the machine to fit your product.',
+    text: 'We knew the stems in sultana raisins, the aflatoxin in dried figs, and the shell fragments in hazelnuts before our rival Chinese suppliers did. We choose the machine to fit your product.',
   },
   {
     icon: 'numune',
-    title: 'Sample Testing',
-    text: "Send us your product; we'll sort it and review the results together. See the machine do its job before you decide.",
+    title: 'Configuration to Fit Your Needs',
+    text: 'No off-the-shelf packages: we pin down the right model and configuration for your product and your line together.',
   },
   {
     icon: 'servis',
@@ -116,8 +111,8 @@ const nedenler = [
   },
   {
     icon: 'ihracat',
-    title: 'Export Compliance',
-    text: 'Ready for BRC, IFS, and HACCP audits: automatic record-keeping, traceability, and NDK licensing support for X-ray systems.',
+    title: 'Automatic Records and Traceability',
+    text: 'X-ray systems automatically archive every detection with the date, time, and image; the records are always at your fingertips.',
   },
 ];
 ---
@@ -159,7 +154,7 @@ const nedenler = [
       </div>
       <ul class="hero-chips" aria-label="Highlights">
         <li><Icon name="check" size={15} /> Installation + operator training included</li>
-        <li><Icon name="check" size={15} /> Sample testing available</li>
+        <li><Icon name="check" size={15} /> One point of contact from installation to service</li>
         <li><Icon name="check" size={15} /> On-site technical service</li>
       </ul>
     </div>
@@ -282,12 +277,12 @@ const nedenler = [
             <p class="machine-tag mono-cap">COLOR SORTER</p>
             <h3>Color Sorters</h3>
             <p>
-              Full-color CCD and infrared cameras spot defective kernels and foreign material,
-              then remove them from the line with air ejectors. Available in chute-type and
-              belt-type configurations.
+              High-resolution RGB cameras spot defective kernels and foreign material, and air
+              ejectors remove them from the line. Available in chute-type and belt-type
+              configurations.
             </p>
             <ul class="machine-feats">
-              <li><Icon name="kamera" size={17} /> CCD + NIR cameras</li>
+              <li><Icon name="kamera" size={17} /> High-resolution RGB cameras</li>
               <li><Icon name="ejektor" size={17} /> Precision air ejectors</li>
               <li><Icon name="yazilim" size={17} /> AI-assisted classification</li>
             </ul>
@@ -308,13 +303,13 @@ const nedenler = [
             <p class="machine-tag mono-cap">X-RAY INSPECTION</p>
             <h3>X-Ray Food Inspection Systems</h3>
             <p>
-              Detects stone, glass, metal, and bone — even inside the product or its packaging.
+              Detects stone, glass, and metal — even inside the product or its packaging.
               Available as bulk-product sorting and end-of-line package inspection models.
             </p>
             <ul class="machine-feats">
               <li><Icon name="xray" size={17} /> Density-based detection</li>
-              <li><Icon name="belge" size={17} /> BRC / IFS audit records</li>
-              <li><Icon name="garanti" size={17} /> NDK licensing support</li>
+              <li><Icon name="belge" size={17} /> Automatic record-keeping and image archiving</li>
+              <li><Icon name="garanti" size={17} /> Washdown enclosure options</li>
             </ul>
             <span class="sector-cta">Explore our X-ray systems <Icon name="arrow" size={15} /></span>
           </div>
@@ -328,8 +323,8 @@ const nedenler = [
     <div class="container container--wide">
       <p class="eyebrow reveal">How We Work</p>
       <div class="sec-head reveal">
-        <h2>The Right Machine in Five Steps</h2>
-        <p>You see the machine at work before you decide.</p>
+        <h2>The Right Machine in Four Steps</h2>
+        <p>One point of contact from needs analysis all the way to service.</p>
       </div>
       <ol class="adim-list">
         {

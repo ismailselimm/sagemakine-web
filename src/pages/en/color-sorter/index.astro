@@ -9,10 +9,13 @@ import { SITE } from '../../../data/site';
 import { SECTORS_EN, whatsappQuoteEn } from '../../../data/en/site';
 import '../../../styles/pillar-renk.css';
 
-import ejektorImg from '../../../assets/photos/tech-ejektor.png';
+import havaBlogu from '../../../assets/photos/tech-hava-blogu.png';
 import kameraImg from '../../../assets/photos/tech-kamera.png';
-import olukImg from '../../../assets/photos/machine-oluk-sorter.png';
-import bantImg from '../../../assets/photos/machine-bant-sorter.png';
+import valor5Img from '../../../assets/photos/machine-valor-5.jpg';
+import valorMiniImg from '../../../assets/photos/machine-valor-mini.png';
+import dmaxImg from '../../../assets/photos/machine-dmax-bant.png';
+import idsLineImg from '../../../assets/photos/line-ids-analysis.jpg';
+import panoramaImg from '../../../assets/photos/line-anahtar-teslim-panorama.jpg';
 
 const breadcrumbs = [{ name: 'Color Sorter Machines', path: '/en/color-sorter/' }];
 
@@ -23,7 +26,7 @@ const jsonLd = [
     name: 'Color Sorter Machine',
     brand: { '@type': 'Brand', name: SITE.name },
     description:
-      'Chute-type and belt-type color sorters for dried fruit, nuts, pulses and grains. Optical sorting systems with CCD and infrared cameras and air ejectors — backed by installation, training and service across Turkey.',
+      'Chute-type and belt-type color sorters for dried fruit, nuts, pulses and grains. Optical sorting systems with high-resolution RGB cameras and air ejectors — backed by installation, training and service across Turkey.',
     image: `${SITE.domain}/og/og-default.jpg`,
     url: `${SITE.domain}/en/color-sorter/`,
   },
@@ -32,13 +35,13 @@ const jsonLd = [
 const teknolojiler = [
   {
     icon: 'kamera',
-    title: 'Full-Color CCD Cameras',
-    text: 'High-resolution RGB cameras pick up the slightest color deviation, spots and blemishes.',
+    title: 'High-Resolution RGB Cameras',
+    text: 'High-resolution RGB cameras pick up the slightest color deviation, spots and blemishes under LED lighting.',
   },
   {
-    icon: 'xray',
-    title: 'Infrared / NIR Vision',
-    text: 'InGaAs cameras distinguish shell, glass and stone by material structure, independent of color.',
+    icon: 'ejektor',
+    title: 'Precision Air Ejectors',
+    text: 'A pinpoint burst of air removes the defective kernel from the line without disturbing the good product flow.',
   },
   {
     icon: 'dogruluk',
@@ -47,7 +50,7 @@ const teknolojiler = [
   },
   {
     icon: 'yazilim',
-    title: 'AI Classification',
+    title: 'Deep-Learning Classification',
     text: 'Deep-learning models learn complex defect patterns that conventional thresholds miss.',
   },
 ];
@@ -63,18 +66,31 @@ const kusurlar = [
   { icon: 'dogruluk', label: 'Dark, aflatoxin-suspect kernels' },
 ];
 
-const seriler = [
-  { seri: 'S-1', oluk: '1', kanal: '64', kapasite: '0.3 – 1.5 t/h', kullanim: 'Sample runs, small operations, re-sort passes' },
-  { seri: 'S-3', oluk: '3', kanal: '192', kapasite: '1 – 5 t/h', kullanim: 'Mid-size nut and dried fruit lines' },
-  { seri: 'S-5', oluk: '5', kanal: '320', kapasite: '3 – 10 t/h', kullanim: 'Pulse and grain processing plants' },
-  { seri: 'S-7', oluk: '7', kanal: '448', kapasite: '5 – 16 t/h', kullanim: 'High-tonnage pulse / seed lines' },
-  { seri: 'S-10', oluk: '10', kanal: '640', kapasite: '8 – 25 t/h', kullanim: 'Integrated plants, two-pass installations' },
+const modeller = [
+  {
+    img: valor5Img,
+    tag: 'CHUTE-TYPE',
+    ad: 'VALOR 5',
+    text: 'Our chute-type color sorter for pulses, grains and seed products. High throughput for free-flowing hard kernels.',
+  },
+  {
+    img: valorMiniImg,
+    tag: 'COMPACT',
+    ad: 'Valor Mini',
+    text: 'A compact footprint for small operations and lower-capacity lines — with the same camera and ejector technology.',
+  },
+  {
+    img: dmaxImg,
+    tag: 'BELT-TYPE',
+    ad: 'DMAX',
+    text: 'Our belt-type color sorter for fragile products such as dried fruit, walnut kernels and IQF. Single-layer scanning, gentle flow.',
+  },
 ];
 ---
 
 <BaseLayout
   title="Color Sorter Machines: Sales & Service | SAGE Makine"
-  description="Chute- and belt-type color sorters with CCD and infrared cameras: high-accuracy removal of stones, glass, shells and defects. Installation and spare parts."
+  description="Chute- and belt-type color sorters with high-resolution RGB cameras: removal of stones, glass, shells and defects. Installation and spare parts."
   path="/en/color-sorter/"
   breadcrumbs={breadcrumbs}
   jsonLd={jsonLd}
@@ -87,16 +103,16 @@ const seriler = [
   >
     <Fragment slot="actions">
       <a href={whatsappQuoteEn('Color sorter machines')} class="btn btn--primary" target="_blank" rel="noopener">Get a Quote</a>
-      <a href="#series" class="btn btn--outline pillar-ghost">Explore the Series</a>
+      <a href="#models" class="btn btn--outline pillar-ghost">Explore Our Models</a>
     </Fragment>
     <Fragment slot="visual">
       <Image
-        src={ejektorImg}
-        alt="Air ejector nozzles removing a defective kernel from the falling product curtain"
+        src={havaBlogu}
+        alt="Air ejector block of a SAGE color sorter — precision air nozzles up close"
         widths={[480, 760, 1100]}
         sizes="(max-width: 900px) 100vw, 42vw"
         loading="eager"
-        quality={65}
+        quality={70}
       />
     </Fragment>
   </PageHero>
@@ -111,7 +127,7 @@ const seriler = [
           <ol class="howto-steps">
             <li><strong>Feed:</strong> Product is metered from the hopper onto the vibratory feeder in a steady, even flow.</li>
             <li><strong>Flow:</strong> Kernels travel down the chute — or across the belt in a single layer — forming a thin product curtain.</li>
-            <li><strong>Scanning:</strong> CCD and infrared cameras image every kernel under LED lighting.</li>
+            <li><strong>Scanning:</strong> High-resolution RGB cameras image every kernel under LED lighting.</li>
             <li><strong>Decision:</strong> The processor makes the accept-or-reject call within milliseconds.</li>
             <li><strong>Ejection:</strong> An air ejector fires a pinpoint burst to blow the defective kernel into the reject stream.</li>
           </ol>
@@ -160,12 +176,12 @@ const seriler = [
       <h2 class="reveal">Chute-Type or Belt-Type?</h2>
       <p class="sec-lead reveal">
         Free-flowing hard kernels are sorted on a chute; fragile, sticky or large products on a
-        belt. If you're not sure, a sample test is the clearest answer.
+        belt. If you're not sure, tell us about your product and we'll pin it down together.
       </p>
       <div class="tip-grid">
         <a href="/en/color-sorter/chute-type/" class="tip-card card reveal">
           <div class="tip-img">
-            <Image src={olukImg} alt="Chute-type color sorter machine" widths={[480, 760]} sizes="(max-width:900px) 100vw, 40vw" />
+            <Image src={valor5Img} alt="VALOR 5 — our chute-type color sorter" widths={[480, 760]} sizes="(max-width:900px) 100vw, 40vw" />
           </div>
           <div class="tip-body">
             <h3>Chute-Type (Channel)</h3>
@@ -180,7 +196,7 @@ const seriler = [
         </a>
         <a href="/en/color-sorter/belt-type/" class="tip-card card reveal" style="--reveal-delay:.1s">
           <div class="tip-img">
-            <Image src={bantImg} alt="Belt-type color sorter machine" widths={[480, 760]} sizes="(max-width:900px) 100vw, 40vw" />
+            <Image src={dmaxImg} alt="DMAX — our belt-type color sorter" widths={[480, 760]} sizes="(max-width:900px) 100vw, 40vw" />
           </div>
           <div class="tip-body">
             <h3>Belt-Type</h3>
@@ -219,45 +235,68 @@ const seriler = [
     </div>
   </section>
 
-  <!-- Seriler -->
-  <section class="section" id="series">
-    <div class="container">
-      <p class="eyebrow reveal">Capacity Options</p>
-      <h2 class="reveal">SAGE S-Series — by Number of Chutes</h2>
+  <!-- Modeller -->
+  <section class="section" id="models">
+    <div class="container container--wide">
+      <p class="eyebrow reveal">Our Models</p>
+      <h2 class="reveal">The Right Model for Your Product</h2>
       <p class="sec-lead reveal">
-        Typical figures are shown below; exact capacity is confirmed through sample testing, based
-        on your product, defect rate and target quality.
+        Configuration and capacity are determined by your product, defect rate and target
+        quality — we pin them down together with your quotation.
       </p>
-      <div class="table-scroll reveal">
-        <table class="spec-table">
-          <thead>
-            <tr>
-              <th>Series</th>
-              <th>Chutes</th>
-              <th>Channels</th>
-              <th>Capacity*</th>
-              <th>Typical Use</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              seriler.map((s) => (
-                <tr>
-                  <td><strong>{s.seri}</strong></td>
-                  <td>{s.oluk}</td>
-                  <td>{s.kanal}</td>
-                  <td>{s.kapasite}</td>
-                  <td>{s.kullanim}</td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
+      <div class="model-grid">
+        {
+          modeller.map((m, i) => (
+            <div class="model-card card reveal" style={`--reveal-delay:${i * 0.08}s`}>
+              <div class="model-img">
+                <Image
+                  src={m.img}
+                  alt={`${m.ad} color sorter`}
+                  widths={[480, 760, 1000]}
+                  sizes="(max-width: 900px) 100vw, 30vw"
+                />
+              </div>
+              <div class="model-body">
+                <p class="mono-tag">{m.tag}</p>
+                <h3>{m.ad}</h3>
+                <p>{m.text}</p>
+              </div>
+            </div>
+          ))
+        }
       </div>
-      <p class="table-not reveal">
-        * Capacity varies by product. Across all series: touchscreen interface, stainless contact
-        surfaces, remote-support connection; CE-certified models.
-      </p>
+    </div>
+  </section>
+
+  <!-- Anahtar teslim hat -->
+  <section class="section band-sunken">
+    <div class="container container--wide">
+      <p class="eyebrow reveal">Line Solutions</p>
+      <div class="sec-head reveal">
+        <h2>From a Single Machine to a Complete Line</h2>
+        <p>
+          We plan elevators, feeding, sorting and inspection as one project — your machine never
+          stands alone on the line.
+        </p>
+      </div>
+      <figure class="hat-panorama reveal">
+        <Image
+          src={panoramaImg}
+          alt="Turnkey sorting line: elevators, feed hoppers, color sorter and packing line together"
+          widths={[768, 1200, 1800, 2400]}
+          sizes="100vw"
+        />
+        <figcaption class="mono-cap">TURNKEY LINE INSTALLATION — SAMPLE LAYOUT</figcaption>
+      </figure>
+      <figure class="hat-figure reveal" style="--reveal-delay:.1s">
+        <Image
+          src={idsLineImg}
+          alt="Sorting line made up of feeding, sorting and analysis conveyor stages"
+          widths={[700, 1100, 1500]}
+          sizes="(max-width: 900px) 100vw, 74rem"
+        />
+        <figcaption class="mono-cap">FEED + SORT + INSPECT — IN-LINE ANALYSIS</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -304,8 +343,8 @@ const seriler = [
   </section>
 
   <CtaBand
-    title="Request a Sample Test"
-    text="Send us your product; we'll sort it and put the results in front of you, carryover included. Decide after you've seen the machine at work."
-    topic="Color sorter machine — sample test"
+    title="Get a Quote for Your Product"
+    text="Tell us about your product, your capacity and your defect profile; we'll pin down the right model and configuration together."
+    topic="Color sorter quotation"
   />
 </BaseLayout>

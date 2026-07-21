@@ -37,7 +37,7 @@ const UI = {
     /* CtaBand varsayılanları */
     ctaTitle: 'Ürününüz İçin Doğru Makineyi Birlikte Seçelim',
     ctaText:
-      'Numune ürününüzü test edelim, hattınıza uygun kapasiteyi birlikte belirleyelim. Teklif için bir telefon uzaktayız.',
+      'Ürününüzü ve hattınızı anlatın; size uygun konfigürasyonu birlikte netleştirelim. Teklif için bir telefon uzaktayız.',
     ctaWa: "WhatsApp'tan Teklif Alın",
     ctaMailPrefix: 'veya e-posta:',
     ctaTopic: 'Makineleriniz',
@@ -54,7 +54,7 @@ const UI = {
     subNeden: 'Neden Bu Tip?',
     subIlgili: 'İlgili Sektörler',
     subCtaText:
-      'Numune ürününüzü test edelim; kapasite, taşıma oranı ve yerleşimi birlikte netleştirelim.',
+      'Ürününüzü ve hattınızı konuşalım; kapasite, taşıma oranı ve yerleşimi birlikte netleştirelim.',
 
     /* Sektör sayfası şablonu */
     sekTaniyoruz: 'Sektörünüzü Tanıyoruz',
@@ -66,9 +66,9 @@ const UI = {
     sekServisLink: 'Servis ve yedek parça yaklaşımımız',
     sekDiger: 'Diğer Sektörler',
     sekDigerAria: 'Diğer sektörler',
-    sekCtaTitle: 'Ürününüzle Test Edelim',
+    sekCtaTitle: 'Ürününüzü Konuşalım',
     sekCtaText:
-      'Numune ürününüzü gönderin; ayıklama sonucunu birlikte değerlendirelim, hattınıza uygun kapasiteyi netleştirelim.',
+      'Ürününüzü, kusur profilinizi ve hedefinizi anlatın; hattınıza uygun kurulumu birlikte netleştirelim.',
     sekHeroCta: 'Önerilen Çözüm',
     sekSektorLink: 'Sektörler',
 
@@ -77,7 +77,7 @@ const UI = {
       besleme: 'Besleme Hunisi',
       besleyici: 'Titreşimli Besleyici',
       oluk: 'Oluk (Şüt)',
-      kamera: 'CCD + NIR Kamera',
+      kamera: 'Yüksek Çözünürlüklü RGB Kamera',
       led: 'LED Aydınlatma',
       ejektor: 'Hava Ejektörü',
       saglamUrun: 'Sağlam Ürün',
@@ -96,7 +96,7 @@ const UI = {
       xrAria:
         'X-Ray gıda kontrol sistemi şeması: konveyörden geçen ürün X-ışını jeneratörü ile taranır, dedektör görüntüsü işlenir ve yabancı madde içeren ürün reddetme sistemiyle ıskartaya ayrılır',
       xrCaption:
-        'X-ışını, üründen geçerken yoğunluk farklarını görüntüler: taş, cam, metal ve kemik — ambalajın içinde dahi — milisaniyeler içinde tespit edilir ve reddetme sistemi kusurlu ürünü hat dışına alır.',
+        'X-ışını, üründen geçerken yoğunluk farklarını görüntüler: taş, cam ve metal — ambalajın içinde dahi — milisaniyeler içinde tespit edilir ve reddetme sistemi kusurlu ürünü hat dışına alır.',
     },
   },
 
@@ -127,7 +127,7 @@ const UI = {
 
     ctaTitle: "Let's Choose the Right Machine for Your Product",
     ctaText:
-      "Send us a sample, we'll run it on a real machine and determine the right capacity for your line together. A quotation is one call away.",
+      "Tell us about your product and your line; we'll pin down the right configuration together. A quotation is one call away.",
     ctaWa: 'Get a Quote on WhatsApp',
     ctaMailPrefix: 'or email:',
     ctaTopic: 'your machines',
@@ -142,7 +142,7 @@ const UI = {
     subNeden: 'Why This Type?',
     subIlgili: 'Related Industries',
     subCtaText:
-      "Let's test your sample; we'll pin down capacity, carryover, and layout together.",
+      "Let's talk through your product and your line; we'll pin down capacity, carryover, and layout together.",
 
     sekTaniyoruz: 'We Know Your Industry',
     sekKusurEyebrow: 'Defects to Remove',
@@ -153,9 +153,9 @@ const UI = {
     sekServisLink: 'Our service and spare-parts approach',
     sekDiger: 'Other Industries',
     sekDigerAria: 'Other industries',
-    sekCtaTitle: "Let's Test It with Your Product",
+    sekCtaTitle: "Let's Talk About Your Product",
     sekCtaText:
-      "Send us a sample; we'll review the sorting result together and pin down the right capacity for your line.",
+      "Tell us about your product, your defect profile, and your goal; we'll pin down the right setup for your line together.",
     sekHeroCta: 'Recommended Solution',
     sekSektorLink: 'Industries',
 
@@ -163,7 +163,7 @@ const UI = {
       besleme: 'Feed Hopper',
       besleyici: 'Vibratory Feeder',
       oluk: 'Chute',
-      kamera: 'CCD + NIR Camera',
+      kamera: 'High-Resolution RGB Camera',
       led: 'LED Lighting',
       ejektor: 'Air Ejector',
       saglamUrun: 'Accepted Product',
@@ -182,7 +182,7 @@ const UI = {
       xrAria:
         'X-ray food inspection diagram: product passes under the X-ray generator on a conveyor, the detector image is processed and any product containing foreign material is diverted by the reject system',
       xrCaption:
-        'As X-rays pass through the product they image density differences: stone, glass, metal and bone — even inside packaging — are detected in milliseconds and the reject system removes the defective product from the line.',
+        'As X-rays pass through the product they image density differences: stone, glass and metal — even inside packaging — are detected in milliseconds and the reject system removes the defective product from the line.',
     },
   },
 } as const;

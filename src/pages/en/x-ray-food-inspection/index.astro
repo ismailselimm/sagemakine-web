@@ -23,7 +23,7 @@ const jsonLd = [
     name: 'X-Ray Food Inspection System',
     brand: { '@type': 'Brand', name: SITE.name },
     description:
-      'X-ray inspection systems that detect stone, glass, metal, and bone inside the product or its packaging. Bulk-product sorting and end-of-line package inspection; NDK licensing support, BRC/IFS compliance.',
+      'X-ray inspection systems that detect stone, glass and metal inside the product or its packaging. Bulk-product sorting and end-of-line package inspection models.',
     image: `${SITE.domain}/og/og-default.jpg`,
     url: `${SITE.domain}/en/x-ray-food-inspection/`,
   },
@@ -33,8 +33,8 @@ const tespitEder = [
   { icon: 'metal', label: 'Metal', desc: 'Including stainless steel — even inside aluminum foil packaging.' },
   { icon: 'cam', label: 'Glass', desc: 'Glass fragments a metal detector can never see.' },
   { icon: 'tas', label: 'Stone and ceramic', desc: 'Recognized by density, even when it is the same color as the product.' },
-  { icon: 'kabuk', label: 'Bone and pits', desc: 'Calcified bone, cherry pits, hard shell fragments.' },
-  { icon: 'kuf', label: 'Dense plastic', desc: 'High-density plastics such as PVC and Teflon.' },
+  { icon: 'kabuk', label: 'Pits', desc: 'Cherry pits, hard pit and shell fragments.' },
+  { icon: 'kuf', label: 'Plastics with metal-like density', desc: 'High-density plastics such as PVC and Teflon.' },
   { icon: 'dogruluk', label: 'Missing / broken product', desc: 'Fill level, missing pieces, empty/full kernel separation.' },
 ];
 
@@ -49,14 +49,13 @@ const tespitEtmez = [
 const seriler = [
   { seri: 'X-40', bant: '400 mm', tip: 'Packaged product', hassasiyet: 'Ø 0.8 – 1.2 mm SS*', kullanim: 'Final inspection of packs, bags, doypacks' },
   { seri: 'X-60', bant: '600 mm', tip: 'Packaged / bulk', hassasiyet: 'Ø 1.0 – 1.5 mm SS*', kullanim: 'Mid-size lines, mixed product groups' },
-  { seri: 'X-80B', bant: '800 mm', tip: 'Bulk product', hassasiyet: 'Ø 1.2 – 2.0 mm SS*', kullanim: 'In-line sorting for nuts and pulses' },
-  { seri: 'X-100B', bant: '1000 mm', tip: 'Bulk product', hassasiyet: 'Ø 1.2 – 2.0 mm SS*', kullanim: 'High-tonnage IQF and potato lines' },
+  { seri: 'X-60B', bant: '600 mm', tip: 'Bulk product', hassasiyet: 'Ø 1.2 – 2.0 mm SS*', kullanim: 'In-line sorting for nuts, pulses and IQF' },
 ];
 ---
 
 <BaseLayout
   title="X-Ray Food Inspection Systems | SAGE Makine"
-  description="X-ray systems that detect stone, glass, metal and bone inside the product or package. Bulk and packaged models, NDK license support, BRC/IFS compliance."
+  description="X-ray systems that detect stone, glass and metal inside the product or its packaging. Bulk-product sorting and end-of-line packaged product inspection models."
   path="/en/x-ray-food-inspection/"
   breadcrumbs={breadcrumbs}
   jsonLd={jsonLd}
@@ -64,7 +63,7 @@ const seriler = [
   <PageHero
     eyebrow="Foreign Material Detection"
     title="X-Ray Food Inspection Systems"
-    lead="As X-rays pass through the product, they image density differences: stone, glass, metal, and bone — even inside the package or the product itself — are detected and automatically rejected. Where the metal detector stops, X-ray begins."
+    lead="As X-rays pass through the product, they image density differences: stone, glass and metal — even inside the package or the product itself — are detected and automatically rejected. Where the metal detector stops, X-ray begins."
     breadcrumbs={breadcrumbs}
   >
     <Fragment slot="actions">
@@ -95,7 +94,7 @@ const seriler = [
             <li><strong>Imaging:</strong> The detector measures how much the beam is attenuated as it passes through the product.</li>
             <li><strong>Analysis:</strong> Software flags anomalies in the density map.</li>
             <li><strong>Rejection:</strong> The reject system (pusher arm, air jet, or drop flap) removes the defective product from the line.</li>
-            <li><strong>Logging:</strong> Every detection is archived with its image, ready for audit.</li>
+            <li><strong>Logging:</strong> Every detection is automatically archived with its image.</li>
           </ol>
         </div>
         <div class="reveal" style="--reveal-delay:.1s">
@@ -193,40 +192,6 @@ const seriler = [
     </div>
   </section>
 
-  <!-- Uyum + NDK -->
-  <section class="section honest-band band-dark">
-    <div class="container">
-      <div class="uyum-grid">
-        <div class="reveal">
-          <p class="eyebrow">Export and Audits</p>
-          <h2>When the Auditor Asks,<br />Have Your Answer Ready</h2>
-          <p class="uyum-text">
-            In your BRCGS, IFS, and HACCP plan, X-ray becomes your CCP (critical control point):
-            automatic data logging, a detection image archive, and reject-confirmation sensors
-            keep every batch audit-ready.
-          </p>
-        </div>
-        <div class="uyum-cards">
-          <div class="card-dark reveal" style="--reveal-delay:.08s">
-            <h3><Icon name="belge" size={20} /> NDK Licensing Support</h3>
-            <p>
-              In Turkey, X-ray devices are subject to licensing by the Turkish Nuclear Regulatory
-              Authority (NDK). SAGE Makine handles the application, measurements, and licensing
-              process on your behalf.
-            </p>
-          </div>
-          <div class="card-dark reveal" style="--reveal-delay:.16s">
-            <h3><Icon name="garanti" size={20} /> Radiation Safety</h3>
-            <p>
-              Thanks to the lead-curtain tunnel design, radiation leakage stays far below the
-              1 µSv/h license limit; operator safety is safeguarded.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Seriler -->
   <section class="section" id="series">
     <div class="container">
@@ -281,8 +246,8 @@ const seriler = [
   </section>
 
   <CtaBand
-    title="Let's Run a Detection Test with Your Product"
-    text="Let's set up a real detection test using your sample product and the suspect foreign materials — and report the results with images."
-    topic="X-ray food inspection — sample testing"
+    title="Get an X-Ray Quote for Your Line"
+    text="Tell us about your product, your packaging and the foreign materials you worry about; we'll pin down the right X-ray setup for your line together."
+    topic="X-ray food inspection quotation"
   />
 </BaseLayout>

@@ -7,7 +7,6 @@ import Icon from '../../components/Icon.astro';
 import Logo from '../../components/Logo.astro';
 
 import hallImg from '../../assets/photos/hero-color-sorter-hall.png';
-import oncesiSonrasi from '../../assets/photos/sorting-oncesi-sonrasi.png';
 import '../../styles/hakkimizda.css';
 
 const breadcrumbs = [{ name: 'About Us', path: '/en/about/' }];
@@ -20,21 +19,16 @@ const adimlar = [
   },
   {
     no: '02',
-    baslik: 'Sample Testing',
-    text: 'We sort your product on a real machine and put the results in front of you — including carryover (good product lost to the reject stream).',
+    baslik: 'Machine Selection & Quotation',
+    text: 'We pin down the right model for your capacity and budget, and put the terms in a written quotation.',
   },
   {
     no: '03',
-    baslik: 'Machine Selection & Quotation',
-    text: 'We pin down the right series for your capacity and budget, and present the warranty and service terms in writing.',
-  },
-  {
-    no: '04',
     baslik: 'Installation & Training',
     text: 'We install the machine, train your operators on the Turkish-language interface, and hand the line over ready for production.',
   },
   {
-    no: '05',
+    no: '04',
     baslik: 'Service & Continuity',
     text: 'With spare-parts stock, remote support, and preventive maintenance, we stay at your side for the life of the machine.',
   },
@@ -90,7 +84,7 @@ const kriterler = [
           <p>
             "I have been inside this industry for 22 years: I came to know the stems and stalks in
             sultana raisins, the aflatoxin in dried figs, and the shell fragments in hazelnuts
-            before my customers did. For years I watched these machines being sold and installed —
+            before our rival Chinese suppliers did. For years I watched these machines being sold and installed —
             and, most importantly, what happens when they are left without service. We founded
             SAGE Makine to bring that experience together with the right machine and real service."
           </p>
@@ -100,15 +94,6 @@ const kriterler = [
           </footer>
         </blockquote>
       </div>
-      <figure class="kurucu-figure reveal" style="--reveal-delay:.12s">
-        <Image
-          src={oncesiSonrasi}
-          alt="Mixed product before sorting and clean hazelnut kernels after — our work in a single image"
-          widths={[520, 800, 1100]}
-          sizes="(max-width: 900px) 100vw, 44vw"
-        />
-        <figcaption class="mono-cap">OUR WORK IN SHORT: BEFORE AND AFTER</figcaption>
-      </figure>
     </div>
   </section>
 

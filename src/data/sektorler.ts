@@ -7,7 +7,6 @@
 export interface SektorDefect {
   icon: string;
   label: string;
-  desc: string;
 }
 
 export interface Sektor {
@@ -56,16 +55,16 @@ export const SEKTORLER: Sektor[] = [
       { stat: '1 parti', label: 'AB sınırında reddedilen tek bir konteynerin maliyeti; iade, imha ve müşteri kaybı' },
     ],
     defects: [
-      { icon: 'sap', label: 'Çöp ve sap (üzüm)', desc: 'Kurutma sergisinden gelen bitkisel kalıntılar — alıcı şartnamelerinin bir numaralı maddesi.' },
-      { icon: 'tas', label: 'Taş ve toprak', desc: 'Üzümle aynı boy ve ağırlıktaki sergi taşları eleklerden geçer; X-Ray yoğunluk farkını görür.' },
-      { icon: 'kuf', label: 'Ekşimiş / küflü tane', desc: 'Renk ve yüzey dokusu farkıyla optik olarak ayrılır.' },
-      { icon: 'renk', label: 'Aflatoksin şüpheli koyu tane (incir)', desc: 'Anormal koyu ve mat taneler renk ayırmayla hattan çıkarılır.' },
-      { icon: 'kabuk', label: 'Çekirdek ve çekirdek kırığı (kayısı)', desc: 'X-Ray, etin içinde kalmış çekirdek parçasını dahi tespit eder.' },
-      { icon: 'cam', label: 'Cam, metal, plastik', desc: 'Proses hattından karışabilecek yabancı maddeler son kontrolde yakalanır.' },
+      { icon: 'sap', label: 'Çöp ve sap (üzüm)' },
+      { icon: 'tas', label: 'Taş ve toprak' },
+      { icon: 'kuf', label: 'Ekşimiş / küflü tane' },
+      { icon: 'renk', label: 'Aflatoksin şüpheli koyu tane (incir)' },
+      { icon: 'kabuk', label: 'Çekirdek, kurtlu ve kirli tane (kayısı)' },
+      { icon: 'cam', label: 'Cam, metal, plastik' },
     ],
     cozum: {
       intro:
-        'Kuru meyvede doğru kurulum genellikle iki aşamalıdır: hat girişinde dökme X-Ray ile yüksek yoğunluklu yabancı maddeleri, işleme sonrası bant tipi renk ayırma ile renk ve doku kusurlarını ayıklarsınız.',
+        'Kuru meyvede doğru kurulum genellikle iki aşamalıdır: hat girişinde önce bant tipi renk ayırma ile çöp-sap ve renk kusurlarını, sonrasında dökme X-Ray ile yüksek yoğunluklu yabancı maddeleri ayıklarsınız.',
       adimlar: [
         {
           baslik: 'Bant Tipi Renk Ayırma',
@@ -90,7 +89,7 @@ export const SEKTORLER: Sektor[] = [
     title: 'Kuruyemiş',
     metaTitle: 'Fındık, Badem, Ceviz Renk Ayırma ve X-Ray Makineleri | SAGE Makine',
     metaDescription:
-      'İç fındıkta kabuk parçası, cevizde zar, bademde taş: kuruyemiş işleyicileri için renk ayırma ve X-Ray ayıklama çözümleri. Numune testi imkânı.',
+      'İç fındıkta kabuk parçası, cevizde zar, bademde taş: kuruyemiş işleyicileri için renk ayırma ve X-Ray ayıklama çözümleri.',
     eyebrow: 'Sektör · Kuruyemiş',
     heroTitle: 'Kuruyemiş İşleyicileri İçin Ayıklama Çözümleri',
     heroLead:
@@ -107,26 +106,26 @@ export const SEKTORLER: Sektor[] = [
       { stat: '2', label: 'Teknoloji birlikte: kabuğu optik, taşı ve camı X-Ray görür' },
     ],
     defects: [
-      { icon: 'kabuk', label: 'Kabuk parçası', desc: 'İç fındıkla aynı renkte olabilen kabuk, kızılötesi (NIR) kamerayla; yoğun parçalar X-Ray ile ayrılır.' },
-      { icon: 'kuf', label: 'Küflü / bozuk iç', desc: 'Renk ve yüzey farkıyla optik ayıklama hattında ıskartaya gider.' },
-      { icon: 'tas', label: 'Taş ve sert yabancı madde', desc: 'Bahçeden gelen taş ve toprak, X-Ray yoğunluk görüntüsünde parlar.' },
-      { icon: 'sap', label: 'Zar ve bitkisel kalıntı (ceviz)', desc: 'Ceviz içindeki zar ve dal parçaları şekil + renk analiziyle ayrılır.' },
-      { icon: 'renk', label: 'Renk kusurlu tane', desc: 'Yanık, lekeli veya soluk taneler alıcı standardına göre sınıflandırılır.' },
-      { icon: 'metal', label: 'Metal', desc: 'Kırma ve eleme ekipmanından kopabilecek metal parçalar son kontrolde yakalanır.' },
+      { icon: 'kabuk', label: 'Kabuk parçası' },
+      { icon: 'kuf', label: 'Küflü / bozuk iç' },
+      { icon: 'tas', label: 'Taş ve sert yabancı madde' },
+      { icon: 'sap', label: 'Zar ve bitkisel kalıntı (ceviz)' },
+      { icon: 'renk', label: 'Renk kusurlu tane' },
+      { icon: 'metal', label: 'Metal' },
     ],
     cozum: {
       intro:
         'Kuruyemişte en güvenli kurulum çift katmanlıdır: kırma sonrası bant/oluk tipi renk ayırma ile kabuk ve renk kusurları, paketleme öncesi X-Ray ile taş-cam-metal kontrolü.',
       adimlar: [
         {
-          baslik: 'Renk Ayırma (NIR destekli)',
-          text: 'Kızılötesi kameralar, iç ile aynı renkteki kabuğu dahi kimyasal yansıma farkından tanır.',
+          baslik: 'Renk Ayırma',
+          text: 'Yüksek çözünürlüklü RGB kameralar, kabuk ve renk kusurlarını renk ve doku farkından tanır.',
           href: '/renk-ayirma-makinesi/',
           linkLabel: 'Renk ayırma makinelerini inceleyin',
         },
         {
           baslik: 'Paketleme Öncesi X-Ray',
-          text: 'Son kritik kontrol noktası: BRC/IFS denetimlerinde aranan otomatik kayıt ve izlenebilirlikle.',
+          text: 'Paketleme öncesi son kontrol: otomatik kayıt ve görüntü arşiviyle.',
           href: '/x-ray-gida-kontrol-makinesi/',
           linkLabel: 'X-Ray sistemlerini inceleyin',
         },
@@ -156,16 +155,16 @@ export const SEKTORLER: Sektor[] = [
       { stat: 'Boş/Dolu', label: 'X-Ray, kabuğu kırmadan iç doluluğunu görüntüler' },
     ],
     defects: [
-      { icon: 'renk', label: 'Aflatoksin şüpheli tane', desc: 'Anormal renk ve leke gösteren taneler optik olarak hattan çıkarılır; riskli parti küçülür.' },
-      { icon: 'kabuk', label: 'Kabuk parçası', desc: 'İç fıstığa karışan kabuk kırıkları NIR kamera ve X-Ray ile ayrılır.' },
-      { icon: 'dogruluk', label: 'Boş ve yarı dolu tane', desc: 'X-Ray yoğunluk görüntüsü, kabuğu kırmadan boş taneyi tespit eder.' },
-      { icon: 'tas', label: 'Taş ve toprak', desc: 'Harmandan gelen mineral yabancı maddeler yoğunluk farkıyla yakalanır.' },
-      { icon: 'kuf', label: 'Küflü / bozuk iç', desc: 'Renk ve doku analiziyle ıskartaya ayrılır.' },
-      { icon: 'sap', label: 'Sap ve bitkisel kalıntı', desc: 'Şekil ayıklama, fıstıkla aynı renkteki sapları geometrisinden tanır.' },
+      { icon: 'renk', label: 'Aflatoksin şüpheli tane' },
+      { icon: 'kabuk', label: 'Kabuk parçası' },
+      { icon: 'dogruluk', label: 'Boş ve yarı dolu tane' },
+      { icon: 'tas', label: 'Taş ve toprak' },
+      { icon: 'kuf', label: 'Küflü / bozuk iç' },
+      { icon: 'sap', label: 'Sap ve bitkisel kalıntı' },
     ],
     cozum: {
       intro:
-        'Fıstıkta önerdiğimiz akış: kabuklu üründe X-Ray ile boş-dolu ve taş ayrımı, iç fıstıkta NIR destekli renk ayırma ile kabuk ve aflatoksin şüpheli tane kontrolü.',
+        'Fıstıkta önerdiğimiz akış: kabuklu üründe X-Ray ile boş-dolu ve taş ayrımı, iç fıstıkta renk ayırma ile kabuk ve aflatoksin şüpheli tane kontrolü.',
       adimlar: [
         {
           baslik: 'X-Ray Boş-Dolu ve Taş Ayrımı',
@@ -174,7 +173,7 @@ export const SEKTORLER: Sektor[] = [
           linkLabel: 'Dökme X-Ray çözümünü inceleyin',
         },
         {
-          baslik: 'NIR Destekli Renk Ayırma',
+          baslik: 'Renk Ayırma',
           text: 'İç fıstıkta kabuk kırığı, küf ve renk kusurları yüksek çözünürlüklü kameralarla ayıklanır.',
           href: '/renk-ayirma-makinesi/',
           linkLabel: 'Renk ayırma makinelerini inceleyin',
@@ -205,12 +204,12 @@ export const SEKTORLER: Sektor[] = [
       { stat: '2. geçiş', label: 'Iskartanın yeniden ayıklanmasıyla sağlam ürün kaybı minimuma iner' },
     ],
     defects: [
-      { icon: 'tas', label: 'Taş ve toprak topağı', desc: 'Ürünle aynı boy ve ağırlıkta olabilir; renk ve yoğunluk farkıyla ayrılır.' },
-      { icon: 'renk', label: 'Renk kusurlu tane', desc: 'Kararmış, lekeli veya olgunlaşmamış taneler alıcı standardına göre ayıklanır.' },
-      { icon: 'kuf', label: 'Böcek yeniği tane', desc: 'Yüzey deseni ve şekil analiziyle tespit edilir.' },
-      { icon: 'sap', label: 'Sap, kabuk ve bitkisel kalıntı', desc: 'Hasattan gelen hafif kalıntılar optik olarak ayrılır.' },
-      { icon: 'cam', label: 'Cam ve seramik', desc: 'X-Ray, renk ayırmanın göremediği şeffaf camı yoğunluğundan yakalar.' },
-      { icon: 'metal', label: 'Metal', desc: 'Eleme ve taşıma ekipmanından kopan parçalar son kontrolde tutulur.' },
+      { icon: 'tas', label: 'Taş ve toprak topağı' },
+      { icon: 'renk', label: 'Renk kusurlu tane' },
+      { icon: 'kuf', label: 'Böcek yeniği tane' },
+      { icon: 'sap', label: 'Sap, kabuk ve bitkisel kalıntı' },
+      { icon: 'cam', label: 'Cam ve seramik' },
+      { icon: 'metal', label: 'Metal' },
     ],
     cozum: {
       intro:
@@ -224,7 +223,7 @@ export const SEKTORLER: Sektor[] = [
         },
         {
           baslik: 'X-Ray Son Kontrol',
-          text: 'Cam, taş ve metal için paketleme öncesi güvenlik ağı — denetimlere hazır otomatik kayıtla.',
+          text: 'Cam, taş ve metal için paketleme öncesi güvenlik ağı — otomatik kayıt ve görüntü arşiviyle.',
           href: '/x-ray-gida-kontrol-makinesi/',
           linkLabel: 'X-Ray sistemlerini inceleyin',
         },
@@ -251,15 +250,15 @@ export const SEKTORLER: Sektor[] = [
     facts: [
       { stat: '-18°C', label: 'Soğuk ortamda kesintisiz çalışacak şekilde konfigüre edilen sistemler' },
       { stat: 'IP69K', label: 'Yıkanabilir tasarım — hijyen rejiminize uyumlu gövde seçenekleri' },
-      { stat: 'Son KKN', label: 'Paketleme öncesi X-Ray, HACCP planınızın kritik kontrol noktası olur' },
+      { stat: 'Son nokta', label: 'Paketleme öncesi X-Ray, hattınızın son kontrol noktasıdır' },
     ],
     defects: [
-      { icon: 'kabuk', label: 'Çekirdek ve çekirdek kırığı', desc: 'Vişne-kirazda çekirdek, X-Ray yoğunluk görüntüsüyle donmuş meyvenin içinde dahi görülür.' },
-      { icon: 'sap', label: 'Sap ve yaprak', desc: 'Bant üzerinde tek katman taranan üründe bitkisel kalıntılar optik ayrılır.' },
-      { icon: 'cam', label: 'Cam ve sert plastik', desc: 'Şeffaf yabancı maddeleri renk değil, yoğunluk yakalar.' },
-      { icon: 'renk', label: 'Renk kusurlu / ezik meyve', desc: 'Donuk yüzeyde bile renk sapması kameralarla tespit edilir.' },
-      { icon: 'metal', label: 'Metal', desc: 'Hat ekipmanından kopabilecek parçalar son kontrolde tutulur.' },
-      { icon: 'tas', label: 'Taş', desc: 'Bahçeden gelen mineral kalıntılar X-Ray ile ayrılır.' },
+      { icon: 'kabuk', label: 'Çekirdek ve çekirdek kırığı' },
+      { icon: 'sap', label: 'Sap ve yaprak' },
+      { icon: 'cam', label: 'Cam ve sert plastik' },
+      { icon: 'renk', label: 'Renk kusurlu / ezik meyve' },
+      { icon: 'metal', label: 'Metal' },
+      { icon: 'tas', label: 'Taş' },
     ],
     cozum: {
       intro:
@@ -303,12 +302,12 @@ export const SEKTORLER: Sektor[] = [
       { stat: 'Tarla taşı', label: 'Patatesle aynı renkteki taşı yoğunluğundan X-Ray tanır' },
     ],
     defects: [
-      { icon: 'renk', label: 'Yanık uç ve koyu leke', desc: 'Kızartma sonrası dilim ve parmaklarda renk sapmaları optik ayrılır.' },
-      { icon: 'kuf', label: 'Yeşillenme ve çürük', desc: 'Hammadde girişinde renk ve yüzey analiziyle tespit edilir.' },
-      { icon: 'kabuk', label: 'Kabuk kalıntısı', desc: 'Soyma sonrası kalan kabuk parçaları NIR ile tanınır.' },
-      { icon: 'tas', label: 'Tarla taşı', desc: 'Patatesle birlikte gelen taşlar kızartma hattına girmeden X-Ray ile ayrılır.' },
-      { icon: 'cam', label: 'Cam ve plastik', desc: 'Proses hattına karışan yabancı maddeler son kontrolde yakalanır.' },
-      { icon: 'metal', label: 'Metal', desc: 'Kesici ekipmandan kopabilecek parçalar paketleme öncesi tutulur.' },
+      { icon: 'renk', label: 'Yanık uç ve koyu leke' },
+      { icon: 'kuf', label: 'Yeşillenme ve çürük' },
+      { icon: 'kabuk', label: 'Kabuk kalıntısı' },
+      { icon: 'tas', label: 'Tarla taşı' },
+      { icon: 'cam', label: 'Cam ve plastik' },
+      { icon: 'metal', label: 'Metal' },
     ],
     cozum: {
       intro:

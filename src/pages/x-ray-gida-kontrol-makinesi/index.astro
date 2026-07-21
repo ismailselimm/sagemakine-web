@@ -22,7 +22,7 @@ const jsonLd = [
     name: 'X-Ray Gıda Kontrol Sistemi',
     brand: { '@type': 'Brand', name: SITE.name },
     description:
-      'Gıdada taş, cam, metal ve kemiği ürünün veya ambalajın içinde tespit eden X-Ray kontrol sistemleri. Dökme ürün ayıklama ve hat sonu paket kontrolü; NDK lisans desteği, BRC/IFS uyumu.',
+      'Gıdada taş, cam ve metali ürünün veya ambalajın içinde tespit eden X-Ray kontrol sistemleri. Dökme ürün ayıklama ve hat sonu paket kontrolü modelleriyle.',
     image: `${SITE.domain}/og/og-default.jpg`,
     url: `${SITE.domain}/x-ray-gida-kontrol-makinesi/`,
   },
@@ -32,8 +32,8 @@ const tespitEder = [
   { icon: 'metal', label: 'Metal', desc: 'Paslanmaz dahil — alüminyum folyo ambalajın içinde bile.' },
   { icon: 'cam', label: 'Cam', desc: 'Metal dedektörünün asla göremediği cam kırıkları.' },
   { icon: 'tas', label: 'Taş ve seramik', desc: 'Ürünle aynı renkte olsa da yoğunluğundan tanınır.' },
-  { icon: 'kabuk', label: 'Kemik ve çekirdek', desc: 'Kalsifiye kemik, vişne çekirdeği, sert kabuk parçası.' },
-  { icon: 'kuf', label: 'Yoğun plastik', desc: 'PVC, teflon gibi yüksek yoğunluklu plastikler.' },
+  { icon: 'kabuk', label: 'Çekirdek', desc: 'Vişne çekirdeği, sert çekirdek ve kabuk parçası.' },
+  { icon: 'kuf', label: 'Metal yoğunluğu içeren plastikler', desc: 'PVC, teflon gibi yüksek yoğunluklu plastikler.' },
   { icon: 'dogruluk', label: 'Eksik / kırık ürün', desc: 'Dolum seviyesi, eksik parça, boş-dolu ayrımı.' },
 ];
 
@@ -48,14 +48,13 @@ const tespitEtmez = [
 const seriler = [
   { seri: 'X-40', bant: '400 mm', tip: 'Paketli ürün', hassasiyet: 'Ø 0,8 – 1,2 mm SS*', kullanim: 'Paket, poşet, doypack son kontrol' },
   { seri: 'X-60', bant: '600 mm', tip: 'Paketli / dökme', hassasiyet: 'Ø 1,0 – 1,5 mm SS*', kullanim: 'Orta hat, karma ürün grupları' },
-  { seri: 'X-80B', bant: '800 mm', tip: 'Dökme ürün', hassasiyet: 'Ø 1,2 – 2,0 mm SS*', kullanim: 'Kuruyemiş, bakliyat hat içi ayıklama' },
-  { seri: 'X-100B', bant: '1000 mm', tip: 'Dökme ürün', hassasiyet: 'Ø 1,2 – 2,0 mm SS*', kullanim: 'Yüksek tonajlı IQF ve patates hatları' },
+  { seri: 'X-60B', bant: '600 mm', tip: 'Dökme ürün', hassasiyet: 'Ø 1,2 – 2,0 mm SS*', kullanim: 'Kuruyemiş, bakliyat, IQF hat içi ayıklama' },
 ];
 ---
 
 <BaseLayout
   title="X-Ray Gıda Kontrol Makinesi – Yabancı Madde Tespiti | SAGE Makine"
-  description="Gıdada taş, cam, metal ve kemiği ürünün içinde tespit eden X-Ray kontrol sistemleri. Dökme ve paketli ürün modelleri, NDK lisans desteği, BRC/IFS uyumu."
+  description="Gıdada taş, cam ve metali ürünün içinde tespit eden X-Ray kontrol sistemleri. Dökme ürün ayıklama ve hat sonu paketli ürün kontrol modelleri."
   path="/x-ray-gida-kontrol-makinesi/"
   breadcrumbs={breadcrumbs}
   jsonLd={jsonLd}
@@ -63,7 +62,7 @@ const seriler = [
   <PageHero
     eyebrow="Yabancı Madde Tespiti"
     title="X-Ray Gıda Kontrol Sistemleri"
-    lead="X-ışını, ürünün içinden geçerken yoğunluk farklarını görüntüler: taş, cam, metal ve kemik — ambalajın veya ürünün içinde dahi — tespit edilip otomatik olarak ayrılır. Metal dedektörün bittiği yerde X-Ray başlar."
+    lead="X-ışını, ürünün içinden geçerken yoğunluk farklarını görüntüler: taş, cam ve metal — ambalajın veya ürünün içinde dahi — tespit edilip otomatik olarak ayrılır. Metal dedektörün bittiği yerde X-Ray başlar."
     breadcrumbs={breadcrumbs}
   >
     <Fragment slot="actions">
@@ -94,7 +93,7 @@ const seriler = [
             <li><strong>Görüntüleme:</strong> Dedektör, üründen geçen ışının zayıflamasını ölçer.</li>
             <li><strong>Analiz:</strong> Yazılım, yoğunluk haritasında anormallikleri işaretler.</li>
             <li><strong>Ayırma:</strong> Reddetme sistemi (itici kol, hava jeti veya klape) kusurlu ürünü hat dışına alır.</li>
-            <li><strong>Kayıt:</strong> Her tespit, görüntüsüyle birlikte denetime hazır şekilde arşivlenir.</li>
+            <li><strong>Kayıt:</strong> Her tespit, görüntüsüyle birlikte otomatik arşivlenir.</li>
           </ol>
         </div>
         <div class="reveal" style="--reveal-delay:.1s">
@@ -192,39 +191,6 @@ const seriler = [
     </div>
   </section>
 
-  <!-- Uyum + NDK -->
-  <section class="section honest-band band-dark">
-    <div class="container">
-      <div class="uyum-grid">
-        <div class="reveal">
-          <p class="eyebrow">İhracat ve Denetim</p>
-          <h2>Denetçi Sorduğunda<br />Cevabınız Hazır Olsun</h2>
-          <p class="uyum-text">
-            BRCGS, IFS ve HACCP planınızda X-Ray, kritik kontrol noktanız (KKN) olur: otomatik
-            veri kaydı, tespit görüntüsü arşivi ve ret doğrulama sensörleriyle her parti
-            denetime hazırdır.
-          </p>
-        </div>
-        <div class="uyum-cards">
-          <div class="card-dark reveal" style="--reveal-delay:.08s">
-            <h3><Icon name="belge" size={20} /> NDK Lisans Desteği</h3>
-            <p>
-              Türkiye'de X-ışını cihazları Nükleer Düzenleme Kurumu lisansına tabidir. Başvuru,
-              ölçüm ve lisans sürecini sizin adınıza SAGE Makine yürütür.
-            </p>
-          </div>
-          <div class="card-dark reveal" style="--reveal-delay:.16s">
-            <h3><Icon name="garanti" size={20} /> Radyasyon Güvenliği</h3>
-            <p>
-              Kurşun perdeli tünel tasarımıyla radyasyon sızıntısı, lisans limiti olan 1 µSv/saat'in
-              çok altında kalır; operatör güvenliği güvence altındadır.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Seriler -->
   <section class="section" id="seriler">
     <div class="container">
@@ -279,9 +245,9 @@ const seriler = [
   </section>
 
   <CtaBand
-    title="Ürününüzle Tespit Testi Yapalım"
-    text="Numune ürününüz ve şüpheli yabancı maddelerinizle gerçek bir tespit testi kurgulayalım; sonucu görüntülerle raporlayalım."
-    topic="X-Ray gıda kontrol — numune testi"
+    title="Hattınız İçin X-Ray Teklifi Alın"
+    text="Ürününüzü, ambalaj tipinizi ve şüpheli yabancı maddelerinizi anlatın; hattınıza uygun X-Ray kurulumunu birlikte netleştirelim."
+    topic="X-Ray gıda kontrol teklifi"
   />
 </BaseLayout>
 

@@ -7,7 +7,6 @@ import Icon from '../components/Icon.astro';
 import Logo from '../components/Logo.astro';
 
 import hallImg from '../assets/photos/hero-color-sorter-hall.png';
-import oncesiSonrasi from '../assets/photos/sorting-oncesi-sonrasi.png';
 import '../styles/hakkimizda.css';
 
 const breadcrumbs = [{ name: 'Hakkımızda', path: '/hakkimizda/' }];
@@ -20,21 +19,16 @@ const adimlar = [
   },
   {
     no: '02',
-    baslik: 'Numune Testi',
-    text: 'Ürününüzü gerçek makinede ayıklarız; sonucu taşıma oranıyla birlikte önünüze koyarız.',
+    baslik: 'Makine Seçimi ve Teklif',
+    text: 'Kapasiteye ve bütçeye göre doğru modeli netleştirir, şartları yazılı teklifle sunarız.',
   },
   {
     no: '03',
-    baslik: 'Makine Seçimi ve Teklif',
-    text: 'Kapasiteye ve bütçeye göre doğru seriyi netleştirir, garanti ve servis şartlarını yazılı sunarız.',
-  },
-  {
-    no: '04',
     baslik: 'Kurulum ve Eğitim',
     text: 'Kurulumu yapar, operatörlerinizi Türkçe arayüzde eğitir, hattı üretime hazır teslim ederiz.',
   },
   {
-    no: '05',
+    no: '04',
     baslik: 'Servis ve Süreklilik',
     text: 'Yedek parça stoku, uzaktan destek ve periyodik bakımla makinenizin ömrü boyunca yanınızdayız.',
   },
@@ -89,7 +83,7 @@ const kriterler = [
         <blockquote class="kurucu-quote reveal" style="--reveal-delay:.08s">
           <p>
             "22 yıldır bu sektörün içindeyim: kuru üzümün çöpünü, incirin aflatoksinini, fındığın
-            kabuğunu müşterilerimden önce tanıdım. Yıllarca bu makinelerin satıldığını, kurulduğunu
+            kabuğunu Çinli tedarikçi rakiplerimden önce tanıdım. Yıllarca bu makinelerin satıldığını, kurulduğunu
             ve — en önemlisi — servissiz kalınca yaşananları gördüm. SAGE Makine'yi, bu tecrübeyi
             doğru makineyle ve gerçek servisle buluşturmak için kurduk."
           </p>
@@ -99,15 +93,6 @@ const kriterler = [
           </footer>
         </blockquote>
       </div>
-      <figure class="kurucu-figure reveal" style="--reveal-delay:.12s">
-        <Image
-          src={oncesiSonrasi}
-          alt="Ayıklama öncesi karışık ürün ve sonrası temiz iç fındık — işimizin özeti"
-          widths={[520, 800, 1100]}
-          sizes="(max-width: 900px) 100vw, 44vw"
-        />
-        <figcaption class="mono-cap">İŞİMİZİN ÖZETİ: ÖNCESİ VE SONRASI</figcaption>
-      </figure>
     </div>
   </section>
 

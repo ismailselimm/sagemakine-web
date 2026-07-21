@@ -7,10 +7,13 @@ import Icon from '../../components/Icon.astro';
 import ColorSorterDiagram from '../../components/diagrams/ColorSorterDiagram.astro';
 import { SITE, CONTACT, SECTORS } from '../../data/site';
 
-import ejektorImg from '../../assets/photos/tech-ejektor.png';
+import havaBlogu from '../../assets/photos/tech-hava-blogu.png';
 import kameraImg from '../../assets/photos/tech-kamera.png';
-import olukImg from '../../assets/photos/machine-oluk-sorter.png';
-import bantImg from '../../assets/photos/machine-bant-sorter.png';
+import valor5Img from '../../assets/photos/machine-valor-5.jpg';
+import valorMiniImg from '../../assets/photos/machine-valor-mini.png';
+import dmaxImg from '../../assets/photos/machine-dmax-bant.png';
+import idsLineImg from '../../assets/photos/line-ids-analysis.jpg';
+import panoramaImg from '../../assets/photos/line-anahtar-teslim-panorama.jpg';
 import '../../styles/pillar-renk.css';
 
 const breadcrumbs = [{ name: 'Renk Ayırma Makineleri', path: '/renk-ayirma-makinesi/' }];
@@ -22,7 +25,7 @@ const jsonLd = [
     name: 'Renk Ayırma Makinesi (Color Sorter)',
     brand: { '@type': 'Brand', name: SITE.name },
     description:
-      'Kuru meyve, kuruyemiş, bakliyat ve hububat için oluk ve bant tipi renk ayırma makineleri. CCD ve kızılötesi kameralı, hava ejektörlü optik ayıklama sistemleri; kurulum, eğitim ve Türkiye genelinde servisle.',
+      'Kuru meyve, kuruyemiş, bakliyat ve hububat için oluk ve bant tipi renk ayırma makineleri. Yüksek çözünürlüklü RGB kameralı, hava ejektörlü optik ayıklama sistemleri; kurulum, eğitim ve Türkiye genelinde servisle.',
     image: `${SITE.domain}/og/og-default.jpg`,
     url: `${SITE.domain}/renk-ayirma-makinesi/`,
   },
@@ -31,13 +34,13 @@ const jsonLd = [
 const teknolojiler = [
   {
     icon: 'kamera',
-    title: 'Tam Renkli CCD Kameralar',
-    text: 'Yüksek çözünürlüklü RGB kameralar en küçük renk sapmasını, leke ve beneği tanır.',
+    title: 'Yüksek Çözünürlüklü RGB Kameralar',
+    text: 'En küçük renk sapmasını, leke ve beneği LED aydınlatma altında tanır.',
   },
   {
-    icon: 'xray',
-    title: 'Kızılötesi / NIR Görüş',
-    text: 'InGaAs kameralar, renkten bağımsız olarak kabuğu, camı ve taşı malzeme yapısından ayırt eder.',
+    icon: 'ejektor',
+    title: 'Hassas Hava Ejektörleri',
+    text: 'Kusurlu taneyi nokta atışı hava darbesiyle hattan çıkarır; sağlam ürün akışına dokunmaz.',
   },
   {
     icon: 'dogruluk',
@@ -46,7 +49,7 @@ const teknolojiler = [
   },
   {
     icon: 'yazilim',
-    title: 'Yapay Zekâ Sınıflandırma',
+    title: 'Derin Öğrenme (Deep Learning) Sınıflandırma',
     text: 'Derin öğrenme modelleri, klasik eşiklerin kaçırdığı karmaşık kusur desenlerini öğrenir.',
   },
 ];
@@ -62,18 +65,31 @@ const kusurlar = [
   { icon: 'dogruluk', label: 'Aflatoksin şüpheli koyu tane' },
 ];
 
-const seriler = [
-  { seri: 'S-1', oluk: '1', kanal: '64', kapasite: '0,3 – 1,5 t/saat', kullanim: 'Numune, küçük işletme, ikinci geçiş' },
-  { seri: 'S-3', oluk: '3', kanal: '192', kapasite: '1 – 5 t/saat', kullanim: 'Orta ölçekli kuruyemiş ve kuru meyve hatları' },
-  { seri: 'S-5', oluk: '5', kanal: '320', kapasite: '3 – 10 t/saat', kullanim: 'Bakliyat ve hububat işleme tesisleri' },
-  { seri: 'S-7', oluk: '7', kanal: '448', kapasite: '5 – 16 t/saat', kullanim: 'Yüksek tonajlı bakliyat / tohum hatları' },
-  { seri: 'S-10', oluk: '10', kanal: '640', kapasite: '8 – 25 t/saat', kullanim: 'Entegre tesis, çift geçişli kurulumlar' },
+const modeller = [
+  {
+    img: valor5Img,
+    tag: 'OLUK TİPİ',
+    ad: 'VALOR 5',
+    text: 'Bakliyat, hububat ve çekirdekli ürünler için oluk tipi renk ayırıcımız. Yerçekimiyle akan sert taneli ürünlerde yüksek tonaj.',
+  },
+  {
+    img: valorMiniImg,
+    tag: 'KOMPAKT',
+    ad: 'Valor Mini',
+    text: 'Küçük işletmeler ve düşük kapasiteli hatlar için kompakt gövde; aynı kamera ve ejektör teknolojisi.',
+  },
+  {
+    img: dmaxImg,
+    tag: 'BANT TİPİ',
+    ad: 'DMAX',
+    text: 'Kuru meyve, iç ceviz ve IQF gibi kırılgan ürünler için bant tipi renk ayırıcımız. Tek katman tarama, nazik akış.',
+  },
 ];
 ---
 
 <BaseLayout
   title="Renk Ayırma Makinesi (Color Sorter) Satış ve Servis | SAGE Makine"
-  description="Oluk ve bant tipi renk ayırma makineleri: CCD ve kızılötesi kameralarla taş, cam, kabuk ve kusurlu taneleri yüksek doğrulukla ayıklayın. Kurulum, eğitim ve yedek parça Türkiye'de."
+  description="Oluk ve bant tipi renk ayırma makineleri: yüksek çözünürlüklü RGB kameralarla taş, cam, kabuk ve kusurlu taneleri ayıklayın. Kurulum, eğitim ve yedek parça Türkiye'de."
   path="/renk-ayirma-makinesi/"
   breadcrumbs={breadcrumbs}
   jsonLd={jsonLd}
@@ -86,16 +102,16 @@ const seriler = [
   >
     <Fragment slot="actions">
       <a href={CONTACT.whatsappQuote('Renk ayırma makineleri')} class="btn btn--primary" target="_blank" rel="noopener">Teklif Alın</a>
-      <a href="#seriler" class="btn btn--outline pillar-ghost">Serileri İnceleyin</a>
+      <a href="#modeller" class="btn btn--outline pillar-ghost">Modelleri İnceleyin</a>
     </Fragment>
     <Fragment slot="visual">
       <Image
-        src={ejektorImg}
-        alt="Hava ejektör nozulları düşen ürün perdesindeki kusurlu taneyi ayırırken"
+        src={havaBlogu}
+        alt="SAGE renk ayırma makinesinin hava ejektör bloğu — hassas hava tabancaları yakın çekim"
         widths={[480, 760, 1100]}
         sizes="(max-width: 900px) 100vw, 42vw"
         loading="eager"
-        quality={65}
+        quality={70}
       />
     </Fragment>
   </PageHero>
@@ -110,7 +126,7 @@ const seriler = [
           <ol class="howto-steps">
             <li><strong>Besleme:</strong> Ürün, huniden titreşimli besleyiciye düzenli akışla verilir.</li>
             <li><strong>Akış:</strong> Taneler oluktan (veya bantta tek katman) ince bir perde halinde geçer.</li>
-            <li><strong>Tarama:</strong> CCD ve kızılötesi kameralar, LED aydınlatma altında her taneyi görüntüler.</li>
+            <li><strong>Tarama:</strong> Yüksek çözünürlüklü RGB kameralar, LED aydınlatma altında her taneyi görüntüler.</li>
             <li><strong>Karar:</strong> İşlemci, milisaniyeler içinde sağlam/kusurlu kararını verir.</li>
             <li><strong>Ayırma:</strong> Hava ejektörü kusurlu taneyi nokta atışıyla ıskartaya üfler.</li>
           </ol>
@@ -159,12 +175,12 @@ const seriler = [
       <h2 class="reveal">Oluk Tipi mi, Bant Tipi mi?</h2>
       <p class="sec-lead reveal">
         Serbest akan sert taneler olukta; kırılgan, yapışkan veya iri ürünler bantta ayıklanır.
-        Emin değilseniz numune testi en net cevaptır.
+        Emin değilseniz ürününüzü anlatın, birlikte netleştirelim.
       </p>
       <div class="tip-grid">
         <a href="/renk-ayirma-makinesi/oluk-tipi/" class="tip-card card reveal">
           <div class="tip-img">
-            <Image src={olukImg} alt="Oluk tipi renk ayırma makinesi" widths={[480, 760]} sizes="(max-width:900px) 100vw, 40vw" />
+            <Image src={valor5Img} alt="VALOR 5 — oluk tipi renk ayırma makinemiz" widths={[480, 760]} sizes="(max-width:900px) 100vw, 40vw" />
           </div>
           <div class="tip-body">
             <h3>Oluk (Kanal) Tipi</h3>
@@ -179,7 +195,7 @@ const seriler = [
         </a>
         <a href="/renk-ayirma-makinesi/bant-tipi/" class="tip-card card reveal" style="--reveal-delay:.1s">
           <div class="tip-img">
-            <Image src={bantImg} alt="Bant tipi renk ayırma makinesi" widths={[480, 760]} sizes="(max-width:900px) 100vw, 40vw" />
+            <Image src={dmaxImg} alt="DMAX — bant tipi renk ayırma makinemiz" widths={[480, 760]} sizes="(max-width:900px) 100vw, 40vw" />
           </div>
           <div class="tip-body">
             <h3>Bant Tipi</h3>
@@ -218,45 +234,68 @@ const seriler = [
     </div>
   </section>
 
-  <!-- Seriler -->
-  <section class="section" id="seriler">
-    <div class="container">
-      <p class="eyebrow reveal">Kapasite Seçenekleri</p>
-      <h2 class="reveal">SAGE S-Serisi — Oluk Sayısına Göre</h2>
+  <!-- Modeller -->
+  <section class="section" id="modeller">
+    <div class="container container--wide">
+      <p class="eyebrow reveal">Modellerimiz</p>
+      <h2 class="reveal">Ürününüze Göre Doğru Model</h2>
       <p class="sec-lead reveal">
-        Tipik değerler aşağıdadır; kesin kapasite ürününüze, kusur oranına ve hedef kaliteye göre
-        numune testiyle netleşir.
+        Konfigürasyon ve kapasite ürününüze, kusur oranınıza ve hedef kalitenize göre belirlenir —
+        teklifle birlikte netleştiririz.
       </p>
-      <div class="table-scroll reveal">
-        <table class="spec-table">
-          <thead>
-            <tr>
-              <th>Seri</th>
-              <th>Oluk (Şüt)</th>
-              <th>Kanal</th>
-              <th>Kapasite*</th>
-              <th>Tipik Kullanım</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              seriler.map((s) => (
-                <tr>
-                  <td><strong>{s.seri}</strong></td>
-                  <td>{s.oluk}</td>
-                  <td>{s.kanal}</td>
-                  <td>{s.kapasite}</td>
-                  <td>{s.kullanim}</td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
+      <div class="model-grid">
+        {
+          modeller.map((m, i) => (
+            <div class="model-card card reveal" style={`--reveal-delay:${i * 0.08}s`}>
+              <div class="model-img">
+                <Image
+                  src={m.img}
+                  alt={`${m.ad} renk ayırma makinesi`}
+                  widths={[480, 760, 1000]}
+                  sizes="(max-width: 900px) 100vw, 30vw"
+                />
+              </div>
+              <div class="model-body">
+                <p class="mono-tag">{m.tag}</p>
+                <h3>{m.ad}</h3>
+                <p>{m.text}</p>
+              </div>
+            </div>
+          ))
+        }
       </div>
-      <p class="table-not reveal">
-        * Kapasite ürüne göre değişir. Tüm serilerde: dokunmatik Türkçe arayüz, paslanmaz temas
-        yüzeyleri, uzaktan destek bağlantısı; CE belgeli modeller.
-      </p>
+    </div>
+  </section>
+
+  <!-- Anahtar teslim hat -->
+  <section class="section band-sunken">
+    <div class="container container--wide">
+      <p class="eyebrow reveal">Hat Çözümleri</p>
+      <div class="sec-head reveal">
+        <h2>Tek Makineden Komple Hatta</h2>
+        <p>
+          Elevatör, besleme, ayırma ve kontrol adımlarını tek proje olarak planlıyoruz; makineniz
+          hatta yalnız kalmaz.
+        </p>
+      </div>
+      <figure class="hat-panorama reveal">
+        <Image
+          src={panoramaImg}
+          alt="Anahtar teslim ayıklama hattı: elevatörler, besleme hunileri, renk ayırıcı ve paketleme hattı bir arada"
+          widths={[768, 1200, 1800, 2400]}
+          sizes="100vw"
+        />
+        <figcaption class="mono-cap">ANAHTAR TESLİM HAT KURULUMU — ÖRNEK YERLEŞİM</figcaption>
+      </figure>
+      <figure class="hat-figure reveal" style="--reveal-delay:.1s">
+        <Image
+          src={idsLineImg}
+          alt="Besleme, ayırma ve analiz konveyöründen oluşan ayıklama hattı"
+          widths={[700, 1100, 1500]}
+          sizes="(max-width: 900px) 100vw, 74rem"
+        />
+        <figcaption class="mono-cap">BESLEME + AYIRMA + KONTROL — HAT ÜZERİNDE ANALİZ</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -302,9 +341,9 @@ const seriler = [
   </section>
 
   <CtaBand
-    title="Numune Testi Talep Edin"
-    text="Ürününüzü gönderin; ayıklayalım, taşıma oranıyla birlikte sonucu önünüze koyalım. Karar makineyi gördükten sonra."
-    topic="Renk ayırma makinesi — numune testi"
+    title="Ürününüz İçin Teklif Alın"
+    text="Ürününüzü, kapasitenizi ve kusur profilinizi anlatın; doğru modeli ve konfigürasyonu birlikte netleştirelim."
+    topic="Renk ayırma makinesi teklifi"
   />
 </BaseLayout>
 
