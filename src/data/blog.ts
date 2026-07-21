@@ -38,7 +38,7 @@ export const YAZILAR: BlogYazi[] = [
     slug: 'renk-ayirma-makinesi-fiyatlari',
     kategori: 'Satın Alma Rehberi',
     baslik: 'Renk Ayırma Makinesi Fiyatları 2026: Neye Göre Değişir?',
-    ozet: 'Fiyatı belirleyen 6 faktör, toplam sahip olma maliyeti ve doğru teklif isteme rehberi.',
+    ozet: 'Fiyatı belirleyen 6 faktör ve doğru teklif isteme rehberi.',
     dk: 6,
     cover: coverFiyatlar,
     coverAlt: 'Çelik masa üzerinde makine teklif dosyası ve hesap makinesi',

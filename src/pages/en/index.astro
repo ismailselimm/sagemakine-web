@@ -10,9 +10,9 @@ import { SECTOR_IMAGES } from '../../data/images';
 import HeroBelt from '../../components/HeroBelt.astro';
 import '../../styles/home.css';
 
-import heroImg from '../../assets/photos/hero-color-sorter-hall.png';
+import heroImg from '../../assets/photos/hero-dmax-banner.png';
 import xrayScan from '../../assets/photos/tech-xray-goruntu.png';
-import olukSorter from '../../assets/photos/machine-oluk-sorter.png';
+import olukSorter from '../../assets/photos/machine-valor-5.jpg';
 import xrayPaketli from '../../assets/photos/machine-xray-paketli.png';
 import teknisyen from '../../assets/photos/servis-teknisyen.png';
 
@@ -129,11 +129,11 @@ const nedenler = [
       <Image
         src={heroImg}
         alt=""
-        widths={[768, 1200, 1600]}
+        widths={[900, 1400, 2000, 2600]}
         sizes="100vw"
         loading="eager"
         fetchpriority="high"
-        quality={62}
+        quality={78}
       />
       <div class="hero-scrim"></div>
     </div>
@@ -268,7 +268,7 @@ const nedenler = [
           <div class="machine-img">
             <Image
               src={olukSorter}
-              alt="Chute-type color sorter"
+              alt="VALOR 5 — our chute-type color sorter"
               widths={[560, 840, 1200]}
               sizes="(max-width: 900px) 100vw, 46vw"
             />

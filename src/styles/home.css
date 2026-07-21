@@ -7,6 +7,8 @@
     display: flex;
     align-items: center;
     overflow: hidden;
+    /* stüdyo çekiminin fonu saf siyah — contain'de kenarlar dikişsiz birleşir */
+    background: #000;
   }
 
   .hero-bg {
@@ -14,19 +16,47 @@
     inset: 0;
   }
 
+  /* banner 2400×1200: makine sağda, solu saf siyah — kırpma metni hiç örtmez */
   .hero-bg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 72% center;
+    object-position: right center;
   }
 
   .hero-scrim {
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(90deg, rgb(10 18 32 / 0.93) 0%, rgb(10 18 32 / 0.78) 38%, rgb(10 18 32 / 0.25) 75%, rgb(10 18 32 / 0.45) 100%),
-      linear-gradient(0deg, rgb(10 18 32 / 0.85) 0%, transparent 30%);
+      linear-gradient(90deg, rgb(4 8 14 / 0.96) 0%, rgb(4 8 14 / 0.84) 32%, rgb(4 8 14 / 0.18) 66%, rgb(4 8 14 / 0.06) 100%),
+      linear-gradient(0deg, rgb(4 8 14 / 0.8) 0%, transparent 28%);
+  }
+
+  /* tablet: makine ile başlık kaçınılmaz olarak üst üste biner — perdeyi koyulaştır */
+  @media (min-width: 901px) and (max-width: 1200px) {
+    .hero-scrim {
+      background:
+        linear-gradient(90deg, rgb(4 8 14 / 0.96) 0%, rgb(4 8 14 / 0.88) 40%, rgb(4 8 14 / 0.6) 72%, rgb(4 8 14 / 0.45) 100%),
+        linear-gradient(0deg, rgb(4 8 14 / 0.8) 0%, transparent 28%);
+    }
+  }
+
+  /* dar ekranda makine küçülmesin: ortadan kırparak doldur */
+  @media (max-width: 900px) {
+    .hero-bg {
+      padding: 0;
+    }
+
+    .hero-bg img {
+      object-fit: cover;
+      object-position: 58% center;
+    }
+
+    .hero-scrim {
+      background:
+        linear-gradient(90deg, rgb(4 8 14 / 0.9) 0%, rgb(4 8 14 / 0.72) 55%, rgb(4 8 14 / 0.55) 100%),
+        linear-gradient(0deg, rgb(4 8 14 / 0.85) 0%, transparent 34%);
+    }
   }
 
   .hero-in {

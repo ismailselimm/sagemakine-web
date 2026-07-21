@@ -96,8 +96,6 @@ export const SEKTORLER: Sektor[] = [
       'Çikolata sanayiine giden iç fındıkta kabuk parçası toleransı sıfırdır. Fındık, badem ve cevizde renk ayırma + X-Ray ile hem kabuğu hem taşı hem de küflü içi hattan çıkarın.',
     image: 'sector-kuruyemis-findik',
     imageAlt: 'Dökülen iç fındık taneleri',
-    extraImage: 'sorting-oncesi-sonrasi',
-    extraImageAlt: 'Ayıklama öncesi karışık ürün ve ayıklama sonrası temiz iç fındık tepsileri',
     factsIntro:
       'Türkiye dünya fındık üretiminin yaklaşık üçte ikisini karşılar — ve dünyanın en titiz alıcılarına satar. Çikolata ve şekerleme sanayiinin şartnameleri, ayıklama hattınızın kalitesi kadar iyidir.',
     facts: [

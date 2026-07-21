@@ -88,8 +88,6 @@ export const SEKTORLER_EN: Sektor[] = [
     heroLead: "For hazelnut kernels headed to the chocolate industry, the tolerance for shell fragments is zero. In hazelnuts, almonds, and walnuts, remove shell, stones, and moldy kernels from the line with color sorting + X-ray.",
     image: "sector-kuruyemis-findik",
     imageAlt: "Hazelnut kernels being poured",
-    extraImage: "sorting-oncesi-sonrasi",
-    extraImageAlt: "Trays of mixed product before sorting and clean hazelnut kernels after sorting",
     factsIntro: "Turkey supplies roughly two-thirds of world hazelnut production — and sells to the world's most exacting buyers. Your compliance with chocolate and confectionery specifications is only as good as your sorting line.",
     facts: [
       {

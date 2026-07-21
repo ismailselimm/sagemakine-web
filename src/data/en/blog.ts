@@ -18,7 +18,7 @@ const CEVIRILER: Record<string, Pick<BlogYazi, 'kategori' | 'baslik' | 'ozet' | 
   'color-sorter-prices': {
     kategori: 'Buying Guide',
     baslik: 'Color Sorter Prices in 2026: What Drives the Cost?',
-    ozet: 'The 6 factors that determine the price, total cost of ownership, and a guide to requesting a quotation the right way.',
+    ozet: 'The 6 factors that determine the price and a guide to requesting a quotation the right way.',
     coverAlt: 'Machine quotation file and calculator on a steel table',
   },
   'what-is-carryover': {
