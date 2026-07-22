@@ -370,7 +370,8 @@ html.js .reveal.is-visible {
 .hizmet-icon,
 .defect-icon,
 .av-icon,
-.kanal-icon {
+.kanal-icon,
+.model-feat-icon {
   display: inline-flex;
   padding: 0.65rem;
   border-radius: var(--radius-md);
@@ -387,7 +388,8 @@ html.js .reveal.is-visible {
 }
 
 .av-icon,
-.kanal-icon {
+.kanal-icon,
+.model-feat-icon {
   flex-shrink: 0;
 }
 

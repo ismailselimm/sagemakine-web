@@ -25,7 +25,7 @@ export const MODELLER_EN: MakineModeli[] = [
       { icon: 'bant', baslik: 'Gentle Belt Handling', text: 'Single-layer flow scans fragile dried fruit and frozen product without crushing.' },
       { icon: 'kapasite', baslik: 'High-Speed Conveying', text: 'A high belt speed keeps sorting continuous without cutting tonnage.' },
     ],
-    video: { src: '/videos/dmax-tanitim.mp4', poster: '/videos/dmax-poster.jpg', tur: 'promo' },
+    video: { src: '/videos/dmax-tanitim.mp4', poster: '/videos/dmax-poster.webp', tur: 'promo' },
     sektorler: [
       { label: 'Dried Fruit', href: '/en/industries/dried-fruit/' },
       { label: 'Frozen Food (IQF)', href: '/en/industries/frozen-food-iqf/' },
@@ -53,7 +53,7 @@ export const MODELLER_EN: MakineModeli[] = [
       { icon: 'dogruluk', baslik: 'Defect + Foreign Material', text: 'Distinguishes mold, insect damage, shell fragments and foreign material.' },
       { icon: 'belge', baslik: 'Production Tracking & Reporting', text: 'Good-kernel rate and defect breakdown are reported; batch quality is recorded.' },
     ],
-    video: { src: '/videos/ids-tanitim.mp4', poster: '/videos/ids-poster.jpg', tur: 'promo' },
+    video: { src: '/videos/ids-tanitim.mp4', poster: '/videos/ids-poster.webp', tur: 'promo' },
     sektorler: [
       { label: 'Nuts', href: '/en/industries/nuts/' },
       { label: 'Pistachio', href: '/en/industries/pistachio/' },
@@ -93,7 +93,7 @@ export const MODELLER_EN: MakineModeli[] = [
       { label: 'Power Supply', value: '220 V AC · 50 Hz' },
     ],
     specNot: 'Figures are the manufacturer data for VALOR 5; capacity is confirmed against your product and application.',
-    video: { src: '/videos/valor5-demo.mp4', poster: '/videos/valor5-poster.jpg', tur: 'demo', dikey: true },
+    video: { src: '/videos/valor5-demo.mp4', poster: '/videos/valor5-poster.webp', tur: 'demo', dikey: true },
     sektorler: [
       { label: 'Nuts', href: '/en/industries/nuts/' },
       { label: 'Pistachio', href: '/en/industries/pistachio/' },

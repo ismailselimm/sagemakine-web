@@ -13,6 +13,10 @@ export const asLocale = (currentLocale: string | undefined): Locale =>
 export const sectorPath = (locale: Locale, slug: string): string =>
   locale === 'en' ? `/en/industries/${slug}/` : `/sektorler/${slug}/`;
 
+/** Model detay yolu — makineler/[model] dinamik rotası bu kalıptan türer */
+export const machinePath = (locale: Locale, slug: string): string =>
+  locale === 'en' ? `/en/machines/${slug}/` : `/makineler/${slug}/`;
+
 /** Sayfa çiftleri (blog yazıları hariç — onlar BLOG_SLUGS'tan türer) */
 export const ROUTES: Record<string, { tr: string; en: string }> = {
   home: { tr: '/', en: '/en/' },

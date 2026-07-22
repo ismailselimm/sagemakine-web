@@ -51,7 +51,7 @@ const jsonLd = [
   <PageHero eyebrow={model.eyebrow} title={model.ad} lead={model.lead} breadcrumbs={breadcrumbs}>
     <Fragment slot="actions">
       <a href={waQuote(locale, model.waTopic)} class="btn btn--primary" target="_blank" rel="noopener">{ui.quoteBtn}</a>
-      <a href="#video" class="btn btn--outline model-ghost">{ui.modelVideoBtn}</a>
+      <a href="#video" class="btn btn--outline pillar-ghost">{ui.modelVideoBtn}</a>
     </Fragment>
     <Fragment slot="visual">
       <Image
@@ -186,15 +186,6 @@ const jsonLd = [
   .model-feat p {
     font-size: var(--text-sm);
     color: var(--ink-faint);
-  }
-
-  .model-feat-icon {
-    display: inline-flex;
-    padding: 0.7rem;
-    background: var(--green-100);
-    color: var(--accent-ink);
-    border-radius: var(--radius-md);
-    flex-shrink: 0;
   }
 
   .model-video-wrap {

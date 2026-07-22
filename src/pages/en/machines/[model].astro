@@ -1,0 +1,16 @@
+---
+import ModelPage from '../../../components/ModelPage.astro';
+import { MODELLER_EN } from '../../../data/en/models';
+import { machinePath } from '../../../i18n/routes';
+
+export function getStaticPaths() {
+  return MODELLER_EN.map((model) => ({
+    params: { model: model.slug },
+    props: { model, path: machinePath('en', model.slug) },
+  }));
+}
+
+const { model, path } = Astro.props;
+---
+
+<ModelPage model={model} path={path} />

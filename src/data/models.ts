@@ -64,7 +64,7 @@ export const MODELLER: MakineModeli[] = [
       { icon: 'bant', baslik: 'Nazik Bant Taşıma', text: 'Tek katman akışla kırılgan kuru meyve ve donmuş ürünler ezilmeden taranır.' },
       { icon: 'kapasite', baslik: 'Yüksek Hızlı Konveyör', text: 'Yüksek bant hızıyla tonajı düşürmeden sürekli ayıklama.' },
     ],
-    video: { src: '/videos/dmax-tanitim.mp4', poster: '/videos/dmax-poster.jpg', tur: 'promo' },
+    video: { src: '/videos/dmax-tanitim.mp4', poster: '/videos/dmax-poster.webp', tur: 'promo' },
     sektorler: [
       { label: 'Kuru Meyve', href: '/sektorler/kuru-meyve/' },
       { label: 'Dondurulmuş Gıda (IQF)', href: '/sektorler/dondurulmus-gida-iqf/' },
@@ -92,7 +92,7 @@ export const MODELLER: MakineModeli[] = [
       { icon: 'dogruluk', baslik: 'Kusur + Yabancı Madde', text: 'Küf, böcek hasarı, kabuk parçası ve yabancı maddeyi ayırt eder.' },
       { icon: 'belge', baslik: 'Üretim Takibi ve Raporlama', text: 'Sağlam tane oranı ve kusur dağılımı raporlanır; parti kalitesi kayıt altına alınır.' },
     ],
-    video: { src: '/videos/ids-tanitim.mp4', poster: '/videos/ids-poster.jpg', tur: 'promo' },
+    video: { src: '/videos/ids-tanitim.mp4', poster: '/videos/ids-poster.webp', tur: 'promo' },
     sektorler: [
       { label: 'Kuruyemiş', href: '/sektorler/kuruyemis/' },
       { label: 'Antep Fıstığı', href: '/sektorler/antep-fistigi/' },
@@ -132,7 +132,7 @@ export const MODELLER: MakineModeli[] = [
       { label: 'Besleme', value: '220 V AC · 50 Hz' },
     ],
     specNot: 'Değerler VALOR 5 için üretici verisidir; kapasite ürününüze ve uygulamanıza göre netleşir.',
-    video: { src: '/videos/valor5-demo.mp4', poster: '/videos/valor5-poster.jpg', tur: 'demo', dikey: true },
+    video: { src: '/videos/valor5-demo.mp4', poster: '/videos/valor5-poster.webp', tur: 'demo', dikey: true },
     sektorler: [
       { label: 'Kuruyemiş', href: '/sektorler/kuruyemis/' },
       { label: 'Antep Fıstığı', href: '/sektorler/antep-fistigi/' },

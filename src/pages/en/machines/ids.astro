@@ -1,9 +1,0 @@
----
-import ModelPage from '../../../components/ModelPage.astro';
-import { MODELLER_EN } from '../../../data/en/models';
-import { ROUTES } from '../../../i18n/routes';
-
-const model = MODELLER_EN.find((m) => m.slug === 'ids')!;
----
-
-<ModelPage model={model} path={ROUTES.ids.en} />
