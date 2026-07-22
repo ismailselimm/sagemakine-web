@@ -1,0 +1,148 @@
+---
+/**
+ * Poster'lı, lazy yüklenen video gömme.
+ * - tur="promo": posterli, tıkla-oynat (ilk kare poster, kullanıcı oynatır)
+ * - tur="demo": sessiz otomatik döngü (dikey telefon çekimi), görünürlükte başlar
+ * Video dosyaları public/videos/ altında; script astro:page-load ile re-init olur.
+ */
+interface Props {
+  src: string;
+  poster: string;
+  tur: 'demo' | 'promo';
+  dikey?: boolean;
+  label: string;
+}
+const { src, poster, tur, dikey = false, label } = Astro.props;
+---
+
+<figure class:list={['video-embed', { 'video-embed--dikey': dikey, 'video-embed--demo': tur === 'demo' }]}>
+  <video
+    class="video-embed__el"
+    poster={poster}
+    preload="none"
+    playsinline
+    muted={tur === 'demo'}
+    loop={tur === 'demo'}
+    controls={tur === 'promo'}
+    aria-label={label}
+    data-tur={tur}
+    data-src={src}
+  >
+  </video>
+  {
+    tur === 'promo' && (
+      <button type="button" class="video-embed__play" aria-label={label}>
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </button>
+    )
+  }
+</figure>
+
+<script>
+  function initVideoEmbeds() {
+    document.querySelectorAll<HTMLElement>('.video-embed').forEach((fig) => {
+      if (fig.dataset.init) return;
+      fig.dataset.init = '1';
+      const video = fig.querySelector<HTMLVideoElement>('.video-embed__el');
+      if (!video) return;
+      const src = video.dataset.src!;
+
+      const attachSource = () => {
+        if (video.querySelector('source')) return;
+        const s = document.createElement('source');
+        s.src = src;
+        s.type = 'video/mp4';
+        video.appendChild(s);
+        video.load();
+      };
+
+      if (video.dataset.tur === 'demo') {
+        // görünürlükte kaynağı bağla + oynat, ekrandan çıkınca durdur (pil/CPU)
+        new IntersectionObserver(
+          ([e]) => {
+            if (e.isIntersecting) {
+              attachSource();
+              video.play().catch(() => {});
+            } else {
+              video.pause();
+            }
+          },
+          { threshold: 0.25 },
+        ).observe(fig);
+      } else {
+        // promo: play düğmesi kaynağı bağlar ve oynatır
+        const btn = fig.querySelector<HTMLButtonElement>('.video-embed__play');
+        btn?.addEventListener('click', () => {
+          attachSource();
+          fig.classList.add('video-embed--playing');
+          video.play().catch(() => {});
+        });
+      }
+    });
+  }
+  document.addEventListener('astro:page-load', initVideoEmbeds);
+</script>
+
+<style>
+  .video-embed {
+    position: relative;
+    margin: 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: #000;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .video-embed__el {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
+  }
+
+  .video-embed--dikey .video-embed__el {
+    aspect-ratio: 9 / 16;
+    object-fit: contain;
+  }
+
+  .video-embed__play {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: rgb(10 18 32 / 0.32);
+    color: var(--white);
+    cursor: pointer;
+    transition: background-color var(--dur) var(--ease-out);
+  }
+
+  .video-embed__play::before {
+    content: '';
+    position: absolute;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    background: var(--green-500);
+    box-shadow: 0 8px 30px rgb(0 0 0 / 0.4);
+  }
+
+  .video-embed__play svg {
+    position: relative;
+    color: var(--navy-900);
+    translate: 2px 0;
+  }
+
+  .video-embed__play:hover {
+    background: rgb(10 18 32 / 0.16);
+  }
+
+  .video-embed--playing .video-embed__play {
+    display: none;
+  }
+</style>

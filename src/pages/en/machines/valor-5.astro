@@ -1,0 +1,9 @@
+---
+import ModelPage from '../../../components/ModelPage.astro';
+import { MODELLER_EN } from '../../../data/en/models';
+import { ROUTES } from '../../../i18n/routes';
+
+const model = MODELLER_EN.find((m) => m.slug === 'valor-5')!;
+---
+
+<ModelPage model={model} path={ROUTES.valor5.en} />

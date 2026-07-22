@@ -67,10 +67,10 @@ export const SEKTORLER: Sektor[] = [
         'Kuru meyvede doğru kurulum genellikle iki aşamalıdır: hat girişinde önce bant tipi renk ayırma ile çöp-sap ve renk kusurlarını, sonrasında dökme X-Ray ile yüksek yoğunluklu yabancı maddeleri ayıklarsınız.',
       adimlar: [
         {
-          baslik: 'Bant Tipi Renk Ayırma',
+          baslik: 'DMAX — Bant Tipi Renk Ayırma',
           text: 'Yapışkan ve hassas kuru meyve taneleri bant üzerinde tek katman halinde taranır; çöp-sap ve renk kusurları hava jetiyle ayrılır.',
-          href: '/renk-ayirma-makinesi/bant-tipi/',
-          linkLabel: 'Bant tipi makineleri inceleyin',
+          href: '/makineler/dmax/',
+          linkLabel: "DMAX'i inceleyin",
         },
         {
           baslik: 'Dökme Ürün X-Ray',
@@ -113,7 +113,7 @@ export const SEKTORLER: Sektor[] = [
     ],
     cozum: {
       intro:
-        'Kuruyemişte en güvenli kurulum çift katmanlıdır: kırma sonrası bant/oluk tipi renk ayırma ile kabuk ve renk kusurları, paketleme öncesi X-Ray ile taş-cam-metal kontrolü.',
+        'Kuruyemişte en güvenli kurulum çift katmanlıdır: kırma sonrası renk ayırma ile kabuk ve renk kusurları, paketleme öncesi X-Ray ile taş-cam-metal kontrolü.',
       adimlar: [
         {
           baslik: 'Renk Ayırma',
@@ -187,7 +187,7 @@ export const SEKTORLER: Sektor[] = [
     title: 'Bakliyat',
     metaTitle: 'Bakliyat Renk Ayırma Makinesi – Mercimek, Nohut, Fasulye | SAGE Makine',
     metaDescription:
-      'Elek ve gravite masasının kaçırdığı taşı renk ayırma ve X-Ray görür. Bakliyat işleme tesisleri için yüksek kapasiteli oluk tipi makineler.',
+      'Elek ve gravite masasının kaçırdığı taşı renk ayırma ve X-Ray görür. Bakliyat işleme tesisleri için yüksek kapasiteli renk ayırma çözümleri.',
     eyebrow: 'Sektör · Bakliyat',
     heroTitle: 'Bakliyat İşleyicileri İçin Ayıklama Çözümleri',
     heroLead:
@@ -197,7 +197,7 @@ export const SEKTORLER: Sektor[] = [
     factsIntro:
       'Türkiye, kırmızı mercimekte dünyanın önemli işleme ve re-eksport merkezlerinden biridir. Yüksek tonajda çalışan tesislerde ayıklama hattının hızı, tesisin kapasitesini belirler.',
     facts: [
-      { stat: 't/saat', label: 'Bakliyatta kapasite esastır — oluk tipi makineler yüksek tonaj için tasarlanır' },
+      { stat: 't/saat', label: 'Bakliyatta kapasite esastır — renk ayırma makineleri yüksek tonaj için tasarlanır' },
       { stat: 'Aynı boy', label: 'Eleğin geçirdiği, gravitenin şaşırdığı taşı kamera ve X-Ray tanır' },
       { stat: '2. geçiş', label: 'Iskartanın yeniden ayıklanmasıyla sağlam ürün kaybı minimuma iner' },
     ],
@@ -211,13 +211,13 @@ export const SEKTORLER: Sektor[] = [
     ],
     cozum: {
       intro:
-        'Bakliyatta standart kurulum: yüksek kapasiteli oluk tipi renk ayırma (gerekirse çift geçişli) + paketleme öncesi X-Ray son kontrol.',
+        'Bakliyatta standart kurulum: yüksek kapasiteli renk ayırma (gerekirse çift geçişli) + paketleme öncesi X-Ray son kontrol.',
       adimlar: [
         {
-          baslik: 'Oluk Tipi Renk Ayırma',
-          text: 'Akışkan taneler oluklardan ince bir perde halinde akar; saniyede binlerce tane taranır, kusurlular hava jetiyle ayrılır.',
-          href: '/renk-ayirma-makinesi/oluk-tipi/',
-          linkLabel: 'Oluk tipi makineleri inceleyin',
+          baslik: 'Renk Ayırma',
+          text: 'Akışkan taneler kameraların önünden ince bir akış halinde geçer; saniyede binlerce tane taranır, kusurlular hava jetiyle ayrılır.',
+          href: '/renk-ayirma-makinesi/',
+          linkLabel: 'Renk ayırma makinelerini inceleyin',
         },
         {
           baslik: 'X-Ray Son Kontrol',
@@ -263,10 +263,10 @@ export const SEKTORLER: Sektor[] = [
         'IQF hattında önerimiz: şoklama sonrası bant tipi optik ayıklama + paketleme öncesi yıkanabilir X-Ray kontrolü.',
       adimlar: [
         {
-          baslik: 'Bant Tipi Optik Ayıklama',
+          baslik: 'DMAX — Bant Tipi Ayıklama',
           text: 'Donmuş ürün bant üzerinde tek katman yayılır; sap, yaprak ve renk kusurları hava jetiyle ayrılır.',
-          href: '/renk-ayirma-makinesi/bant-tipi/',
-          linkLabel: 'Bant tipi makineleri inceleyin',
+          href: '/makineler/dmax/',
+          linkLabel: "DMAX'i inceleyin",
         },
         {
           baslik: 'Paketli / Dökme X-Ray',
@@ -312,10 +312,10 @@ export const SEKTORLER: Sektor[] = [
         'Patates hattında önerimiz: hammadde girişinde X-Ray taş ayrımı, kesim-kızartma sonrası bant tipi optik ayıklama, paketleme öncesi son X-Ray kontrolü.',
       adimlar: [
         {
-          baslik: 'Bant Tipi Optik Ayıklama',
+          baslik: 'DMAX — Bant Tipi Ayıklama',
           text: 'Parmak ve dilimler bant üzerinde taranır; yanık, yeşil ve kabuklu parçalar hava jetiyle ayrılır.',
-          href: '/renk-ayirma-makinesi/bant-tipi/',
-          linkLabel: 'Bant tipi makineleri inceleyin',
+          href: '/makineler/dmax/',
+          linkLabel: "DMAX'i inceleyin",
         },
         {
           baslik: 'X-Ray Kontrol',

@@ -12,7 +12,6 @@ import sectorPatates from '../assets/photos/sector-patates.png';
 import foodIncir from '../assets/photos/food-incir.png';
 
 import valor5 from '../assets/photos/machine-valor-5.jpg';
-import valorMini from '../assets/photos/machine-valor-mini.png';
 import dmax from '../assets/photos/machine-dmax-bant.png';
 import havaBlogu from '../assets/photos/tech-hava-blogu.png';
 import heroBanner from '../assets/photos/hero-dmax-banner.png';
@@ -32,7 +31,6 @@ export const SECTOR_IMAGES: Record<string, ImageMetadata> = {
 /** Gerçek makine ve hat fotoğrafları — birden çok sayfada paylaşılır */
 export const MACHINE_IMAGES = {
   valor5,
-  valorMini,
   dmax,
   havaBlogu,
   heroBanner,

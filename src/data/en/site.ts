@@ -21,16 +21,17 @@ export const waQuote = (locale: 'tr' | 'en', topic: string) =>
 
 export const MAKINE_GRUPLARI_EN = [
   {
-    label: 'Optical Sorting',
+    label: 'Models',
     items: [
-      { label: 'Color Sorters', href: '/en/color-sorter/', desc: 'Camera-based optical sorting' },
-      { label: 'Chute-Type Sorters', href: '/en/color-sorter/chute-type/', desc: 'Pulses, grains, seeds' },
-      { label: 'Belt-Type Sorters', href: '/en/color-sorter/belt-type/', desc: 'Dried fruit, IQF, potato' },
+      { label: 'DMAX', href: '/en/machines/dmax/', desc: 'RGB color + shape · belt-type' },
+      { label: 'IDS', href: '/en/machines/ids/', desc: 'Precision nut sorter' },
+      { label: 'VALOR 5', href: '/en/machines/valor-5/', desc: 'X-ray hazelnut sorter' },
     ],
   },
   {
-    label: 'X-Ray Inspection',
+    label: 'Technology',
     items: [
+      { label: 'Color Sorters', href: '/en/color-sorter/', desc: 'Camera-based optical sorting' },
       { label: 'X-Ray Food Inspection', href: '/en/x-ray-food-inspection/', desc: 'Stone, glass, metal detection' },
       { label: 'Bulk Product X-Ray', href: '/en/x-ray-food-inspection/bulk-product/', desc: 'In-line sorting' },
       { label: 'Packaged Product X-Ray', href: '/en/x-ray-food-inspection/packaged-product/', desc: 'End-of-line inspection' },

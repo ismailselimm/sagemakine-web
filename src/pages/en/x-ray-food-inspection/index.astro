@@ -46,11 +46,6 @@ const tespitEtmez = [
   'Wood (low density)',
 ];
 
-const seriler = [
-  { seri: 'X-40', bant: '400 mm', tip: 'Packaged product', hassasiyet: 'Ø 0.8 – 1.2 mm SS*', kullanim: 'Final inspection of packs, bags, doypacks' },
-  { seri: 'X-60', bant: '600 mm', tip: 'Packaged / bulk', hassasiyet: 'Ø 1.0 – 1.5 mm SS*', kullanim: 'Mid-size lines, mixed product groups' },
-  { seri: 'X-60B', bant: '600 mm', tip: 'Bulk product', hassasiyet: 'Ø 1.2 – 2.0 mm SS*', kullanim: 'In-line sorting for nuts, pulses and IQF' },
-];
 ---
 
 <BaseLayout
@@ -68,7 +63,7 @@ const seriler = [
   >
     <Fragment slot="actions">
       <a href={whatsappQuoteEn('X-ray food inspection systems')} class="btn btn--primary" target="_blank" rel="noopener">Get a Quote</a>
-      <a href="#series" class="btn btn--outline pillar-ghost">Explore the Series</a>
+      <a href="#model" class="btn btn--outline pillar-ghost">Explore Our Model</a>
     </Fragment>
     <Fragment slot="visual">
       <Image
@@ -192,45 +187,27 @@ const seriler = [
     </div>
   </section>
 
-  <!-- Seriler -->
-  <section class="section" id="series">
+  <!-- Gerçek X-Ray modeli -->
+  <section class="section" id="model">
     <div class="container">
-      <p class="eyebrow reveal">Capacity Options</p>
-      <h2 class="reveal">SAGE X-Series — by Line Type</h2>
+      <p class="eyebrow reveal">Our X-Ray Model</p>
+      <h2 class="reveal">VALOR 5 — X-Ray Hazelnut Sorter</h2>
       <p class="sec-lead reveal">
-        Typical values are listed below; detection sensitivity depends on product thickness and
-        density, and the exact figure is determined by testing with your product.
+        Our real X-ray model on the nut side is VALOR 5; it sees inside without cracking the shell
+        and separates empty and defective kernels with X-ray plus AI. Beyond hazelnuts, it also
+        works for pistachios, walnuts and almonds.
       </p>
-      <div class="table-scroll reveal">
-        <table class="spec-table">
-          <thead>
-            <tr>
-              <th>Series</th>
-              <th>Belt Width</th>
-              <th>Line Type</th>
-              <th>Detection Sensitivity*</th>
-              <th>Typical Use</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              seriler.map((s) => (
-                <tr>
-                  <td><strong>{s.seri}</strong></td>
-                  <td>{s.bant}</td>
-                  <td>{s.tip}</td>
-                  <td>{s.hassasiyet}</td>
-                  <td>{s.kullanim}</td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
+      <div class="model-link-card card reveal">
+        <div class="model-link-body">
+          <p class="mono-tag">X-RAY SORTER · 320 W · 96 AIR GUNS</p>
+          <h3>VALOR 5</h3>
+          <p>Real technical data, an overview video and application detail are on the model page.</p>
+          <a href="/en/machines/valor-5/" class="btn btn--primary">VALOR 5 Model Page</a>
+        </div>
       </div>
       <p class="table-not reveal">
-        * SS: stainless-steel test sphere diameter; varies by product. Across all series: IP65+
-        enclosure options (IP69K washdown option for IQF lines), touchscreen interface, automatic
-        logging; CE-certified models.
+        For stone, glass and metal detection in food, our bulk and packaged line solutions are
+        sized to your product and line — the exact configuration is pinned down in conversation.
       </p>
     </div>
   </section>

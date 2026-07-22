@@ -1,0 +1,243 @@
+---
+/**
+ * Gerçek makine modeli sayfası şablonu — /makineler/[model]/ (TR) ve
+ * /en/machines/[model]/ (EN) tarafından paylaşılır. Veri: MODELLER / MODELLER_EN.
+ */
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from './PageHero.astro';
+import CtaBand from './CtaBand.astro';
+import Icon from './Icon.astro';
+import VideoEmbed from './VideoEmbed.astro';
+import { SITE } from '../data/site';
+import { MACHINE_IMAGES } from '../data/images';
+import { waQuote } from '../data/en/site';
+import { asLocale } from '../i18n/routes';
+import { t } from '../i18n/ui';
+import type { MakineModeli } from '../data/models';
+
+interface Props {
+  model: MakineModeli;
+  path: string;
+}
+
+const locale = asLocale(Astro.currentLocale);
+const ui = t(locale);
+const { model, path } = Astro.props;
+
+const heroImg = MACHINE_IMAGES[model.image as keyof typeof MACHINE_IMAGES];
+const breadcrumbs = [{ name: model.ad, path }];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: `${model.ad} — ${model.eyebrow}`,
+    brand: { '@type': 'Brand', name: SITE.name },
+    description: model.metaDescription,
+    image: `${SITE.domain}/og/og-default.jpg`,
+    url: `${SITE.domain}${path}`,
+  },
+];
+---
+
+<BaseLayout
+  title={model.metaTitle}
+  description={model.metaDescription}
+  path={path}
+  breadcrumbs={breadcrumbs}
+  jsonLd={jsonLd}
+>
+  <PageHero eyebrow={model.eyebrow} title={model.ad} lead={model.lead} breadcrumbs={breadcrumbs}>
+    <Fragment slot="actions">
+      <a href={waQuote(locale, model.waTopic)} class="btn btn--primary" target="_blank" rel="noopener">{ui.quoteBtn}</a>
+      <a href="#video" class="btn btn--outline model-ghost">{ui.modelVideoBtn}</a>
+    </Fragment>
+    <Fragment slot="visual">
+      <Image
+        src={heroImg}
+        alt={model.imageAlt}
+        widths={[480, 760, 1100]}
+        sizes="(max-width: 900px) 100vw, 42vw"
+        loading="eager"
+        quality={68}
+      />
+    </Fragment>
+  </PageHero>
+
+  <!-- Açıklama + özellikler -->
+  <section class="section">
+    <div class="container model-grid">
+      <div class="model-intro">
+        <p class="eyebrow reveal">{ui.modelNedir}</p>
+        {model.aciklama.map((p, i) => <p class="model-para reveal" style={`--reveal-delay:${i * 0.06}s`}>{p}</p>)}
+      </div>
+      <div class="model-feats">
+        {
+          model.ozellikler.map((o, i) => (
+            <div class="model-feat card reveal" style={`--reveal-delay:${i * 0.07}s`}>
+              <span class="model-feat-icon">
+                <Icon name={o.icon as any} size={22} />
+              </span>
+              <div>
+                <h3>{o.baslik}</h3>
+                <p>{o.text}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Video -->
+  <section class="section band-sunken" id="video">
+    <div class:list={['container', 'model-video-wrap', { 'model-video-wrap--dikey': model.video.dikey }]}>
+      <div class="model-video-text reveal">
+        <p class="eyebrow">{model.video.tur === 'demo' ? ui.modelDemoEyebrow : ui.modelPromoEyebrow}</p>
+        <h2>{model.ad} {ui.modelVideoBaslik}</h2>
+        {model.video.tur === 'demo' && <p class="model-video-not">{ui.modelDemoNot}</p>}
+      </div>
+      <div class="reveal" style="--reveal-delay:.08s">
+        <VideoEmbed
+          src={model.video.src}
+          poster={model.video.poster}
+          tur={model.video.tur}
+          dikey={model.video.dikey}
+          label={`${model.ad} ${model.video.tur === 'demo' ? ui.modelDemoEyebrow : ui.modelPromoEyebrow}`}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Teknik özellikler (varsa) -->
+  {
+    model.specs && (
+      <section class="section" id="teknik">
+        <div class="container">
+          <p class="eyebrow reveal">{ui.modelSpecEyebrow}</p>
+          <h2 class="reveal">{model.ad} {ui.modelSpecBaslik}</h2>
+          <div class="table-scroll reveal">
+            <table class="spec-table model-spec-table">
+              <tbody>
+                {model.specs.map((s) => (
+                  <tr>
+                    <th scope="row">{s.label}</th>
+                    <td>{s.value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {model.specNot && <p class="table-not reveal">{model.specNot}</p>}
+        </div>
+      </section>
+    )
+  }
+
+  <!-- İlgili sektörler -->
+  <section class="section section--tight band-sunken">
+    <div class="container">
+      <p class="eyebrow">{ui.subIlgili}</p>
+      <nav class="sektor-strip" aria-label={ui.subIlgili}>
+        {model.sektorler.map((s) => <a href={s.href}>{s.label}</a>)}
+      </nav>
+    </div>
+  </section>
+
+  <CtaBand title={ui.modelCtaTitle} text={ui.modelCtaText} topic={model.waTopic} />
+</BaseLayout>
+
+<style>
+  .model-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+    gap: var(--sp-8);
+    align-items: start;
+  }
+
+  .model-para {
+    color: var(--ink-soft);
+    margin-top: var(--sp-4);
+  }
+
+  .model-para:first-of-type {
+    margin-top: var(--sp-4);
+    font-size: var(--text-lg);
+  }
+
+  .model-feats {
+    display: grid;
+    gap: var(--sp-4);
+  }
+
+  .model-feat {
+    display: flex;
+    gap: var(--sp-4);
+    padding: var(--sp-5);
+    align-items: start;
+  }
+
+  .model-feat h3 {
+    font-size: var(--text-md);
+    margin-bottom: var(--sp-1);
+  }
+
+  .model-feat p {
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+  }
+
+  .model-feat-icon {
+    display: inline-flex;
+    padding: 0.7rem;
+    background: var(--green-100);
+    color: var(--accent-ink);
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+  }
+
+  .model-video-wrap {
+    display: grid;
+    gap: var(--sp-6);
+    max-width: 62rem;
+  }
+
+  .model-video-text h2 {
+    margin-top: var(--sp-2);
+  }
+
+  .model-video-not {
+    margin-top: var(--sp-3);
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+  }
+
+  /* dikey demo videosu: metin solda, telefon çekimi sağda dar sütunda */
+  .model-video-wrap--dikey {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 22rem);
+    align-items: center;
+  }
+
+  .model-spec-table th[scope='row'] {
+    text-align: left;
+    color: var(--ink-soft);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.04em;
+    text-transform: none;
+    width: 42%;
+  }
+
+  .model-spec-table td {
+    font-weight: 600;
+    color: var(--navy-800);
+  }
+
+  @media (max-width: 900px) {
+    .model-grid,
+    .model-video-wrap--dikey {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

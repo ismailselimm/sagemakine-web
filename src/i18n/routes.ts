@@ -16,9 +16,10 @@ export const sectorPath = (locale: Locale, slug: string): string =>
 /** Sayfa çiftleri (blog yazıları hariç — onlar BLOG_SLUGS'tan türer) */
 export const ROUTES: Record<string, { tr: string; en: string }> = {
   home: { tr: '/', en: '/en/' },
+  dmax: { tr: '/makineler/dmax/', en: '/en/machines/dmax/' },
+  ids: { tr: '/makineler/ids/', en: '/en/machines/ids/' },
+  valor5: { tr: '/makineler/valor-5/', en: '/en/machines/valor-5/' },
   renk: { tr: '/renk-ayirma-makinesi/', en: '/en/color-sorter/' },
-  renkOluk: { tr: '/renk-ayirma-makinesi/oluk-tipi/', en: '/en/color-sorter/chute-type/' },
-  renkBant: { tr: '/renk-ayirma-makinesi/bant-tipi/', en: '/en/color-sorter/belt-type/' },
   xray: { tr: '/x-ray-gida-kontrol-makinesi/', en: '/en/x-ray-food-inspection/' },
   xrayDokme: { tr: '/x-ray-gida-kontrol-makinesi/dokme-urun/', en: '/en/x-ray-food-inspection/bulk-product/' },
   xrayPaketli: { tr: '/x-ray-gida-kontrol-makinesi/paketli-urun/', en: '/en/x-ray-food-inspection/packaged-product/' },

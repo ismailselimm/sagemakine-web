@@ -7,11 +7,10 @@ import Icon from '../../components/Icon.astro';
 import ColorSorterDiagram from '../../components/diagrams/ColorSorterDiagram.astro';
 import { SITE, CONTACT, SECTORS } from '../../data/site';
 
-import ModelGrid from '../../components/ModelGrid.astro';
 import { MACHINE_IMAGES } from '../../data/images';
 import kameraImg from '../../assets/photos/tech-kamera.png';
 
-const { valor5, valorMini, dmax, havaBlogu, lineIds, linePanorama } = MACHINE_IMAGES;
+const { dmax, havaBlogu, lineIds, linePanorama } = MACHINE_IMAGES;
 import '../../styles/pillar-renk.css';
 
 const breadcrumbs = [{ name: 'Renk Ayırma Makineleri', path: '/renk-ayirma-makinesi/' }];
@@ -23,7 +22,7 @@ const jsonLd = [
     name: 'Renk Ayırma Makinesi (Color Sorter)',
     brand: { '@type': 'Brand', name: SITE.name },
     description:
-      'Kuru meyve, kuruyemiş, bakliyat ve hububat için oluk ve bant tipi renk ayırma makineleri. Yüksek çözünürlüklü RGB kameralı, hava ejektörlü optik ayıklama sistemleri; kurulum, eğitim ve Türkiye genelinde servisle.',
+      'Kuru meyve, kuruyemiş ve bakliyat için bant tipi renk ayırma makineleri. Yüksek çözünürlüklü RGB kameralı, hava ejektörlü optik ayıklama sistemleri; kurulum, eğitim ve Türkiye genelinde servisle.',
     image: `${SITE.domain}/og/og-default.jpg`,
     url: `${SITE.domain}/renk-ayirma-makinesi/`,
   },
@@ -63,31 +62,11 @@ const kusurlar = [
   { icon: 'dogruluk', label: 'Aflatoksin şüpheli koyu tane' },
 ];
 
-const modeller = [
-  {
-    img: valor5,
-    tag: 'OLUK TİPİ',
-    ad: 'VALOR 5',
-    text: 'Bakliyat, hububat ve çekirdekli ürünler için oluk tipi renk ayırıcımız. Yerçekimiyle akan sert taneli ürünlerde yüksek tonaj.',
-  },
-  {
-    img: valorMini,
-    tag: 'KOMPAKT',
-    ad: 'Valor Mini',
-    text: 'Küçük işletmeler ve düşük kapasiteli hatlar için kompakt gövde; aynı kamera ve ejektör teknolojisi.',
-  },
-  {
-    img: dmax,
-    tag: 'BANT TİPİ',
-    ad: 'DMAX',
-    text: 'Kuru meyve, iç ceviz ve IQF gibi kırılgan ürünler için bant tipi renk ayırıcımız. Tek katman tarama, nazik akış.',
-  },
-];
 ---
 
 <BaseLayout
   title="Renk Ayırma Makinesi (Color Sorter) Satış ve Servis | SAGE Makine"
-  description="Oluk ve bant tipi renk ayırma makineleri: yüksek çözünürlüklü RGB kameralarla taş, cam, kabuk ve kusurlu taneleri ayıklayın. Kurulum, eğitim ve yedek parça Türkiye'de."
+  description="Bant tipi renk ayırma makineleri: yüksek çözünürlüklü RGB kameralarla renk ve şekil kusurlarını ayıklayın. DMAX modeli, kurulum, eğitim ve yedek parça Türkiye'de."
   path="/renk-ayirma-makinesi/"
   breadcrumbs={breadcrumbs}
   jsonLd={jsonLd}
@@ -95,7 +74,7 @@ const modeller = [
   <PageHero
     eyebrow="Optik Ayıklama Teknolojisi"
     title="Renk Ayırma Makineleri"
-    lead="Renk ayırma — piyasadaki adıyla renk ayıklama makinesi ya da color sorter — kusurlu taneleri ve yabancı maddeleri kameralarla tespit edip hava ejektörleriyle hattan çıkarır. Kuru meyveden bakliyata, ürününüze göre oluk veya bant tipiyle."
+    lead="Renk ayırma — piyasadaki adıyla renk ayıklama makinesi ya da color sorter — kusurlu taneleri ve yabancı maddeleri kameralarla tespit edip hava ejektörleriyle hattan çıkarır. Kuru meyveden dondurulmuş gıdaya, bant tipi DMAX modelimizle nazik ve doğru ayıklama."
     breadcrumbs={breadcrumbs}
   >
     <Fragment slot="actions">
@@ -166,44 +145,44 @@ const modeller = [
     </div>
   </section>
 
-  <!-- Oluk mu bant mı -->
-  <section class="section">
+  <!-- Modellerimiz -->
+  <section class="section" id="modeller">
     <div class="container">
-      <p class="eyebrow reveal">Doğru Tip Seçimi</p>
-      <h2 class="reveal">Oluk Tipi mi, Bant Tipi mi?</h2>
+      <p class="eyebrow reveal">Modellerimiz</p>
+      <h2 class="reveal">Optik Ayıklama Makinelerimiz</h2>
       <p class="sec-lead reveal">
-        Serbest akan sert taneler olukta; kırılgan, yapışkan veya iri ürünler bantta ayıklanır.
-        Emin değilseniz ürününüzü anlatın, birlikte netleştirelim.
+        Renk ayırma tarafında iki gerçek modelimiz var: bant tipi DMAX ve hassas kuruyemiş
+        ayırıcısı IDS. Ürününüze göre doğru olanı birlikte netleştiririz.
       </p>
       <div class="tip-grid">
-        <a href="/renk-ayirma-makinesi/oluk-tipi/" class="tip-card card reveal">
+        <a href="/makineler/dmax/" class="tip-card card reveal">
           <div class="tip-img">
-            <Image src={valor5} alt="VALOR 5 — oluk tipi renk ayırma makinemiz" widths={[480, 760]} sizes="(max-width:900px) 100vw, 40vw" />
+            <Image src={dmax} alt="DMAX bant tipi renk ve şekil ayıklama makinesi" widths={[480, 760]} sizes="(max-width:900px) 100vw, 40vw" />
           </div>
           <div class="tip-body">
-            <h3>Oluk (Kanal) Tipi</h3>
-            <p>Yerçekimiyle akan ürün için yüksek kapasite: bakliyat, hububat, çekirdek, kahve.</p>
+            <h3>DMAX — Bant Tipi</h3>
+            <p>RGB renk + şekil ayıklama; 360° kamera kabini. Kuru meyve, donmuş sebze-meyve, patates ürünleri.</p>
             <ul>
-              <li><Icon name="check" size={15} /> Mercimek, nohut, fasulye, pirinç</li>
-              <li><Icon name="check" size={15} /> Ay çekirdeği, kabak çekirdeği</li>
-              <li><Icon name="check" size={15} /> Yüksek tonaj, kompakt yerleşim</li>
+              <li><Icon name="check" size={15} /> Üzüm, incir, kayısı, iç ceviz</li>
+              <li><Icon name="check" size={15} /> IQF meyve-sebze, parmak patates</li>
+              <li><Icon name="check" size={15} /> Kırılgan üründe nazik tek katman akış</li>
             </ul>
-            <span class="tip-link">Oluk tipini inceleyin <Icon name="arrow" size={15} /></span>
+            <span class="tip-link">DMAX'i inceleyin <Icon name="arrow" size={15} /></span>
           </div>
         </a>
-        <a href="/renk-ayirma-makinesi/bant-tipi/" class="tip-card card reveal" style="--reveal-delay:.1s">
+        <a href="/makineler/ids/" class="tip-card card reveal" style="--reveal-delay:.1s">
           <div class="tip-img">
-            <Image src={dmax} alt="DMAX — bant tipi renk ayırma makinemiz" widths={[480, 760]} sizes="(max-width:900px) 100vw, 40vw" />
+            <Image src={lineIds} alt="IDS hassas kuruyemiş ayırma ve analiz hattı" widths={[480, 760]} sizes="(max-width:900px) 100vw, 40vw" />
           </div>
           <div class="tip-body">
-            <h3>Bant Tipi</h3>
-            <p>Hassas taşıma ve tek katman tarama: kuru meyve, iç ceviz, IQF, patates ürünleri.</p>
+            <h3>IDS — Hassas Kuruyemiş</h3>
+            <p>360° kamera, tek geçişte 10 kanala kadar sınıflandırma; kusur + yabancı madde tespiti ve raporlama.</p>
             <ul>
-              <li><Icon name="check" size={15} /> Üzüm, incir, kayısı, iç fındık-ceviz</li>
-              <li><Icon name="check" size={15} /> IQF meyve-sebze, parmak patates</li>
-              <li><Icon name="check" size={15} /> Kırılgan ve yapışkan ürünlerde nazik akış</li>
+              <li><Icon name="check" size={15} /> İçi dolu ve kabuklu kuruyemiş</li>
+              <li><Icon name="check" size={15} /> Boyutlandırma + sınıflandırma</li>
+              <li><Icon name="check" size={15} /> Üretim takibi ve analiz raporu</li>
             </ul>
-            <span class="tip-link">Bant tipini inceleyin <Icon name="arrow" size={15} /></span>
+            <span class="tip-link">IDS'yi inceleyin <Icon name="arrow" size={15} /></span>
           </div>
         </a>
       </div>
@@ -228,18 +207,6 @@ const modeller = [
     </div>
   </section>
 
-  <!-- Modeller -->
-  <section class="section" id="modeller">
-    <div class="container container--wide">
-      <p class="eyebrow reveal">Modellerimiz</p>
-      <h2 class="reveal">Ürününüze Göre Doğru Model</h2>
-      <p class="sec-lead reveal">
-        Konfigürasyon ve kapasite ürününüze, kusur oranınıza ve hedef kalitenize göre belirlenir —
-        teklifle birlikte netleştiririz.
-      </p>
-      <ModelGrid modeller={modeller} altSuffix="renk ayırma makinesi" />
-    </div>
-  </section>
 
   <!-- Anahtar teslim hat -->
   <section class="section band-sunken">

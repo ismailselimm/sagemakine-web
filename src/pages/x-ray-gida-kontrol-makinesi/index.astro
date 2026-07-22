@@ -45,11 +45,6 @@ const tespitEtmez = [
   'Ahşap (düşük yoğunluklu)',
 ];
 
-const seriler = [
-  { seri: 'X-40', bant: '400 mm', tip: 'Paketli ürün', hassasiyet: 'Ø 0,8 – 1,2 mm SS*', kullanim: 'Paket, poşet, doypack son kontrol' },
-  { seri: 'X-60', bant: '600 mm', tip: 'Paketli / dökme', hassasiyet: 'Ø 1,0 – 1,5 mm SS*', kullanim: 'Orta hat, karma ürün grupları' },
-  { seri: 'X-60B', bant: '600 mm', tip: 'Dökme ürün', hassasiyet: 'Ø 1,2 – 2,0 mm SS*', kullanim: 'Kuruyemiş, bakliyat, IQF hat içi ayıklama' },
-];
 ---
 
 <BaseLayout
@@ -67,7 +62,7 @@ const seriler = [
   >
     <Fragment slot="actions">
       <a href={CONTACT.whatsappQuote('X-Ray gıda kontrol sistemleri')} class="btn btn--primary" target="_blank" rel="noopener">Teklif Alın</a>
-      <a href="#seriler" class="btn btn--outline pillar-ghost">Serileri İnceleyin</a>
+      <a href="#model" class="btn btn--outline pillar-ghost">Modelimizi İnceleyin</a>
     </Fragment>
     <Fragment slot="visual">
       <Image
@@ -191,45 +186,27 @@ const seriler = [
     </div>
   </section>
 
-  <!-- Seriler -->
-  <section class="section" id="seriler">
+  <!-- Gerçek X-Ray modeli -->
+  <section class="section" id="model">
     <div class="container">
-      <p class="eyebrow reveal">Kapasite Seçenekleri</p>
-      <h2 class="reveal">SAGE X-Serisi — Hat Tipine Göre</h2>
+      <p class="eyebrow reveal">X-Ray Modelimiz</p>
+      <h2 class="reveal">VALOR 5 — X-Ray Fındık Ayırıcı</h2>
       <p class="sec-lead reveal">
-        Tipik değerler aşağıdadır; tespit hassasiyeti ürün kalınlığına ve yoğunluğuna bağlıdır,
-        kesin değer ürününüzle yapılan testle belirlenir.
+        Kuruyemiş tarafındaki gerçek X-ray modelimiz VALOR 5; kabuğu kırmadan içi görür, boş ve
+        kusurlu taneyi X-ışını + yapay zekâ ile ayırır. Fındığın yanında Antep fıstığı, ceviz ve
+        bademde de kullanılır.
       </p>
-      <div class="table-scroll reveal">
-        <table class="spec-table">
-          <thead>
-            <tr>
-              <th>Seri</th>
-              <th>Bant Genişliği</th>
-              <th>Hat Tipi</th>
-              <th>Tespit Hassasiyeti*</th>
-              <th>Tipik Kullanım</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              seriler.map((s) => (
-                <tr>
-                  <td><strong>{s.seri}</strong></td>
-                  <td>{s.bant}</td>
-                  <td>{s.tip}</td>
-                  <td>{s.hassasiyet}</td>
-                  <td>{s.kullanim}</td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
+      <div class="model-link-card card reveal">
+        <div class="model-link-body">
+          <p class="mono-tag">X-RAY AYIRICI · 320 W · 96 HAVA TABANCASI</p>
+          <h3>VALOR 5</h3>
+          <p>Gerçek teknik verileri, tanıtım videosu ve uygulama detayları model sayfasında.</p>
+          <a href="/makineler/valor-5/" class="btn btn--primary">VALOR 5 Model Sayfası</a>
+        </div>
       </div>
       <p class="table-not reveal">
-        * SS: paslanmaz çelik test küresi çapı; ürüne göre değişir. Tüm serilerde: IP65+ gövde
-        seçenekleri (IQF hatları için IP69K yıkanabilir opsiyon), Türkçe dokunmatik arayüz,
-        otomatik kayıt; CE belgeli modeller.
+        Gıdada taş, cam ve metal tespiti için dökme ve paketli hat çözümlerimiz ürününüze ve
+        hattınıza göre boyutlandırılır — kesin konfigürasyon görüşmede netleşir.
       </p>
     </div>
   </section>

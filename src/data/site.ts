@@ -39,16 +39,17 @@ export const CONTACT = {
 /** Header mega-menü "Makineler" grupları — Footer makine listesi de buradan türer */
 export const MAKINE_GRUPLARI = [
   {
-    label: 'Optik Ayıklama',
+    label: 'Modeller',
     items: [
-      { label: 'Renk Ayırma Makineleri', href: '/renk-ayirma-makinesi/', desc: 'Color sorter — kameralı ayıklama' },
-      { label: 'Oluk Tipi Renk Ayırma', href: '/renk-ayirma-makinesi/oluk-tipi/', desc: 'Bakliyat, hububat, çekirdek' },
-      { label: 'Bant Tipi Renk Ayırma', href: '/renk-ayirma-makinesi/bant-tipi/', desc: 'Kuru meyve, IQF, patates' },
+      { label: 'DMAX', href: '/makineler/dmax/', desc: 'RGB renk + şekil · bant tipi' },
+      { label: 'IDS', href: '/makineler/ids/', desc: 'Hassas kuruyemiş ayırıcı' },
+      { label: 'VALOR 5', href: '/makineler/valor-5/', desc: 'X-Ray fındık ayırıcı' },
     ],
   },
   {
-    label: 'X-Ray Kontrol',
+    label: 'Teknoloji',
     items: [
+      { label: 'Renk Ayırma Makineleri', href: '/renk-ayirma-makinesi/', desc: 'Kameralı optik ayıklama' },
       { label: 'X-Ray Gıda Kontrol', href: '/x-ray-gida-kontrol-makinesi/', desc: 'Taş, cam, metal tespiti' },
       { label: 'Dökme Ürün X-Ray', href: '/x-ray-gida-kontrol-makinesi/dokme-urun/', desc: 'Hat içi ayıklama' },
       { label: 'Paketli Ürün X-Ray', href: '/x-ray-gida-kontrol-makinesi/paketli-urun/', desc: 'Hat sonu paket kontrolü' },

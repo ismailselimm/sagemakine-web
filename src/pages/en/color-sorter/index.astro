@@ -9,11 +9,10 @@ import { SITE } from '../../../data/site';
 import { SECTORS_EN, whatsappQuoteEn } from '../../../data/en/site';
 import '../../../styles/pillar-renk.css';
 
-import ModelGrid from '../../../components/ModelGrid.astro';
 import { MACHINE_IMAGES } from '../../../data/images';
 import kameraImg from '../../../assets/photos/tech-kamera.png';
 
-const { valor5, valorMini, dmax, havaBlogu, lineIds, linePanorama } = MACHINE_IMAGES;
+const { dmax, havaBlogu, lineIds, linePanorama } = MACHINE_IMAGES;
 
 const breadcrumbs = [{ name: 'Color Sorter Machines', path: '/en/color-sorter/' }];
 
@@ -24,7 +23,7 @@ const jsonLd = [
     name: 'Color Sorter Machine',
     brand: { '@type': 'Brand', name: SITE.name },
     description:
-      'Chute-type and belt-type color sorters for dried fruit, nuts, pulses and grains. Optical sorting systems with high-resolution RGB cameras and air ejectors — backed by installation, training and service across Turkey.',
+      'Belt-type color sorters for dried fruit, nuts and produce. Optical sorting systems with high-resolution RGB cameras and air ejectors — the DMAX model, backed by installation, training and service across Turkey.',
     image: `${SITE.domain}/og/og-default.jpg`,
     url: `${SITE.domain}/en/color-sorter/`,
   },
@@ -64,31 +63,11 @@ const kusurlar = [
   { icon: 'dogruluk', label: 'Dark, aflatoxin-suspect kernels' },
 ];
 
-const modeller = [
-  {
-    img: valor5,
-    tag: 'CHUTE-TYPE',
-    ad: 'VALOR 5',
-    text: 'Our chute-type color sorter for pulses, grains and seed products. High throughput for free-flowing hard kernels.',
-  },
-  {
-    img: valorMini,
-    tag: 'COMPACT',
-    ad: 'Valor Mini',
-    text: 'A compact footprint for small operations and lower-capacity lines — with the same camera and ejector technology.',
-  },
-  {
-    img: dmax,
-    tag: 'BELT-TYPE',
-    ad: 'DMAX',
-    text: 'Our belt-type color sorter for fragile products such as dried fruit, walnut kernels and IQF. Single-layer scanning, gentle flow.',
-  },
-];
 ---
 
 <BaseLayout
   title="Color Sorter Machines: Sales & Service | SAGE Makine"
-  description="Chute- and belt-type color sorters with high-resolution RGB cameras: removal of stones, glass, shells and defects. Installation and spare parts."
+  description="Belt-type color sorters with high-resolution RGB cameras: removal of color and shape defects. The DMAX model, installation and spare parts."
   path="/en/color-sorter/"
   breadcrumbs={breadcrumbs}
   jsonLd={jsonLd}
@@ -96,7 +75,7 @@ const modeller = [
   <PageHero
     eyebrow="Optical Sorting Technology"
     title="Color Sorter Machines"
-    lead="A color sorter — also known as an optical sorting machine — detects defective kernels and foreign material with cameras and removes them from the line with air ejectors. From dried fruit to pulses, in a chute-type or belt-type configuration to match your product."
+    lead="A color sorter — also known as an optical sorting machine — detects defective kernels and foreign material with cameras and removes them from the line with air ejectors. From dried fruit to pulses, in a belt-type configuration — our DMAX model — matched to your product."
     breadcrumbs={breadcrumbs}
   >
     <Fragment slot="actions">
@@ -167,44 +146,44 @@ const modeller = [
     </div>
   </section>
 
-  <!-- Oluk mu bant mı -->
-  <section class="section">
+  <!-- Modellerimiz -->
+  <section class="section" id="models">
     <div class="container">
-      <p class="eyebrow reveal">Choosing the Right Type</p>
-      <h2 class="reveal">Chute-Type or Belt-Type?</h2>
+      <p class="eyebrow reveal">Our Models</p>
+      <h2 class="reveal">Our Optical Sorting Machines</h2>
       <p class="sec-lead reveal">
-        Free-flowing hard kernels are sorted on a chute; fragile, sticky or large products on a
-        belt. If you're not sure, tell us about your product and we'll pin it down together.
+        On the color sorting side we have two real models: the belt-type DMAX and the precision
+        nut sorter IDS. We pin down the right one for your product together.
       </p>
       <div class="tip-grid">
-        <a href="/en/color-sorter/chute-type/" class="tip-card card reveal">
+        <a href="/en/machines/dmax/" class="tip-card card reveal">
           <div class="tip-img">
-            <Image src={valor5} alt="VALOR 5 — our chute-type color sorter" widths={[480, 760]} sizes="(max-width:900px) 100vw, 40vw" />
+            <Image src={dmax} alt="DMAX belt-type color and shape sorter" widths={[480, 760]} sizes="(max-width:900px) 100vw, 40vw" />
           </div>
           <div class="tip-body">
-            <h3>Chute-Type (Channel)</h3>
-            <p>High capacity for gravity-fed product: pulses, grains, seeds, coffee.</p>
+            <h3>DMAX — Belt-Type</h3>
+            <p>RGB color + shape sorting with a 360° camera cabin. Dried fruit, frozen produce, potato products.</p>
             <ul>
-              <li><Icon name="check" size={15} /> Lentils, chickpeas, beans, rice</li>
-              <li><Icon name="check" size={15} /> Sunflower seeds, pumpkin seeds</li>
-              <li><Icon name="check" size={15} /> High tonnage in a compact footprint</li>
+              <li><Icon name="check" size={15} /> Raisins, figs, apricots, walnut kernels</li>
+              <li><Icon name="check" size={15} /> IQF fruit and vegetables, french fries</li>
+              <li><Icon name="check" size={15} /> Gentle single-layer flow for fragile product</li>
             </ul>
-            <span class="tip-link">Explore the chute type <Icon name="arrow" size={15} /></span>
+            <span class="tip-link">Explore DMAX <Icon name="arrow" size={15} /></span>
           </div>
         </a>
-        <a href="/en/color-sorter/belt-type/" class="tip-card card reveal" style="--reveal-delay:.1s">
+        <a href="/en/machines/ids/" class="tip-card card reveal" style="--reveal-delay:.1s">
           <div class="tip-img">
-            <Image src={dmax} alt="DMAX — our belt-type color sorter" widths={[480, 760]} sizes="(max-width:900px) 100vw, 40vw" />
+            <Image src={lineIds} alt="IDS precision nut sorting and analysis line" widths={[480, 760]} sizes="(max-width:900px) 100vw, 40vw" />
           </div>
           <div class="tip-body">
-            <h3>Belt-Type</h3>
-            <p>Gentle handling and single-layer scanning: dried fruit, walnut kernels, IQF, potato products.</p>
+            <h3>IDS — Precision Nuts</h3>
+            <p>360° cameras, up to 10 channels in a single pass; defect + foreign-material detection and reporting.</p>
             <ul>
-              <li><Icon name="check" size={15} /> Raisins, figs, apricots, hazelnut and walnut kernels</li>
-              <li><Icon name="check" size={15} /> IQF fruit and vegetables, french fries</li>
-              <li><Icon name="check" size={15} /> Gentle flow for fragile and sticky products</li>
+              <li><Icon name="check" size={15} /> Shelled and in-shell nuts</li>
+              <li><Icon name="check" size={15} /> Sizing + classification</li>
+              <li><Icon name="check" size={15} /> Production tracking and analysis report</li>
             </ul>
-            <span class="tip-link">Explore the belt type <Icon name="arrow" size={15} /></span>
+            <span class="tip-link">Explore IDS <Icon name="arrow" size={15} /></span>
           </div>
         </a>
       </div>
@@ -229,18 +208,6 @@ const modeller = [
     </div>
   </section>
 
-  <!-- Modeller -->
-  <section class="section" id="models">
-    <div class="container container--wide">
-      <p class="eyebrow reveal">Our Models</p>
-      <h2 class="reveal">The Right Model for Your Product</h2>
-      <p class="sec-lead reveal">
-        Configuration and capacity are determined by your product, defect rate and target
-        quality — we pin them down together with your quotation.
-      </p>
-      <ModelGrid modeller={modeller} altSuffix="color sorter" />
-    </div>
-  </section>
 
   <!-- Anahtar teslim hat -->
   <section class="section band-sunken">

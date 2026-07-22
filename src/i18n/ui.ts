@@ -72,6 +72,18 @@ const UI = {
     sekHeroCta: 'Önerilen Çözüm',
     sekSektorLink: 'Sektörler',
 
+    /* Model sayfası */
+    modelVideoBtn: 'Videoyu İzleyin',
+    modelNedir: 'Ne Yapar?',
+    modelPromoEyebrow: 'Tanıtım',
+    modelDemoEyebrow: 'Canlı Ayıklama',
+    modelVideoBaslik: "İş Başında",
+    modelDemoNot: 'Makinenin gerçek ayıklama görüntüsü — ses kapalı, kesintisiz oynar.',
+    modelSpecEyebrow: 'Teknik Özellikler',
+    modelSpecBaslik: 'Teknik Veriler',
+    modelCtaTitle: 'Bu Model Sizin İçin mi?',
+    modelCtaText: 'Ürününüzü ve kapasitenizi anlatın; bu modelin hattınıza uygunluğunu birlikte netleştirelim.',
+
     /* Diyagram etiketleri */
     dg: {
       besleme: 'Besleme Hunisi',
@@ -158,6 +170,18 @@ const UI = {
       "Tell us about your product, your defect profile, and your goal; we'll pin down the right setup for your line together.",
     sekHeroCta: 'Recommended Solution',
     sekSektorLink: 'Industries',
+
+    /* Model sayfası */
+    modelVideoBtn: 'Watch the Video',
+    modelNedir: 'What It Does',
+    modelPromoEyebrow: 'Overview',
+    modelDemoEyebrow: 'Live Sorting',
+    modelVideoBaslik: 'at Work',
+    modelDemoNot: 'Real footage of the machine sorting — muted, plays on loop.',
+    modelSpecEyebrow: 'Technical Specs',
+    modelSpecBaslik: 'Technical Data',
+    modelCtaTitle: 'Is This the Right Model for You?',
+    modelCtaText: "Tell us about your product and capacity; let's pin down whether this model fits your line together.",
 
     dg: {
       besleme: 'Feed Hopper',

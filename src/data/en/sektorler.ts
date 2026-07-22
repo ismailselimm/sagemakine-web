@@ -62,10 +62,10 @@ export const SEKTORLER_EN: Sektor[] = [
       intro: "In dried fruit, the right setup is usually two-stage: first, belt-type color sorting at line intake removes stems, stalks and color defects; afterward, bulk X-ray removes high-density foreign material.",
       adimlar: [
         {
-          baslik: "Belt-Type Color Sorting",
+          baslik: "DMAX — Belt-Type Color Sorting",
           text: "Sticky, delicate dried fruit is scanned in a single layer on a belt; stems, stalks, and color defects are removed by air jets.",
-          href: "/en/color-sorter/belt-type/",
-          linkLabel: "Explore belt-type machines"
+          href: "/en/machines/dmax/",
+          linkLabel: "Explore DMAX"
         },
         {
           baslik: "Bulk Product X-Ray",
@@ -130,7 +130,7 @@ export const SEKTORLER_EN: Sektor[] = [
       }
     ],
     cozum: {
-      intro: "In nuts, the safest setup has two layers: belt- or chute-type color sorting after cracking for shell and color defects, plus X-ray before packaging for stone, glass, and metal control.",
+      intro: "In nuts, the safest setup has two layers: color sorting after cracking for shell and color defects, plus X-ray before packaging for stone, glass, and metal control.",
       adimlar: [
         {
           baslik: "Color Sorting",
@@ -224,7 +224,7 @@ export const SEKTORLER_EN: Sektor[] = [
     slug: "pulses",
     title: "Pulses",
     metaTitle: "Pulse Color Sorters – Lentils, Chickpeas, Beans | SAGE Makine",
-    metaDescription: "Color sorting and X-ray catch the stones that screens and gravity tables miss. High-capacity chute-type machines for pulse processing plants.",
+    metaDescription: "Color sorting and X-ray catch the stones that screens and gravity tables miss. High-capacity color sorting for pulse processing plants.",
     eyebrow: "Industry · Pulses",
     heroTitle: "Sorting Solutions for Pulse Processors",
     heroLead: "A screen cannot see a stone the same size as a lentil — a color sorter and X-ray can. High-capacity sorting with minimal product loss for lentils, chickpeas, and beans.",
@@ -234,7 +234,7 @@ export const SEKTORLER_EN: Sektor[] = [
     facts: [
       {
         stat: "t/hr",
-        label: "In pulses, capacity is everything — chute-type machines are built for high tonnage"
+        label: "In pulses, capacity is everything — color sorters are built for high tonnage"
       },
       {
         stat: "Same size",
@@ -272,13 +272,13 @@ export const SEKTORLER_EN: Sektor[] = [
       }
     ],
     cozum: {
-      intro: "The standard setup for pulses: high-capacity chute-type color sorting (with a second pass where needed) plus a final X-ray check before packing.",
+      intro: "The standard setup for pulses: high-capacity color sorting (with a second pass where needed) plus a final X-ray check before packing.",
       adimlar: [
         {
-          baslik: "Chute-Type Color Sorting",
-          text: "Free-flowing kernels stream down the chutes in a thin curtain; thousands of kernels are scanned every second and defects are ejected with a jet of air.",
-          href: "/en/color-sorter/chute-type/",
-          linkLabel: "Explore chute-type machines"
+          baslik: "Color Sorting",
+          text: "Free-flowing kernels pass the cameras in a thin stream; thousands are scanned every second and defects are ejected with a jet of air.",
+          href: "/en/color-sorter/",
+          linkLabel: "Explore color sorting machines"
         },
         {
           baslik: "Final X-Ray Inspection",
@@ -346,10 +346,10 @@ export const SEKTORLER_EN: Sektor[] = [
       intro: "Our recommendation for IQF lines: belt-type optical sorting after flash freezing, plus a washdown X-ray check before packing.",
       adimlar: [
         {
-          baslik: "Belt-Type Optical Sorting",
+          baslik: "DMAX — Belt-Type Sorting",
           text: "Frozen product spreads in a single layer on the belt; stems, leaves, and color defects are ejected with a jet of air.",
-          href: "/en/color-sorter/belt-type/",
-          linkLabel: "Explore belt-type machines"
+          href: "/en/machines/dmax/",
+          linkLabel: "Explore DMAX"
         },
         {
           baslik: "Packaged / Bulk X-Ray",
@@ -417,10 +417,10 @@ export const SEKTORLER_EN: Sektor[] = [
       intro: "Our recommendation for potato lines: X-ray stone removal at raw-material intake, belt-type optical sorting after cutting and frying, and a final X-ray check before packing.",
       adimlar: [
         {
-          baslik: "Belt-Type Optical Sorting",
+          baslik: "DMAX — Belt-Type Sorting",
           text: "Fries and slices are scanned on the belt; burnt, green, and peel-covered pieces are ejected with a jet of air.",
-          href: "/en/color-sorter/belt-type/",
-          linkLabel: "Explore belt-type machines"
+          href: "/en/machines/dmax/",
+          linkLabel: "Explore DMAX"
         },
         {
           baslik: "X-Ray Inspection",
