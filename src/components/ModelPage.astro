@@ -96,7 +96,6 @@ const jsonLd = [
       <div class="model-video-text reveal">
         <p class="eyebrow">{model.video.tur === 'demo' ? ui.modelDemoEyebrow : ui.modelPromoEyebrow}</p>
         <h2>{model.ad} {ui.modelVideoBaslik}</h2>
-        {model.video.tur === 'demo' && <p class="model-video-not">{ui.modelDemoNot}</p>}
       </div>
       <div class="reveal" style="--reveal-delay:.08s">
         <VideoEmbed
@@ -196,12 +195,6 @@ const jsonLd = [
 
   .model-video-text h2 {
     margin-top: var(--sp-2);
-  }
-
-  .model-video-not {
-    margin-top: var(--sp-3);
-    font-size: var(--text-sm);
-    color: var(--ink-faint);
   }
 
   /* dikey demo videosu: metin solda, telefon çekimi sağda dar sütunda */
