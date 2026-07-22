@@ -46,16 +46,16 @@ export interface MakineModeli {
 export const MODELLER: MakineModeli[] = [
   {
     slug: 'dmax',
-    ad: 'DMAX',
+    ad: 'DMAX 1200',
     eyebrow: 'RGB Renk + Şekil Ayıklama · Bant Tipi',
-    metaTitle: 'DMAX Renk ve Şekil Ayıklama Makinesi | SAGE Makine',
+    metaTitle: 'DMAX 1200 Renk ve Şekil Ayıklama Makinesi | SAGE Makine',
     metaDescription:
       'DMAX bant tipi RGB renk ve şekil ayıklama makinesi: 360° kamera kabini, yüksek çözünürlüklü tarama. Kuru meyve, donmuş sebze-meyve ve patates ürünleri için.',
     image: 'dmax',
     imageAlt: 'DMAX bant tipi renk ve şekil ayıklama makinesi',
-    lead: 'DMAX, ürünlerinizi 360 derece gören kamera kabiniyle rengi ve şekli birlikte değerlendiren bant tipi ayıklama makinesidir. Kırılgan ve hassas ürünlerde tek katman tarama, yüksek doğruluk.',
+    lead: 'DMAX 1200, ürünlerinizi 360 derece gören kamera kabiniyle rengi ve şekli birlikte değerlendiren bant tipi ayıklama makinesidir. Kırılgan ve hassas ürünlerde tek katman tarama, yüksek doğruluk.',
     aciklama: [
-      'DMAX, 360 derece olarak ürünlerinizi görebilen kamera kabini sayesinde her taneyi her açıdan değerlendirir. Renk ve şekil kusurlarını birlikte yakalar; sadece renge değil, biçime de bakar.',
+      'DMAX 1200, 360 derece olarak ürünlerinizi görebilen kamera kabini sayesinde her taneyi her açıdan değerlendirir. Renk ve şekil kusurlarını birlikte yakalar; sadece renge değil, biçime de bakar.',
       'Kuru meyve; taze ve donmuş sebze-meyve; bütün patates, parmak patates, domates ve benzeri ürünler için ideal çözümdür. Bant üzerinde tek katman akış, kırılgan ürünlere zarar vermeden nazik taşıma sağlar.',
     ],
     ozellikler: [

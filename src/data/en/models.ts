@@ -7,16 +7,16 @@ import type { MakineModeli } from '../models';
 export const MODELLER_EN: MakineModeli[] = [
   {
     slug: 'dmax',
-    ad: 'DMAX',
+    ad: 'DMAX 1200',
     eyebrow: 'RGB Color + Shape Sorting · Belt-Type',
-    metaTitle: 'DMAX Color and Shape Sorter | SAGE Makine',
+    metaTitle: 'DMAX 1200 Color and Shape Sorter | SAGE Makine',
     metaDescription:
       'DMAX belt-type RGB color and shape sorter: 360° camera cabin, high-resolution scanning. For dried fruit, fresh and frozen produce, and potato products.',
     image: 'dmax',
     imageAlt: 'DMAX belt-type color and shape sorter',
-    lead: 'DMAX is a belt-type sorter whose 360-degree camera cabin evaluates both color and shape together. Single-layer scanning on the belt gives high accuracy on fragile, delicate products.',
+    lead: 'DMAX 1200 is a belt-type sorter whose 360-degree camera cabin evaluates both color and shape together. Single-layer scanning on the belt gives high accuracy on fragile, delicate products.',
     aciklama: [
-      'With a camera cabin that sees your product in full 360 degrees, DMAX evaluates every piece from every angle. It catches color and shape defects together — not just color, but form.',
+      'With a camera cabin that sees your product in full 360 degrees, DMAX 1200 evaluates every piece from every angle. It catches color and shape defects together — not just color, but form.',
       'It is an ideal solution for dried fruit; fresh and frozen fruits and vegetables; whole potatoes, french fries, tomatoes and similar products. Single-layer flow on the belt handles fragile items gently, without damage.',
     ],
     ozellikler: [

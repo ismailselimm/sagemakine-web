@@ -23,7 +23,7 @@ export const MAKINE_GRUPLARI_EN = [
   {
     label: 'Models',
     items: [
-      { label: 'DMAX', href: '/en/machines/dmax/', desc: 'RGB color + shape · belt-type' },
+      { label: 'DMAX 1200', href: '/en/machines/dmax/', desc: 'RGB color + shape · belt-type' },
       { label: 'IDS', href: '/en/machines/ids/', desc: 'Precision nut sorter' },
       { label: 'VALOR 5', href: '/en/machines/valor-5/', desc: 'X-ray hazelnut sorter' },
     ],

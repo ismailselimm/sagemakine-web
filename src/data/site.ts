@@ -41,7 +41,7 @@ export const MAKINE_GRUPLARI = [
   {
     label: 'Modeller',
     items: [
-      { label: 'DMAX', href: '/makineler/dmax/', desc: 'RGB renk + şekil · bant tipi' },
+      { label: 'DMAX 1200', href: '/makineler/dmax/', desc: 'RGB renk + şekil · bant tipi' },
       { label: 'IDS', href: '/makineler/ids/', desc: 'Hassas kuruyemiş ayırıcı' },
       { label: 'VALOR 5', href: '/makineler/valor-5/', desc: 'X-Ray fındık ayırıcı' },
     ],
