@@ -69,11 +69,11 @@ export const MODELLER_EN: MakineModeli[] = [
       'VALOR 5 X-ray sorter: detects empty shells, insect damage and moldy kernels in in-shell and cracked hazelnuts with X-ray and AI. Also for pistachios, walnuts and almonds.',
     image: 'valor5',
     imageAlt: 'VALOR 5 X-ray hazelnut sorter',
-    lead: 'The VALOR 5 X-ray sorter is widely used in hazelnut processing and separates both cracked and in-shell hazelnuts. Industry-leading X-ray sensitivity and AI learning accurately detect in-shell defects.',
+    lead: 'The Valor Series X-ray sorter is widely used in the hazelnut processing industry and can sort both cracked and in-shell hazelnuts.',
     aciklama: [
-      'The Valor Series X-ray sorter is widely used in hazelnut processing and can separate both cracked and in-shell hazelnuts. With advanced AI learning it accurately detects in-shell defects, significantly reducing unhealthy nuts.',
-      'Beyond undeveloped kernels and empty in-shell nuts, it also effectively detects white-spotted, insect-damaged and moldy hazelnuts. With different capacity options it suits everything from small farms to large processing plants.',
-      'Alongside hazelnuts, it can also be used for pistachios, walnuts, almonds and in-shell pistachios.',
+      'With industry-leading X-ray precision and advanced AI learning, it accurately detects in-shell defects. Offered with a range of capacity options, the Valor Series is designed to meet the needs of every operation, from small farms to large processing plants.',
+      'For hazelnuts — whether in-shell or shelled — it significantly reduces unhealthy kernels. Beyond underdeveloped kernels and empty shells, it also effectively detects white-spotted, insect-damaged, and moldy hazelnuts.',
+      'It can also be used for products such as pistachios, walnuts, almonds, and in-shell nuts.',
     ],
     ozellikler: [
       { icon: 'xray', baslik: 'X-Ray Imaging', text: 'Sees inside without cracking the shell; separates empty and undeveloped kernels by density.' },
