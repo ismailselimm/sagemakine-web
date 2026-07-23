@@ -63,17 +63,17 @@ export const MODELLER_EN: MakineModeli[] = [
   {
     slug: 'valor-5',
     ad: 'VALOR 5',
-    eyebrow: 'X-Ray Sorter · Hazelnuts and Hard-Shell',
+    eyebrow: 'Hazelnut, Pistachio, Walnut & Almond Sorting with the Valor Series',
     metaTitle: 'VALOR 5 X-Ray Hazelnut Sorter | SAGE Makine',
     metaDescription:
       'VALOR 5 X-ray sorter: detects empty shells, insect damage and moldy kernels in in-shell and cracked hazelnuts with X-ray and AI. Also for pistachios, walnuts and almonds.',
     image: 'valor5',
     imageAlt: 'VALOR 5 X-ray hazelnut sorter',
-    lead: 'The Valor Series X-ray sorter is widely used in the hazelnut processing industry and can sort both cracked and in-shell hazelnuts.',
+    lead: 'With the Valor Series you can sort out rotten, moldy, insect-damaged, and underdeveloped kernels from your product — both in-shell and shelled.',
     aciklama: [
       'With industry-leading X-ray precision and advanced AI learning, it accurately detects in-shell defects. Offered with a range of capacity options, the Valor Series is designed to meet the needs of every operation, from small farms to large processing plants.',
-      'For hazelnuts — whether in-shell or shelled — it significantly reduces unhealthy kernels. Beyond underdeveloped kernels and empty shells, it also effectively detects white-spotted, insect-damaged, and moldy hazelnuts.',
-      'It can also be used for products such as pistachios, walnuts, almonds, and in-shell nuts.',
+      'For hazelnuts — in-shell or shelled — it significantly reduces unwanted nuts. Beyond underdeveloped kernels and empty shells, it also effectively detects white-spotted, insect-damaged, and moldy hazelnuts.',
+      'For pistachios, walnuts, and almonds, it can sort out rotten and underdeveloped kernels in-shell.',
     ],
     ozellikler: [
       { icon: 'xray', baslik: 'X-Ray Imaging', text: 'Sees inside without cracking the shell; separates empty and undeveloped kernels by density.' },

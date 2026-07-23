@@ -102,17 +102,17 @@ export const MODELLER: MakineModeli[] = [
   {
     slug: 'valor-5',
     ad: 'VALOR 5',
-    eyebrow: 'X-Ray Ayırıcı · Fındık ve Sert Kabuklu',
+    eyebrow: 'Valor Serisi ile Fındık, Antep Fıstığı, Ceviz ve Badem Ayıklama',
     metaTitle: 'VALOR 5 X-Ray Fındık Ayırma Makinesi | SAGE Makine',
     metaDescription:
       'VALOR 5 X-ışını ayırıcı: kabuklu ve kırılmış fındıkta boş kabuk, böcek hasarı ve küflü taneyi X-ray + yapay zekâ ile tespit eder. Antep fıstığı, ceviz, badem için de.',
     image: 'valor5',
     imageAlt: 'VALOR 5 X-ışını fındık ayırma makinesi',
-    lead: 'Valor Serisi X-ışını ayırma, fındık işleme sektöründe yaygın olarak kullanılıyor ve hem kırılmış hem de kabuklu fındıkları ayırabiliyor.',
+    lead: 'Valor serisi ile hem kabuklu hem kabuksuz olarak ürününüzdeki çürük, küf, böceklerin zarar verdiği ve gelişmemiş taneleri ayıklamanız mümkündür.',
     aciklama: [
       'Sektörün önde gelen X-ışını hassasiyeti ve gelişmiş yapay zekâ öğrenimi ile kabuklu kusurları doğru bir şekilde tespit ediyor. Farklı kapasite seçenekleriyle sunulan Valor Serisi, küçük çiftliklerden büyük işleme tesislerine kadar her türlü işletmenin ihtiyaçlarını karşılayacak şekilde tasarlandı.',
-      'Fındık için kabuklu veya kabuksuz olarak sağlıksız fındıkları önemli ölçüde azaltıyor. Gelişmemiş tane ve boş kabuklu fındıkların yanı sıra beyaz lekeli, böceklerin zarar verdiği ve küflü fındıkları da etkin bir şekilde tespit ediyor.',
-      'Antep fıstığı, ceviz, badem ve kabuklu fıstık gibi ürünler için de kullanılabilir.',
+      'Fındık için kabuklu veya kabuksuz olarak istenmeyen fındıkları önemli ölçüde azaltıyor. Gelişmemiş tane ve boş kabuklu fındıkların yanı sıra beyaz lekeli, böceklerin zarar verdiği ve küflü fındıkları da etkin bir şekilde tespit ediyor.',
+      'Antep fıstığı, ceviz, badem ürünlerinde kabuklu olarak çürük ve gelişmemiş taneleri ayıklamak mümkündür.',
     ],
     ozellikler: [
       { icon: 'xray', baslik: 'X-Ray Görüntüleme', text: 'Kabuğu kırmadan içi görür; boş ve gelişmemiş taneyi yoğunluk farkından ayırır.' },
