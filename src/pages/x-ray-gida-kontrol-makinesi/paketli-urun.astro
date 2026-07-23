@@ -1,6 +1,6 @@
 ---
 import SubUrunPage from '../../components/SubUrunPage.astro';
-import img from '../../assets/photos/machine-xray-paketli.png';
+import img from '../../assets/photos/machine-xray-paketli.jpg';
 ---
 
 <SubUrunPage
@@ -16,7 +16,7 @@ import img from '../../assets/photos/machine-xray-paketli.png';
   urunGruplari={[
     {
       baslik: 'Esnek Ambalaj',
-      urunler: ['Doypack ve poşet', 'Metalize film, alüminyum folyo', 'Vakumlu ambalaj'],
+      urunler: ['Doypack ve poşet', 'PET, metalize film, alüminyum folyo', 'Vakumlu ambalaj'],
     },
     {
       baslik: 'Sert Ambalaj',
@@ -29,19 +29,24 @@ import img from '../../assets/photos/machine-xray-paketli.png';
   ]}
   avantajlar={[
     {
-      icon: 'belge',
-      baslik: 'Görüntülü Ret Arşivi',
-      text: 'Her ret; tarih, saat ve görüntüsüyle makinede otomatik arşivlenir, kayıtlar her an elinizin altındadır.',
-    },
-    {
-      icon: 'dogruluk',
-      baslik: 'Dolum ve Bütünlük Kontrolü',
-      text: 'Aynı geçişte eksik dolum, kırık ürün ve eksik parça da tespit edilir — iki iş tek makinede.',
+      icon: 'yazilim',
+      baslik: 'Derin Öğrenmeli Hat İçi Kontrol',
+      text: 'Yüksek performanslı dedektör ve derin öğrenme ile kusurlar hat içinde, birinci sınıf hassasiyetle yakalanır; manuel kontrol yükünü büyük ölçüde azaltır.',
     },
     {
       icon: 'metal',
-      baslik: 'Folyoda Metal Tespiti',
-      text: 'Metal dedektörün kör kaldığı alüminyum ambalajda X-Ray sorunsuz çalışır.',
+      baslik: 'Folyoda Metal + Yabancı Madde',
+      text: 'Metal dedektörün kör kaldığı alüminyum ve metalize ambalajda X-Ray; metal, cam, taş ve seramik gibi yabancı maddeleri sorunsuz görür.',
+    },
+    {
+      icon: 'dogruluk',
+      baslik: 'Dolum, Conta ve Bütünlük',
+      text: 'Aynı geçişte eksik dolum, kırık ürün, sıvı seviyesi, poşet ağzı contası, folyo ve kapak bütünlüğü de kontrol edilir — tek makinede birçok iş.',
+    },
+    {
+      icon: 'belge',
+      baslik: 'Görüntülü Ret Arşivi',
+      text: 'Her ret; tarih, saat ve görüntüsüyle makinede otomatik arşivlenir, kayıtlar her an elinizin altındadır.',
     },
     {
       icon: 'garanti',
@@ -49,6 +54,23 @@ import img from '../../assets/photos/machine-xray-paketli.png';
       text: 'Piyasadan ürün toplatmanın maliyeti ve itibar kaybı yanında, hat sonu X-Ray yatırımı küçük kalır.',
     },
   ]}
+  specMatrix={{
+    cornerLabel: 'Model / SX',
+    models: ['5025', '6016', '6030', '8035'],
+    rows: [
+      { label: 'Dedektör Genişliği (mm)', values: ['500', '600', '600', '800'] },
+      { label: 'Dedektör Yüksekliği (mm)', values: ['250', '160', '300', '350'] },
+      { label: 'Hassasiyet — Paslanmaz Küre (mm)', values: ['0,3', '0,3', '0,4', '0,4'] },
+      { label: 'Hassasiyet — Paslanmaz Tel (mm)', values: ['0,2×2', '0,2×2', '0,3×2', '0,3×2'] },
+      { label: 'Hassasiyet — Seramik ve Cam (mm)', values: ['1,0', '0,8', '1,0', '1,0'] },
+      { label: 'Parametre Ayarları', values: ['Akıllı ürün tanıma'] },
+      { label: 'Konveyör Genişliği (mm)', values: ['500', '600', '600', '800'] },
+      { label: 'Konveyör Uzunluğu (mm)', values: ['1500', '1500', '1500', '1500'] },
+      { label: 'Bant Üstü Maks. Yük (kg)', values: ['50', '25', '100', '100'] },
+      { label: 'Bant Yüksekliği (mm)', values: ['800±50 — talebe göre özelleştirilebilir'] },
+    ],
+    note: 'Hassasiyet değerleri ürünsüz (havalı) test içindir; gerçek hassasiyet ürününüze ve uygulamanıza göre netleşir. Diğer modeller ve özel konfigürasyon için bizimle iletişime geçin.',
+  }}
   sektorler={[
     { label: 'Kuru Meyve', href: '/sektorler/kuru-meyve/' },
     { label: 'Kuruyemiş', href: '/sektorler/kuruyemis/' },

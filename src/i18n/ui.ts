@@ -53,6 +53,8 @@ const UI = {
     subAvantaj: 'Avantajlar',
     subNeden: 'Neden Bu Tip?',
     subIlgili: 'İlgili Sektörler',
+    subSpecEyebrow: 'Teknik Özellikler',
+    subSpecBaslik: 'Model Karşılaştırması',
     subCtaText:
       'Ürününüzü ve hattınızı konuşalım; kapasite, taşıma oranı ve yerleşimi birlikte netleştirelim.',
 
@@ -152,6 +154,8 @@ const UI = {
     subAvantaj: 'Advantages',
     subNeden: 'Why This Type?',
     subIlgili: 'Related Industries',
+    subSpecEyebrow: 'Technical Specs',
+    subSpecBaslik: 'Model Comparison',
     subCtaText:
       "Let's talk through your product and your line; we'll pin down capacity, carryover, and layout together.",
 

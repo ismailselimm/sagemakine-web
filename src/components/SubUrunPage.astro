@@ -20,6 +20,15 @@ interface UrunGrubu {
   urunler: string[];
 }
 
+/** Model karşılaştırma tablosu (isteğe bağlı) — values.length === models.length;
+ *  tek elemanlı values tüm model sütunlarını kaplar (colspan). */
+interface SpecMatrix {
+  cornerLabel: string;
+  models: string[];
+  rows: { label: string; values: string[] }[];
+  note?: string;
+}
+
 interface Props {
   metaTitle: string;
   metaDescription: string;
@@ -32,6 +41,7 @@ interface Props {
   imageAlt: string;
   urunGruplari: UrunGrubu[];
   avantajlar: { icon: string; baslik: string; text: string }[];
+  specMatrix?: SpecMatrix;
   sektorler: { label: string; href: string }[];
   waTopic: string;
   ctaTitle: string;
@@ -49,6 +59,7 @@ const {
   imageAlt,
   urunGruplari,
   avantajlar,
+  specMatrix,
   sektorler,
   waTopic,
   ctaTitle,
@@ -129,6 +140,44 @@ const breadcrumbs = [parent, { name: title, path }];
     </div>
   </section>
 
+  {
+    specMatrix && (
+      <section class="section" id="teknik">
+        <div class="container">
+          <p class="eyebrow reveal">{ui.subSpecEyebrow}</p>
+          <h2 class="reveal">{ui.subSpecBaslik}</h2>
+          <div class="table-scroll reveal">
+            <table class="spec-table sub-spec-table">
+              <thead>
+                <tr>
+                  <th scope="col">{specMatrix.cornerLabel}</th>
+                  {specMatrix.models.map((m) => (
+                    <th scope="col">{m}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {specMatrix.rows.map((r) => (
+                  <tr>
+                    <th scope="row">{r.label}</th>
+                    {r.values.length === 1 && specMatrix.models.length > 1 ? (
+                      <td colspan={specMatrix.models.length} class="sub-spec-span">
+                        {r.values[0]}
+                      </td>
+                    ) : (
+                      r.values.map((v) => <td>{v}</td>)
+                    )}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {specMatrix.note && <p class="table-not reveal">{specMatrix.note}</p>}
+        </div>
+      </section>
+    )
+  }
+
   <section class="section section--tight band-sunken">
     <div class="container">
       <p class="eyebrow">{ui.subIlgili}</p>
@@ -208,6 +257,37 @@ const breadcrumbs = [parent, { name: title, path }];
   .av p {
     font-size: var(--text-sm);
     color: var(--ink-faint);
+  }
+
+  /* Model karşılaştırma tablosu — ilk sütun satır başlığı, üst satır model no'ları */
+  .sub-spec-table thead th {
+    color: var(--navy-800);
+    text-align: center;
+  }
+
+  .sub-spec-table thead th:first-child {
+    text-align: left;
+  }
+
+  .sub-spec-table th[scope='row'] {
+    font-family: var(--font-sans);
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: var(--text-xs);
+    color: var(--ink-soft);
+    white-space: normal;
+  }
+
+  .sub-spec-table tbody td {
+    text-align: center;
+    font-weight: 600;
+    color: var(--navy-800);
+  }
+
+  .sub-spec-table .sub-spec-span {
+    text-align: center;
+    color: var(--ink-soft);
+    font-weight: 500;
   }
 
   @media (max-width: 900px) {
