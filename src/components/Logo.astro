@@ -1,52 +1,37 @@
 ---
 /**
- * SAGE logo — kullanıcının sağladığı yüksek çözünürlüklü parçalardan
- * (brand/chatgpt-icon.png + brand/chatgpt-wordmark.png, şeffaflaştırılmış).
- * variant="color" → açık zeminlerde çıplak lockup
- * variant="dark"  → koyu zeminlerde beyaz plakacık içinde
- * full            → wordmark'ın TAM bloğu (SMART·AUTOMATION… + ünvan satırı dahil)
+ * SAGE logo — Adem'in resmi kurumsal logosu (2026-07-25; telif kaygısıyla
+ * ChatGPT üretimi eski logo bununla değiştirildi).
+ * compact → ikon + SAGE + slogan satırı (header)
+ * full    → + "Endüstriyel Makine Servis Ltd Şti" ünvan satırı (footer)
+ * variant="dark" → koyu zeminde beyaz plakacık içinde
  */
 import { Image } from 'astro:assets';
-import iconImg from '../assets/brand/sage-icon.png';
-import wordmarkImg from '../assets/brand/sage-wordmark.png';
-import wordmarkFullImg from '../assets/brand/sage-wordmark-full.png';
+import logoCompact from '../assets/brand/sage-logo.png';
+import logoFull from '../assets/brand/sage-logo-full.png';
 
 interface Props {
   variant?: 'color' | 'dark';
-  /** ikon yüksekliği (px) — lockup buna göre ölçeklenir */
+  /** logo yüksekliği (px) */
   height?: number;
-  /** tam yazı bloğu (sloganlar + ünvan satırı) */
+  /** ünvan satırı dahil tam kilit (footer) */
   full?: boolean;
   class?: string;
 }
 
 const { variant = 'color', height = 44, full = false, class: className } = Astro.props;
-const iconH = height;
-const iconW = Math.round(iconH * (1250 / 880));
-
-const wm = full ? wordmarkFullImg : wordmarkImg;
-const wmRatio = full ? 1710 / 780 : 1700 / 455;
-const wmH = full ? Math.round(height * 0.96) : Math.round(height * 0.62);
-const wmW = Math.round(wmH * wmRatio);
+const logo = full ? logoFull : logoCompact;
+const width = Math.round(height * (logo.width / logo.height));
 ---
 
-<span
-  class:list={['sage-lockup', variant === 'dark' && 'sage-lockup--chip', className]}
->
-  <Image src={iconImg} alt="" height={iconH} width={iconW} densities={[1, 2]} />
-  <Image src={wm} alt="SAGE Makine" height={wmH} width={wmW} densities={[1, 2]} />
+<span class:list={['sage-lockup', variant === 'dark' && 'sage-lockup--chip', className]}>
+  <Image src={logo} alt="SAGE Makine" height={height} width={width} densities={[1, 2]} />
 </span>
 
 <style>
   .sage-lockup {
     display: inline-flex;
     align-items: center;
-    gap: 0.3em;
-  }
-
-  /* wordmark'ı ikonun optik merkezine oturt (bir tık aşağı) */
-  .sage-lockup > :global(img:last-of-type) {
-    translate: 0 13%;
   }
 
   .sage-lockup--chip {
