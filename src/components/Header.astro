@@ -1,6 +1,6 @@
 ---
 import Logo from './Logo.astro';
-import { CONTACT, KATALOG, MAKINE_GRUPLARI, DUZ_LINKLER, SECTORS } from '../data/site';
+import { CONTACT, MAKINE_GRUPLARI, DUZ_LINKLER, SECTORS } from '../data/site';
 import { MAKINE_GRUPLARI_EN, DUZ_LINKLER_EN, SECTORS_EN } from '../data/en/site';
 import { alternatePath, asLocale, sectorPath, ROUTES } from '../i18n/routes';
 import { t } from '../i18n/ui';
@@ -43,12 +43,7 @@ const altHref = alternatePath(path);
                 <div class="sub-group">
                   <span class="sub-eyebrow">{g.label}</span>
                   {g.items.map((it) => (
-                    <a
-                      href={it.href}
-                      class="sub-link"
-                      download={it.href.endsWith('.pdf') ? KATALOG.indirAdi : undefined}
-                      aria-current={path === it.href ? 'page' : undefined}
-                    >
+                    <a href={it.href} class="sub-link" download={it.download} aria-current={path === it.href ? 'page' : undefined}>
                       <span class="sub-label">{it.label}</span>
                       <span class="sub-desc">{it.desc}</span>
                     </a>
@@ -107,15 +102,7 @@ const altHref = alternatePath(path);
     <details>
       <summary>{ui.navMakineler}</summary>
       <div class="mp-links">
-        {
-          makineGroups
-            .flatMap((g) => g.items)
-            .map((it) => (
-              <a href={it.href} download={it.href.endsWith('.pdf') ? KATALOG.indirAdi : undefined}>
-                {it.label}
-              </a>
-            ))
-        }
+        {makineGroups.flatMap((g) => g.items).map((it) => <a href={it.href} download={it.download}>{it.label}</a>)}
       </div>
     </details>
     <details>

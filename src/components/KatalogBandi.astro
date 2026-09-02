@@ -5,12 +5,14 @@
  *  - kompakt: model sayfalarının altındaki tek satırlık şerit
  * Dosya ve künye bilgisi: KATALOG (src/data/site.ts)
  */
+import { statSync } from 'node:fs';
 import { Image } from 'astro:assets';
 import Icon from './Icon.astro';
-import kapak from '../assets/brand/katalog-kapak-2027.png';
+import kapak from '../assets/brand/katalog-kapak.png';
 import { KATALOG, MAKINE_GRUPLARI } from '../data/site';
 import { MAKINE_GRUPLARI_EN } from '../data/en/site';
-import { asLocale } from '../i18n/routes';
+import { MODELLER } from '../data/models';
+import { asLocale, machinePath } from '../i18n/routes';
 import { t } from '../i18n/ui';
 
 interface Props {
@@ -22,12 +24,19 @@ const { kompakt = false } = Astro.props;
 const locale = asLocale(Astro.currentLocale);
 const ui = t(locale);
 
-/* İçindekiler = kataloğun kapsadığı üç model (nav verisinden türer) */
+/* İçindekiler: hangi modellerin kataloğa girdiğini MODELLER söyler (ürün
+   gerçeği), kısa rol satırını nav verisi verir. Nav'a eklenecek yeni bir
+   /makineler/ linki listeye sızmasın diye eşleşme yol kümesiyle yapılır. */
+const modelYollari = new Set(MODELLER.map((m) => machinePath(locale, m.slug)));
 const modeller = (locale === 'en' ? MAKINE_GRUPLARI_EN : MAKINE_GRUPLARI)
   .flatMap((g) => g.items)
-  .filter((i) => i.href.includes('/makineler/') || i.href.includes('/machines/'));
+  .filter((i) => modelYollari.has(i.href));
 
-const kunye = `PDF, ${KATALOG.sayfa} ${ui.katSayfa}, ${KATALOG.boyut[locale]}`;
+/* Boyut dosyanın kendisinden okunur — katalog aynı yola yeniden yazıldığında
+   künye kendiliğinden güncellenir, elle bakım gerekmez. */
+const mb = statSync(new URL(`../../public${KATALOG.href}`, import.meta.url)).size / 1024 ** 2;
+const boyut = mb.toLocaleString(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+const kunye = `PDF, ${KATALOG.sayfa} ${ui.katSayfa}, ${boyut} MB`;
 ---
 
 {
@@ -38,14 +47,15 @@ const kunye = `PDF, ${KATALOG.sayfa} ${ui.katSayfa}, ${KATALOG.boyut[locale]}`;
           <Image
             src={kapak}
             alt={ui.katKapakAlt}
-            widths={[104, 156, 208]}
-            sizes="104px"
+            width={156}
+            widths={[52, 104, 156]}
+            sizes="52px"
             class="kat-serit-kapak"
           />
           <div class="kat-serit-metin">
             <h2>{ui.katKompaktBaslik}</h2>
-            <p>{ui.katKompaktText}</p>
-            <p class="kat-kunye">{kunye}</p>
+            <p class="kat-serit-alt">{ui.katKompaktText}</p>
+            <p class="kat-kunye mono-cap">{kunye}</p>
           </div>
           <a href={KATALOG.href} class="btn btn--dark" download={KATALOG.indirAdi}>
             <Icon name="indir" size={17} />
@@ -61,15 +71,16 @@ const kunye = `PDF, ${KATALOG.sayfa} ${ui.katSayfa}, ${KATALOG.boyut[locale]}`;
           <Image
             src={kapak}
             alt={ui.katKapakAlt}
+            width={700}
             widths={[240, 360, 520, 700]}
-            sizes="(max-width: 860px) 52vw, 26vw"
+            sizes="(max-width: 860px) 224px, 320px"
           />
         </div>
 
-        <div class="kat-metin">
+        <div>
           <p class="eyebrow reveal">{ui.katEyebrow}</p>
           <h2 class="reveal">{ui.katBaslik}</h2>
-          <p class="kat-lead reveal" style="--reveal-delay:.07s">
+          <p class="kat-lead sec-lead reveal" style="--reveal-delay:.07s">
             {ui.katLead}
           </p>
 
@@ -93,7 +104,7 @@ const kunye = `PDF, ${KATALOG.sayfa} ${ui.katSayfa}, ${KATALOG.boyut[locale]}`;
               {ui.katAc}
             </a>
           </div>
-          <p class="kat-kunye reveal" style="--reveal-delay:.22s">{kunye}</p>
+          <p class="kat-kunye mono-cap reveal" style="--reveal-delay:.22s">{kunye}</p>
         </div>
       </div>
     </section>
@@ -101,14 +112,6 @@ const kunye = `PDF, ${KATALOG.sayfa} ${ui.katSayfa}, ${KATALOG.boyut[locale]}`;
 }
 
 <style>
-  /* ── Ortak: künye satırı ── */
-  .kat-kunye {
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    letter-spacing: 0.1em;
-    color: var(--ink-faint);
-  }
-
   /* ── Ana sayfa bandı ───────────────────────────────────────── */
   .katalog-bandi {
     border-top: 1px solid var(--line);
@@ -128,9 +131,7 @@ const kunye = `PDF, ${KATALOG.sayfa} ${ui.katSayfa}, ${KATALOG.boyut[locale]}`;
   }
 
   .kat-kapak :global(img) {
-    display: block;
     width: 100%;
-    height: auto;
     border-radius: 1px 4px 4px 1px;
     /* Sayfa istifi: 2px kâğıt + 1px kenar çizgisi × 3 kat. Negatif spread her
        katmanı dikeyde biraz içeri alır — kenar, düz beyaz levha değil kâğıt
@@ -146,9 +147,6 @@ const kunye = `PDF, ${KATALOG.sayfa} ${ui.katSayfa}, ${KATALOG.boyut[locale]}`;
   }
 
   .kat-lead {
-    margin-top: var(--sp-4);
-    color: var(--ink-soft);
-    max-width: 54ch;
     font-size: var(--text-lg);
   }
 
@@ -172,7 +170,6 @@ const kunye = `PDF, ${KATALOG.sayfa} ${ui.katSayfa}, ${KATALOG.boyut[locale]}`;
     gap: 0.25rem var(--sp-4);
     padding: 0.7rem 0.25rem;
     text-decoration: none;
-    transition: color var(--dur) var(--ease-out);
   }
 
   .kat-icerik-ad {
@@ -182,6 +179,7 @@ const kunye = `PDF, ${KATALOG.sayfa} ${ui.katSayfa}, ${KATALOG.boyut[locale]}`;
     font-size: var(--text-md);
     color: var(--navy-800);
     min-width: 8rem;
+    transition: color var(--dur) var(--ease-out);
   }
 
   .kat-icerik-rol {
@@ -200,10 +198,6 @@ const kunye = `PDF, ${KATALOG.sayfa} ${ui.katSayfa}, ${KATALOG.boyut[locale]}`;
     align-items: center;
     gap: var(--sp-4) var(--sp-5);
     margin-top: var(--sp-6);
-  }
-
-  .kat-aksiyon + .kat-kunye {
-    margin-top: var(--sp-4);
   }
 
   @media (max-width: 860px) {
@@ -231,10 +225,8 @@ const kunye = `PDF, ${KATALOG.sayfa} ${ui.katSayfa}, ${KATALOG.boyut[locale]}`;
     border-radius: var(--radius-md);
   }
 
-  .kat-serit :global(.kat-serit-kapak) {
-    display: block;
+  .kat-serit-kapak {
     width: 52px;
-    height: auto;
     border-radius: 1px 2px 2px 1px;
     box-shadow:
       2px 0 0 -1px var(--steel-100),
@@ -246,10 +238,9 @@ const kunye = `PDF, ${KATALOG.sayfa} ${ui.katSayfa}, ${KATALOG.boyut[locale]}`;
 
   .kat-serit-metin h2 {
     font-size: var(--text-lg);
-    margin: 0;
   }
 
-  .kat-serit-metin p {
+  .kat-serit-alt {
     color: var(--ink-soft);
     font-size: var(--text-sm);
     margin-top: var(--sp-1);

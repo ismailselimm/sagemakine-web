@@ -3,6 +3,7 @@
  * TR karşılığı: src/data/site.ts
  */
 import { CONTACT, KATALOG } from '../site';
+import type { NavGroup } from '../site';
 
 export const SITE_EN = {
   description:
@@ -19,14 +20,19 @@ export const whatsappQuoteEn = (topic: string) =>
 export const waQuote = (locale: 'tr' | 'en', topic: string) =>
   locale === 'en' ? whatsappQuoteEn(topic) : CONTACT.whatsappQuote(topic);
 
-export const MAKINE_GRUPLARI_EN = [
+export const MAKINE_GRUPLARI_EN: readonly NavGroup[] = [
   {
     label: 'Models',
     items: [
       { label: 'DMAX 1200', href: '/en/machines/dmax/', desc: 'RGB color + shape · belt-type' },
       { label: 'IDS', href: '/en/machines/ids/', desc: 'Precision nut sorter' },
       { label: 'VALOR 5', href: '/en/machines/valor-5/', desc: 'X-ray hazelnut sorter' },
-      { label: 'Product Catalog (PDF)', href: KATALOG.href, desc: `Technical pages for all three models · ${KATALOG.sayfa} pages` },
+      {
+        label: 'Product Catalog (PDF)',
+        href: KATALOG.href,
+        desc: `Technical pages for all three models · ${KATALOG.sayfa} pages`,
+        download: KATALOG.indirAdi,
+      },
     ],
   },
   {
@@ -38,7 +44,7 @@ export const MAKINE_GRUPLARI_EN = [
       { label: 'Packaged Product X-Ray', href: '/en/x-ray-food-inspection/packaged-product/', desc: 'End-of-line inspection' },
     ],
   },
-] as const;
+];
 
 export const DUZ_LINKLER_EN = [
   { label: 'Service & Spare Parts', href: '/en/service-spare-parts/' },

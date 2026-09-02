@@ -4,6 +4,7 @@
  * komponentlerin içine gömülü arayüz dizgeleri yaşar.
  */
 import type { Locale } from './routes';
+import { KATALOG_YIL } from '../data/site';
 
 const UI = {
   tr: {
@@ -45,13 +46,12 @@ const UI = {
     /* Katalog bandı */
     katEyebrow: 'Ürün Kataloğu',
     katBaslik: 'Üç Makine, Tek Dosya',
-    katLead:
-      "DMAX, IDS ve VALOR 5'in teknik verileri, ölçüleri ve kapasiteleri 2027 ürün kataloğumuzda. Hattınızı planlarken yanınızda olsun.",
+    katLead: `DMAX, IDS ve VALOR 5'in teknik verileri, ölçüleri ve kapasiteleri ${KATALOG_YIL} ürün kataloğumuzda. Hattınızı planlarken yanınızda olsun.`,
     katIndir: 'Kataloğu İndir',
     katAc: 'Tarayıcıda açın',
     katSayfa: 'sayfa',
-    katKapakAlt: 'SAGE Makine 2027 ürün kataloğunun kapağı',
-    katKompaktBaslik: 'Bu model 2027 kataloğunda',
+    katKapakAlt: `SAGE Makine ${KATALOG_YIL} ürün kataloğunun kapağı`,
+    katKompaktBaslik: `Bu model ${KATALOG_YIL} kataloğunda`,
     katKompaktText: 'Teknik çizimler, ölçüler ve kapasite tabloları PDF kataloğumuzda.',
 
     /* Blog */
@@ -159,13 +159,12 @@ const UI = {
 
     katEyebrow: 'Product Catalog',
     katBaslik: 'Three Machines, One File',
-    katLead:
-      'Technical data, dimensions and capacities for DMAX, IDS and VALOR 5 are in our 2027 product catalog. Keep it beside you while you plan your line.',
+    katLead: `Technical data, dimensions and capacities for DMAX, IDS and VALOR 5 are in our ${KATALOG_YIL} product catalog. Keep it beside you while you plan your line.`,
     katIndir: 'Download the Catalog',
     katAc: 'Open in browser',
     katSayfa: 'pages',
-    katKapakAlt: 'Cover of the SAGE Makine 2027 product catalog',
-    katKompaktBaslik: 'This model is in the 2027 catalog',
+    katKapakAlt: `Cover of the SAGE Makine ${KATALOG_YIL} product catalog`,
+    katKompaktBaslik: `This model is in the ${KATALOG_YIL} catalog`,
     katKompaktText: 'Technical drawings, dimensions and capacity tables are in our PDF catalog.',
 
     blogCrumb: 'Blog',

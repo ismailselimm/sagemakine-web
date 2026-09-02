@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import Logo from './Logo.astro';
 import forpusYazi from '../assets/brand/forpus-yazi.png';
-import { SITE, CONTACT, KATALOG, SECTORS, MAKINE_GRUPLARI, KURUMSAL_LINKS } from '../data/site';
+import { SITE, CONTACT, SECTORS, MAKINE_GRUPLARI, KURUMSAL_LINKS } from '../data/site';
 import { SITE_EN, MAKINE_GRUPLARI_EN, KURUMSAL_LINKS_EN, SECTORS_EN } from '../data/en/site';
 import { asLocale, sectorPath } from '../i18n/routes';
 import { t } from '../i18n/ui';
@@ -40,9 +40,7 @@ const desc = locale === 'en' ? SITE_EN.description : SITE.description;
         <h2>{ui.colMakineler}</h2>
         <ul>
           {makineLinks.map((l) => (
-            <li>
-              <a href={l.href} download={l.href.endsWith('.pdf') ? KATALOG.indirAdi : undefined}>{l.label}</a>
-            </li>
+            <li><a href={l.href} download={l.download}>{l.label}</a></li>
           ))}
         </ul>
       </nav>

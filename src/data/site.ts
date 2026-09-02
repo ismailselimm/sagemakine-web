@@ -41,24 +41,43 @@ export const CONTACT = {
  * Kısa ve kalıcı adres: sagemakine.com/katalog.pdf — yeni sürüm gelince
  * aynı dosya üzerine yazılır, paylaşılan link bozulmaz.
  */
+export const KATALOG_YIL = '2027';
+
 export const KATALOG = {
-  yil: '2027',
+  yil: KATALOG_YIL,
   href: '/katalog.pdf',
   /** İndirilen dosyanın diske kaydedileceği ad */
-  indirAdi: 'SAGE-Makine-Urun-Katalogu-2027.pdf',
+  indirAdi: `SAGE-Makine-Urun-Katalogu-${KATALOG_YIL}.pdf`,
   sayfa: 14,
-  boyut: { tr: '5,3 MB', en: '5.3 MB' },
 } as const;
 
+/** Nav öğesi — `download` verilirse link dosyayı bu adla indirir */
+export interface NavItem {
+  label: string;
+  href: string;
+  desc?: string;
+  download?: string;
+}
+
+export interface NavGroup {
+  label: string;
+  items: NavItem[];
+}
+
 /** Header mega-menü "Makineler" grupları — Footer makine listesi de buradan türer */
-export const MAKINE_GRUPLARI = [
+export const MAKINE_GRUPLARI: readonly NavGroup[] = [
   {
     label: 'Modeller',
     items: [
       { label: 'DMAX 1200', href: '/makineler/dmax/', desc: 'RGB renk + şekil · bant tipi' },
       { label: 'IDS', href: '/makineler/ids/', desc: 'Hassas kuruyemiş ayırıcı' },
       { label: 'VALOR 5', href: '/makineler/valor-5/', desc: 'X-Ray fındık ayırıcı' },
-      { label: 'Ürün Kataloğu (PDF)', href: KATALOG.href, desc: `Üç modelin teknik sayfaları · ${KATALOG.sayfa} sayfa` },
+      {
+        label: 'Ürün Kataloğu (PDF)',
+        href: KATALOG.href,
+        desc: `Üç modelin teknik sayfaları · ${KATALOG.sayfa} sayfa`,
+        download: KATALOG.indirAdi,
+      },
     ],
   },
   {
@@ -70,7 +89,7 @@ export const MAKINE_GRUPLARI = [
       { label: 'Paketli Ürün X-Ray', href: '/x-ray-gida-kontrol-makinesi/paketli-urun/', desc: 'Hat sonu paket kontrolü' },
     ],
   },
-] as const;
+];
 
 /** Header düz linkleri (sırasıyla) */
 export const DUZ_LINKLER = [
