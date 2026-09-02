@@ -36,6 +36,20 @@ export const CONTACT = {
   hours: 'Pzt–Cmt 08:30 – 18:30',
 } as const;
 
+/**
+ * Ürün kataloğu (PDF) — Adem'in bastırdığı kurumsal katalog.
+ * Kısa ve kalıcı adres: sagemakine.com/katalog.pdf — yeni sürüm gelince
+ * aynı dosya üzerine yazılır, paylaşılan link bozulmaz.
+ */
+export const KATALOG = {
+  yil: '2027',
+  href: '/katalog.pdf',
+  /** İndirilen dosyanın diske kaydedileceği ad */
+  indirAdi: 'SAGE-Makine-Urun-Katalogu-2027.pdf',
+  sayfa: 14,
+  boyut: { tr: '5,3 MB', en: '5.3 MB' },
+} as const;
+
 /** Header mega-menü "Makineler" grupları — Footer makine listesi de buradan türer */
 export const MAKINE_GRUPLARI = [
   {
@@ -44,6 +58,7 @@ export const MAKINE_GRUPLARI = [
       { label: 'DMAX 1200', href: '/makineler/dmax/', desc: 'RGB renk + şekil · bant tipi' },
       { label: 'IDS', href: '/makineler/ids/', desc: 'Hassas kuruyemiş ayırıcı' },
       { label: 'VALOR 5', href: '/makineler/valor-5/', desc: 'X-Ray fındık ayırıcı' },
+      { label: 'Ürün Kataloğu (PDF)', href: KATALOG.href, desc: `Üç modelin teknik sayfaları · ${KATALOG.sayfa} sayfa` },
     ],
   },
   {

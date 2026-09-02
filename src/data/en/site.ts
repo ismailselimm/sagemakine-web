@@ -2,7 +2,7 @@
  * EN site verisi — nav grupları, sektör kartları (İngilizce slug'larla).
  * TR karşılığı: src/data/site.ts
  */
-import { CONTACT } from '../site';
+import { CONTACT, KATALOG } from '../site';
 
 export const SITE_EN = {
   description:
@@ -26,6 +26,7 @@ export const MAKINE_GRUPLARI_EN = [
       { label: 'DMAX 1200', href: '/en/machines/dmax/', desc: 'RGB color + shape · belt-type' },
       { label: 'IDS', href: '/en/machines/ids/', desc: 'Precision nut sorter' },
       { label: 'VALOR 5', href: '/en/machines/valor-5/', desc: 'X-ray hazelnut sorter' },
+      { label: 'Product Catalog (PDF)', href: KATALOG.href, desc: `Technical pages for all three models · ${KATALOG.sayfa} pages` },
     ],
   },
   {

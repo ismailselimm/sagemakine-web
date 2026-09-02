@@ -1,0 +1,272 @@
+---
+/**
+ * Ürün kataloğu (PDF) indirme bloğu.
+ *  - varsayılan: ana sayfa bandı — gerçek kapak + içindekiler + indirme
+ *  - kompakt: model sayfalarının altındaki tek satırlık şerit
+ * Dosya ve künye bilgisi: KATALOG (src/data/site.ts)
+ */
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import kapak from '../assets/brand/katalog-kapak-2027.png';
+import { KATALOG, MAKINE_GRUPLARI } from '../data/site';
+import { MAKINE_GRUPLARI_EN } from '../data/en/site';
+import { asLocale } from '../i18n/routes';
+import { t } from '../i18n/ui';
+
+interface Props {
+  /** Model sayfalarındaki dar şerit biçimi */
+  kompakt?: boolean;
+}
+
+const { kompakt = false } = Astro.props;
+const locale = asLocale(Astro.currentLocale);
+const ui = t(locale);
+
+/* İçindekiler = kataloğun kapsadığı üç model (nav verisinden türer) */
+const modeller = (locale === 'en' ? MAKINE_GRUPLARI_EN : MAKINE_GRUPLARI)
+  .flatMap((g) => g.items)
+  .filter((i) => i.href.includes('/makineler/') || i.href.includes('/machines/'));
+
+const kunye = `PDF, ${KATALOG.sayfa} ${ui.katSayfa}, ${KATALOG.boyut[locale]}`;
+---
+
+{
+  kompakt ? (
+    <section class="section section--tight">
+      <div class="container">
+        <div class="kat-serit reveal">
+          <Image
+            src={kapak}
+            alt={ui.katKapakAlt}
+            widths={[104, 156, 208]}
+            sizes="104px"
+            class="kat-serit-kapak"
+          />
+          <div class="kat-serit-metin">
+            <h2>{ui.katKompaktBaslik}</h2>
+            <p>{ui.katKompaktText}</p>
+            <p class="kat-kunye">{kunye}</p>
+          </div>
+          <a href={KATALOG.href} class="btn btn--dark" download={KATALOG.indirAdi}>
+            <Icon name="indir" size={17} />
+            {ui.katIndir}
+          </a>
+        </div>
+      </div>
+    </section>
+  ) : (
+    <section class="section katalog-bandi" id="katalog">
+      <div class="container container--wide kat-in">
+        <div class="kat-kapak reveal">
+          <Image
+            src={kapak}
+            alt={ui.katKapakAlt}
+            widths={[240, 360, 520, 700]}
+            sizes="(max-width: 860px) 52vw, 26vw"
+          />
+        </div>
+
+        <div class="kat-metin">
+          <p class="eyebrow reveal">{ui.katEyebrow}</p>
+          <h2 class="reveal">{ui.katBaslik}</h2>
+          <p class="kat-lead reveal" style="--reveal-delay:.07s">
+            {ui.katLead}
+          </p>
+
+          <ul class="kat-icerik reveal" style="--reveal-delay:.12s">
+            {modeller.map((m) => (
+              <li>
+                <a href={m.href}>
+                  <span class="kat-icerik-ad">{m.label}</span>
+                  <span class="kat-icerik-rol">{m.desc}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div class="kat-aksiyon reveal" style="--reveal-delay:.18s">
+            <a href={KATALOG.href} class="btn btn--primary btn--lg" download={KATALOG.indirAdi}>
+              <Icon name="indir" size={19} />
+              {ui.katIndir}
+            </a>
+            <a href={KATALOG.href} class="text-link" target="_blank" rel="noopener">
+              {ui.katAc}
+            </a>
+          </div>
+          <p class="kat-kunye reveal" style="--reveal-delay:.22s">{kunye}</p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+<style>
+  /* ── Ortak: künye satırı ── */
+  .kat-kunye {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+  }
+
+  /* ── Ana sayfa bandı ───────────────────────────────────────── */
+  .katalog-bandi {
+    border-top: 1px solid var(--line);
+  }
+
+  .kat-in {
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+    gap: var(--sp-8) var(--sp-9);
+    align-items: center;
+  }
+
+  /* Kapak: basılı kataloğun kendisi — sağ kenarda sayfa istifi */
+  .kat-kapak {
+    justify-self: center;
+    width: min(100%, 20rem);
+  }
+
+  .kat-kapak :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 1px 4px 4px 1px;
+    /* Sayfa istifi: 2px kâğıt + 1px kenar çizgisi × 3 kat. Negatif spread her
+       katmanı dikeyde biraz içeri alır — kenar, düz beyaz levha değil kâğıt
+       bloğu gibi okunur. Görünen genişlik = offset + spread. */
+    box-shadow:
+      3px 0 0 -1px var(--steel-100),
+      4px 0 0 -1px var(--steel-300),
+      7px 0 0 -2px var(--steel-100),
+      8px 0 0 -2px var(--steel-300),
+      11px 0 0 -3px var(--steel-100),
+      12px 0 0 -3px var(--steel-400),
+      16px 16px 32px -12px rgb(15 28 46 / 0.42);
+  }
+
+  .kat-lead {
+    margin-top: var(--sp-4);
+    color: var(--ink-soft);
+    max-width: 54ch;
+    font-size: var(--text-lg);
+  }
+
+  /* İçindekiler — kataloğun kapsadığı modeller */
+  .kat-icerik {
+    list-style: none;
+    padding: 0;
+    margin-top: var(--sp-6);
+    border-top: 1px solid var(--line);
+    max-width: 34rem;
+  }
+
+  .kat-icerik li {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .kat-icerik a {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem var(--sp-4);
+    padding: 0.7rem 0.25rem;
+    text-decoration: none;
+    transition: color var(--dur) var(--ease-out);
+  }
+
+  .kat-icerik-ad {
+    font-family: var(--font-display);
+    font-variation-settings: 'wdth' 112;
+    font-weight: 600;
+    font-size: var(--text-md);
+    color: var(--navy-800);
+    min-width: 8rem;
+  }
+
+  .kat-icerik-rol {
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+  }
+
+  .kat-icerik a:hover .kat-icerik-ad,
+  .kat-icerik a:focus-visible .kat-icerik-ad {
+    color: var(--accent-ink);
+  }
+
+  .kat-aksiyon {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--sp-4) var(--sp-5);
+    margin-top: var(--sp-6);
+  }
+
+  .kat-aksiyon + .kat-kunye {
+    margin-top: var(--sp-4);
+  }
+
+  @media (max-width: 860px) {
+    .kat-in {
+      grid-template-columns: 1fr;
+      justify-items: start;
+    }
+
+    .kat-kapak {
+      justify-self: start;
+      width: min(56%, 14rem);
+    }
+  }
+
+  /* ── Model sayfası şeridi ──────────────────────────────────── */
+  .kat-serit {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--sp-5) var(--sp-6);
+    padding: var(--sp-5) var(--sp-6);
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--green-500);
+    border-radius: var(--radius-md);
+  }
+
+  .kat-serit :global(.kat-serit-kapak) {
+    display: block;
+    width: 52px;
+    height: auto;
+    border-radius: 1px 2px 2px 1px;
+    box-shadow:
+      2px 0 0 -1px var(--steel-100),
+      3px 0 0 -1px var(--steel-300),
+      5px 0 0 -2px var(--steel-100),
+      6px 0 0 -2px var(--steel-400),
+      8px 8px 18px -8px rgb(15 28 46 / 0.4);
+  }
+
+  .kat-serit-metin h2 {
+    font-size: var(--text-lg);
+    margin: 0;
+  }
+
+  .kat-serit-metin p {
+    color: var(--ink-soft);
+    font-size: var(--text-sm);
+    margin-top: var(--sp-1);
+  }
+
+  .kat-serit-metin .kat-kunye {
+    margin-top: var(--sp-2);
+  }
+
+  @media (max-width: 720px) {
+    .kat-serit {
+      grid-template-columns: auto minmax(0, 1fr);
+    }
+
+    .kat-serit .btn {
+      grid-column: 1 / -1;
+      justify-self: start;
+    }
+  }
+</style>

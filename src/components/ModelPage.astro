@@ -9,6 +9,7 @@ import PageHero from './PageHero.astro';
 import CtaBand from './CtaBand.astro';
 import Icon from './Icon.astro';
 import VideoEmbed from './VideoEmbed.astro';
+import KatalogBandi from './KatalogBandi.astro';
 import { SITE } from '../data/site';
 import { MACHINE_IMAGES } from '../data/images';
 import { waQuote } from '../data/en/site';
@@ -133,6 +134,9 @@ const jsonLd = [
       </section>
     )
   }
+
+  <!-- Ürün kataloğu -->
+  <KatalogBandi kompakt />
 
   <!-- İlgili sektörler -->
   <section class="section section--tight band-sunken">

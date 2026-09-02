@@ -42,6 +42,18 @@ const UI = {
     ctaMailPrefix: 'veya e-posta:',
     ctaTopic: 'Makineleriniz',
 
+    /* Katalog bandı */
+    katEyebrow: 'Ürün Kataloğu',
+    katBaslik: 'Üç Makine, Tek Dosya',
+    katLead:
+      "DMAX, IDS ve VALOR 5'in teknik verileri, ölçüleri ve kapasiteleri 2027 ürün kataloğumuzda. Hattınızı planlarken yanınızda olsun.",
+    katIndir: 'Kataloğu İndir',
+    katAc: 'Tarayıcıda açın',
+    katSayfa: 'sayfa',
+    katKapakAlt: 'SAGE Makine 2027 ürün kataloğunun kapağı',
+    katKompaktBaslik: 'Bu model 2027 kataloğunda',
+    katKompaktText: 'Teknik çizimler, ölçüler ve kapasite tabloları PDF kataloğumuzda.',
+
     /* Blog */
     blogCrumb: 'Blog',
     minRead: 'dk okuma',
@@ -144,6 +156,17 @@ const UI = {
     ctaWa: 'Get a Quote on WhatsApp',
     ctaMailPrefix: 'or email:',
     ctaTopic: 'your machines',
+
+    katEyebrow: 'Product Catalog',
+    katBaslik: 'Three Machines, One File',
+    katLead:
+      'Technical data, dimensions and capacities for DMAX, IDS and VALOR 5 are in our 2027 product catalog. Keep it beside you while you plan your line.',
+    katIndir: 'Download the Catalog',
+    katAc: 'Open in browser',
+    katSayfa: 'pages',
+    katKapakAlt: 'Cover of the SAGE Makine 2027 product catalog',
+    katKompaktBaslik: 'This model is in the 2027 catalog',
+    katKompaktText: 'Technical drawings, dimensions and capacity tables are in our PDF catalog.',
 
     blogCrumb: 'Blog',
     minRead: 'min read',
