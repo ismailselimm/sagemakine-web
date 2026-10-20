@@ -1,7 +1,5 @@
 ---
-import { Image } from 'astro:assets';
 import Logo from './Logo.astro';
-import forpusYazi from '../assets/brand/forpus-yazi.png';
 import { SITE, CONTACT, SECTORS, MAKINE_GRUPLARI, KURUMSAL_LINKS } from '../data/site';
 import { SITE_EN, MAKINE_GRUPLARI_EN, KURUMSAL_LINKS_EN, SECTORS_EN } from '../data/en/site';
 import { asLocale, sectorPath } from '../i18n/routes';
@@ -67,22 +65,6 @@ const desc = locale === 'en' ? SITE_EN.description : SITE.description;
     <div class="footer-bottom">
       <p>© {yil} {SITE.legalName} · {ui.rights}</p>
       <p class="mono footer-loc">{ui.footerLoc}</p>
-    </div>
-
-    <!-- Forpus imzası -->
-    <div class="footer-imza">
-      <a
-        href="https://forpusyazilim.com/"
-        target="_blank"
-        rel="noopener"
-        aria-label={ui.imzaAria}
-      >
-        {locale === 'en' && <span class="imza-text">{ui.imzaText}</span>}
-        <span class="imza-chip">
-          <Image src={forpusYazi} alt="Forpus Yazılım" height={22} width={74} densities={[1, 2, 3]} />
-        </span>
-        {locale === 'tr' && <span class="imza-text">{ui.imzaText}</span>}
-      </a>
     </div>
   </div>
 </footer>
@@ -181,40 +163,6 @@ const desc = locale === 'en' ? SITE_EN.description : SITE.description;
     .footer-bottom {
       padding-right: 11rem;
     }
-  }
-
-  /* ── Forpus imzası ── */
-  .footer-imza {
-    display: flex;
-    justify-content: center;
-    padding-bottom: var(--sp-5);
-  }
-
-  .footer-imza a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6em;
-    text-decoration: none;
-    opacity: 0.75;
-    transition: opacity var(--dur) var(--ease-out);
-  }
-
-  .footer-imza a:hover {
-    opacity: 1;
-  }
-
-  .imza-text {
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    letter-spacing: 0.1em;
-    color: var(--ink-faint);
-  }
-
-  .imza-chip {
-    display: inline-flex;
-    background: #ffffff;
-    padding: 5px 9px;
-    border-radius: 6px;
   }
 
   @media (max-width: 900px) {

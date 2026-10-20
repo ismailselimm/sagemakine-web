@@ -29,8 +29,6 @@ const UI = {
     rights: 'Tüm hakları saklıdır.',
     footerLoc: 'Yunusemre / Manisa · Türkiye geneli satış, kurulum ve servis',
     waBtn: "WhatsApp'tan Yazın",
-    imzaText: 'tarafından geliştirilmiştir',
-    imzaAria: 'Forpus Yazılım tarafından geliştirildi',
 
     /* WhatsApp FAB */
     waFabAria: 'WhatsApp üzerinden bize yazın',
@@ -160,8 +158,6 @@ const UI = {
     rights: 'All rights reserved.',
     footerLoc: 'Yunusemre / Manisa · Sales, installation and service across Turkey',
     waBtn: 'Chat on WhatsApp',
-    imzaText: 'Developed by',
-    imzaAria: 'Developed by Forpus Yazılım',
 
     waFabAria: 'Chat with us on WhatsApp',
 
