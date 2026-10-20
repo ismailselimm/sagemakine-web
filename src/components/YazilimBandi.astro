@@ -1,0 +1,118 @@
+---
+/**
+ * SAGE Yazılım bandı — makine müşterilerinden gelen yazılım taleplerine kapı.
+ * Ana sayfada CTA bandı ile footer arasında durur: iki koyu alanın arasında
+ * beyaz zemin, bandı ayrı bir hizmet olarak okutur.
+ */
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import gorsel from '../assets/brand/sage-yazilim-banner.png';
+import { waQuote } from '../data/en/site';
+import { asLocale } from '../i18n/routes';
+import { t } from '../i18n/ui';
+
+const locale = asLocale(Astro.currentLocale);
+const ui = t(locale);
+---
+
+<section class="section yazilim-bandi" id="yazilim">
+  <div class="container container--wide yz-in">
+    <div class="yz-metin">
+      <p class="eyebrow reveal">{ui.yzEyebrow}</p>
+      <h2 class="reveal">{ui.yzBaslik}</h2>
+      <p class="sec-lead yz-lead reveal" style="--reveal-delay:.07s">{ui.yzLead}</p>
+
+      <ul class="yz-maddeler reveal" style="--reveal-delay:.12s">
+        {
+          ui.yzMaddeler.map((m) => (
+            <li>
+              <Icon name="check" size={17} />
+              {m}
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="yz-aksiyon reveal" style="--reveal-delay:.18s">
+        <a href={waQuote(locale, ui.yzTopic)} class="btn btn--primary btn--lg" target="_blank" rel="noopener">
+          {ui.yzWa}
+        </a>
+      </div>
+    </div>
+
+    <div class="yz-gorsel reveal" style="--reveal-delay:.1s">
+      <Image
+        src={gorsel}
+        alt={ui.yzGorselAlt}
+        width={1280}
+        widths={[480, 720, 960, 1280]}
+        sizes="(max-width: 900px) 92vw, min(52vw, 766px)"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .yazilim-bandi {
+    /* Düz beyaz yüzey: üstteki CTA bandı ve footer koyu, görsel de beyaz zeminli */
+    background: var(--bg-raised);
+  }
+
+  .yz-in {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--sp-7) var(--sp-8);
+    align-items: center;
+  }
+
+  .yz-metin h2 {
+    max-width: 18ch;
+  }
+
+  .yz-lead {
+    font-size: var(--text-lg);
+  }
+
+  .yz-maddeler {
+    list-style: none;
+    padding: 0;
+    margin-top: var(--sp-6);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sp-3) var(--sp-5);
+  }
+
+  .yz-maddeler li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-2);
+    font-size: var(--text-md);
+    line-height: 1.4;
+  }
+
+  .yz-maddeler :global(svg) {
+    flex: none;
+    margin-top: 0.15em;
+    color: var(--green-500);
+  }
+
+  .yz-aksiyon {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--sp-4) var(--sp-5);
+    margin-top: var(--sp-7);
+  }
+
+  @media (max-width: 900px) {
+    .yz-in {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .yz-maddeler {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

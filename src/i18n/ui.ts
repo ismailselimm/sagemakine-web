@@ -54,6 +54,21 @@ const UI = {
     katKompaktBaslik: `Bu model ${KATALOG_YIL} kataloğunda`,
     katKompaktText: 'Teknik çizimler, ölçüler ve kapasite tabloları PDF kataloğumuzda.',
 
+    /* SAGE Yazılım bandı */
+    yzEyebrow: 'SAGE Yazılım',
+    yzBaslik: 'Yazılım İhtiyacınız mı Var?',
+    yzLead:
+      'Hattınızı kurarken işinizi de tanıyoruz. Üretim takibinden sipariş ve stok yönetimine, kurumsal web sitesinden mobil uygulamaya; işletmenize özel yazılımı da biz geliştiriyoruz.',
+    yzMaddeler: [
+      'Üretim ve hat takip panelleri',
+      'Sipariş, stok ve servis yönetimi',
+      'Kurumsal web sitesi ve e‑ticaret',
+      'iOS ve Android mobil uygulama',
+    ],
+    yzWa: "WhatsApp'tan Görüşelim",
+    yzTopic: 'Yazılım ihtiyacımız',
+    yzGorselAlt: 'Üretim takip paneli açık bir dizüstü bilgisayar, tablet ve telefon',
+
     /* Blog */
     blogCrumb: 'Blog',
     minRead: 'dk okuma',
@@ -166,6 +181,20 @@ const UI = {
     katKapakAlt: `Cover of the SAGE Makine ${KATALOG_YIL} product catalog`,
     katKompaktBaslik: `This model is in the ${KATALOG_YIL} catalog`,
     katKompaktText: 'Technical drawings, dimensions and capacity tables are in our PDF catalog.',
+
+    yzEyebrow: 'SAGE Software',
+    yzBaslik: 'Need Software?',
+    yzLead:
+      'We get to know your business while we set up your line. From production tracking to order and stock management, from corporate websites to mobile apps, we also build software tailored to your company.',
+    yzMaddeler: [
+      'Production and line monitoring dashboards',
+      'Order, stock and service management',
+      'Corporate websites and e‑commerce',
+      'iOS and Android mobile apps',
+    ],
+    yzWa: "Let's Talk on WhatsApp",
+    yzTopic: 'our software needs',
+    yzGorselAlt: 'A laptop, tablet and phone showing a production monitoring dashboard',
 
     blogCrumb: 'Blog',
     minRead: 'min read',
